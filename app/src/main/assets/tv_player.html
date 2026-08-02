@@ -47,9 +47,9 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 40px 60px;
-            background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0.9) 100%);
-            transition: opacity 0.4s ease-in-out;
+            padding: 30px 50px 140px 50px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.95) 100%);
+            transition: opacity 0.35s ease-in-out;
             opacity: 1;
             pointer-events: none;
         }
@@ -59,28 +59,16 @@
         
         .osd-header {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
-        }
-        .app-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(229, 9, 20, 0.9);
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 14px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
         }
         .counter-badge {
             font-size: 18px;
-            font-weight: 600;
-            color: rgba(255,255,255,0.7);
-            background: rgba(255,255,255,0.15);
-            padding: 6px 14px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.9);
+            background: rgba(0,0,0,0.65);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 6px 16px;
             border-radius: 12px;
             backdrop-filter: blur(10px);
         }
@@ -88,34 +76,36 @@
         .osd-footer {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-        }
-        .movie-title {
-            font-size: 42px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.9);
-            color: #ffffff;
+            gap: 10px;
         }
         .movie-subtitle {
-            font-size: 18px;
+            font-size: 17px;
             color: #e50914;
-            font-weight: 600;
-            letter-spacing: 1px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
             display: flex;
             align-items: center;
             gap: 8px;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+        }
+        .movie-title {
+            font-size: 40px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-shadow: 0 4px 14px rgba(0,0,0,0.95);
+            color: #ffffff;
         }
         
         .controls-hint {
             display: flex;
             gap: 25px;
-            margin-top: 15px;
-            padding-top: 15px;
+            margin-top: 10px;
+            padding-top: 12px;
             border-top: 1px solid rgba(255,255,255,0.2);
-            font-size: 14px;
-            color: rgba(255,255,255,0.75);
+            font-size: 13px;
+            color: rgba(255,255,255,0.85);
         }
         .hint-item {
             display: flex;
@@ -124,11 +114,100 @@
         }
         .key-btn {
             background: rgba(255,255,255,0.25);
-            padding: 4px 10px;
+            padding: 3px 9px;
             border-radius: 6px;
             font-weight: 700;
             color: #fff;
-            font-size: 13px;
+            font-size: 12px;
+        }
+
+        /* TV Menu Drawer Carousel */
+        .menu-drawer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 190px;
+            z-index: 20;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0.99) 100%);
+            display: flex;
+            align-items: center;
+            padding: 15px 40px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            gap: 18px;
+            scroll-behavior: smooth;
+            transition: opacity 0.35s ease, transform 0.35s ease;
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .menu-drawer.hidden {
+            opacity: 0;
+            transform: translateY(100%);
+            pointer-events: none;
+        }
+        .menu-drawer::-webkit-scrollbar {
+            display: none;
+        }
+
+        .movie-card {
+            flex: 0 0 210px;
+            height: 140px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            background: #141414;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 10px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.7);
+        }
+        .movie-card img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.55;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+        }
+        .movie-card.active {
+            border-color: #e50914;
+            transform: scale(1.08);
+            box-shadow: 0 0 25px rgba(229, 9, 20, 0.85);
+            z-index: 2;
+        }
+        .movie-card.active img {
+            opacity: 0.92;
+            transform: scale(1.04);
+        }
+        .card-info {
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.92) 100%);
+            padding: 4px;
+            border-radius: 6px;
+        }
+        .card-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffffff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .card-subtitle {
+            font-size: 11px;
+            color: #e50914;
+            font-weight: 700;
+            margin-top: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         /* Seek indicator */
@@ -137,7 +216,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 20;
+            z-index: 25;
             background: rgba(0,0,0,0.85);
             border: 2px solid #e50914;
             padding: 20px 40px;
@@ -164,7 +243,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 30;
+            z-index: 35;
             background: #080808;
             display: flex;
             flex-direction: column;
@@ -208,18 +287,22 @@
     <!-- On Screen Display -->
     <div id="osd" class="osd-overlay">
         <div class="osd-header">
-            <div class="app-badge">▶ Projectivy Tráileres</div>
-            <div id="counter" class="counter-badge">1 / 1</div>
+            <div id="counter" class="counter-badge">1 / 20</div>
         </div>
         <div class="osd-footer">
-            <div id="movie-subtitle" class="movie-subtitle">🎬 TRÁILER OFICIAL EN ESPAÑOL</div>
+            <div id="movie-subtitle" class="movie-subtitle">PELÍCULA • 2023</div>
             <div id="movie-title" class="movie-title">CARGANDO...</div>
             <div class="controls-hint">
-                <div class="hint-item"><span class="key-btn">▲ ▼</span> Cambiar Película</div>
+                <div class="hint-item"><span class="key-btn">▲ ▼</span> Abrir Menú / Cambiar</div>
                 <div class="hint-item"><span class="key-btn">◄ ►</span> Adelantar / Atrasar 10s</div>
                 <div class="hint-item"><span class="key-btn">OK</span> Pausar / Reproducir</div>
             </div>
         </div>
+    </div>
+
+    <!-- TV Navigation Menu Carousel -->
+    <div id="menu-drawer" class="menu-drawer hidden">
+        <!-- Tarjetas dinámicas se insertan aquí -->
     </div>
 
     <!-- Seek Toast Indicator -->
@@ -228,17 +311,19 @@
     </div>
 
     <script>
-        // Configuración del Subreddit oficial donde TMDB.py publica los fondos
         const SUBREDDIT_NAME = "IMDB_esp";
-        const SUBREDDIT_JSON = `https://www.reddit.com/r/${SUBREDDIT_NAME}/new.json?limit=30`;
         const SUBREDDIT_RSS_API = `https://api.rss2json.com/v1/api.json?rss_url=https://www.reddit.com/r/${SUBREDDIT_NAME}/new.rss`;
         
         let playlist = [];
         let currentIndex = 0;
+        let focusedIndex = 0;
         let player = null;
         let osdTimeout = null;
+        let menuTimeout = null;
         let seekToastTimeout = null;
+        let selectionDebounceTimer = null;
         let isPlayerReady = false;
+        let isMenuOpen = false;
 
         // Cargar YouTube IFrame API
         const tag = document.createElement('script');
@@ -261,8 +346,10 @@
                 if (remoteRes.ok) {
                     const remoteData = await remoteRes.json();
                     if (remoteData && remoteData.length > 0) {
-                        playlist = remoteData.map(item => ({
+                        playlist = remoteData.slice(0, 20).map(item => ({
                             title: item.title,
+                            subtitle: item.subtitle || (item.media_type ? `${item.media_type} • ${item.year || ''}` : 'PELÍCULA'),
+                            backdrop_url: item.backdrop_url || '',
                             ytId: item.youtube_id || extractYouTubeId(item.trailer_url)
                         }));
                     }
@@ -280,28 +367,16 @@
                         for (let item of localData) {
                             const ytId = item.youtube_id || extractYouTubeId(item.trailer_url);
                             if (item.title && ytId) {
-                                playlist.push({ title: item.title, ytId: ytId });
+                                playlist.push({
+                                    title: item.title,
+                                    subtitle: item.subtitle || 'PELÍCULA',
+                                    backdrop_url: item.backdrop_url || '',
+                                    ytId: ytId
+                                });
                             }
                         }
                     }
                 } catch (e) {}
-            }
-
-            // 3. Si siguiera vacía, usar el RSS de Reddit
-            if (playlist.length === 0) {
-                try {
-                    const rssRes = await fetch(SUBREDDIT_RSS_API);
-                    if (rssRes.ok) {
-                        const rssData = await rssRes.json();
-                        const items = rssData?.items || [];
-                        for (let item of items) {
-                            playlist.push({
-                                title: item.title,
-                                ytId: extractYouTubeId(item.content) || extractYouTubeId(item.description)
-                            });
-                        }
-                    }
-                } catch (rssErr) {}
             }
 
             if (playlist.length === 0) {
@@ -309,7 +384,8 @@
                 return;
             }
 
-            // Iniciar reproductor inmediatamente sin demoras
+            renderMenuCards();
+
             if (!player) {
                 initPlayer();
             } else {
@@ -324,9 +400,102 @@
             return (match && match[2].length === 11) ? match[2] : null;
         }
 
+        function renderMenuCards() {
+            const drawer = document.getElementById('menu-drawer');
+            drawer.innerHTML = '';
+
+            playlist.forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = `movie-card ${idx === focusedIndex ? 'active' : ''}`;
+                card.id = `card-${idx}`;
+
+                const bgImg = item.backdrop_url ? `<img src="${item.backdrop_url}" alt="${item.title}" onerror="this.style.display='none'">` : '';
+
+                card.innerHTML = `
+                    ${bgImg}
+                    <div class="card-info">
+                        <div class="card-title">${item.title}</div>
+                        <div class="card-subtitle">${item.subtitle}</div>
+                    </div>
+                `;
+
+                card.onclick = () => {
+                    selectCard(idx, true);
+                };
+
+                drawer.appendChild(card);
+            });
+        }
+
+        function updateMenuFocus() {
+            playlist.forEach((_, idx) => {
+                const card = document.getElementById(`card-${idx}`);
+                if (card) {
+                    if (idx === focusedIndex) {
+                        card.classList.add('active');
+                        card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                    } else {
+                        card.classList.remove('active');
+                    }
+                }
+            });
+
+            // Actualizar texto del OSD superior e inferior mientras navega
+            const item = playlist[focusedIndex];
+            if (item) {
+                document.getElementById('movie-title').innerText = item.title;
+                document.getElementById('movie-subtitle').innerText = item.subtitle || 'PELÍCULA';
+                document.getElementById('counter').innerText = `${focusedIndex + 1} / ${playlist.length}`;
+            }
+
+            showOSD();
+            showMenuDrawer();
+
+            // Debounce: Si el usuario sigue navegando arriba/abajo por la lista, no recarga el vídeo.
+            // Cuando se frena 650ms en una tarjeta, se carga el tráiler automáticamente.
+            clearTimeout(selectionDebounceTimer);
+            selectionDebounceTimer = setTimeout(() => {
+                if (currentIndex !== focusedIndex) {
+                    currentIndex = focusedIndex;
+                    playCurrentIndex();
+                }
+            }, 650);
+        }
+
+        function selectCard(idx, immediate = false) {
+            focusedIndex = idx;
+            if (focusedIndex < 0) focusedIndex = playlist.length - 1;
+            if (focusedIndex >= playlist.length) focusedIndex = 0;
+
+            if (immediate) {
+                clearTimeout(selectionDebounceTimer);
+                currentIndex = focusedIndex;
+                playCurrentIndex();
+                updateMenuFocus();
+            } else {
+                updateMenuFocus();
+            }
+        }
+
+        function showMenuDrawer() {
+            const drawer = document.getElementById('menu-drawer');
+            drawer.classList.remove('hidden');
+            isMenuOpen = true;
+            clearTimeout(menuTimeout);
+            menuTimeout = setTimeout(() => {
+                hideMenuDrawer();
+            }, 5000);
+        }
+
+        function hideMenuDrawer() {
+            const drawer = document.getElementById('menu-drawer');
+            drawer.classList.add('hidden');
+            isMenuOpen = false;
+        }
+
         function initPlayer() {
             document.getElementById('loader').style.display = 'none';
-            const firstItem = playlist[0] || { ytId: '0I7Q1WtTf_c', title: 'SILO' };
+            const firstItem = playlist[0] || { ytId: '0I7Q1WtTf_c', title: 'SILO', subtitle: 'SERIE • 2023' };
             const appOrigin = window.location.origin && window.location.origin !== 'null' && window.location.origin !== 'file://' ? window.location.origin : 'https://www.youtube-nocookie.com';
             
             player = new YT.Player('yt-player', {
@@ -362,18 +531,15 @@
         }
 
         function onPlayerStateChange(event) {
-            // Cuando termina el tráiler (YT.PlayerState.ENDED = 0), pasa al siguiente
             if (event.data === YT.PlayerState.ENDED) {
-                nextTrailer();
+                selectCard(currentIndex + 1, true);
             }
         }
 
         function onPlayerError(event) {
             console.warn("YouTube Player error:", event.data);
-            // Si un video particular devuelve Error 150/101/153, buscar el tráiler oficial en YouTube por título
             const item = playlist[currentIndex];
             if (item && isPlayerReady) {
-                console.log("Cargando tráiler alternativo por búsqueda para:", item.title);
                 player.loadPlaylist({
                     list: item.title + ' trailer oficial espanol',
                     listType: 'search'
@@ -385,14 +551,15 @@
             if (currentIndex < 0) currentIndex = playlist.length - 1;
             if (currentIndex >= playlist.length) currentIndex = 0;
 
+            focusedIndex = currentIndex;
             const item = playlist[currentIndex];
             document.getElementById('movie-title').innerText = item.title;
+            document.getElementById('movie-subtitle').innerText = item.subtitle || 'PELÍCULA';
             document.getElementById('counter').innerText = `${currentIndex + 1} / ${playlist.length}`;
 
             if (item.ytId && isPlayerReady) {
                 player.loadVideoById(item.ytId);
             } else if (isPlayerReady) {
-                // Si no se encontró ID en Reddit, busca el tráiler en YouTube
                 player.loadPlaylist({
                     list: item.title + ' trailer oficial espanol',
                     listType: 'search'
@@ -401,21 +568,10 @@
             showOSD();
         }
 
-        function nextTrailer() {
-            currentIndex++;
-            playCurrentIndex();
-        }
-
-        function prevTrailer() {
-            currentIndex--;
-            playCurrentIndex();
-        }
-
         function seekBy(seconds) {
             if (!player || !isPlayerReady) return;
             const currTime = player.getCurrentTime();
             player.seekTo(currTime + seconds, true);
-            
             showSeekToast(seconds > 0 ? `+${seconds}s` : `${seconds}s`);
             showOSD();
         }
@@ -439,7 +595,7 @@
             clearTimeout(osdTimeout);
             osdTimeout = setTimeout(() => {
                 osd.classList.add('hidden');
-            }, 3500);
+            }, 4000);
         }
 
         function showSeekToast(text) {
@@ -457,29 +613,45 @@
             switch(e.keyCode) {
                 case 38: // Arriba
                 case 19: // KEYCODE_DPAD_UP
-                    prevTrailer();
+                    selectCard(focusedIndex - 1);
                     break;
                 case 40: // Abajo
                 case 20: // KEYCODE_DPAD_DOWN
-                    nextTrailer();
+                    selectCard(focusedIndex + 1);
                     break;
                 case 37: // Izquierda
                 case 21: // KEYCODE_DPAD_LEFT
-                    seekBy(-10);
+                    if (isMenuOpen) {
+                        selectCard(focusedIndex - 1);
+                    } else {
+                        seekBy(-10);
+                    }
                     break;
                 case 39: // Derecha
                 case 22: // KEYCODE_DPAD_RIGHT
-                    seekBy(10);
+                    if (isMenuOpen) {
+                        selectCard(focusedIndex + 1);
+                    } else {
+                        seekBy(10);
+                    }
                     break;
                 case 13: // Enter / Select
                 case 23: // KEYCODE_DPAD_CENTER
                 case 32: // Espacio
                 case 85: // KEYCODE_MEDIA_PLAY_PAUSE
-                    togglePlayPause();
+                    if (isMenuOpen && currentIndex !== focusedIndex) {
+                        selectCard(focusedIndex, true);
+                    } else {
+                        togglePlayPause();
+                    }
                     break;
                 case 27: // ESC
                 case 4:  // KEYCODE_BACK
-                    showOSD();
+                    if (isMenuOpen) {
+                        hideMenuDrawer();
+                    } else {
+                        showOSD();
+                    }
                     break;
                 default:
                     showOSD();

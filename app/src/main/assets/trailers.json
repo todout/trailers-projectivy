@@ -1,52 +1,92 @@
 [
   {
     "title": "GIGN: UNIDAD DE ÉLITE",
+    "subtitle": "SERIE • 2026 • 1 Temporada",
+    "media_type": "SERIE",
+    "year": "2026",
+    "extra_info": "1 Temporada",
+    "backdrop_url": "https://image.tmdb.org/t/p/w500/tMpfa73LmKpeZ3Fix1QmFGIUrKI.jpg",
     "youtube_id": "75HtV3HxLRs",
     "trailer_url": "https://www.youtube.com/watch?v=75HtV3HxLRs"
   },
   {
     "title": "EL OTRO PADRE",
+    "subtitle": "PELÍCULA • 2014 • 1h 33m",
+    "media_type": "PELÍCULA",
+    "year": "2014",
+    "extra_info": "1h 33m",
+    "backdrop_url": "https://image.tmdb.org/t/p/w500/A0Ztc54ESXnT7Qq8u1VyY95GDcm.jpg",
     "youtube_id": "cAHSi8AXbCE",
     "trailer_url": "https://www.youtube.com/watch?v=cAHSi8AXbCE"
   },
   {
     "title": "EL COBRADOR DE DEUDAS",
+    "subtitle": "PELÍCULA • 2026 • 2h 14m",
+    "media_type": "PELÍCULA",
+    "year": "2026",
+    "extra_info": "2h 14m",
+    "backdrop_url": "https://image.tmdb.org/t/p/w500/dk68ykaNd3HdrDJyPJqEGsgvag7.jpg",
     "youtube_id": "NRLPZ5Bj5VQ",
     "trailer_url": "https://www.youtube.com/watch?v=NRLPZ5Bj5VQ"
   },
   {
     "title": "EL LABERINTO DEL FAUNO",
+    "subtitle": "PELÍCULA • 2006 • 1h 52m",
+    "media_type": "PELÍCULA",
+    "year": "2006",
+    "extra_info": "1h 52m",
+    "backdrop_url": "https://image.tmdb.org/t/p/w500/6G6nqSW9S7EHA9HrYl0Z8uo2H7f.jpg",
     "youtube_id": "FGzvvUBXj5M",
     "trailer_url": "https://www.youtube.com/watch?v=FGzvvUBXj5M"
   },
   {
     "title": "LEY Y ORDEN UNIDAD DE VÍCTIMAS ESPECIALES",
+    "subtitle": "SERIE • 1999 • 28 Temporadas",
+    "media_type": "SERIE",
+    "year": "1999",
+    "extra_info": "28 Temporadas",
+    "backdrop_url": "https://image.tmdb.org/t/p/w500/obtdxPgmfykYwVnvuYXC5f2xKlQ.jpg",
     "youtube_id": "sx4n_tSzGGk",
     "trailer_url": "https://www.youtube.com/watch?v=sx4n_tSzGGk"
   },
   {
     "title": "SILO",
+    "subtitle": "PELÍCULA • 2015 • 1h 38m",
+    "media_type": "PELÍCULA",
+    "year": "2015",
+    "extra_info": "1h 38m",
+    "backdrop_url": "https://image.tmdb.org/t/p/w500/rKYHlcTOVQWACDbnnVBgWXnNfyd.jpg",
     "youtube_id": "0I7Q1WtTf_c",
     "trailer_url": "https://www.youtube.com/watch?v=0I7Q1WtTf_c"
   },
   {
     "title": "HOUSE",
+    "subtitle": "PELÍCULA • 2024 • 1h 54m",
+    "media_type": "PELÍCULA",
+    "year": "2024",
+    "extra_info": "1h 54m",
+    "backdrop_url": "https://image.tmdb.org/t/p/w500/clFFCapyGpE7KD4Jsu5pUbFBZF4.jpg",
     "youtube_id": "i86P9cBvtoM",
     "trailer_url": "https://www.youtube.com/watch?v=i86P9cBvtoM"
   },
   {
-    "title": "LEY Y ORDEN: UNIDAD DE VÍCTIMAS ESPECIALES",
-    "youtube_id": "sx4n_tSzGGk",
-    "trailer_url": "https://www.youtube.com/watch?v=sx4n_tSzGGk"
-  },
-  {
     "title": "CULPA MÍA",
+    "subtitle": "PELÍCULA • 2023 • 1h 57m",
+    "media_type": "PELÍCULA",
+    "year": "2023",
+    "extra_info": "1h 57m",
+    "backdrop_url": "https://image.tmdb.org/t/p/w500/oz4U9eA6ilYf1tyiVuGmkftdLac.jpg",
     "youtube_id": "3dEgSAfw7Zc",
     "trailer_url": "https://www.youtube.com/watch?v=3dEgSAfw7Zc"
   },
   {
     "title": "ROSE OF NEVADA",
-    "youtube_id": "bw371ui9cTk",
-    "trailer_url": "https://www.youtube.com/watch?v=bw371ui9cTk"
+    "subtitle": "PELÍCULA • 2026 • 1h 54m",
+    "media_type": "PELÍCULA",
+    "year": "2026",
+    "extra_info": "1h 54m",
+    "backdrop_url": "https://image.tmdb.org/t/p/w500/xKeYArWgmP7oEyDxsz7aK9fETm.jpg",
+    "youtube_id": "TsFlUlosXZk",
+    "trailer_url": "https://www.youtube.com/watch?v=TsFlUlosXZk"
   }
 ]
