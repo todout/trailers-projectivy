@@ -336,11 +336,13 @@
         function initPlayer() {
             document.getElementById('loader').style.display = 'none';
             const firstItem = playlist[0];
+            const appOrigin = window.location.origin && window.location.origin !== 'null' && window.location.origin !== 'file://' ? window.location.origin : 'https://www.youtube.com';
             
             player = new YT.Player('yt-player', {
                 height: '100%',
                 width: '100%',
-                videoId: firstItem.ytId || 'dQw4w9WgXcQ', // fallback video
+                videoId: firstItem.ytId || 'dQw4w9WgXcQ',
+                host: 'https://www.youtube.com',
                 playerVars: {
                     'autoplay': 1,
                     'controls': 0,
@@ -349,11 +351,15 @@
                     'modestbranding': 1,
                     'rel': 0,
                     'showinfo': 0,
-                    'iv_load_policy': 3
+                    'iv_load_policy': 3,
+                    'enablejsapi': 1,
+                    'origin': appOrigin,
+                    'widget_referrer': appOrigin
                 },
                 events: {
                     'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange
+                    'onStateChange': onPlayerStateChange,
+                    'onError': onPlayerError
                 }
             });
         }
@@ -367,6 +373,19 @@
             // Cuando termina el tráiler (YT.PlayerState.ENDED = 0), pasa al siguiente
             if (event.data === YT.PlayerState.ENDED) {
                 nextTrailer();
+            }
+        }
+
+        function onPlayerError(event) {
+            console.warn("YouTube Player error:", event.data);
+            // Si un video particular devuelve Error 150/101/153, buscar el tráiler oficial en YouTube por título
+            const item = playlist[currentIndex];
+            if (item && isPlayerReady) {
+                console.log("Cargando tráiler alternativo por búsqueda para:", item.title);
+                player.loadPlaylist({
+                    list: item.title + ' trailer oficial espanol',
+                    listType: 'search'
+                });
             }
         }
 

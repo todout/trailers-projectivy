@@ -6,10 +6,13 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.WindowManager
 import android.webkit.WebChromeClient
+import android.webkit.WebResourceRequest
+import android.webkit.WebResourceResponse
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
+import androidx.webkit.WebViewAssetLoader
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,6 +33,10 @@ class MainActivity : AppCompatActivity() {
         webView = WebView(this)
         setContentView(webView)
 
+        val assetLoader = WebViewAssetLoader.Builder()
+            .addPathHandler("/assets/", WebViewAssetLoader.AssetsPathHandler(this))
+            .build()
+
         val settings: WebSettings = webView.settings
         settings.javaScriptEnabled = true
         settings.domStorageEnabled = true
@@ -40,11 +47,18 @@ class MainActivity : AppCompatActivity() {
         settings.loadWithOverviewMode = true
         settings.userAgentString = "Mozilla/5.0 (Linux; Android 14; ONN TV) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
-        webView.webViewClient = WebViewClient()
+        webView.webViewClient = object : WebViewClient() {
+            override fun shouldInterceptRequest(
+                view: WebView,
+                request: WebResourceRequest
+            ): WebResourceResponse? {
+                return assetLoader.shouldInterceptRequest(request.url)
+            }
+        }
         webView.webChromeClient = WebChromeClient()
 
-        // Cargar reproductor HTML de TV
-        webView.loadUrl("file:///android_asset/tv_player.html")
+        // Cargar reproductor HTML de TV desde origen virtual HTTPS para evitar Error 153 de YouTube
+        webView.loadUrl("https://appassets.androidplatform.net/assets/tv_player.html")
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
