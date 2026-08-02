@@ -5,6 +5,9 @@ on:
     branches: [ "main", "master" ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,13 +21,12 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: gradle
 
-      - name: Dar permisos de ejecución a Gradle
-        run: chmod +x gradlew
+      - name: Configurar Gradle
+        uses: gradle/actions/setup-gradle@v3
 
-      - name: Compilar APK (Debug / Release)
-        run: ./gradlew assembleDebug
+      - name: Compilar APK (Debug)
+        run: gradle assembleDebug
 
       - name: Renombrar APK para descarga directa
         run: |
@@ -38,7 +40,7 @@ jobs:
           path: output/trailers-projectivy.apk
 
       - name: Publicar GitHub Release Automático
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         with:
           tag_name: latest
