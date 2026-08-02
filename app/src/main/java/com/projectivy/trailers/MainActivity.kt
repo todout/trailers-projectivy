@@ -45,7 +45,6 @@ class MainActivity : AppCompatActivity() {
         settings.allowContentAccess = true
         settings.useWideViewPort = true
         settings.loadWithOverviewMode = true
-        settings.userAgentString = "Mozilla/5.0 (Linux; Android 14; ONN TV) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
         webView.webViewClient = object : WebViewClient() {
             override fun shouldInterceptRequest(
