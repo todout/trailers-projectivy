@@ -251,28 +251,13 @@
         }
 
         async function fetchSubredditWallpapers() {
-            document.getElementById('loader-status').innerText = "Cargando tráileres...";
+            document.getElementById('loader-status').innerText = "Cargando tráileres del día...";
             playlist = [];
 
-            // 1. Carga instantánea (0ms) desde el JSON local integrado en la app
+            // 1. Cargar la lista EN VIVO desde GitHub (con timestamp anti-caché)
             try {
-                const localRes = await fetch('./trailers.json');
-                if (localRes.ok) {
-                    const localData = await localRes.json();
-                    for (let item of localData) {
-                        const ytId = item.youtube_id || extractYouTubeId(item.trailer_url);
-                        if (item.title && ytId) {
-                            playlist.push({ title: item.title, ytId: ytId });
-                        }
-                    }
-                }
-            } catch (e) {
-                console.warn("Carga de trailers.json local no disponible:", e);
-            }
-
-            // 2. Intentar actualizar desde GitHub Raw en segundo plano
-            try {
-                const remoteRes = await fetch('https://raw.githubusercontent.com/todout/fondos-projectivy/master/trailers_cache.json');
+                const cacheUrl = `https://raw.githubusercontent.com/todout/fondos-projectivy/master/trailers_cache.json?t=${Date.now()}`;
+                const remoteRes = await fetch(cacheUrl);
                 if (remoteRes.ok) {
                     const remoteData = await remoteRes.json();
                     if (remoteData && remoteData.length > 0) {
@@ -283,7 +268,23 @@
                     }
                 }
             } catch (remoteErr) {
-                console.warn("GitHub Raw cache fetch:", remoteErr);
+                console.warn("GitHub Raw cache fetch falló, utilizando respaldo local:", remoteErr);
+            }
+
+            // 2. Si falla la red, cargar del JSON local empaquetado en la app
+            if (playlist.length === 0) {
+                try {
+                    const localRes = await fetch('./trailers.json');
+                    if (localRes.ok) {
+                        const localData = await localRes.json();
+                        for (let item of localData) {
+                            const ytId = item.youtube_id || extractYouTubeId(item.trailer_url);
+                            if (item.title && ytId) {
+                                playlist.push({ title: item.title, ytId: ytId });
+                            }
+                        }
+                    }
+                } catch (e) {}
             }
 
             // 3. Si siguiera vacía, usar el RSS de Reddit
