@@ -1,0 +1,51 @@
+name: Build Android TV APK
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Código Fuente
+        uses: actions/checkout@v4
+
+      - name: Configurar JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Dar permisos de ejecución a Gradle
+        run: chmod +x gradlew
+
+      - name: Compilar APK (Debug / Release)
+        run: ./gradlew assembleDebug
+
+      - name: Renombrar APK para descarga directa
+        run: |
+          mkdir -p output
+          cp app/build/outputs/apk/debug/app-debug.apk output/trailers-projectivy.apk
+
+      - name: Subir APK a los Artifacts de GitHub
+        uses: actions/upload-artifact@v4
+        with:
+          name: trailers-projectivy-apk
+          path: output/trailers-projectivy.apk
+
+      - name: Publicar GitHub Release Automático
+        uses: softprops/action-gh-release@v1
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        with:
+          tag_name: latest
+          name: Versión Oficial APK
+          body: |
+            🚀 **Compilación Automática del APK para Android TV / Projectivy Launcher**
+            - Descarga directa para la app **Downloader / AFTVnews**: `https://github.com/${{ github.repository }}/releases/latest/download/trailers-projectivy.apk`
+          files: output/trailers-projectivy.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
