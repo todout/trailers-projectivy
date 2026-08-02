@@ -251,29 +251,42 @@
         }
 
         async function fetchSubredditWallpapers() {
-            document.getElementById('loader-status').innerText = "Conectando con Reddit...";
+            document.getElementById('loader-status').innerText = "Cargando tráileres...";
             playlist = [];
 
-            // 1. Intentar cargar desde Reddit JSON API
+            // 1. Carga instantánea (0ms) desde el JSON local integrado en la app
             try {
-                const res = await fetch(SUBREDDIT_JSON);
-                if (res.ok) {
-                    const data = await res.json();
-                    const posts = data?.data?.children || [];
-                    for (let p of posts) {
-                        const postData = p.data;
-                        if (!postData) continue;
-                        const title = postData.title || "Sin título";
-                        const permalink = postData.permalink;
-                        let ytId = extractYouTubeId(postData.selftext) || extractYouTubeId(postData.url);
-                        playlist.push({ title: title, permalink: permalink, ytId: ytId });
+                const localRes = await fetch('./trailers.json');
+                if (localRes.ok) {
+                    const localData = await localRes.json();
+                    for (let item of localData) {
+                        const ytId = item.youtube_id || extractYouTubeId(item.trailer_url);
+                        if (item.title && ytId) {
+                            playlist.push({ title: item.title, ytId: ytId });
+                        }
                     }
                 }
-            } catch (err) {
-                console.warn("Reddit JSON API falló, probando con RSS API...", err);
+            } catch (e) {
+                console.warn("Carga de trailers.json local no disponible:", e);
             }
 
-            // 2. Si falla JSON API o está vacío, usar RSS2JSON Fallback
+            // 2. Intentar actualizar desde GitHub Raw en segundo plano
+            try {
+                const remoteRes = await fetch('https://raw.githubusercontent.com/todout/fondos-projectivy/master/trailers_cache.json');
+                if (remoteRes.ok) {
+                    const remoteData = await remoteRes.json();
+                    if (remoteData && remoteData.length > 0) {
+                        playlist = remoteData.map(item => ({
+                            title: item.title,
+                            ytId: item.youtube_id || extractYouTubeId(item.trailer_url)
+                        }));
+                    }
+                }
+            } catch (remoteErr) {
+                console.warn("GitHub Raw cache fetch:", remoteErr);
+            }
+
+            // 3. Si siguiera vacía, usar el RSS de Reddit
             if (playlist.length === 0) {
                 try {
                     const rssRes = await fetch(SUBREDDIT_RSS_API);
@@ -281,27 +294,26 @@
                         const rssData = await rssRes.json();
                         const items = rssData?.items || [];
                         for (let item of items) {
-                            const title = item.title || "Sin título";
-                            let ytId = extractYouTubeId(item.content) || extractYouTubeId(item.description);
-                            playlist.push({ title: title, permalink: null, ytId: ytId });
+                            playlist.push({
+                                title: item.title,
+                                ytId: extractYouTubeId(item.content) || extractYouTubeId(item.description)
+                            });
                         }
                     }
-                } catch (rssErr) {
-                    console.error("RSS API también falló:", rssErr);
-                }
+                } catch (rssErr) {}
             }
 
             if (playlist.length === 0) {
-                document.getElementById('loader-status').innerText = "No se encontraron fondos en r/" + SUBREDDIT_NAME;
+                document.getElementById('loader-status').innerText = "No se encontraron tráileres.";
                 return;
             }
 
-            // Cargar comentarios para obtener tráileres en los nuevos posts
-            document.getElementById('loader-status').innerText = "Cargando tráileres en español...";
-            await resolveMissingTrailers();
-            
-            // Iniciar reproductor
-            initPlayer();
+            // Iniciar reproductor inmediatamente sin demoras
+            if (!player) {
+                initPlayer();
+            } else {
+                playCurrentIndex();
+            }
         }
 
         function extractYouTubeId(url) {
@@ -311,37 +323,15 @@
             return (match && match[2].length === 11) ? match[2] : null;
         }
 
-        async function resolveMissingTrailers() {
-            for (let item of playlist) {
-                if (!item.ytId && item.permalink) {
-                    try {
-                        const cRes = await fetch(`https://www.reddit.com${item.permalink}.json`);
-                        if (cRes.ok) {
-                            const cData = await cRes.json();
-                            const comments = cData[1]?.data?.children || [];
-                            for (let c of comments) {
-                                const body = c.data?.body || "";
-                                const foundId = extractYouTubeId(body);
-                                if (foundId) {
-                                    item.ytId = foundId;
-                                    break;
-                                }
-                            }
-                        }
-                    } catch (e) {}
-                }
-            }
-        }
-
         function initPlayer() {
             document.getElementById('loader').style.display = 'none';
-            const firstItem = playlist[0];
+            const firstItem = playlist[0] || { ytId: '0I7Q1WtTf_c', title: 'SILO' };
             const appOrigin = window.location.origin && window.location.origin !== 'null' && window.location.origin !== 'file://' ? window.location.origin : 'https://www.youtube.com';
             
             player = new YT.Player('yt-player', {
                 height: '100%',
                 width: '100%',
-                videoId: firstItem.ytId || 'dQw4w9WgXcQ',
+                videoId: firstItem.ytId || '0I7Q1WtTf_c',
                 host: 'https://www.youtube.com',
                 playerVars: {
                     'autoplay': 1,
