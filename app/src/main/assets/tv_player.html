@@ -228,8 +228,10 @@
     </div>
 
     <script>
-        // Configuración del Subreddit
-        const SUBREDDIT_URL = "https://www.reddit.com/r/fondos_projectivy/new.json?limit=30";
+        // Configuración del Subreddit oficial donde TMDB.py publica los fondos
+        const SUBREDDIT_NAME = "IMDB_esp";
+        const SUBREDDIT_JSON = `https://www.reddit.com/r/${SUBREDDIT_NAME}/new.json?limit=30`;
+        const SUBREDDIT_RSS_API = `https://api.rss2json.com/v1/api.json?rss_url=https://www.reddit.com/r/${SUBREDDIT_NAME}/new.rss`;
         
         let playlist = [];
         let currentIndex = 0;
@@ -249,48 +251,57 @@
         }
 
         async function fetchSubredditWallpapers() {
+            document.getElementById('loader-status').innerText = "Conectando con Reddit...";
+            playlist = [];
+
+            // 1. Intentar cargar desde Reddit JSON API
             try {
-                document.getElementById('loader-status').innerText = "Conectando con Reddit...";
-                const res = await fetch(SUBREDDIT_URL);
-                if (!res.ok) throw new Error("Error de conexión");
-                const data = await res.json();
-                
-                const posts = data?.data?.children || [];
-                playlist = [];
-
-                for (let p of posts) {
-                    const postData = p.data;
-                    if (!postData) continue;
-                    
-                    const title = postData.title || "Sin título";
-                    const permalink = postData.permalink;
-                    
-                    // Buscar URL de Youtube en el post o fetch de comentarios
-                    let ytId = extractYouTubeId(postData.selftext) || extractYouTubeId(postData.url);
-                    
-                    playlist.push({
-                        title: title,
-                        permalink: permalink,
-                        ytId: ytId
-                    });
+                const res = await fetch(SUBREDDIT_JSON);
+                if (res.ok) {
+                    const data = await res.json();
+                    const posts = data?.data?.children || [];
+                    for (let p of posts) {
+                        const postData = p.data;
+                        if (!postData) continue;
+                        const title = postData.title || "Sin título";
+                        const permalink = postData.permalink;
+                        let ytId = extractYouTubeId(postData.selftext) || extractYouTubeId(postData.url);
+                        playlist.push({ title: title, permalink: permalink, ytId: ytId });
+                    }
                 }
-
-                if (playlist.length === 0) {
-                    document.getElementById('loader-status').innerText = "No se encontraron fondos publicados.";
-                    return;
-                }
-
-                // Cargar comentarios en segundo plano para obtener enlaces exactos si faltan
-                document.getElementById('loader-status').innerText = "Cargando tráileres en español...";
-                await resolveMissingTrailers();
-                
-                // Iniciar reproductor
-                initPlayer();
-
             } catch (err) {
-                console.error(err);
-                document.getElementById('loader-status').innerText = "Error cargando lista de fondos.";
+                console.warn("Reddit JSON API falló, probando con RSS API...", err);
             }
+
+            // 2. Si falla JSON API o está vacío, usar RSS2JSON Fallback
+            if (playlist.length === 0) {
+                try {
+                    const rssRes = await fetch(SUBREDDIT_RSS_API);
+                    if (rssRes.ok) {
+                        const rssData = await rssRes.json();
+                        const items = rssData?.items || [];
+                        for (let item of items) {
+                            const title = item.title || "Sin título";
+                            let ytId = extractYouTubeId(item.content) || extractYouTubeId(item.description);
+                            playlist.push({ title: title, permalink: null, ytId: ytId });
+                        }
+                    }
+                } catch (rssErr) {
+                    console.error("RSS API también falló:", rssErr);
+                }
+            }
+
+            if (playlist.length === 0) {
+                document.getElementById('loader-status').innerText = "No se encontraron fondos en r/" + SUBREDDIT_NAME;
+                return;
+            }
+
+            // Cargar comentarios para obtener tráileres en los nuevos posts
+            document.getElementById('loader-status').innerText = "Cargando tráileres en español...";
+            await resolveMissingTrailers();
+            
+            // Iniciar reproductor
+            initPlayer();
         }
 
         function extractYouTubeId(url) {
