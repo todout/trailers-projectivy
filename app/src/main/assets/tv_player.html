@@ -36,19 +36,19 @@
             pointer-events: none;
         }
         
-        /* OSD Overlay */
+        /* OSD Left Panel Overlay */
         .osd-overlay {
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
+            width: calc(100% - 380px);
             height: 100%;
             z-index: 10;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            padding: 30px 50px 140px 50px;
-            background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.95) 100%);
+            justify-content: flex-end;
+            padding: 40px 50px;
+            background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%);
             transition: opacity 0.35s ease-in-out;
             opacity: 1;
             pointer-events: none;
@@ -57,52 +57,50 @@
             opacity: 0;
         }
         
-        .osd-header {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-        }
-        .counter-badge {
-            font-size: 18px;
-            font-weight: 700;
-            color: rgba(255,255,255,0.9);
-            background: rgba(0,0,0,0.65);
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 6px 16px;
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-        }
-        
         .osd-footer {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
+            max-width: 680px;
         }
         .movie-subtitle {
-            font-size: 17px;
+            font-size: 18px;
             color: #e50914;
-            font-weight: 700;
+            font-weight: 800;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             display: flex;
             align-items: center;
             gap: 8px;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.9);
         }
         .movie-title {
-            font-size: 40px;
+            font-size: 42px;
             font-weight: 800;
             letter-spacing: 1.5px;
             text-transform: uppercase;
+            line-height: 1.1;
             text-shadow: 0 4px 14px rgba(0,0,0,0.95);
             color: #ffffff;
+        }
+        .movie-overview {
+            font-size: 16px;
+            line-height: 1.45;
+            color: rgba(255, 255, 255, 0.88);
+            font-weight: 400;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-top: 4px;
         }
         
         .controls-hint {
             display: flex;
             gap: 25px;
-            margin-top: 10px;
-            padding-top: 12px;
+            margin-top: 15px;
+            padding-top: 15px;
             border-top: 1px solid rgba(255,255,255,0.2);
             font-size: 13px;
             color: rgba(255,255,255,0.85);
@@ -121,76 +119,101 @@
             font-size: 12px;
         }
 
-        /* TV Menu Drawer Carousel */
-        .menu-drawer {
+        /* Right Side Vertical Drawer Panel */
+        .right-drawer-panel {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 190px;
+            top: 0;
+            right: 0;
+            width: 380px;
+            height: 100%;
             z-index: 20;
-            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0.99) 100%);
+            background: linear-gradient(270deg, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.85) 85%, rgba(0,0,0,0) 100%);
             display: flex;
-            align-items: center;
-            padding: 15px 40px;
-            overflow-x: auto;
-            overflow-y: hidden;
-            gap: 18px;
-            scroll-behavior: smooth;
+            flex-direction: column;
+            padding: 30px 25px 30px 15px;
             transition: opacity 0.35s ease, transform 0.35s ease;
-            transform: translateY(0);
+            transform: translateX(0);
             opacity: 1;
         }
-        .menu-drawer.hidden {
+        .right-drawer-panel.hidden {
             opacity: 0;
-            transform: translateY(100%);
+            transform: translateX(100%);
             pointer-events: none;
         }
-        .menu-drawer::-webkit-scrollbar {
+
+        .drawer-header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+        .counter-badge {
+            font-size: 18px;
+            font-weight: 800;
+            color: rgba(255,255,255,0.95);
+            background: rgba(0,0,0,0.7);
+            border: 1px solid rgba(255,255,255,0.25);
+            padding: 6px 18px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .vertical-menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            padding-right: 5px;
+            height: 100%;
+        }
+        .vertical-menu-list::-webkit-scrollbar {
             display: none;
         }
 
-        .movie-card {
-            flex: 0 0 210px;
-            height: 140px;
+        .vertical-card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 8px;
             border-radius: 12px;
+            background: rgba(25, 25, 25, 0.85);
+            border: 2px solid rgba(255, 255, 255, 0.12);
+            transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+            cursor: pointer;
+        }
+        .vertical-card.active {
+            border-color: #e50914;
+            background: rgba(229, 9, 20, 0.2);
+            transform: scale(1.03);
+            box-shadow: 0 0 20px rgba(229, 9, 20, 0.7);
+        }
+        .card-thumb {
+            width: 110px;
+            height: 68px;
+            border-radius: 8px;
             overflow: hidden;
             position: relative;
-            background: #141414;
-            border: 2px solid rgba(255, 255, 255, 0.15);
-            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 10px;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.7);
+            flex-shrink: 0;
+            background: #000;
         }
-        .movie-card img {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .card-thumb img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.55;
-            transition: opacity 0.25s ease, transform 0.25s ease;
+            opacity: 0.75;
+            transition: opacity 0.25s ease;
         }
-        .movie-card.active {
-            border-color: #e50914;
-            transform: scale(1.08);
-            box-shadow: 0 0 25px rgba(229, 9, 20, 0.85);
-            z-index: 2;
+        .vertical-card.active .card-thumb img {
+            opacity: 1;
         }
-        .movie-card.active img {
-            opacity: 0.92;
-            transform: scale(1.04);
-        }
+
         .card-info {
-            position: relative;
-            z-index: 2;
-            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.92) 100%);
-            padding: 4px;
-            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            overflow: hidden;
         }
         .card-title {
             font-size: 14px;
@@ -204,7 +227,6 @@
             font-size: 11px;
             color: #e50914;
             font-weight: 700;
-            margin-top: 2px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -214,10 +236,10 @@
         .seek-toast {
             position: absolute;
             top: 50%;
-            left: 50%;
+            left: 35%;
             transform: translate(-50%, -50%);
             z-index: 25;
-            background: rgba(0,0,0,0.85);
+            background: rgba(0,0,0,0.88);
             border: 2px solid #e50914;
             padding: 20px 40px;
             border-radius: 16px;
@@ -284,25 +306,28 @@
         <div id="yt-player"></div>
     </div>
 
-    <!-- On Screen Display -->
+    <!-- Left Info OSD Panel -->
     <div id="osd" class="osd-overlay">
-        <div class="osd-header">
-            <div id="counter" class="counter-badge">1 / 20</div>
-        </div>
         <div class="osd-footer">
             <div id="movie-subtitle" class="movie-subtitle">PELÍCULA • 2023</div>
             <div id="movie-title" class="movie-title">CARGANDO...</div>
+            <div id="movie-overview" class="movie-overview">Cargando sinopsis de la película...</div>
             <div class="controls-hint">
-                <div class="hint-item"><span class="key-btn">▲ ▼</span> Abrir Menú / Cambiar</div>
+                <div class="hint-item"><span class="key-btn">▲ ▼</span> Cambiar Película</div>
                 <div class="hint-item"><span class="key-btn">◄ ►</span> Adelantar / Atrasar 10s</div>
                 <div class="hint-item"><span class="key-btn">OK</span> Pausar / Reproducir</div>
             </div>
         </div>
     </div>
 
-    <!-- TV Navigation Menu Carousel -->
-    <div id="menu-drawer" class="menu-drawer hidden">
-        <!-- Tarjetas dinámicas se insertan aquí -->
+    <!-- Right Side Vertical Drawer Panel -->
+    <div id="menu-drawer" class="right-drawer-panel hidden">
+        <div class="drawer-header">
+            <div id="counter" class="counter-badge">1 / 20</div>
+        </div>
+        <div id="vertical-list" class="vertical-menu-list">
+            <!-- Tarjetas dinámicas en vertical -->
+        </div>
     </div>
 
     <!-- Seek Toast Indicator -->
@@ -311,9 +336,6 @@
     </div>
 
     <script>
-        const SUBREDDIT_NAME = "IMDB_esp";
-        const SUBREDDIT_RSS_API = `https://api.rss2json.com/v1/api.json?rss_url=https://www.reddit.com/r/${SUBREDDIT_NAME}/new.rss`;
-        
         let playlist = [];
         let currentIndex = 0;
         let focusedIndex = 0;
@@ -349,6 +371,7 @@
                         playlist = remoteData.slice(0, 20).map(item => ({
                             title: item.title,
                             subtitle: item.subtitle || (item.media_type ? `${item.media_type} • ${item.year || ''}` : 'PELÍCULA'),
+                            overview: item.overview || '',
                             backdrop_url: item.backdrop_url || '',
                             ytId: item.youtube_id || extractYouTubeId(item.trailer_url)
                         }));
@@ -370,6 +393,7 @@
                                 playlist.push({
                                     title: item.title,
                                     subtitle: item.subtitle || 'PELÍCULA',
+                                    overview: item.overview || '',
                                     backdrop_url: item.backdrop_url || '',
                                     ytId: ytId
                                 });
@@ -401,18 +425,18 @@
         }
 
         function renderMenuCards() {
-            const drawer = document.getElementById('menu-drawer');
-            drawer.innerHTML = '';
+            const list = document.getElementById('vertical-list');
+            list.innerHTML = '';
 
             playlist.forEach((item, idx) => {
                 const card = document.createElement('div');
-                card.className = `movie-card ${idx === focusedIndex ? 'active' : ''}`;
+                card.className = `vertical-card ${idx === focusedIndex ? 'active' : ''}`;
                 card.id = `card-${idx}`;
 
                 const bgImg = item.backdrop_url ? `<img src="${item.backdrop_url}" alt="${item.title}" onerror="this.style.display='none'">` : '';
 
                 card.innerHTML = `
-                    ${bgImg}
+                    <div class="card-thumb">${bgImg}</div>
                     <div class="card-info">
                         <div class="card-title">${item.title}</div>
                         <div class="card-subtitle">${item.subtitle}</div>
@@ -423,7 +447,7 @@
                     selectCard(idx, true);
                 };
 
-                drawer.appendChild(card);
+                list.appendChild(card);
             });
         }
 
@@ -433,33 +457,33 @@
                 if (card) {
                     if (idx === focusedIndex) {
                         card.classList.add('active');
-                        card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                     } else {
                         card.classList.remove('active');
                     }
                 }
             });
 
-            // Actualizar texto del OSD superior e inferior mientras navega
+            // Actualizar texto del OSD izquierdo mientras se navega
             const item = playlist[focusedIndex];
             if (item) {
                 document.getElementById('movie-title').innerText = item.title;
                 document.getElementById('movie-subtitle').innerText = item.subtitle || 'PELÍCULA';
+                document.getElementById('movie-overview').innerText = item.overview || '';
                 document.getElementById('counter').innerText = `${focusedIndex + 1} / ${playlist.length}`;
             }
 
             showOSD();
             showMenuDrawer();
 
-            // Debounce: Si el usuario sigue navegando arriba/abajo por la lista, no recarga el vídeo.
-            // Cuando se frena 650ms en una tarjeta, se carga el tráiler automáticamente.
+            // Debounce: Si navega rápido con ▲/▼, resalta tarjetas suavemente y actualiza vídeo al frenarse 600ms
             clearTimeout(selectionDebounceTimer);
             selectionDebounceTimer = setTimeout(() => {
                 if (currentIndex !== focusedIndex) {
                     currentIndex = focusedIndex;
                     playCurrentIndex();
                 }
-            }, 650);
+            }, 600);
         }
 
         function selectCard(idx, immediate = false) {
@@ -495,7 +519,7 @@
 
         function initPlayer() {
             document.getElementById('loader').style.display = 'none';
-            const firstItem = playlist[0] || { ytId: '0I7Q1WtTf_c', title: 'SILO', subtitle: 'SERIE • 2023' };
+            const firstItem = playlist[0] || { ytId: '0I7Q1WtTf_c', title: 'SILO', subtitle: 'SERIE • 2023', overview: '' };
             const appOrigin = window.location.origin && window.location.origin !== 'null' && window.location.origin !== 'file://' ? window.location.origin : 'https://www.youtube-nocookie.com';
             
             player = new YT.Player('yt-player', {
@@ -555,6 +579,7 @@
             const item = playlist[currentIndex];
             document.getElementById('movie-title').innerText = item.title;
             document.getElementById('movie-subtitle').innerText = item.subtitle || 'PELÍCULA';
+            document.getElementById('movie-overview').innerText = item.overview || '';
             document.getElementById('counter').innerText = `${currentIndex + 1} / ${playlist.length}`;
 
             if (item.ytId && isPlayerReady) {
@@ -595,7 +620,7 @@
             clearTimeout(osdTimeout);
             osdTimeout = setTimeout(() => {
                 osd.classList.add('hidden');
-            }, 4000);
+            }, 5000);
         }
 
         function showSeekToast(text) {
@@ -622,15 +647,15 @@
                 case 37: // Izquierda
                 case 21: // KEYCODE_DPAD_LEFT
                     if (isMenuOpen) {
-                        selectCard(focusedIndex - 1);
+                        hideMenuDrawer();
                     } else {
                         seekBy(-10);
                     }
                     break;
                 case 39: // Derecha
                 case 22: // KEYCODE_DPAD_RIGHT
-                    if (isMenuOpen) {
-                        selectCard(focusedIndex + 1);
+                    if (!isMenuOpen) {
+                        showMenuDrawer();
                     } else {
                         seekBy(10);
                     }
