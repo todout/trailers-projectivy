@@ -368,7 +368,7 @@
                 if (remoteRes.ok) {
                     const remoteData = await remoteRes.json();
                     if (remoteData && remoteData.length > 0) {
-                        playlist = remoteData.slice(0, 20).map(item => ({
+                        playlist = remoteData.slice(0, 25).map(item => ({
                             title: item.title,
                             subtitle: item.subtitle || (item.media_type ? `${item.media_type} • ${item.year || ''}` : 'PELÍCULA'),
                             overview: item.overview || '',
