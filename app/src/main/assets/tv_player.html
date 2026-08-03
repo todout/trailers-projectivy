@@ -560,6 +560,11 @@
                 }
             }
 
+            // Pausar inmediatamente el video anterior al cambiar de tarjeta para cortar el audio del ítem previo
+            if (player && isPlayerReady) {
+                player.pauseVideo();
+            }
+
             isVideoLoadedAndPlaying = false;
             wakeUI();
 
