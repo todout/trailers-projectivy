@@ -563,9 +563,9 @@
             isVideoLoadedAndPlaying = false;
             wakeUI();
 
-            // Carga de video rápida (500ms al cambiar a primer item de fila, 900ms para tarjetas intermedias)
+            // Esperar 3 segundos (3000ms) antes de iniciar el trailer automáticamente al navegar, o 0ms si el usuario presiona OK
             clearTimeout(preloadTimer);
-            const delay = (cIdx === 0) ? 500 : 900;
+            const delay = forcePlay ? 0 : 3000;
             preloadTimer = setTimeout(() => {
                 startPreloadingVideo(item.youtube_id);
             }, delay);
@@ -735,10 +735,17 @@
                     isPausedManually = false;
                     updateSelection(currentRowIndex, currentCardIndex + 1);
                     break;
-                case 13: // Enter / OK
+                case 13: // Enter / OK / Select
                 case 23:
                 case 32:
-                case 85: // Play/Pause Media
+                    isPausedManually = false;
+                    if (!isVideoLoadedAndPlaying) {
+                        updateSelection(currentRowIndex, currentCardIndex, true);
+                    } else {
+                        togglePlayPause();
+                    }
+                    break;
+                case 85: // Play/Pause Media Button
                 case 179:
                     togglePlayPause();
                     break;
