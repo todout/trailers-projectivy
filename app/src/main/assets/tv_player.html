@@ -24,25 +24,25 @@
             color: #fff;
         }
         
-        /* YouTube Container Positioned Fixed Fullscreen */
+        /* YouTube Container Positioned & Cropped to Hide Top Video Title */
         #player-container {
             position: fixed;
-            top: 0;
+            top: -65px;
             left: 0;
             width: 100vw;
-            height: 100vh;
+            height: calc(100vh + 130px);
             z-index: 1;
             background: #000;
             overflow: hidden;
         }
         iframe#yt-player {
             width: 100vw;
-            height: 100vh;
+            height: calc(100vh + 130px);
             border: none;
             pointer-events: none;
         }
 
-        /* Fullscreen Backdrop Hero Image (Muestra la foto en HD antes de que el video pase a pantalla completa) */
+        /* Fullscreen Backdrop Hero Image */
         #hero-bg-img {
             position: fixed;
             top: 0;
@@ -67,11 +67,11 @@
             width: 100vw;
             height: 90px;
             z-index: 8;
-            background: linear-gradient(180deg, #000000 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0) 100%);
+            background: linear-gradient(180deg, #000000 0%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0) 100%);
             pointer-events: none;
         }
 
-        /* Hero Left Side Vignette Overlay (Se oculta junto con la sinopsis) */
+        /* Hero Left Side Vignette Overlay */
         .hero-vignette {
             position: fixed;
             top: 0;
@@ -89,7 +89,7 @@
             opacity: 0;
         }
 
-        /* Left OSD Sinopsis Hero Panel (Ancho ajustado al 60%: 410px para dar espacio amplio a la derecha) */
+        /* Left OSD Sinopsis Panel (Ancho al 60%: 410px) */
         .osd-left-panel {
             position: fixed;
             top: 30px;
@@ -191,7 +191,7 @@
             text-shadow: 0 2px 6px rgba(0,0,0,0.9);
         }
         
-        /* Contenedor de Tarjetas con Padding Amplio para que el Borde Rojo NUNCA se recorte */
+        /* Contenedor de Tarjetas */
         .row-cards {
             display: flex;
             gap: 16px;
@@ -205,7 +205,7 @@
             display: none;
         }
 
-        /* Netflix Style Vertical Card (Póster compacto 95px x 140px con espacio para borde rojo activo) */
+        /* Netflix Style Vertical Card */
         .netflix-card {
             flex: 0 0 95px;
             height: 140px;
@@ -264,6 +264,7 @@
             justify-content: center;
             align-items: center;
             gap: 20px;
+            transition: opacity 0.4s ease;
         }
         .spinner {
             width: 60px;
@@ -296,10 +297,10 @@
     <!-- YouTube Top UI Mask -->
     <div class="top-yt-mask"></div>
 
-    <!-- Hero Left Side Vignette Overlay (Se esconde junto con la sinopsis) -->
+    <!-- Hero Left Side Vignette Overlay -->
     <div id="hero-vignette" class="hero-vignette"></div>
 
-    <!-- Fullscreen Hero Image (Muestra la foto en HD durante la navegación fluida) -->
+    <!-- Fullscreen Hero Image -->
     <img id="hero-bg-img" class="" src="" alt="Hero Image">
 
     <!-- YouTube Player Container -->
@@ -309,9 +310,9 @@
 
     <!-- Left OSD Sinopsis Panel -->
     <div id="osd-left" class="osd-left-panel">
-        <div id="movie-subtitle" class="movie-subtitle">PELÍCULA • 2024</div>
-        <div id="movie-title" class="movie-title">CARGANDO...</div>
-        <div id="movie-overview" class="movie-overview">Cargando sinopsis en español latino...</div>
+        <div id="movie-subtitle" class="movie-subtitle">...</div>
+        <div id="movie-title" class="movie-title">...</div>
+        <div id="movie-overview" class="movie-overview">...</div>
     </div>
 
     <!-- Netflix Multi-Row Bottom Container -->
@@ -330,6 +331,7 @@
         let hideRowsTimer = null;
         let hideSinopsisTimer = null;
         let isFullscreenActive = false;
+        let isPausedManually = false;
         let currentVideoId = null;
 
         const tag = document.createElement('script');
@@ -385,6 +387,15 @@
                 initPlayer();
             } else {
                 updateSelection(0, 0, true);
+                dismissLoader();
+            }
+        }
+
+        function dismissLoader() {
+            const loader = document.getElementById('loader');
+            if (loader) {
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 400);
             }
         }
 
@@ -445,16 +456,19 @@
                 activeCard.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
             }
 
-            // Desplazar contenedor de filas verticalmente (ajustado a 180px para mostrar solo la vista previa de la fila siguiente)
+            // Desplazar contenedor de filas dinámicamente según la posición real de la fila
             const wrapper = document.getElementById('rows-wrapper');
-            wrapper.style.transform = `translateY(-${currentRowIndex * 180}px)`;
+            const targetRowDiv = document.getElementById(`row-${currentRowIndex}`);
+            if (targetRowDiv) {
+                wrapper.style.transform = `translateY(-${targetRowDiv.offsetTop}px)`;
+            }
 
-            // Actualizar sinopsis e información en panel izquierdo
+            // Actualizar información en panel izquierdo inmediatamente
             document.getElementById('movie-title').innerText = item.title;
             document.getElementById('movie-subtitle').innerText = item.subtitle || 'PELÍCULA';
             document.getElementById('movie-overview').innerText = item.overview && item.overview.trim() ? item.overview : '';
 
-            // Actualizar Foto HD de fondo mientras navega
+            // Actualizar Foto HD de fondo
             const heroImg = document.getElementById('hero-bg-img');
             const heroSrc = item.backdrop_url || item.poster_url || '';
             if (heroSrc) {
@@ -472,14 +486,17 @@
                 }
             }
 
-            resetStaggeredFullscreenTimers();
+            if (!isPausedManually) {
+                resetStaggeredFullscreenTimers();
+            }
         }
 
         function onCardClicked(rIdx, cIdx) {
+            isPausedManually = false;
             updateSelection(rIdx, cIdx, true);
         }
 
-        function wakeUI() {
+        function wakeUI(keepPaused = false) {
             isFullscreenActive = false;
             clearTimeout(hideRowsTimer);
             clearTimeout(hideSinopsisTimer);
@@ -489,37 +506,40 @@
             document.getElementById('osd-left').classList.remove('fullscreen-active');
             document.getElementById('netflix-rows').classList.remove('fullscreen-active');
 
-            if (player && isPlayerReady) {
-                player.pauseVideo();
+            if (!keepPaused && !isPausedManually) {
+                resetStaggeredFullscreenTimers();
             }
-
-            resetStaggeredFullscreenTimers();
         }
 
         function resetStaggeredFullscreenTimers() {
             clearTimeout(hideRowsTimer);
             clearTimeout(hideSinopsisTimer);
 
-            // 1. A los 3.5 segundos se esconde el menú de tarjetas de abajo primero
+            if (isPausedManually) return;
+
+            // 1. A los 3.5 segundos se esconde el menú de tarjetas de abajo
             hideRowsTimer = setTimeout(() => {
-                document.getElementById('netflix-rows').classList.add('fullscreen-active');
+                if (!isPausedManually) {
+                    document.getElementById('netflix-rows').classList.add('fullscreen-active');
+                }
             }, 3500);
 
-            // 2. A los 5.5 segundos (2s después) se esconde la foto HD de fondo, la sinopsis y el degradado para dar paso al vídeo
+            // 2. A los 5.5 segundos (2s después) se desvanece la foto HD, la sinopsis y la sombra para mostrar el tráiler
             hideSinopsisTimer = setTimeout(() => {
-                document.getElementById('hero-bg-img').classList.add('fullscreen-active');
-                document.getElementById('osd-left').classList.add('fullscreen-active');
-                document.getElementById('hero-vignette').classList.add('fullscreen-active');
-                isFullscreenActive = true;
+                if (!isPausedManually) {
+                    document.getElementById('hero-bg-img').classList.add('fullscreen-active');
+                    document.getElementById('osd-left').classList.add('fullscreen-active');
+                    document.getElementById('hero-vignette').classList.add('fullscreen-active');
+                    isFullscreenActive = true;
 
-                if (player && isPlayerReady) {
-                    player.playVideo();
+                    if (player && isPlayerReady) {
+                        player.playVideo();
+                    }
                 }
             }, 5500);
         }
 
         function initPlayer() {
-            document.getElementById('loader').style.display = 'none';
             const firstItem = categories[0]?.items[0] || { youtube_id: '0I7Q1WtTf_c' };
             currentVideoId = firstItem.youtube_id || '0I7Q1WtTf_c';
             const appOrigin = window.location.origin && window.location.origin !== 'null' && window.location.origin !== 'file://' ? window.location.origin : 'https://www.youtube-nocookie.com';
@@ -547,9 +567,11 @@
                     'onReady': () => {
                         isPlayerReady = true;
                         updateSelection(0, 0, true);
+                        dismissLoader();
                     },
                     'onStateChange': (e) => {
                         if (e.data === YT.PlayerState.ENDED) {
+                            isPausedManually = false;
                             updateSelection(currentRowIndex, currentCardIndex + 1, true);
                         }
                     },
@@ -571,23 +593,29 @@
             if (!player || !isPlayerReady) return;
             const curr = player.getCurrentTime();
             player.seekTo(curr + seconds, true);
-            wakeUI();
+            wakeUI(isPausedManually);
         }
 
         function togglePlayPause() {
             if (!player || !isPlayerReady) return;
             const state = player.getPlayerState();
             if (state === YT.PlayerState.PLAYING) {
+                isPausedManually = true;
+                clearTimeout(hideRowsTimer);
+                clearTimeout(hideSinopsisTimer);
                 player.pauseVideo();
+                wakeUI(true);
             } else {
+                isPausedManually = false;
                 player.playVideo();
+                wakeUI(false);
             }
-            wakeUI();
         }
 
-        // Control Remoto D-Pad
+        // Control Remoto D-Pad & Teclas Multimedia
         document.addEventListener('keydown', (e) => {
             if (isFullscreenActive) {
+                isPausedManually = false;
                 wakeUI();
                 return;
             }
@@ -595,37 +623,51 @@
             switch(e.keyCode) {
                 case 38: // Arriba
                 case 19:
+                    isPausedManually = false;
                     updateSelection(currentRowIndex - 1, currentCardIndex);
                     break;
                 case 40: // Abajo
                 case 20:
+                    isPausedManually = false;
                     updateSelection(currentRowIndex + 1, currentCardIndex);
                     break;
                 case 37: // Izquierda
                 case 21:
+                    isPausedManually = false;
                     updateSelection(currentRowIndex, currentCardIndex - 1);
                     break;
                 case 39: // Derecha
                 case 22:
+                    isPausedManually = false;
                     updateSelection(currentRowIndex, currentCardIndex + 1);
                     break;
                 case 13: // Enter / OK
                 case 23:
                 case 32:
-                case 85:
+                case 85: // Play/Pause Media
+                case 179:
                     togglePlayPause();
+                    break;
+                case 228: // Fast Forward
+                    seekBy(10);
+                    break;
+                case 227: // Rewind
+                    seekBy(-10);
                     break;
                 case 27: // ESC / BACK
                 case 4:
+                    if (isPausedManually) {
+                        isPausedManually = false;
+                        player.playVideo();
+                    }
                     document.getElementById('netflix-rows').classList.add('fullscreen-active');
                     document.getElementById('hero-bg-img').classList.add('fullscreen-active');
                     document.getElementById('osd-left').classList.add('fullscreen-active');
                     document.getElementById('hero-vignette').classList.add('fullscreen-active');
                     isFullscreenActive = true;
-                    if (player && isPlayerReady) player.playVideo();
                     break;
                 default:
-                    wakeUI();
+                    if (!isPausedManually) wakeUI();
                     break;
             }
         });
