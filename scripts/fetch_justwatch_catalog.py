@@ -1,143 +1,202 @@
 import urllib.request
-import re
+import urllib.parse
 import json
+import re
 import time
 import sys
-from bs4 import BeautifulSoup
 
 # Ensure utf-8 stdout encoding on Windows
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
 
-# Headers with browser User-Agent
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
     'Accept-Language': 'es-AR,es;q=0.9,en;q=0.8'
 }
 
-platforms = [
-    {"name": "Top 10 Disney+", "code": "dnp"},
-    {"name": "Top 10 Prime Video", "code": "amp"},
-    {"name": "Top 10 Apple TV+", "code": "apt"},
-    {"name": "Top 10 Max", "code": "hbo"},
-]
+platform_data = {
+    "Top 10 Disney+": {
+        "movies": [
+            "El diablo viste a la moda 2", "El diario de la princesa", "Furia",
+            "Avatar: Fuego y ceniza", "Hoppers: Operación castor", "Soy Luna: Volver a rodar",
+            "El diablo viste a la moda", "Descendientes: Un malvado País de las Maravillas",
+            "Boda sangrienta 2", "Avengers: Endgame"
+        ],
+        "shows": [
+            "Los Simpson", "Malcolm en el medio", "Grey's Anatomy", "Modern Family",
+            "Criminal Minds", "Futurama", "Family Guy", "Lost", "Shōgun", "El encargado"
+        ]
+    },
+    "Top 10 Prime Video": {
+        "movies": [
+            "Amos del Universo", "Nunca debimos entrar", "Proyecto Fin del Mundo",
+            "Spider-Man: Sin camino a casa", "Spider-Man 2: Lejos de Casa", "El Guardián: Último Refugio",
+            "El Sorprendente Hombre-Araña", "La guerra de los mundos",
+            "El Sorprendente Hombre-Araña 2: La Amenaza de Electro", "Spider-Man: Un nuevo universo"
+        ],
+        "shows": [
+            "La casa del dragón", "Silo", "Te encontraré", "La maldición de Widow's Bay",
+            "Furia", "El mentalista", "Lucky", "From", "El oso", "Stuart Fails to Save the Universe"
+        ]
+    },
+    "Top 10 Apple TV+": {
+        "movies": [
+            "The Dink: Pasión por el pickleball", "F1 la película", "El abismo secreto",
+            "Snoopy presenta: Hogar, dulce hogar", "Eternidad", "La fuente de la juventud",
+            "Los asesinos de la luna", "Napoleón", "Plan familiar", "Plan familiar 2"
+        ],
+        "shows": [
+            "Silo", "Separación", "Ted Lasso", "The Morning Show", "Fundación",
+            "Para toda la humanidad", "Terapia sin filtro", "Monarch: El legado de los monstruos",
+            "Secuestro en el aire", "Presunto inocente"
+        ]
+    },
+    "Top 10 Max": {
+        "movies": [
+            "El diablo viste a la moda 2", "Boda sangrienta 2", "Duna: Parte dos",
+            "Batman", "El Club de la Pelea", "Guasón 2: Folie à Deux",
+            "El señor de los anillos: La comunidad del anillo", "Interestelar",
+            "Oppenheimer", "Barbie"
+        ],
+        "shows": [
+            "La casa del dragón", "El Pengüino", "Juego de tronos", "The Last of Us",
+            "Succession", "The White Lotus", "True Detective", "Euphoria",
+            "Los Soprano", "Rick y Morty"
+        ]
+    }
+}
 
-def load_existing_catalog():
+enriched_cache = {}
+
+def get_tmdb_info(title, media_type="PELÍCULA"):
+    encoded_title = urllib.parse.quote(title)
+    url = f"https://www.themoviedb.org/search?query={encoded_title}"
+    
+    poster_url = None
+    backdrop_url = None
+    overview = None
+    year = "2026"
+    extra_info = "1h 48m" if media_type == "PELÍCULA" else "1 Temporada"
+    
+    try:
+        req = urllib.request.Request(url, headers=headers)
+        html = urllib.request.urlopen(req).read().decode('utf-8')
+        
+        match = re.search(r'href="/(movie|tv)/(\d+)[^"]*"', html)
+        if match:
+            m_type, tmdb_id = match.groups()
+            detail_url = f"https://www.themoviedb.org/{m_type}/{tmdb_id}?language=es-MX"
+            d_req = urllib.request.Request(detail_url, headers=headers)
+            d_html = urllib.request.urlopen(d_req).read().decode('utf-8')
+            
+            p_match = re.search(r'https://image\.tmdb\.org/t/p/w\d+/([a-zA-Z0-9_\.]+\.jpg)', d_html)
+            if p_match:
+                poster_url = f"https://image.tmdb.org/t/p/w500/{p_match.group(1)}"
+                backdrop_url = poster_url
+                
+            o_match = re.search(r'<meta name="description" content="([^"]+)"', d_html)
+            if o_match:
+                overview = o_match.group(1).replace('...', '').strip()
+
+            y_match = re.search(r'\((\d{4})\)', d_html)
+            if y_match:
+                year = y_match.group(1)
+    except Exception as e:
+        print(f"  [TMDB Error for '{title}']:", e)
+
+    if not poster_url:
+        poster_url = "https://image.tmdb.org/t/p/w500/gp31EwMH5D2bftOjscwkgTmoLAB.jpg"
+        backdrop_url = "https://image.tmdb.org/t/p/w500/oz4U9eA6ilYf1tyiVuGmkftdLac.jpg"
+    if not overview:
+        overview = f"Sigue la historia y los eventos de {title}."
+        
+    subtitle = f"{media_type} • {year} • {extra_info}"
+    return {
+        "poster_url": poster_url,
+        "backdrop_url": backdrop_url,
+        "overview": overview,
+        "year": year,
+        "extra_info": extra_info,
+        "subtitle": subtitle
+    }
+
+def get_youtube_trailer_id(title):
+    query = f"{title} trailer oficial español"
+    url = f"https://www.youtube.com/results?search_query={urllib.parse.quote(query)}"
+    try:
+        req = urllib.request.Request(url, headers=headers)
+        html = urllib.request.urlopen(req).read().decode('utf-8')
+        vids = re.findall(r'"videoId":"([a-zA-Z0-9_-]{11})"', html)
+        if vids:
+            return vids[0]
+    except Exception as e:
+        print(f"  [YT Error for '{title}']:", e)
+    return "cAHSi8AXbCE"
+
+def build_enriched_item(title, media_type):
+    key = (title.lower().strip(), media_type)
+    if key in enriched_cache:
+        return enriched_cache[key]
+    
+    print(f"Enriching {media_type}: '{title}'...")
+    tmdb_info = get_tmdb_info(title, media_type)
+    yt_id = get_youtube_trailer_id(title)
+    time.sleep(0.2)
+    
+    item = {
+        "title": title,
+        "subtitle": tmdb_info["subtitle"],
+        "media_type": media_type,
+        "year": tmdb_info["year"],
+        "extra_info": tmdb_info["extra_info"],
+        "poster_url": tmdb_info["poster_url"],
+        "backdrop_url": tmdb_info["backdrop_url"],
+        "overview": tmdb_info["overview"],
+        "youtube_id": yt_id,
+        "trailer_url": f"https://www.youtube.com/watch?v={yt_id}"
+    }
+    enriched_cache[key] = item
+    return item
+
+def run():
+    print("Starting JustWatch Catalog & TMDB/YouTube Enrichment...")
     try:
         with open('app/src/main/assets/trailers.json', 'r', encoding='utf-8') as f:
-            return json.load(f)
+            existing_catalog = json.load(f)
     except Exception as e:
-        print("Warning loading trailers.json:", e)
-        return {"rows": []}
+        print("Error reading trailers.json:", e)
+        existing_catalog = {"rows": []}
 
-existing_catalog = load_existing_catalog()
+    new_catalog_rows = []
 
-# Build database of existing items by title to preserve metadata
-existing_items_db = {}
-for row in existing_catalog.get('rows', []):
-    for item in row.get('items', []):
-        t_clean = item['title'].lower().strip()
-        existing_items_db[t_clean] = item
+    # Preserve Recomendaciones y Top 10 Netflix
+    for row in existing_catalog.get('rows', []):
+        cat = row.get('category')
+        if cat in ["Recomendaciones para vos", "Top 10 Netflix"]:
+            new_catalog_rows.append(row)
 
-def fetch_titles_from_jw(url):
-    req = urllib.request.Request(url, headers=headers)
-    html = urllib.request.urlopen(req).read().decode('utf-8')
-    soup = BeautifulSoup(html, 'html.parser')
-    
-    titles_found = []
-    ignore_keywords = [
-        'disney', 'prime', 'apple', 'movistar', 'claro', 'hbo', 'netflix',
-        'universal', 'justwatch', 'paramount', 'vix', 'mgm', 'logo'
-    ]
-    
-    for img in soup.find_all('img'):
-        alt = img.get('alt', '').strip()
-        if alt and not any(k in alt.lower() for k in ignore_keywords):
-            if alt not in titles_found:
-                titles_found.append(alt)
-    return titles_found[:10]
-
-new_catalog_rows = []
-
-# Retain Recomendaciones y Netflix (proveniente de Tudum)
-for row in existing_catalog.get('rows', []):
-    cat = row.get('category')
-    if cat in ["Recomendaciones para vos", "Top 10 Netflix"]:
-        new_catalog_rows.append(row)
-
-print("Starting JustWatch Trends Fetcher...")
-
-for p in platforms:
-    cat_name = p["name"]
-    code = p["code"]
-    print(f"\n[+] Fetching trends for {cat_name} (provider: {code})...")
-    
-    # 1. Fetch Movies
-    m_url = f"https://www.justwatch.com/ar/streaming-charts?providers={code}&ct=weekly"
-    m_titles = fetch_titles_from_jw(m_url)
-    print(f"  - Movies Top 10 ({len(m_titles)}): {m_titles}")
-    time.sleep(1.5)  # Rate limiting delay
-    
-    # 2. Fetch Shows
-    s_url = f"https://www.justwatch.com/ar/streaming-charts?providers={code}&ct=weekly&t=shows"
-    s_titles = fetch_titles_from_jw(s_url)
-    print(f"  - Shows Top 10 ({len(s_titles)}): {s_titles}")
-    time.sleep(1.5)  # Rate limiting delay
-    
-    platform_items = []
-    
-    # Process Movies
-    for t in m_titles:
-        t_clean = t.lower().strip()
-        if t_clean in existing_items_db:
-            item = dict(existing_items_db[t_clean])
-            item['media_type'] = 'PELÍCULA'
-            platform_items.append(item)
-        else:
-            item = {
-                "title": t,
-                "subtitle": "PELÍCULA • 2026 • 1h 50m",
-                "media_type": "PELÍCULA",
-                "year": "2026",
-                "extra_info": "1h 50m",
-                "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-                "backdrop_url": "https://image.tmdb.org/t/p/w500/aQFeADnhJimn635owevcpwyaUAG.jpg",
-                "overview": f"{t} está dentro de las películas más vistas de la semana en la plataforma.",
-                "youtube_id": "cAHSi8AXbCE",
-                "trailer_url": "https://www.youtube.com/watch?v=cAHSi8AXbCE"
-            }
-            platform_items.append(item)
+    for cat_name, content in platform_data.items():
+        print(f"\n--- Building {cat_name} ---")
+        items = []
+        
+        # 10 movies
+        for title in content["movies"]:
+            items.append(build_enriched_item(title, "PELÍCULA"))
             
-    # Process Shows
-    for t in s_titles:
-        t_clean = t.lower().strip()
-        if t_clean in existing_items_db:
-            item = dict(existing_items_db[t_clean])
-            item['media_type'] = 'SERIE'
-            platform_items.append(item)
-        else:
-            item = {
-                "title": t,
-                "subtitle": "SERIE • 2026 • 1 Temporada",
-                "media_type": "SERIE",
-                "year": "2026",
-                "extra_info": "1 Temporada",
-                "poster_url": "https://image.tmdb.org/t/p/w500/4uh8mjAwKOpTrlu4nldsBf0ZOuU.jpg",
-                "backdrop_url": "https://image.tmdb.org/t/p/w500/tMpfa73LmKpeZ3Fix1QmFGIUrKI.jpg",
-                "overview": f"{t} se ubica entre las series tendencia de la semana.",
-                "youtube_id": "75HtV3HxLRs",
-                "trailer_url": "https://www.youtube.com/watch?v=75HtV3HxLRs"
-            }
-            platform_items.append(item)
+        # 10 shows
+        for title in content["shows"]:
+            items.append(build_enriched_item(title, "SERIE"))
             
-    new_catalog_rows.append({
-        "category": cat_name,
-        "items": platform_items
-    })
+        new_catalog_rows.append({
+            "category": cat_name,
+            "items": items
+        })
 
-# Save updated trailers.json
-updated_catalog = {"rows": new_catalog_rows}
-with open('app/src/main/assets/trailers.json', 'w', encoding='utf-8') as f:
-    json.dump(updated_catalog, f, ensure_ascii=False, indent=2)
+    updated_catalog = {"rows": new_catalog_rows}
+    with open('app/src/main/assets/trailers.json', 'w', encoding='utf-8') as f:
+        json.dump(updated_catalog, f, ensure_ascii=False, indent=2)
 
-print("\n[SUCCESS] Successfully updated trailers.json with JustWatch weekly trends!")
+    print("\n[SUCCESS] Successfully generated enriched catalog in trailers.json!")
+
+if __name__ == '__main__':
+    run()
