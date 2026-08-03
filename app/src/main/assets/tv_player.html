@@ -44,13 +44,13 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 120px;
+            height: 110px;
             z-index: 8;
             background: linear-gradient(180deg, #000000 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0) 100%);
             pointer-events: none;
         }
 
-        /* Hero Left Side Vignette Overlay (Ampliado de Izquierda a Derecha) */
+        /* Hero Left Side Vignette Overlay (Se esconde junto con la sinopsis) */
         .hero-vignette {
             position: absolute;
             top: 0;
@@ -60,20 +60,24 @@
             z-index: 5;
             background: linear-gradient(90deg, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0.4) 75%, rgba(0,0,0,0) 100%),
                         linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.95) 100%);
+            transition: opacity 0.5s ease;
+            opacity: 1;
             pointer-events: none;
         }
+        .hero-vignette.fullscreen-active {
+            opacity: 0;
+        }
 
-        /* Left OSD Sinopsis Hero Panel (Posicionado más arriba para no chocar con las tarjetas) */
+        /* Left OSD Sinopsis Hero Panel (Ubicado bien arriba para dar espacio limpio) */
         .osd-left-panel {
             position: absolute;
-            top: 40px;
+            top: 25px;
             left: 50px;
             width: 650px;
-            max-height: 260px;
             z-index: 15;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 6px;
             transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
             transform: translateX(0);
             opacity: 1;
@@ -85,7 +89,7 @@
         }
 
         .movie-subtitle {
-            font-size: 16px;
+            font-size: 15px;
             color: #e50914;
             font-weight: 800;
             letter-spacing: 1.5px;
@@ -96,7 +100,7 @@
             text-shadow: 0 2px 8px rgba(0,0,0,0.95);
         }
         .movie-title {
-            font-size: 42px;
+            font-size: 36px;
             font-weight: 900;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -105,29 +109,30 @@
             color: #ffffff;
         }
         .movie-overview {
-            font-size: 15px;
-            line-height: 1.45;
+            font-size: 14px;
+            line-height: 1.4;
             color: rgba(255, 255, 255, 0.92);
             font-weight: 400;
             text-shadow: 0 2px 8px rgba(0,0,0,0.95);
             display: -webkit-box;
-            -webkit-line-clamp: 4;
+            -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
             margin-top: 2px;
+            max-width: 600px;
         }
 
-        /* Netflix Multi-Row Bottom Container */
+        /* Netflix Multi-Row Bottom Container (Compacto para dar espacio a la sinopsis) */
         .netflix-rows-panel {
             position: absolute;
-            bottom: 20px;
+            bottom: 15px;
             left: 0;
             width: 100%;
-            height: 380px;
+            height: 235px;
             z-index: 20;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 10px;
             overflow-y: hidden;
             transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
             transform: translateY(0);
@@ -142,7 +147,7 @@
         .rows-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 22px;
+            gap: 16px;
             transition: transform 0.35s ease;
             padding: 0 50px;
         }
@@ -150,7 +155,7 @@
         .netflix-row {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
         }
         .row-header {
             display: flex;
@@ -158,7 +163,7 @@
             justify-content: space-between;
         }
         .row-title {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 800;
             color: #ffffff;
             letter-spacing: 0.5px;
@@ -166,40 +171,40 @@
         }
         .row-cards {
             display: flex;
-            gap: 14px;
+            gap: 12px;
             overflow-x: auto;
             overflow-y: hidden;
             scroll-behavior: smooth;
-            padding: 6px 0;
+            padding: 4px 0;
         }
         .row-cards::-webkit-scrollbar {
             display: none;
         }
 
-        /* Netflix Style Vertical Card (Posters 2:3 ratio) */
+        /* Netflix Style Vertical Card (Póster compacto 95px x 140px) */
         .netflix-card {
-            flex: 0 0 120px;
-            height: 180px;
-            border-radius: 8px;
+            flex: 0 0 95px;
+            height: 140px;
+            border-radius: 7px;
             overflow: hidden;
             position: relative;
             background: #141414;
             border: 2px solid rgba(255, 255, 255, 0.12);
             transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
             cursor: pointer;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.8);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.8);
         }
         .netflix-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.8;
+            opacity: 0.85;
             transition: opacity 0.25s ease, transform 0.25s ease;
         }
         .netflix-card.active {
             border-color: #e50914;
             transform: scale(1.12);
-            box-shadow: 0 0 25px rgba(229, 9, 20, 0.85);
+            box-shadow: 0 0 22px rgba(229, 9, 20, 0.85);
             z-index: 5;
         }
         .netflix-card.active img {
@@ -212,8 +217,8 @@
             left: 0;
             width: 100%;
             background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.95) 100%);
-            padding: 6px 8px;
-            font-size: 11px;
+            padding: 4px 6px;
+            font-size: 10px;
             font-weight: 700;
             color: #ffffff;
             white-space: nowrap;
@@ -293,8 +298,8 @@
     <!-- YouTube Top UI Mask -->
     <div class="top-yt-mask"></div>
 
-    <!-- Hero Vignette Background Overlay (Ampliada a la izquierda) -->
-    <div class="hero-vignette"></div>
+    <!-- Hero Left Side Vignette Overlay (Se oculta en pantalla completa) -->
+    <div id="hero-vignette" class="hero-vignette"></div>
 
     <!-- YouTube Player Container -->
     <div id="player-container">
@@ -326,7 +331,8 @@
         let currentCardIndex = 0;
         let player = null;
         let isPlayerReady = false;
-        let autoFullscreenTimer = null;
+        let hideRowsTimer = null;
+        let hideSinopsisTimer = null;
         let isFullscreenActive = false;
         let currentVideoId = null;
 
@@ -445,11 +451,11 @@
                 activeCard.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
             }
 
-            // Desplazar contenedor de filas verticalmente
+            // Desplazar contenedor de filas verticalmente (ajustado a 170px para mostrar solo la vista previa de la fila siguiente)
             const wrapper = document.getElementById('rows-wrapper');
-            wrapper.style.transform = `translateY(-${currentRowIndex * 210}px)`;
+            wrapper.style.transform = `translateY(-${currentRowIndex * 170}px)`;
 
-            // Actualizar sinopsis e información en panel izquierdo (sin leyendas de error)
+            // Actualizar sinopsis e información en panel izquierdo
             document.getElementById('movie-title').innerText = item.title;
             document.getElementById('movie-subtitle').innerText = item.subtitle || 'PELÍCULA';
             document.getElementById('movie-overview').innerText = item.overview && item.overview.trim() ? item.overview : '';
@@ -464,7 +470,7 @@
                 }
             }
 
-            resetAutoFullscreenTimer();
+            resetStaggeredFullscreenTimers();
         }
 
         function onCardClicked(rIdx, cIdx) {
@@ -473,22 +479,31 @@
 
         function wakeUI() {
             isFullscreenActive = false;
+            clearTimeout(hideRowsTimer);
+            clearTimeout(hideSinopsisTimer);
+
+            document.getElementById('hero-vignette').classList.remove('fullscreen-active');
             document.getElementById('osd-left').classList.remove('fullscreen-active');
             document.getElementById('netflix-rows').classList.remove('fullscreen-active');
-            resetAutoFullscreenTimer();
+
+            resetStaggeredFullscreenTimers();
         }
 
-        function enterFullscreenTrailer() {
-            isFullscreenActive = true;
-            document.getElementById('osd-left').classList.add('fullscreen-active');
-            document.getElementById('netflix-rows').classList.add('fullscreen-active');
-        }
+        function resetStaggeredFullscreenTimers() {
+            clearTimeout(hideRowsTimer);
+            clearTimeout(hideSinopsisTimer);
 
-        function resetAutoFullscreenTimer() {
-            clearTimeout(autoFullscreenTimer);
-            autoFullscreenTimer = setTimeout(() => {
-                enterFullscreenTrailer();
+            // 1. A los 3.5 segundos se esconde el menú de tarjetas de abajo primero
+            hideRowsTimer = setTimeout(() => {
+                document.getElementById('netflix-rows').classList.add('fullscreen-active');
             }, 3500);
+
+            // 2. A los 5.5 segundos (2s después) se esconden la sinopsis y el degradado juntos
+            hideSinopsisTimer = setTimeout(() => {
+                document.getElementById('osd-left').classList.add('fullscreen-active');
+                document.getElementById('hero-vignette').classList.add('fullscreen-active');
+                isFullscreenActive = true;
+            }, 5500);
         }
 
         function initPlayer() {
@@ -600,7 +615,10 @@
                     break;
                 case 27: // ESC / BACK
                 case 4:
-                    enterFullscreenTrailer();
+                    document.getElementById('netflix-rows').classList.add('fullscreen-active');
+                    document.getElementById('osd-left').classList.add('fullscreen-active');
+                    document.getElementById('hero-vignette').classList.add('fullscreen-active');
+                    isFullscreenActive = true;
                     break;
                 default:
                     wakeUI();
