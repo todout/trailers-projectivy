@@ -42,7 +42,7 @@
             pointer-events: none;
         }
 
-        /* Fullscreen Backdrop Hero Image */
+        /* Fullscreen Hero Image (Foto HD durante navegación rápida) */
         #hero-bg-img {
             position: fixed;
             top: 0;
@@ -51,10 +51,10 @@
             height: 100vh;
             object-fit: cover;
             z-index: 3;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.4s ease;
             opacity: 1;
         }
-        #hero-bg-img.fullscreen-active {
+        #hero-bg-img.hidden-hero {
             opacity: 0;
             pointer-events: none;
         }
@@ -191,7 +191,6 @@
             text-shadow: 0 2px 6px rgba(0,0,0,0.9);
         }
         
-        /* Contenedor de Tarjetas */
         .row-cards {
             display: flex;
             gap: 16px;
@@ -300,7 +299,7 @@
     <!-- Hero Left Side Vignette Overlay -->
     <div id="hero-vignette" class="hero-vignette"></div>
 
-    <!-- Fullscreen Hero Image -->
+    <!-- Fullscreen Hero Image (Navegación súper fluida) -->
     <img id="hero-bg-img" class="" src="" alt="Hero Image">
 
     <!-- YouTube Player Container -->
@@ -328,10 +327,12 @@
         let currentCardIndex = 0;
         let player = null;
         let isPlayerReady = false;
+        let preloadTimer = null;
         let hideRowsTimer = null;
         let hideSinopsisTimer = null;
         let isFullscreenActive = false;
         let isPausedManually = false;
+        let isVideoLoadedAndPlaying = false;
         let currentVideoId = null;
 
         const tag = document.createElement('script');
@@ -442,7 +443,6 @@
             if (cIdx < 0) cIdx = targetRow.items.length - 1;
             if (cIdx >= targetRow.items.length) cIdx = 0;
 
-            // Desmarcar tarjeta anterior
             const prevCard = document.getElementById(`card-${currentRowIndex}-${currentCardIndex}`);
             if (prevCard) prevCard.classList.remove('active');
 
@@ -456,38 +456,44 @@
                 activeCard.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
             }
 
-            // Desplazar contenedor de filas dinámicamente según la posición real de la fila
             const wrapper = document.getElementById('rows-wrapper');
             const targetRowDiv = document.getElementById(`row-${currentRowIndex}`);
             if (targetRowDiv) {
                 wrapper.style.transform = `translateY(-${targetRowDiv.offsetTop}px)`;
             }
 
-            // Actualizar información en panel izquierdo inmediatamente
             document.getElementById('movie-title').innerText = item.title;
             document.getElementById('movie-subtitle').innerText = item.subtitle || 'PELÍCULA';
             document.getElementById('movie-overview').innerText = item.overview && item.overview.trim() ? item.overview : '';
 
-            // Actualizar Foto HD de fondo
+            // Mostrar foto HD inmediatamente durante navegación rápida
             const heroImg = document.getElementById('hero-bg-img');
             const heroSrc = item.backdrop_url || item.poster_url || '';
             if (heroSrc) {
                 heroImg.src = heroSrc;
-                heroImg.style.display = 'block';
-            }
-
-            wakeUI();
-
-            // Precargar el tráiler en segundo plano silenciosamente
-            if (item.youtube_id && item.youtube_id !== currentVideoId) {
-                currentVideoId = item.youtube_id;
-                if (player && isPlayerReady) {
-                    player.cueVideoById(item.youtube_id);
+                if (!isPausedManually && !isVideoLoadedAndPlaying) {
+                    heroImg.classList.remove('hidden-hero');
                 }
             }
 
-            if (!isPausedManually) {
-                resetStaggeredFullscreenTimers();
+            isVideoLoadedAndPlaying = false;
+            wakeUI();
+
+            // Programar precarga al permanecer 1 segundo en la tarjeta
+            clearTimeout(preloadTimer);
+            preloadTimer = setTimeout(() => {
+                startPreloadingVideo(item.youtube_id);
+            }, 1000);
+        }
+
+        function startPreloadingVideo(videoId) {
+            if (player && isPlayerReady && videoId) {
+                if (currentVideoId !== videoId) {
+                    currentVideoId = videoId;
+                    player.loadVideoById({ videoId: videoId, startSeconds: 0 });
+                } else {
+                    player.playVideo();
+                }
             }
         }
 
@@ -501,7 +507,13 @@
             clearTimeout(hideRowsTimer);
             clearTimeout(hideSinopsisTimer);
 
-            document.getElementById('hero-bg-img').classList.remove('fullscreen-active');
+            // Si el video ya está pausado o reproduciéndose, NUNCA volver a mostrar la foto sobre el video
+            if (isPausedManually || isVideoLoadedAndPlaying) {
+                document.getElementById('hero-bg-img').classList.add('hidden-hero');
+            } else {
+                document.getElementById('hero-bg-img').classList.remove('hidden-hero');
+            }
+
             document.getElementById('hero-vignette').classList.remove('fullscreen-active');
             document.getElementById('osd-left').classList.remove('fullscreen-active');
             document.getElementById('netflix-rows').classList.remove('fullscreen-active');
@@ -517,24 +529,20 @@
 
             if (isPausedManually) return;
 
-            // 1. A los 3.5 segundos se esconde el menú de tarjetas de abajo
+            // 1. A los 3.5 segundos se esconde el carrusel de tarjetas de abajo
             hideRowsTimer = setTimeout(() => {
                 if (!isPausedManually) {
                     document.getElementById('netflix-rows').classList.add('fullscreen-active');
                 }
             }, 3500);
 
-            // 2. A los 5.5 segundos (2s después) se desvanece la foto HD, la sinopsis y la sombra para mostrar el tráiler
+            // 2. A los 5.5 segundos se oculta la foto HD, la sinopsis y el degradado para dejar el tráiler 100% fluido en pantalla completa
             hideSinopsisTimer = setTimeout(() => {
                 if (!isPausedManually) {
-                    document.getElementById('hero-bg-img').classList.add('fullscreen-active');
+                    document.getElementById('hero-bg-img').classList.add('hidden-hero');
                     document.getElementById('osd-left').classList.add('fullscreen-active');
                     document.getElementById('hero-vignette').classList.add('fullscreen-active');
                     isFullscreenActive = true;
-
-                    if (player && isPlayerReady) {
-                        player.playVideo();
-                    }
                 }
             }, 5500);
         }
@@ -570,7 +578,11 @@
                         dismissLoader();
                     },
                     'onStateChange': (e) => {
-                        if (e.data === YT.PlayerState.ENDED) {
+                        if (e.data === YT.PlayerState.PLAYING) {
+                            isVideoLoadedAndPlaying = true;
+                            // Cuando YouTube confirma que el video corre sin rueda de carga, desvanecemos la foto HD
+                            document.getElementById('hero-bg-img').classList.add('hidden-hero');
+                        } else if (e.data === YT.PlayerState.ENDED) {
                             isPausedManually = false;
                             updateSelection(currentRowIndex, currentCardIndex + 1, true);
                         }
@@ -601,6 +613,7 @@
             const state = player.getPlayerState();
             if (state === YT.PlayerState.PLAYING) {
                 isPausedManually = true;
+                clearTimeout(preloadTimer);
                 clearTimeout(hideRowsTimer);
                 clearTimeout(hideSinopsisTimer);
                 player.pauseVideo();
@@ -661,7 +674,7 @@
                         player.playVideo();
                     }
                     document.getElementById('netflix-rows').classList.add('fullscreen-active');
-                    document.getElementById('hero-bg-img').classList.add('fullscreen-active');
+                    document.getElementById('hero-bg-img').classList.add('hidden-hero');
                     document.getElementById('osd-left').classList.add('fullscreen-active');
                     document.getElementById('hero-vignette').classList.add('fullscreen-active');
                     isFullscreenActive = true;
