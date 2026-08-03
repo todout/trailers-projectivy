@@ -135,12 +135,12 @@
         }
         .movie-overview {
             font-size: 13.5px;
-            line-height: 1.45;
+            line-height: 1.4;
             color: rgba(255, 255, 255, 0.92);
             font-weight: 400;
             text-shadow: 0 2px 8px rgba(0,0,0,0.95);
             display: -webkit-box;
-            -webkit-line-clamp: 5;
+            -webkit-line-clamp: 4;
             -webkit-box-orient: vertical;
             overflow: hidden;
             margin-top: 2px;
@@ -149,10 +149,10 @@
         /* Netflix Multi-Row Bottom Container */
         .netflix-rows-panel {
             position: fixed;
-            bottom: 35px;
+            bottom: 0;
             left: 0;
             width: 100vw;
-            height: 390px;
+            height: 31.5vh;
             z-index: 20;
             display: flex;
             flex-direction: column;
@@ -170,9 +170,9 @@
         .rows-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 1.8vh;
             transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
-            padding: 10px 50px 0 50px;
+            padding: 0.8vh 50px 0 50px;
             will-change: transform;
         }
 
@@ -188,7 +188,7 @@
             justify-content: space-between;
         }
         .row-title {
-            font-size: 18px;
+            font-size: 1.15rem;
             font-weight: 800;
             color: #ffffff;
             letter-spacing: 0.5px;
@@ -203,17 +203,17 @@
             overflow-x: auto;
             overflow-y: hidden;
             scroll-behavior: smooth;
-            padding: 14px 10px;
+            padding: 1.2vh 10px;
             margin: 0;
         }
         .row-cards::-webkit-scrollbar {
             display: none;
         }
 
-        /* Netflix Style Vertical Card (Póster uniforme 95px x 140px) */
+        /* Netflix Style Vertical Card */
         .netflix-card {
-            flex: 0 0 95px;
-            height: 140px;
+            flex: 0 0 10.5vh;
+            height: 15.5vh;
             border-radius: 8px;
             overflow: hidden;
             position: relative;
@@ -232,7 +232,7 @@
         }
         .netflix-card.active {
             border-color: #e50914;
-            transform: scale(1.14);
+            transform: scale(1.12);
             box-shadow: 0 0 25px rgba(229, 9, 20, 0.95);
             z-index: 10;
         }
@@ -521,7 +521,8 @@
             const wrapper = document.getElementById('rows-wrapper');
             const targetRowDiv = document.getElementById(`row-${currentRowIndex}`);
             if (targetRowDiv && wrapper) {
-                const targetY = Math.max(0, targetRowDiv.offsetTop - 10);
+                const wrapperPadding = Math.round(window.innerHeight * 0.008);
+                const targetY = Math.max(0, targetRowDiv.offsetTop - wrapperPadding);
                 wrapper.style.transform = `translateY(-${targetY}px)`;
             }
 
@@ -536,7 +537,7 @@
                     rowDiv.style.opacity = '1';
                     rowDiv.style.pointerEvents = 'auto';
                 } else if (idx === currentRowIndex + 1) {
-                    rowDiv.style.opacity = '0.75';
+                    rowDiv.style.opacity = '0.85';
                     rowDiv.style.pointerEvents = 'auto';
                 } else {
                     rowDiv.style.opacity = '0';
