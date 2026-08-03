@@ -168,6 +168,7 @@ def build_enriched_item(title, provider, media_type):
     
     item = {
         "title": title,
+        "provider": provider,
         "subtitle": tmdb_info["subtitle"],
         "media_type": media_type,
         "year": tmdb_info["year"],
