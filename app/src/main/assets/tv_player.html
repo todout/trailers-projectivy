@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tráileres Fondos Projectivy</title>
+    <link rel="preconnect" href="https://www.youtube-nocookie.com">
+    <link rel="preconnect" href="https://i.ytimg.com">
+    <link rel="preconnect" href="https://www.google.com">
     <style>
         * {
             box-sizing: border-box;
@@ -146,14 +149,13 @@
         /* Netflix Multi-Row Bottom Container */
         .netflix-rows-panel {
             position: fixed;
-            bottom: 10px;
+            bottom: 15px;
             left: 0;
             width: 100vw;
-            height: 230px;
+            height: 310px;
             z-index: 20;
             display: flex;
             flex-direction: column;
-            gap: 10px;
             overflow: hidden;
             transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
             transform: translateY(0);
@@ -168,15 +170,17 @@
         .rows-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 24px;
-            transition: transform 0.35s ease;
+            gap: 20px;
+            transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
             padding: 10px 50px 0 50px;
+            will-change: transform;
         }
 
         .netflix-row {
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 4px;
+            transition: opacity 0.35s ease;
         }
         .row-header {
             display: flex;
@@ -184,7 +188,7 @@
             justify-content: space-between;
         }
         .row-title {
-            font-size: 17px;
+            font-size: 18px;
             font-weight: 800;
             color: #ffffff;
             letter-spacing: 0.5px;
@@ -197,9 +201,9 @@
             display: flex;
             gap: 14px;
             overflow-x: auto;
-            overflow-y: visible;
+            overflow-y: hidden;
             scroll-behavior: smooth;
-            padding: 12px 10px;
+            padding: 14px 10px;
             margin: 0;
         }
         .row-cards::-webkit-scrollbar {
@@ -338,8 +342,11 @@
         let isVideoLoadedAndPlaying = false;
         let currentVideoId = null;
 
+        const preloadedBackdrops = {};
+        const preloadedPosters = {};
+
         const tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
+        tag.src = "https://www.youtube/iframe_api".startsWith("http") ? "https://www.youtube.com/iframe_api" : "https://www.youtube.com/iframe_api";
         const firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
@@ -350,6 +357,24 @@
         function setLoaderStatusText(text) {
             const el = document.getElementById('loader-status');
             if (el) el.innerText = text;
+        }
+
+        function preloadRowFirstItems() {
+            categories.forEach((cat, rIdx) => {
+                if (cat && cat.items && cat.items.length > 0) {
+                    const firstItem = cat.items[0];
+                    if (firstItem.backdrop_url) {
+                        const bg = new Image();
+                        bg.src = firstItem.backdrop_url;
+                        preloadedBackdrops[rIdx] = bg;
+                    }
+                    if (firstItem.poster_url) {
+                        const poster = new Image();
+                        poster.src = firstItem.poster_url;
+                        preloadedPosters[rIdx] = poster;
+                    }
+                }
+            });
         }
 
         async function fetchSubredditWallpapers() {
@@ -389,6 +414,9 @@
                 setLoaderStatusText("No se pudo cargar el catálogo.");
                 return;
             }
+
+            // Precargar fotos, sinopsis y datos del 1er item de cada fila inmediatamente al iniciar
+            preloadRowFirstItems();
 
             // Mensajes dinámicos durante la construcción
             const loadingSteps = [
@@ -476,13 +504,20 @@
             currentCardIndex = cIdx;
 
             const item = targetRow.items[currentCardIndex];
+            const cardsTrack = document.getElementById(`cards-track-${rIdx}`);
             const activeCard = document.getElementById(`card-${currentRowIndex}-${currentCardIndex}`);
             if (activeCard) {
                 activeCard.classList.add('active');
-                activeCard.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                if (cardsTrack) {
+                    const cardLeft = activeCard.offsetLeft;
+                    const cardWidth = activeCard.offsetWidth;
+                    const trackWidth = cardsTrack.offsetWidth;
+                    const targetScroll = cardLeft - (trackWidth / 2) + (cardWidth / 2);
+                    cardsTrack.scrollTo({ left: Math.max(0, targetScroll), behavior: 'smooth' });
+                }
             }
 
-            // Cálculo dinámico de desplazamiento vertical milimétrico
+            // Cálculo exacto de desplazamiento vertical para ubicar CADA fila activa en la MISMA posición exacta
             const wrapper = document.getElementById('rows-wrapper');
             const targetRowDiv = document.getElementById(`row-${currentRowIndex}`);
             if (targetRowDiv && wrapper) {
@@ -490,11 +525,31 @@
                 wrapper.style.transform = `translateY(-${targetY}px)`;
             }
 
+            // Control de opacidad para que las filas superiores desaparezcan limpiamente
+            categories.forEach((_, idx) => {
+                const rowDiv = document.getElementById(`row-${idx}`);
+                if (!rowDiv) return;
+                if (idx < currentRowIndex) {
+                    rowDiv.style.opacity = '0';
+                    rowDiv.style.pointerEvents = 'none';
+                } else if (idx === currentRowIndex) {
+                    rowDiv.style.opacity = '1';
+                    rowDiv.style.pointerEvents = 'auto';
+                } else if (idx === currentRowIndex + 1) {
+                    rowDiv.style.opacity = '0.75';
+                    rowDiv.style.pointerEvents = 'auto';
+                } else {
+                    rowDiv.style.opacity = '0';
+                    rowDiv.style.pointerEvents = 'none';
+                }
+            });
+
+            // Actualizar OSD Sinopsis inmediatamente desde memoria (sin lag)
             document.getElementById('movie-title').innerText = item.title;
             document.getElementById('movie-subtitle').innerText = item.subtitle || 'PELÍCULA';
             document.getElementById('movie-overview').innerText = item.overview && item.overview.trim() ? item.overview : '';
 
-            // Mostrar foto HD inmediatamente durante navegación rápida
+            // Mostrar foto HD inmediatamente durante navegación rápida (gracias a precarga)
             const heroImg = document.getElementById('hero-bg-img');
             const heroSrc = item.backdrop_url || item.poster_url || '';
             if (heroSrc) {
@@ -507,11 +562,12 @@
             isVideoLoadedAndPlaying = false;
             wakeUI();
 
-            // Programar precarga al permanecer 1 segundo en la tarjeta
+            // Carga de video rápida (500ms al cambiar a primer item de fila, 900ms para tarjetas intermedias)
             clearTimeout(preloadTimer);
+            const delay = (cIdx === 0) ? 500 : 900;
             preloadTimer = setTimeout(() => {
                 startPreloadingVideo(item.youtube_id);
-            }, 1000);
+            }, delay);
         }
 
         function startPreloadingVideo(videoId) {
@@ -658,22 +714,22 @@
             }
 
             switch(e.keyCode) {
-                case 38: // Arriba
+                case 38: // Arriba - Ir a la 1ra tarjeta de la fila superior
                 case 19:
                     isPausedManually = false;
-                    updateSelection(currentRowIndex - 1, currentCardIndex);
+                    updateSelection(currentRowIndex - 1, 0);
                     break;
-                case 40: // Abajo
+                case 40: // Abajo - Ir a la 1ra tarjeta de la fila inferior
                 case 20:
                     isPausedManually = false;
-                    updateSelection(currentRowIndex + 1, currentCardIndex);
+                    updateSelection(currentRowIndex + 1, 0);
                     break;
-                case 37: // Izquierda
+                case 37: // Izquierda - Moverse horizontalmente
                 case 21:
                     isPausedManually = false;
                     updateSelection(currentRowIndex, currentCardIndex - 1);
                     break;
-                case 39: // Derecha
+                case 39: // Derecha - Moverse horizontalmente
                 case 22:
                     isPausedManually = false;
                     updateSelection(currentRowIndex, currentCardIndex + 1);
