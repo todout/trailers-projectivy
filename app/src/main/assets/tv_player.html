@@ -384,7 +384,7 @@
             categories = [];
 
             try {
-                const cacheUrl = `https://raw.githubusercontent.com/todout/fondos-projectivy/master/trailers_cache.json?t=${Date.now()}`;
+                const cacheUrl = `https://raw.githubusercontent.com/todout/trailers-projectivy/main/app/src/main/assets/trailers.json?t=${Date.now()}`;
                 const remoteRes = await fetch(cacheUrl);
                 if (remoteRes.ok) {
                     const data = await remoteRes.json();
