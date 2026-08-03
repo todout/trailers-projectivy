@@ -20,12 +20,14 @@
             overflow: hidden;
             color: #fff;
         }
+        
+        /* YouTube Container Positioned to Hide Top Video Title */
         #player-container {
             position: absolute;
-            top: 0;
+            top: -65px;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: calc(100% + 130px);
             z-index: 1;
             background: #000;
         }
@@ -36,35 +38,53 @@
             pointer-events: none;
         }
         
-        /* OSD Left Panel Overlay */
-        .osd-overlay {
+        /* Top Mask to guarantee zero YouTube UI overlay */
+        .top-yt-mask {
             position: absolute;
             top: 0;
             left: 0;
-            width: calc(100% - 380px);
-            height: 100%;
-            z-index: 10;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 40px 50px;
-            background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%);
-            transition: opacity 0.35s ease-in-out;
-            opacity: 1;
+            width: 100%;
+            height: 110px;
+            z-index: 8;
+            background: linear-gradient(180deg, #000000 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0) 100%);
             pointer-events: none;
         }
-        .osd-overlay.hidden {
-            opacity: 0;
+
+        /* Hero Background Vignette Overlay */
+        .hero-vignette {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            background: linear-gradient(90deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.5) 45%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.4) 100%),
+                        linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.95) 100%);
+            pointer-events: none;
         }
-        
-        .osd-footer {
+
+        /* Left OSD Sinopsis Hero Panel */
+        .osd-left-panel {
+            position: absolute;
+            top: 60px;
+            left: 60px;
+            width: 620px;
+            z-index: 15;
             display: flex;
             flex-direction: column;
             gap: 12px;
-            max-width: 680px;
+            transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
+            transform: translateX(0);
+            opacity: 1;
+            pointer-events: none;
         }
+        .osd-left-panel.fullscreen-active {
+            transform: translateX(-120%);
+            opacity: 0;
+        }
+
         .movie-subtitle {
-            font-size: 18px;
+            font-size: 16px;
             color: #e50914;
             font-weight: 800;
             letter-spacing: 1.5px;
@@ -75,32 +95,31 @@
             text-shadow: 0 2px 8px rgba(0,0,0,0.9);
         }
         .movie-title {
-            font-size: 42px;
-            font-weight: 800;
-            letter-spacing: 1.5px;
+            font-size: 44px;
+            font-weight: 900;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            line-height: 1.1;
-            text-shadow: 0 4px 14px rgba(0,0,0,0.95);
+            line-height: 1.08;
+            text-shadow: 0 4px 16px rgba(0,0,0,0.95);
             color: #ffffff;
         }
         .movie-overview {
-            font-size: 16px;
+            font-size: 15px;
             line-height: 1.45;
-            color: rgba(255, 255, 255, 0.88);
+            color: rgba(255, 255, 255, 0.9);
             font-weight: 400;
             text-shadow: 0 2px 8px rgba(0,0,0,0.9);
             display: -webkit-box;
             -webkit-line-clamp: 4;
             -webkit-box-orient: vertical;
             overflow: hidden;
-            margin-top: 4px;
+            margin-top: 2px;
         }
-        
         .controls-hint {
             display: flex;
-            gap: 25px;
-            margin-top: 15px;
-            padding-top: 15px;
+            gap: 20px;
+            margin-top: 10px;
+            padding-top: 12px;
             border-top: 1px solid rgba(255,255,255,0.2);
             font-size: 13px;
             color: rgba(255,255,255,0.85);
@@ -112,121 +131,112 @@
         }
         .key-btn {
             background: rgba(255,255,255,0.25);
-            padding: 3px 9px;
+            padding: 3px 8px;
             border-radius: 6px;
             font-weight: 700;
             color: #fff;
             font-size: 12px;
         }
 
-        /* Right Side Vertical Drawer Panel */
-        .right-drawer-panel {
+        /* Netflix Multi-Row Bottom Container */
+        .netflix-rows-panel {
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 380px;
-            height: 100%;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            height: 290px;
             z-index: 20;
-            background: linear-gradient(270deg, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.85) 85%, rgba(0,0,0,0) 100%);
             display: flex;
             flex-direction: column;
-            padding: 30px 25px 30px 15px;
-            transition: opacity 0.35s ease, transform 0.35s ease;
-            transform: translateX(0);
+            gap: 15px;
+            overflow-y: hidden;
+            transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
+            transform: translateY(0);
             opacity: 1;
         }
-        .right-drawer-panel.hidden {
+        .netflix-rows-panel.fullscreen-active {
+            transform: translateY(120%);
             opacity: 0;
-            transform: translateX(100%);
             pointer-events: none;
         }
 
-        .drawer-header {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            margin-bottom: 18px;
-        }
-        .counter-badge {
-            font-size: 18px;
-            font-weight: 800;
-            color: rgba(255,255,255,0.95);
-            background: rgba(0,0,0,0.7);
-            border: 1px solid rgba(255,255,255,0.25);
-            padding: 6px 18px;
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-        }
-
-        .vertical-menu-list {
+        .rows-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            overflow-y: auto;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-            padding-right: 5px;
-            height: 100%;
+            gap: 20px;
+            transition: transform 0.35s ease;
+            padding: 0 50px;
         }
-        .vertical-menu-list::-webkit-scrollbar {
+
+        .netflix-row {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .row-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .row-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+        }
+        .row-cards {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-behavior: smooth;
+            padding: 6px 0;
+        }
+        .row-cards::-webkit-scrollbar {
             display: none;
         }
 
-        .vertical-card {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 8px;
-            border-radius: 12px;
-            background: rgba(25, 25, 25, 0.85);
-            border: 2px solid rgba(255, 255, 255, 0.12);
-            transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
-            cursor: pointer;
-        }
-        .vertical-card.active {
-            border-color: #e50914;
-            background: rgba(229, 9, 20, 0.2);
-            transform: scale(1.03);
-            box-shadow: 0 0 20px rgba(229, 9, 20, 0.7);
-        }
-        .card-thumb {
-            width: 110px;
-            height: 68px;
-            border-radius: 8px;
+        /* Netflix Style Card */
+        .netflix-card {
+            flex: 0 0 200px;
+            height: 125px;
+            border-radius: 10px;
             overflow: hidden;
             position: relative;
-            flex-shrink: 0;
-            background: #000;
+            background: #141414;
+            border: 2px solid rgba(255, 255, 255, 0.12);
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+            cursor: pointer;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.7);
         }
-        .card-thumb img {
+        .netflix-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.75;
-            transition: opacity 0.25s ease;
+            opacity: 0.7;
+            transition: opacity 0.25s ease, transform 0.25s ease;
         }
-        .vertical-card.active .card-thumb img {
-            opacity: 1;
+        .netflix-card.active {
+            border-color: #e50914;
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(229, 9, 20, 0.85);
+            z-index: 5;
         }
-
-        .card-info {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            overflow: hidden;
+        .netflix-card.active img {
+            opacity: 0.95;
+            transform: scale(1.05);
         }
-        .card-title {
-            font-size: 14px;
+        .card-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.92) 100%);
+            padding: 8px 10px;
+            font-size: 12px;
             font-weight: 700;
             color: #ffffff;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .card-subtitle {
-            font-size: 11px;
-            color: #e50914;
-            font-weight: 700;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -236,7 +246,7 @@
         .seek-toast {
             position: absolute;
             top: 50%;
-            left: 35%;
+            left: 50%;
             transform: translate(-50%, -50%);
             z-index: 25;
             background: rgba(0,0,0,0.88);
@@ -258,7 +268,7 @@
             opacity: 1;
         }
 
-        /* Loading Spinner */
+        /* Loading Screen */
         .loader-container {
             position: absolute;
             top: 0;
@@ -298,35 +308,36 @@
     <!-- Loading Screen -->
     <div id="loader" class="loader-container">
         <div class="spinner"></div>
-        <div class="loader-text" id="loader-status">Cargando fondos de Projectivy...</div>
+        <div class="loader-text" id="loader-status">Cargando experiencia Netflix...</div>
     </div>
+
+    <!-- YouTube Top UI Mask -->
+    <div class="top-yt-mask"></div>
+
+    <!-- Hero Vignette Background Overlay -->
+    <div class="hero-vignette"></div>
 
     <!-- YouTube Player Container -->
     <div id="player-container">
         <div id="yt-player"></div>
     </div>
 
-    <!-- Left Info OSD Panel -->
-    <div id="osd" class="osd-overlay">
-        <div class="osd-footer">
-            <div id="movie-subtitle" class="movie-subtitle">PELÍCULA • 2023</div>
-            <div id="movie-title" class="movie-title">CARGANDO...</div>
-            <div id="movie-overview" class="movie-overview">Cargando sinopsis de la película...</div>
-            <div class="controls-hint">
-                <div class="hint-item"><span class="key-btn">▲ ▼</span> Cambiar Película</div>
-                <div class="hint-item"><span class="key-btn">◄ ►</span> Adelantar / Atrasar 10s</div>
-                <div class="hint-item"><span class="key-btn">OK</span> Pausar / Reproducir</div>
-            </div>
+    <!-- Left OSD Sinopsis Panel -->
+    <div id="osd-left" class="osd-left-panel">
+        <div id="movie-subtitle" class="movie-subtitle">PELÍCULA • 2024</div>
+        <div id="movie-title" class="movie-title">CARGANDO...</div>
+        <div id="movie-overview" class="movie-overview">Cargando sinopsis en español latino...</div>
+        <div class="controls-hint">
+            <div class="hint-item"><span class="key-btn">▲ ▼</span> Filas</div>
+            <div class="hint-item"><span class="key-btn">◄ ►</span> Películas</div>
+            <div class="hint-item"><span class="key-btn">OK</span> Reproducir / Pausa</div>
         </div>
     </div>
 
-    <!-- Right Side Vertical Drawer Panel -->
-    <div id="menu-drawer" class="right-drawer-panel hidden">
-        <div class="drawer-header">
-            <div id="counter" class="counter-badge">1 / 20</div>
-        </div>
-        <div id="vertical-list" class="vertical-menu-list">
-            <!-- Tarjetas dinámicas en vertical -->
+    <!-- Netflix Multi-Row Bottom Container -->
+    <div id="netflix-rows" class="netflix-rows-panel">
+        <div id="rows-wrapper" class="rows-wrapper">
+            <!-- Filas dinámicas -->
         </div>
     </div>
 
@@ -336,18 +347,15 @@
     </div>
 
     <script>
-        let playlist = [];
-        let currentIndex = 0;
-        let focusedIndex = 0;
+        let categories = [];
+        let currentRowIndex = 0;
+        let currentCardIndex = 0;
         let player = null;
-        let osdTimeout = null;
-        let menuTimeout = null;
-        let seekToastTimeout = null;
-        let selectionDebounceTimer = null;
         let isPlayerReady = false;
-        let isMenuOpen = false;
+        let autoFullscreenTimer = null;
+        let isFullscreenActive = false;
+        let currentVideoId = null;
 
-        // Cargar YouTube IFrame API
         const tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         const firstScriptTag = document.getElementsByTagName('script')[0];
@@ -358,174 +366,169 @@
         }
 
         async function fetchSubredditWallpapers() {
-            document.getElementById('loader-status').innerText = "Cargando tráileres del día...";
-            playlist = [];
+            document.getElementById('loader-status').innerText = "Cargando catálogo Netflix...";
+            categories = [];
 
-            // 1. Cargar la lista EN VIVO desde GitHub (con timestamp anti-caché)
+            // 1. Cargar las 5 filas desde GitHub Raw (con timestamp anti-caché)
             try {
                 const cacheUrl = `https://raw.githubusercontent.com/todout/fondos-projectivy/master/trailers_cache.json?t=${Date.now()}`;
                 const remoteRes = await fetch(cacheUrl);
                 if (remoteRes.ok) {
-                    const remoteData = await remoteRes.json();
-                    if (remoteData && remoteData.length > 0) {
-                        playlist = remoteData.slice(0, 25).map(item => ({
-                            title: item.title,
-                            subtitle: item.subtitle || (item.media_type ? `${item.media_type} • ${item.year || ''}` : 'PELÍCULA'),
-                            overview: item.overview || '',
-                            backdrop_url: item.backdrop_url || '',
-                            ytId: item.youtube_id || extractYouTubeId(item.trailer_url)
-                        }));
+                    const data = await remoteRes.json();
+                    if (data && data.rows) {
+                        categories = data.rows;
+                    } else if (Array.isArray(data)) {
+                        categories = [{ category: "Recomendaciones para vos", items: data }];
                     }
                 }
-            } catch (remoteErr) {
-                console.warn("GitHub Raw cache fetch falló, utilizando respaldo local:", remoteErr);
+            } catch (e) {
+                console.warn("Error cargando desde GitHub Raw:", e);
             }
 
-            // 2. Si falla la red, cargar del JSON local empaquetado en la app
-            if (playlist.length === 0) {
+            // 2. Respaldo local si no hay conexión
+            if (categories.length === 0) {
                 try {
                     const localRes = await fetch('./trailers.json');
                     if (localRes.ok) {
                         const localData = await localRes.json();
-                        for (let item of localData) {
-                            const ytId = item.youtube_id || extractYouTubeId(item.trailer_url);
-                            if (item.title && ytId) {
-                                playlist.push({
-                                    title: item.title,
-                                    subtitle: item.subtitle || 'PELÍCULA',
-                                    overview: item.overview || '',
-                                    backdrop_url: item.backdrop_url || '',
-                                    ytId: ytId
-                                });
-                            }
+                        if (localData && localData.rows) {
+                            categories = localData.rows;
+                        } else if (Array.isArray(localData)) {
+                            categories = [{ category: "Recomendaciones para vos", items: localData }];
                         }
                     }
                 } catch (e) {}
             }
 
-            if (playlist.length === 0) {
-                document.getElementById('loader-status').innerText = "No se encontraron tráileres.";
+            if (categories.length === 0) {
+                document.getElementById('loader-status').innerText = "No se pudo cargar el catálogo.";
                 return;
             }
 
-            renderMenuCards();
+            renderNetflixRows();
 
             if (!player) {
                 initPlayer();
             } else {
-                playCurrentIndex();
+                updateSelection(0, 0, true);
             }
         }
 
-        function extractYouTubeId(url) {
-            if (!url) return null;
-            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-            const match = url.match(regExp);
-            return (match && match[2].length === 11) ? match[2] : null;
-        }
+        function renderNetflixRows() {
+            const wrapper = document.getElementById('rows-wrapper');
+            wrapper.innerHTML = '';
 
-        function renderMenuCards() {
-            const list = document.getElementById('vertical-list');
-            list.innerHTML = '';
+            categories.forEach((cat, rIdx) => {
+                const rowDiv = document.createElement('div');
+                rowDiv.className = 'netflix-row';
+                rowDiv.id = `row-${rIdx}`;
 
-            playlist.forEach((item, idx) => {
-                const card = document.createElement('div');
-                card.className = `vertical-card ${idx === focusedIndex ? 'active' : ''}`;
-                card.id = `card-${idx}`;
+                const cardsHtml = cat.items.map((item, cIdx) => {
+                    const bgImg = item.backdrop_url ? `<img src="${item.backdrop_url}" alt="${item.title}" onerror="this.style.display='none'">` : '';
+                    return `
+                        <div class="netflix-card ${rIdx === 0 && cIdx === 0 ? 'active' : ''}" id="card-${rIdx}-${cIdx}" onclick="onCardClicked(${rIdx}, ${cIdx})">
+                            ${bgImg}
+                            <div class="card-label">${item.title}</div>
+                        </div>
+                    `;
+                }).join('');
 
-                const bgImg = item.backdrop_url ? `<img src="${item.backdrop_url}" alt="${item.title}" onerror="this.style.display='none'">` : '';
-
-                card.innerHTML = `
-                    <div class="card-thumb">${bgImg}</div>
-                    <div class="card-info">
-                        <div class="card-title">${item.title}</div>
-                        <div class="card-subtitle">${item.subtitle}</div>
+                rowDiv.innerHTML = `
+                    <div class="row-header">
+                        <div class="row-title">${cat.category}</div>
+                    </div>
+                    <div class="row-cards" id="cards-track-${rIdx}">
+                        ${cardsHtml}
                     </div>
                 `;
 
-                card.onclick = () => {
-                    selectCard(idx, true);
-                };
-
-                list.appendChild(card);
+                wrapper.appendChild(rowDiv);
             });
         }
 
-        function updateMenuFocus() {
-            playlist.forEach((_, idx) => {
-                const card = document.getElementById(`card-${idx}`);
-                if (card) {
-                    if (idx === focusedIndex) {
-                        card.classList.add('active');
-                        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                    } else {
-                        card.classList.remove('active');
-                    }
-                }
-            });
+        function updateSelection(rIdx, cIdx, forcePlay = false) {
+            // Asegurar rangos válidos
+            if (rIdx < 0) rIdx = categories.length - 1;
+            if (rIdx >= categories.length) rIdx = 0;
 
-            // Actualizar texto del OSD izquierdo mientras se navega
-            const item = playlist[focusedIndex];
-            if (item) {
-                document.getElementById('movie-title').innerText = item.title;
-                document.getElementById('movie-subtitle').innerText = item.subtitle || 'PELÍCULA';
-                document.getElementById('movie-overview').innerText = item.overview || '';
-                document.getElementById('counter').innerText = `${focusedIndex + 1} / ${playlist.length}`;
+            const targetRow = categories[rIdx];
+            if (!targetRow || !targetRow.items || targetRow.items.length === 0) return;
+
+            if (cIdx < 0) cIdx = targetRow.items.length - 1;
+            if (cIdx >= targetRow.items.length) cIdx = 0;
+
+            // Desmarcar anterior
+            const prevCard = document.getElementById(`card-${currentRowIndex}-${currentCardIndex}`);
+            if (prevCard) prevCard.classList.remove('active');
+
+            currentRowIndex = rIdx;
+            currentCardIndex = cIdx;
+
+            const item = targetRow.items[currentCardIndex];
+            const activeCard = document.getElementById(`card-${currentRowIndex}-${currentCardIndex}`);
+            if (activeCard) {
+                activeCard.classList.add('active');
+                activeCard.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
             }
 
-            showOSD();
-            showMenuDrawer();
+            // Desplazar contenedor de filas verticalmente
+            const wrapper = document.getElementById('rows-wrapper');
+            wrapper.style.transform = `translateY(-${currentRowIndex * 150}px)`;
 
-            // Debounce: Si navega rápido con ▲/▼, resalta tarjetas suavemente y actualiza vídeo al frenarse 600ms
-            clearTimeout(selectionDebounceTimer);
-            selectionDebounceTimer = setTimeout(() => {
-                if (currentIndex !== focusedIndex) {
-                    currentIndex = focusedIndex;
-                    playCurrentIndex();
+            // Actualizar sinopsis e información en panel izquierdo
+            document.getElementById('movie-title').innerText = item.title;
+            document.getElementById('movie-subtitle').innerText = item.subtitle || 'PELÍCULA';
+            document.getElementById('movie-overview').innerText = item.overview || 'Sin sinopsis disponible.';
+
+            // Despertar interfaz
+            wakeUI();
+
+            // Cargar tráiler si el vídeo cambia
+            if (item.youtube_id && item.youtube_id !== currentVideoId) {
+                currentVideoId = item.youtube_id;
+                if (player && isPlayerReady) {
+                    player.loadVideoById(item.youtube_id);
                 }
-            }, 600);
-        }
-
-        function selectCard(idx, immediate = false) {
-            focusedIndex = idx;
-            if (focusedIndex < 0) focusedIndex = playlist.length - 1;
-            if (focusedIndex >= playlist.length) focusedIndex = 0;
-
-            if (immediate) {
-                clearTimeout(selectionDebounceTimer);
-                currentIndex = focusedIndex;
-                playCurrentIndex();
-                updateMenuFocus();
-            } else {
-                updateMenuFocus();
             }
+
+            // Iniciar temporizador de 3.5 segundos para pantalla completa limpia
+            resetAutoFullscreenTimer();
         }
 
-        function showMenuDrawer() {
-            const drawer = document.getElementById('menu-drawer');
-            drawer.classList.remove('hidden');
-            isMenuOpen = true;
-            clearTimeout(menuTimeout);
-            menuTimeout = setTimeout(() => {
-                hideMenuDrawer();
-            }, 5000);
+        function onCardClicked(rIdx, cIdx) {
+            updateSelection(rIdx, cIdx, true);
         }
 
-        function hideMenuDrawer() {
-            const drawer = document.getElementById('menu-drawer');
-            drawer.classList.add('hidden');
-            isMenuOpen = false;
+        function wakeUI() {
+            isFullscreenActive = false;
+            document.getElementById('osd-left').classList.remove('fullscreen-active');
+            document.getElementById('netflix-rows').classList.remove('fullscreen-active');
+            resetAutoFullscreenTimer();
+        }
+
+        function enterFullscreenTrailer() {
+            isFullscreenActive = true;
+            document.getElementById('osd-left').classList.add('fullscreen-active');
+            document.getElementById('netflix-rows').classList.add('fullscreen-active');
+        }
+
+        function resetAutoFullscreenTimer() {
+            clearTimeout(autoFullscreenTimer);
+            autoFullscreenTimer = setTimeout(() => {
+                enterFullscreenTrailer();
+            }, 3500);
         }
 
         function initPlayer() {
             document.getElementById('loader').style.display = 'none';
-            const firstItem = playlist[0] || { ytId: '0I7Q1WtTf_c', title: 'SILO', subtitle: 'SERIE • 2023', overview: '' };
+            const firstItem = categories[0]?.items[0] || { youtube_id: '0I7Q1WtTf_c' };
+            currentVideoId = firstItem.youtube_id || '0I7Q1WtTf_c';
             const appOrigin = window.location.origin && window.location.origin !== 'null' && window.location.origin !== 'file://' ? window.location.origin : 'https://www.youtube-nocookie.com';
-            
+
             player = new YT.Player('yt-player', {
                 height: '100%',
                 width: '100%',
-                videoId: firstItem.ytId || '0I7Q1WtTf_c',
+                videoId: currentVideoId,
                 host: 'https://www.youtube-nocookie.com',
                 playerVars: {
                     'autoplay': 1,
@@ -542,63 +545,35 @@
                     'widget_referrer': appOrigin
                 },
                 events: {
-                    'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange,
-                    'onError': onPlayerError
+                    'onReady': () => {
+                        isPlayerReady = true;
+                        updateSelection(0, 0, true);
+                    },
+                    'onStateChange': (e) => {
+                        if (e.data === YT.PlayerState.ENDED) {
+                            updateSelection(currentRowIndex, currentCardIndex + 1, true);
+                        }
+                    },
+                    'onError': (e) => {
+                        console.warn("YT Error:", e.data);
+                        const item = categories[currentRowIndex]?.items[currentCardIndex];
+                        if (item && isPlayerReady) {
+                            player.loadPlaylist({
+                                list: item.title + ' trailer oficial espanol latino',
+                                listType: 'search'
+                            });
+                        }
+                    }
                 }
             });
         }
 
-        function onPlayerReady(event) {
-            isPlayerReady = true;
-            playCurrentIndex();
-        }
-
-        function onPlayerStateChange(event) {
-            if (event.data === YT.PlayerState.ENDED) {
-                selectCard(currentIndex + 1, true);
-            }
-        }
-
-        function onPlayerError(event) {
-            console.warn("YouTube Player error:", event.data);
-            const item = playlist[currentIndex];
-            if (item && isPlayerReady) {
-                player.loadPlaylist({
-                    list: item.title + ' trailer oficial espanol',
-                    listType: 'search'
-                });
-            }
-        }
-
-        function playCurrentIndex() {
-            if (currentIndex < 0) currentIndex = playlist.length - 1;
-            if (currentIndex >= playlist.length) currentIndex = 0;
-
-            focusedIndex = currentIndex;
-            const item = playlist[currentIndex];
-            document.getElementById('movie-title').innerText = item.title;
-            document.getElementById('movie-subtitle').innerText = item.subtitle || 'PELÍCULA';
-            document.getElementById('movie-overview').innerText = item.overview || '';
-            document.getElementById('counter').innerText = `${currentIndex + 1} / ${playlist.length}`;
-
-            if (item.ytId && isPlayerReady) {
-                player.loadVideoById(item.ytId);
-            } else if (isPlayerReady) {
-                player.loadPlaylist({
-                    list: item.title + ' trailer oficial espanol',
-                    listType: 'search'
-                });
-            }
-            showOSD();
-        }
-
         function seekBy(seconds) {
             if (!player || !isPlayerReady) return;
-            const currTime = player.getCurrentTime();
-            player.seekTo(currTime + seconds, true);
+            const curr = player.getCurrentTime();
+            player.seekTo(curr + seconds, true);
             showSeekToast(seconds > 0 ? `+${seconds}s` : `${seconds}s`);
-            showOSD();
+            wakeUI();
         }
 
         function togglePlayPause() {
@@ -611,75 +586,53 @@
                 player.playVideo();
                 showSeekToast("PLAY");
             }
-            showOSD();
-        }
-
-        function showOSD() {
-            const osd = document.getElementById('osd');
-            osd.classList.remove('hidden');
-            clearTimeout(osdTimeout);
-            osdTimeout = setTimeout(() => {
-                osd.classList.add('hidden');
-            }, 5000);
+            wakeUI();
         }
 
         function showSeekToast(text) {
             const toast = document.getElementById('seek-toast');
             document.getElementById('seek-text').innerText = text;
             toast.classList.add('show');
-            clearTimeout(seekToastTimeout);
-            seekToastTimeout = setTimeout(() => {
-                toast.classList.remove('show');
-            }, 1200);
+            setTimeout(() => toast.classList.remove('show'), 1200);
         }
 
-        // Eventos del Control Remoto (D-Pad)
+        // Control Remoto D-Pad
         document.addEventListener('keydown', (e) => {
+            // Cualquier toque de tecla despierta la interfaz si estaba en pantalla completa
+            if (isFullscreenActive) {
+                wakeUI();
+                return;
+            }
+
             switch(e.keyCode) {
                 case 38: // Arriba
-                case 19: // KEYCODE_DPAD_UP
-                    selectCard(focusedIndex - 1);
+                case 19:
+                    updateSelection(currentRowIndex - 1, currentCardIndex);
                     break;
                 case 40: // Abajo
-                case 20: // KEYCODE_DPAD_DOWN
-                    selectCard(focusedIndex + 1);
+                case 20:
+                    updateSelection(currentRowIndex + 1, currentCardIndex);
                     break;
                 case 37: // Izquierda
-                case 21: // KEYCODE_DPAD_LEFT
-                    if (isMenuOpen) {
-                        hideMenuDrawer();
-                    } else {
-                        seekBy(-10);
-                    }
+                case 21:
+                    updateSelection(currentRowIndex, currentCardIndex - 1);
                     break;
                 case 39: // Derecha
-                case 22: // KEYCODE_DPAD_RIGHT
-                    if (!isMenuOpen) {
-                        showMenuDrawer();
-                    } else {
-                        seekBy(10);
-                    }
+                case 22:
+                    updateSelection(currentRowIndex, currentCardIndex + 1);
                     break;
-                case 13: // Enter / Select
-                case 23: // KEYCODE_DPAD_CENTER
-                case 32: // Espacio
-                case 85: // KEYCODE_MEDIA_PLAY_PAUSE
-                    if (isMenuOpen && currentIndex !== focusedIndex) {
-                        selectCard(focusedIndex, true);
-                    } else {
-                        togglePlayPause();
-                    }
+                case 13: // Enter / OK
+                case 23:
+                case 32:
+                case 85:
+                    togglePlayPause();
                     break;
-                case 27: // ESC
-                case 4:  // KEYCODE_BACK
-                    if (isMenuOpen) {
-                        hideMenuDrawer();
-                    } else {
-                        showOSD();
-                    }
+                case 27: // ESC / BACK
+                case 4:
+                    enterFullscreenTrailer();
                     break;
                 default:
-                    showOSD();
+                    wakeUI();
                     break;
             }
         });
