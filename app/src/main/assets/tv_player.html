@@ -44,13 +44,13 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 110px;
+            height: 120px;
             z-index: 8;
             background: linear-gradient(180deg, #000000 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0) 100%);
             pointer-events: none;
         }
 
-        /* Hero Background Vignette Overlay */
+        /* Hero Left Side Vignette Overlay (Ampliado de Izquierda a Derecha) */
         .hero-vignette {
             position: absolute;
             top: 0;
@@ -58,21 +58,22 @@
             width: 100%;
             height: 100%;
             z-index: 5;
-            background: linear-gradient(90deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.5) 45%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.4) 100%),
-                        linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.95) 100%);
+            background: linear-gradient(90deg, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0.4) 75%, rgba(0,0,0,0) 100%),
+                        linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.95) 100%);
             pointer-events: none;
         }
 
-        /* Left OSD Sinopsis Hero Panel */
+        /* Left OSD Sinopsis Hero Panel (Posicionado más arriba para no chocar con las tarjetas) */
         .osd-left-panel {
             position: absolute;
-            top: 60px;
-            left: 60px;
-            width: 620px;
+            top: 40px;
+            left: 50px;
+            width: 650px;
+            max-height: 260px;
             z-index: 15;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
             transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
             transform: translateX(0);
             opacity: 1;
@@ -92,50 +93,28 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.95);
         }
         .movie-title {
-            font-size: 44px;
+            font-size: 42px;
             font-weight: 900;
             letter-spacing: 1px;
             text-transform: uppercase;
             line-height: 1.08;
-            text-shadow: 0 4px 16px rgba(0,0,0,0.95);
+            text-shadow: 0 4px 16px rgba(0,0,0,0.98);
             color: #ffffff;
         }
         .movie-overview {
             font-size: 15px;
             line-height: 1.45;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.92);
             font-weight: 400;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.95);
             display: -webkit-box;
             -webkit-line-clamp: 4;
             -webkit-box-orient: vertical;
             overflow: hidden;
             margin-top: 2px;
-        }
-        .controls-hint {
-            display: flex;
-            gap: 20px;
-            margin-top: 10px;
-            padding-top: 12px;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            font-size: 13px;
-            color: rgba(255,255,255,0.85);
-        }
-        .hint-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .key-btn {
-            background: rgba(255,255,255,0.25);
-            padding: 3px 8px;
-            border-radius: 6px;
-            font-weight: 700;
-            color: #fff;
-            font-size: 12px;
         }
 
         /* Netflix Multi-Row Bottom Container */
@@ -144,7 +123,7 @@
             bottom: 20px;
             left: 0;
             width: 100%;
-            height: 290px;
+            height: 380px;
             z-index: 20;
             display: flex;
             flex-direction: column;
@@ -163,7 +142,7 @@
         .rows-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 22px;
             transition: transform 0.35s ease;
             padding: 0 50px;
         }
@@ -171,7 +150,7 @@
         .netflix-row {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
         }
         .row-header {
             display: flex;
@@ -183,11 +162,11 @@
             font-weight: 800;
             color: #ffffff;
             letter-spacing: 0.5px;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+            text-shadow: 0 2px 6px rgba(0,0,0,0.9);
         }
         .row-cards {
             display: flex;
-            gap: 16px;
+            gap: 14px;
             overflow-x: auto;
             overflow-y: hidden;
             scroll-behavior: smooth;
@@ -197,44 +176,44 @@
             display: none;
         }
 
-        /* Netflix Style Card */
+        /* Netflix Style Vertical Card (Posters 2:3 ratio) */
         .netflix-card {
-            flex: 0 0 200px;
-            height: 125px;
-            border-radius: 10px;
+            flex: 0 0 120px;
+            height: 180px;
+            border-radius: 8px;
             overflow: hidden;
             position: relative;
             background: #141414;
             border: 2px solid rgba(255, 255, 255, 0.12);
             transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
             cursor: pointer;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.7);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.8);
         }
         .netflix-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.7;
+            opacity: 0.8;
             transition: opacity 0.25s ease, transform 0.25s ease;
         }
         .netflix-card.active {
             border-color: #e50914;
-            transform: scale(1.1);
+            transform: scale(1.12);
             box-shadow: 0 0 25px rgba(229, 9, 20, 0.85);
             z-index: 5;
         }
         .netflix-card.active img {
-            opacity: 0.95;
-            transform: scale(1.05);
+            opacity: 1;
+            transform: scale(1.04);
         }
         .card-label {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.92) 100%);
-            padding: 8px 10px;
-            font-size: 12px;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.95) 100%);
+            padding: 6px 8px;
+            font-size: 11px;
             font-weight: 700;
             color: #ffffff;
             white-space: nowrap;
@@ -314,7 +293,7 @@
     <!-- YouTube Top UI Mask -->
     <div class="top-yt-mask"></div>
 
-    <!-- Hero Vignette Background Overlay -->
+    <!-- Hero Vignette Background Overlay (Ampliada a la izquierda) -->
     <div class="hero-vignette"></div>
 
     <!-- YouTube Player Container -->
@@ -327,11 +306,6 @@
         <div id="movie-subtitle" class="movie-subtitle">PELÍCULA • 2024</div>
         <div id="movie-title" class="movie-title">CARGANDO...</div>
         <div id="movie-overview" class="movie-overview">Cargando sinopsis en español latino...</div>
-        <div class="controls-hint">
-            <div class="hint-item"><span class="key-btn">▲ ▼</span> Filas</div>
-            <div class="hint-item"><span class="key-btn">◄ ►</span> Películas</div>
-            <div class="hint-item"><span class="key-btn">OK</span> Reproducir / Pausa</div>
-        </div>
     </div>
 
     <!-- Netflix Multi-Row Bottom Container -->
@@ -424,7 +398,8 @@
                 rowDiv.id = `row-${rIdx}`;
 
                 const cardsHtml = cat.items.map((item, cIdx) => {
-                    const bgImg = item.backdrop_url ? `<img src="${item.backdrop_url}" alt="${item.title}" onerror="this.style.display='none'">` : '';
+                    const posterSrc = item.poster_url || item.backdrop_url || '';
+                    const bgImg = posterSrc ? `<img src="${posterSrc}" alt="${item.title}" onerror="this.style.display='none'">` : '';
                     return `
                         <div class="netflix-card ${rIdx === 0 && cIdx === 0 ? 'active' : ''}" id="card-${rIdx}-${cIdx}" onclick="onCardClicked(${rIdx}, ${cIdx})">
                             ${bgImg}
@@ -447,7 +422,6 @@
         }
 
         function updateSelection(rIdx, cIdx, forcePlay = false) {
-            // Asegurar rangos válidos
             if (rIdx < 0) rIdx = categories.length - 1;
             if (rIdx >= categories.length) rIdx = 0;
 
@@ -473,14 +447,13 @@
 
             // Desplazar contenedor de filas verticalmente
             const wrapper = document.getElementById('rows-wrapper');
-            wrapper.style.transform = `translateY(-${currentRowIndex * 150}px)`;
+            wrapper.style.transform = `translateY(-${currentRowIndex * 210}px)`;
 
-            // Actualizar sinopsis e información en panel izquierdo
+            // Actualizar sinopsis e información en panel izquierdo (sin leyendas de error)
             document.getElementById('movie-title').innerText = item.title;
             document.getElementById('movie-subtitle').innerText = item.subtitle || 'PELÍCULA';
-            document.getElementById('movie-overview').innerText = item.overview || 'Sin sinopsis disponible.';
+            document.getElementById('movie-overview').innerText = item.overview && item.overview.trim() ? item.overview : '';
 
-            // Despertar interfaz
             wakeUI();
 
             // Cargar tráiler si el vídeo cambia
@@ -491,7 +464,6 @@
                 }
             }
 
-            // Iniciar temporizador de 3.5 segundos para pantalla completa limpia
             resetAutoFullscreenTimer();
         }
 
@@ -598,7 +570,6 @@
 
         // Control Remoto D-Pad
         document.addEventListener('keydown', (e) => {
-            // Cualquier toque de tecla despierta la interfaz si estaba en pantalla completa
             if (isFullscreenActive) {
                 wakeUI();
                 return;
