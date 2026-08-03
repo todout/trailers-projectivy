@@ -42,7 +42,7 @@
             pointer-events: none;
         }
 
-        /* Fullscreen Hero Image (Foto HD durante navegación rápida) */
+        /* Fullscreen Hero Image */
         #hero-bg-img {
             position: fixed;
             top: 0;
@@ -149,7 +149,7 @@
             bottom: 10px;
             left: 0;
             width: 100vw;
-            height: 250px;
+            height: 230px;
             z-index: 20;
             display: flex;
             flex-direction: column;
@@ -168,9 +168,9 @@
         .rows-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 24px;
             transition: transform 0.35s ease;
-            padding: 0 50px;
+            padding: 10px 50px 0 50px;
         }
 
         .netflix-row {
@@ -184,27 +184,29 @@
             justify-content: space-between;
         }
         .row-title {
-            font-size: 16px;
+            font-size: 17px;
             font-weight: 800;
             color: #ffffff;
             letter-spacing: 0.5px;
             text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+            margin-bottom: 2px;
         }
         
+        /* Contenedor de Tarjetas */
         .row-cards {
             display: flex;
-            gap: 16px;
+            gap: 14px;
             overflow-x: auto;
             overflow-y: visible;
             scroll-behavior: smooth;
-            padding: 16px 12px;
-            margin: -6px 0;
+            padding: 12px 10px;
+            margin: 0;
         }
         .row-cards::-webkit-scrollbar {
             display: none;
         }
 
-        /* Netflix Style Vertical Card */
+        /* Netflix Style Vertical Card (Póster uniforme 95px x 140px) */
         .netflix-card {
             flex: 0 0 95px;
             height: 140px;
@@ -280,8 +282,9 @@
         .loader-text {
             font-size: 20px;
             font-weight: 600;
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.85);
             letter-spacing: 1px;
+            transition: opacity 0.3s ease;
         }
     </style>
 </head>
@@ -290,7 +293,7 @@
     <!-- Loading Screen -->
     <div id="loader" class="loader-container">
         <div class="spinner"></div>
-        <div class="loader-text" id="loader-status">Cargando experiencia Netflix...</div>
+        <div class="loader-text" id="loader-status">Cargando recomendaciones para vos...</div>
     </div>
 
     <!-- YouTube Top UI Mask -->
@@ -299,7 +302,7 @@
     <!-- Hero Left Side Vignette Overlay -->
     <div id="hero-vignette" class="hero-vignette"></div>
 
-    <!-- Fullscreen Hero Image (Navegación súper fluida) -->
+    <!-- Fullscreen Hero Image -->
     <img id="hero-bg-img" class="" src="" alt="Hero Image">
 
     <!-- YouTube Player Container -->
@@ -344,8 +347,13 @@
             fetchSubredditWallpapers();
         }
 
+        function setLoaderStatusText(text) {
+            const el = document.getElementById('loader-status');
+            if (el) el.innerText = text;
+        }
+
         async function fetchSubredditWallpapers() {
-            document.getElementById('loader-status').innerText = "Cargando catálogo Netflix...";
+            setLoaderStatusText("Cargando recomendaciones para vos...");
             categories = [];
 
             try {
@@ -378,9 +386,26 @@
             }
 
             if (categories.length === 0) {
-                document.getElementById('loader-status').innerText = "No se pudo cargar el catálogo.";
+                setLoaderStatusText("No se pudo cargar el catálogo.");
                 return;
             }
+
+            // Mensajes dinámicos durante la construcción
+            const loadingSteps = [
+                "Cargando Top 10 NETFLIX...",
+                "Cargando Top 10 Disney+...",
+                "Cargando Top 10 Prime Video...",
+                "Cargando Top 10 Apple TV+..."
+            ];
+            let stepIdx = 0;
+            const msgInterval = setInterval(() => {
+                if (stepIdx < loadingSteps.length) {
+                    setLoaderStatusText(loadingSteps[stepIdx]);
+                    stepIdx++;
+                } else {
+                    clearInterval(msgInterval);
+                }
+            }, 300);
 
             renderNetflixRows();
 
@@ -388,6 +413,7 @@
                 initPlayer();
             } else {
                 updateSelection(0, 0, true);
+                clearInterval(msgInterval);
                 dismissLoader();
             }
         }
@@ -456,10 +482,12 @@
                 activeCard.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
             }
 
+            // Cálculo dinámico de desplazamiento vertical milimétrico
             const wrapper = document.getElementById('rows-wrapper');
             const targetRowDiv = document.getElementById(`row-${currentRowIndex}`);
-            if (targetRowDiv) {
-                wrapper.style.transform = `translateY(-${targetRowDiv.offsetTop}px)`;
+            if (targetRowDiv && wrapper) {
+                const targetY = Math.max(0, targetRowDiv.offsetTop - 10);
+                wrapper.style.transform = `translateY(-${targetY}px)`;
             }
 
             document.getElementById('movie-title').innerText = item.title;
@@ -507,7 +535,6 @@
             clearTimeout(hideRowsTimer);
             clearTimeout(hideSinopsisTimer);
 
-            // Si el video ya está pausado o reproduciéndose, NUNCA volver a mostrar la foto sobre el video
             if (isPausedManually || isVideoLoadedAndPlaying) {
                 document.getElementById('hero-bg-img').classList.add('hidden-hero');
             } else {
@@ -529,14 +556,12 @@
 
             if (isPausedManually) return;
 
-            // 1. A los 3.5 segundos se esconde el carrusel de tarjetas de abajo
             hideRowsTimer = setTimeout(() => {
                 if (!isPausedManually) {
                     document.getElementById('netflix-rows').classList.add('fullscreen-active');
                 }
             }, 3500);
 
-            // 2. A los 5.5 segundos se oculta la foto HD, la sinopsis y el degradado para dejar el tráiler 100% fluido en pantalla completa
             hideSinopsisTimer = setTimeout(() => {
                 if (!isPausedManually) {
                     document.getElementById('hero-bg-img').classList.add('hidden-hero');
@@ -580,7 +605,6 @@
                     'onStateChange': (e) => {
                         if (e.data === YT.PlayerState.PLAYING) {
                             isVideoLoadedAndPlaying = true;
-                            // Cuando YouTube confirma que el video corre sin rueda de carga, desvanecemos la foto HD
                             document.getElementById('hero-bg-img').classList.add('hidden-hero');
                         } else if (e.data === YT.PlayerState.ENDED) {
                             isPausedManually = false;
