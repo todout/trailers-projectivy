@@ -13,53 +13,74 @@
             -webkit-user-select: none;
         }
         body, html {
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background-color: #000;
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
             color: #fff;
         }
         
-        /* YouTube Container Positioned to Hide Top Video Title */
+        /* YouTube Container Positioned Fixed Fullscreen */
         #player-container {
-            position: absolute;
-            top: -65px;
+            position: fixed;
+            top: 0;
             left: 0;
-            width: 100%;
-            height: calc(100% + 130px);
+            width: 100vw;
+            height: 100vh;
             z-index: 1;
             background: #000;
+            overflow: hidden;
         }
         iframe#yt-player {
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             border: none;
+            pointer-events: none;
+        }
+
+        /* Fullscreen Backdrop Hero Image (Muestra la foto en HD antes de que el video pase a pantalla completa) */
+        #hero-bg-img {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: 3;
+            transition: opacity 0.5s ease;
+            opacity: 1;
+        }
+        #hero-bg-img.fullscreen-active {
+            opacity: 0;
             pointer-events: none;
         }
         
         /* Top Mask to guarantee zero YouTube UI overlay */
         .top-yt-mask {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 110px;
+            width: 100vw;
+            height: 90px;
             z-index: 8;
             background: linear-gradient(180deg, #000000 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0) 100%);
             pointer-events: none;
         }
 
-        /* Hero Left Side Vignette Overlay (Se esconde junto con la sinopsis) */
+        /* Hero Left Side Vignette Overlay (Se oculta junto con la sinopsis) */
         .hero-vignette {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             z-index: 5;
-            background: linear-gradient(90deg, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0.4) 75%, rgba(0,0,0,0) 100%),
-                        linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.95) 100%);
+            background: linear-gradient(90deg, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%),
+                        linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,0.95) 100%);
             transition: opacity 0.5s ease;
             opacity: 1;
             pointer-events: none;
@@ -68,12 +89,13 @@
             opacity: 0;
         }
 
-        /* Left OSD Sinopsis Hero Panel (Ubicado bien arriba para dar espacio limpio) */
+        /* Left OSD Sinopsis Hero Panel (Ancho ajustado al 60%: 410px para dar espacio amplio a la derecha) */
         .osd-left-panel {
-            position: absolute;
-            top: 25px;
+            position: fixed;
+            top: 30px;
             left: 50px;
-            width: 650px;
+            width: 410px;
+            max-width: 410px;
             z-index: 15;
             display: flex;
             flex-direction: column;
@@ -89,7 +111,7 @@
         }
 
         .movie-subtitle {
-            font-size: 15px;
+            font-size: 14px;
             color: #e50914;
             font-weight: 800;
             letter-spacing: 1.5px;
@@ -100,7 +122,7 @@
             text-shadow: 0 2px 8px rgba(0,0,0,0.95);
         }
         .movie-title {
-            font-size: 36px;
+            font-size: 34px;
             font-weight: 900;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -109,31 +131,30 @@
             color: #ffffff;
         }
         .movie-overview {
-            font-size: 14px;
-            line-height: 1.4;
+            font-size: 13.5px;
+            line-height: 1.45;
             color: rgba(255, 255, 255, 0.92);
             font-weight: 400;
             text-shadow: 0 2px 8px rgba(0,0,0,0.95);
             display: -webkit-box;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 5;
             -webkit-box-orient: vertical;
             overflow: hidden;
             margin-top: 2px;
-            max-width: 600px;
         }
 
-        /* Netflix Multi-Row Bottom Container (Compacto para dar espacio a la sinopsis) */
+        /* Netflix Multi-Row Bottom Container */
         .netflix-rows-panel {
-            position: absolute;
-            bottom: 15px;
+            position: fixed;
+            bottom: 10px;
             left: 0;
-            width: 100%;
-            height: 235px;
+            width: 100vw;
+            height: 250px;
             z-index: 20;
             display: flex;
             flex-direction: column;
             gap: 10px;
-            overflow-y: hidden;
+            overflow: hidden;
             transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
             transform: translateY(0);
             opacity: 1;
@@ -155,7 +176,7 @@
         .netflix-row {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
         }
         .row-header {
             display: flex;
@@ -169,27 +190,30 @@
             letter-spacing: 0.5px;
             text-shadow: 0 2px 6px rgba(0,0,0,0.9);
         }
+        
+        /* Contenedor de Tarjetas con Padding Amplio para que el Borde Rojo NUNCA se recorte */
         .row-cards {
             display: flex;
-            gap: 12px;
+            gap: 16px;
             overflow-x: auto;
-            overflow-y: hidden;
+            overflow-y: visible;
             scroll-behavior: smooth;
-            padding: 4px 0;
+            padding: 16px 12px;
+            margin: -6px 0;
         }
         .row-cards::-webkit-scrollbar {
             display: none;
         }
 
-        /* Netflix Style Vertical Card (Póster compacto 95px x 140px) */
+        /* Netflix Style Vertical Card (Póster compacto 95px x 140px con espacio para borde rojo activo) */
         .netflix-card {
             flex: 0 0 95px;
             height: 140px;
-            border-radius: 7px;
+            border-radius: 8px;
             overflow: hidden;
             position: relative;
             background: #141414;
-            border: 2px solid rgba(255, 255, 255, 0.12);
+            border: 2.5px solid rgba(255, 255, 255, 0.15);
             transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
             cursor: pointer;
             box-shadow: 0 6px 14px rgba(0,0,0,0.8);
@@ -203,9 +227,9 @@
         }
         .netflix-card.active {
             border-color: #e50914;
-            transform: scale(1.12);
-            box-shadow: 0 0 22px rgba(229, 9, 20, 0.85);
-            z-index: 5;
+            transform: scale(1.14);
+            box-shadow: 0 0 25px rgba(229, 9, 20, 0.95);
+            z-index: 10;
         }
         .netflix-card.active img {
             opacity: 1;
@@ -226,39 +250,13 @@
             text-overflow: ellipsis;
         }
 
-        /* Seek indicator */
-        .seek-toast {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 25;
-            background: rgba(0,0,0,0.88);
-            border: 2px solid #e50914;
-            padding: 20px 40px;
-            border-radius: 16px;
-            font-size: 28px;
-            font-weight: 700;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            opacity: 0;
-            transition: opacity 0.2s;
-            pointer-events: none;
-            box-shadow: 0 0 30px rgba(229, 9, 20, 0.5);
-        }
-        .seek-toast.show {
-            opacity: 1;
-        }
-
         /* Loading Screen */
         .loader-container {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             z-index: 35;
             background: #080808;
             display: flex;
@@ -298,8 +296,11 @@
     <!-- YouTube Top UI Mask -->
     <div class="top-yt-mask"></div>
 
-    <!-- Hero Left Side Vignette Overlay (Se oculta en pantalla completa) -->
+    <!-- Hero Left Side Vignette Overlay (Se esconde junto con la sinopsis) -->
     <div id="hero-vignette" class="hero-vignette"></div>
+
+    <!-- Fullscreen Hero Image (Muestra la foto en HD durante la navegación fluida) -->
+    <img id="hero-bg-img" class="" src="" alt="Hero Image">
 
     <!-- YouTube Player Container -->
     <div id="player-container">
@@ -318,11 +319,6 @@
         <div id="rows-wrapper" class="rows-wrapper">
             <!-- Filas dinámicas -->
         </div>
-    </div>
-
-    <!-- Seek Toast Indicator -->
-    <div id="seek-toast" class="seek-toast">
-        <span id="seek-text">+10s</span>
     </div>
 
     <script>
@@ -349,7 +345,6 @@
             document.getElementById('loader-status').innerText = "Cargando catálogo Netflix...";
             categories = [];
 
-            // 1. Cargar las 5 filas desde GitHub Raw (con timestamp anti-caché)
             try {
                 const cacheUrl = `https://raw.githubusercontent.com/todout/fondos-projectivy/master/trailers_cache.json?t=${Date.now()}`;
                 const remoteRes = await fetch(cacheUrl);
@@ -365,7 +360,6 @@
                 console.warn("Error cargando desde GitHub Raw:", e);
             }
 
-            // 2. Respaldo local si no hay conexión
             if (categories.length === 0) {
                 try {
                     const localRes = await fetch('./trailers.json');
@@ -437,7 +431,7 @@
             if (cIdx < 0) cIdx = targetRow.items.length - 1;
             if (cIdx >= targetRow.items.length) cIdx = 0;
 
-            // Desmarcar anterior
+            // Desmarcar tarjeta anterior
             const prevCard = document.getElementById(`card-${currentRowIndex}-${currentCardIndex}`);
             if (prevCard) prevCard.classList.remove('active');
 
@@ -451,22 +445,30 @@
                 activeCard.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
             }
 
-            // Desplazar contenedor de filas verticalmente (ajustado a 170px para mostrar solo la vista previa de la fila siguiente)
+            // Desplazar contenedor de filas verticalmente (ajustado a 180px para mostrar solo la vista previa de la fila siguiente)
             const wrapper = document.getElementById('rows-wrapper');
-            wrapper.style.transform = `translateY(-${currentRowIndex * 170}px)`;
+            wrapper.style.transform = `translateY(-${currentRowIndex * 180}px)`;
 
             // Actualizar sinopsis e información en panel izquierdo
             document.getElementById('movie-title').innerText = item.title;
             document.getElementById('movie-subtitle').innerText = item.subtitle || 'PELÍCULA';
             document.getElementById('movie-overview').innerText = item.overview && item.overview.trim() ? item.overview : '';
 
+            // Actualizar Foto HD de fondo mientras navega
+            const heroImg = document.getElementById('hero-bg-img');
+            const heroSrc = item.backdrop_url || item.poster_url || '';
+            if (heroSrc) {
+                heroImg.src = heroSrc;
+                heroImg.style.display = 'block';
+            }
+
             wakeUI();
 
-            // Cargar tráiler si el vídeo cambia
+            // Precargar el tráiler en segundo plano silenciosamente
             if (item.youtube_id && item.youtube_id !== currentVideoId) {
                 currentVideoId = item.youtube_id;
                 if (player && isPlayerReady) {
-                    player.loadVideoById(item.youtube_id);
+                    player.cueVideoById(item.youtube_id);
                 }
             }
 
@@ -482,9 +484,14 @@
             clearTimeout(hideRowsTimer);
             clearTimeout(hideSinopsisTimer);
 
+            document.getElementById('hero-bg-img').classList.remove('fullscreen-active');
             document.getElementById('hero-vignette').classList.remove('fullscreen-active');
             document.getElementById('osd-left').classList.remove('fullscreen-active');
             document.getElementById('netflix-rows').classList.remove('fullscreen-active');
+
+            if (player && isPlayerReady) {
+                player.pauseVideo();
+            }
 
             resetStaggeredFullscreenTimers();
         }
@@ -498,11 +505,16 @@
                 document.getElementById('netflix-rows').classList.add('fullscreen-active');
             }, 3500);
 
-            // 2. A los 5.5 segundos (2s después) se esconden la sinopsis y el degradado juntos
+            // 2. A los 5.5 segundos (2s después) se esconde la foto HD de fondo, la sinopsis y el degradado para dar paso al vídeo
             hideSinopsisTimer = setTimeout(() => {
+                document.getElementById('hero-bg-img').classList.add('fullscreen-active');
                 document.getElementById('osd-left').classList.add('fullscreen-active');
                 document.getElementById('hero-vignette').classList.add('fullscreen-active');
                 isFullscreenActive = true;
+
+                if (player && isPlayerReady) {
+                    player.playVideo();
+                }
             }, 5500);
         }
 
@@ -518,7 +530,7 @@
                 videoId: currentVideoId,
                 host: 'https://www.youtube-nocookie.com',
                 playerVars: {
-                    'autoplay': 1,
+                    'autoplay': 0,
                     'controls': 0,
                     'disablekb': 1,
                     'fs': 0,
@@ -559,7 +571,6 @@
             if (!player || !isPlayerReady) return;
             const curr = player.getCurrentTime();
             player.seekTo(curr + seconds, true);
-            showSeekToast(seconds > 0 ? `+${seconds}s` : `${seconds}s`);
             wakeUI();
         }
 
@@ -568,19 +579,10 @@
             const state = player.getPlayerState();
             if (state === YT.PlayerState.PLAYING) {
                 player.pauseVideo();
-                showSeekToast("PAUSA");
             } else {
                 player.playVideo();
-                showSeekToast("PLAY");
             }
             wakeUI();
-        }
-
-        function showSeekToast(text) {
-            const toast = document.getElementById('seek-toast');
-            document.getElementById('seek-text').innerText = text;
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 1200);
         }
 
         // Control Remoto D-Pad
@@ -616,9 +618,11 @@
                 case 27: // ESC / BACK
                 case 4:
                     document.getElementById('netflix-rows').classList.add('fullscreen-active');
+                    document.getElementById('hero-bg-img').classList.add('fullscreen-active');
                     document.getElementById('osd-left').classList.add('fullscreen-active');
                     document.getElementById('hero-vignette').classList.add('fullscreen-active');
                     isFullscreenActive = true;
+                    if (player && isPlayerReady) player.playVideo();
                     break;
                 default:
                     wakeUI();
