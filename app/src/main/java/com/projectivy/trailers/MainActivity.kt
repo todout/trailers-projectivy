@@ -43,8 +43,8 @@ class MainActivity : AppCompatActivity() {
         settings.mediaPlaybackRequiresUserGesture = false
         settings.allowFileAccess = true
         settings.allowContentAccess = true
-        settings.useWideViewPort = false
-        settings.loadWithOverviewMode = false
+        settings.useWideViewPort = true
+        settings.loadWithOverviewMode = true
         settings.cacheMode = WebSettings.LOAD_NO_CACHE
         webView.clearCache(true)
 

@@ -92,13 +92,13 @@
             opacity: 0;
         }
 
-        /* Left OSD Sinopsis Panel (Ancho al 60%: 410px) */
+        /* Left OSD Sinopsis Panel (Ancho ampliado a 580px para títulos en 1 sola línea) */
         .osd-left-panel {
             position: fixed;
-            top: 30px;
+            top: 25px;
             left: 50px;
-            width: 410px;
-            max-width: 410px;
+            width: 580px;
+            max-width: 580px;
             z-index: 15;
             display: flex;
             flex-direction: column;
@@ -125,7 +125,7 @@
             text-shadow: 0 2px 8px rgba(0,0,0,0.95);
         }
         .movie-title {
-            font-size: 34px;
+            font-size: 38px;
             font-weight: 900;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -134,13 +134,13 @@
             color: #ffffff;
         }
         .movie-overview {
-            font-size: 13.5px;
-            line-height: 1.4;
+            font-size: 15px;
+            line-height: 1.45;
             color: rgba(255, 255, 255, 0.92);
             font-weight: 400;
             text-shadow: 0 2px 8px rgba(0,0,0,0.95);
             display: -webkit-box;
-            -webkit-line-clamp: 4;
+            -webkit-line-clamp: 6;
             -webkit-box-orient: vertical;
             overflow: hidden;
             margin-top: 2px;
@@ -149,10 +149,10 @@
         /* Netflix Multi-Row Bottom Container */
         .netflix-rows-panel {
             position: fixed;
-            bottom: 0;
+            bottom: 10px;
             left: 0;
             width: 100vw;
-            height: 31.5vh;
+            height: 275px;
             z-index: 20;
             display: flex;
             flex-direction: column;
@@ -170,9 +170,9 @@
         .rows-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 1.8vh;
+            gap: 16px;
             transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
-            padding: 0.8vh 50px 0 50px;
+            padding: 8px 50px 0 50px;
             will-change: transform;
         }
 
@@ -188,7 +188,7 @@
             justify-content: space-between;
         }
         .row-title {
-            font-size: 1.15rem;
+            font-size: 18px;
             font-weight: 800;
             color: #ffffff;
             letter-spacing: 0.5px;
@@ -203,17 +203,17 @@
             overflow-x: auto;
             overflow-y: hidden;
             scroll-behavior: smooth;
-            padding: 1.2vh 10px;
+            padding: 12px 10px;
             margin: 0;
         }
         .row-cards::-webkit-scrollbar {
             display: none;
         }
 
-        /* Netflix Style Vertical Card */
+        /* Netflix Style Vertical Card (Póster uniforme 95px x 140px) */
         .netflix-card {
-            flex: 0 0 10.5vh;
-            height: 15.5vh;
+            flex: 0 0 95px;
+            height: 140px;
             border-radius: 8px;
             overflow: hidden;
             position: relative;
@@ -232,7 +232,7 @@
         }
         .netflix-card.active {
             border-color: #e50914;
-            transform: scale(1.12);
+            transform: scale(1.14);
             box-shadow: 0 0 25px rgba(229, 9, 20, 0.95);
             z-index: 10;
         }
@@ -521,8 +521,7 @@
             const wrapper = document.getElementById('rows-wrapper');
             const targetRowDiv = document.getElementById(`row-${currentRowIndex}`);
             if (targetRowDiv && wrapper) {
-                const wrapperPadding = Math.round(window.innerHeight * 0.008);
-                const targetY = Math.max(0, targetRowDiv.offsetTop - wrapperPadding);
+                const targetY = Math.max(0, targetRowDiv.offsetTop - 8);
                 wrapper.style.transform = `translateY(-${targetY}px)`;
             }
 
