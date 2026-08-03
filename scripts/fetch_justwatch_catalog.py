@@ -16,6 +16,7 @@ headers = {
 
 platform_data = {
     "Top 10 Disney+": {
+        "provider": "Disney+",
         "movies": [
             "El diablo viste a la moda 2", "El diario de la princesa", "Furia",
             "Avatar: Fuego y ceniza", "Hoppers: Operación castor", "Soy Luna: Volver a rodar",
@@ -28,6 +29,7 @@ platform_data = {
         ]
     },
     "Top 10 Prime Video": {
+        "provider": "Prime Video",
         "movies": [
             "Amos del Universo", "Nunca debimos entrar", "Proyecto Fin del Mundo",
             "Spider-Man: Sin camino a casa", "Spider-Man 2: Lejos de Casa", "El Guardián: Último Refugio",
@@ -40,6 +42,7 @@ platform_data = {
         ]
     },
     "Top 10 Apple TV+": {
+        "provider": "Apple TV+",
         "movies": [
             "The Dink: Pasión por el pickleball", "F1 la película", "El abismo secreto",
             "Snoopy presenta: Hogar, dulce hogar", "Eternidad", "La fuente de la juventud",
@@ -52,6 +55,7 @@ platform_data = {
         ]
     },
     "Top 10 Max": {
+        "provider": "Max",
         "movies": [
             "El diablo viste a la moda 2", "Boda sangrienta 2", "Duna: Parte dos",
             "Batman", "El Club de la Pelea", "Guasón 2: Folie à Deux",
@@ -68,8 +72,10 @@ platform_data = {
 
 enriched_cache = {}
 
-def get_tmdb_info(title, media_type="PELÍCULA"):
-    encoded_title = urllib.parse.quote(title)
+def get_tmdb_info(title, provider="", media_type="PELÍCULA"):
+    # Include provider in search query if specified to disambiguate identical titles
+    search_term = f"{title} {provider}".strip() if provider else title
+    encoded_title = urllib.parse.quote(search_term)
     url = f"https://www.themoviedb.org/search?query={encoded_title}"
     
     poster_url = None
@@ -83,6 +89,12 @@ def get_tmdb_info(title, media_type="PELÍCULA"):
         html = urllib.request.urlopen(req).read().decode('utf-8')
         
         match = re.search(r'href="/(movie|tv)/(\d+)[^"]*"', html)
+        if not match and provider: # Fallback to search without provider
+            url_fallback = f"https://www.themoviedb.org/search?query={urllib.parse.quote(title)}"
+            req_fb = urllib.request.Request(url_fallback, headers=headers)
+            html = urllib.request.urlopen(req_fb).read().decode('utf-8')
+            match = re.search(r'href="/(movie|tv)/(\d+)[^"]*"', html)
+
         if match:
             m_type, tmdb_id = match.groups()
             detail_url = f"https://www.themoviedb.org/{m_type}/{tmdb_id}?language=es-MX"
@@ -92,6 +104,16 @@ def get_tmdb_info(title, media_type="PELÍCULA"):
             p_match = re.search(r'https://image\.tmdb\.org/t/p/w\d+/([a-zA-Z0-9_\.]+\.jpg)', d_html)
             if p_match:
                 poster_url = f"https://image.tmdb.org/t/p/w500/{p_match.group(1)}"
+                
+            og_images = re.findall(r'content="https://media\.themoviedb\.org/t/p/[^/]+/([a-zA-Z0-9_\.]+\.jpg)"', d_html)
+            if not og_images:
+                og_images = re.findall(r'content="https://image\.tmdb\.org/t/p/[^/]+/([a-zA-Z0-9_\.]+\.jpg)"', d_html)
+                
+            if len(og_images) >= 2:
+                backdrop_url = f"https://image.tmdb.org/t/p/w1280/{og_images[1]}"
+            elif len(og_images) == 1:
+                backdrop_url = f"https://image.tmdb.org/t/p/w1280/{og_images[0]}"
+            else:
                 backdrop_url = poster_url
                 
             o_match = re.search(r'<meta name="description" content="([^"]+)"', d_html)
@@ -106,7 +128,8 @@ def get_tmdb_info(title, media_type="PELÍCULA"):
 
     if not poster_url:
         poster_url = "https://image.tmdb.org/t/p/w500/gp31EwMH5D2bftOjscwkgTmoLAB.jpg"
-        backdrop_url = "https://image.tmdb.org/t/p/w500/oz4U9eA6ilYf1tyiVuGmkftdLac.jpg"
+    if not backdrop_url:
+        backdrop_url = poster_url
     if not overview:
         overview = f"Sigue la historia y los eventos de {title}."
         
@@ -120,8 +143,8 @@ def get_tmdb_info(title, media_type="PELÍCULA"):
         "subtitle": subtitle
     }
 
-def get_youtube_trailer_id(title):
-    query = f"{title} trailer oficial español"
+def get_youtube_trailer_id(title, provider=""):
+    query = f"{title} {provider} trailer oficial español".strip()
     url = f"https://www.youtube.com/results?search_query={urllib.parse.quote(query)}"
     try:
         req = urllib.request.Request(url, headers=headers)
@@ -133,14 +156,14 @@ def get_youtube_trailer_id(title):
         print(f"  [YT Error for '{title}']:", e)
     return "cAHSi8AXbCE"
 
-def build_enriched_item(title, media_type):
-    key = (title.lower().strip(), media_type)
+def build_enriched_item(title, provider, media_type):
+    key = (title.lower().strip(), provider.lower().strip(), media_type)
     if key in enriched_cache:
         return enriched_cache[key]
     
-    print(f"Enriching {media_type}: '{title}'...")
-    tmdb_info = get_tmdb_info(title, media_type)
-    yt_id = get_youtube_trailer_id(title)
+    print(f"Enriching {media_type} ({provider}): '{title}'...")
+    tmdb_info = get_tmdb_info(title, provider, media_type)
+    yt_id = get_youtube_trailer_id(title, provider)
     time.sleep(0.2)
     
     item = {
@@ -159,7 +182,7 @@ def build_enriched_item(title, media_type):
     return item
 
 def run():
-    print("Starting JustWatch Catalog & TMDB/YouTube Enrichment...")
+    print("Starting JustWatch Catalog & Disambiguated TMDB/YouTube Enrichment...")
     try:
         with open('app/src/main/assets/trailers.json', 'r', encoding='utf-8') as f:
             existing_catalog = json.load(f)
@@ -177,15 +200,16 @@ def run():
 
     for cat_name, content in platform_data.items():
         print(f"\n--- Building {cat_name} ---")
+        provider_name = content.get("provider", "")
         items = []
         
         # 10 movies
         for title in content["movies"]:
-            items.append(build_enriched_item(title, "PELÍCULA"))
+            items.append(build_enriched_item(title, provider_name, "PELÍCULA"))
             
         # 10 shows
         for title in content["shows"]:
-            items.append(build_enriched_item(title, "SERIE"))
+            items.append(build_enriched_item(title, provider_name, "SERIE"))
             
         new_catalog_rows.append({
             "category": cat_name,
@@ -196,7 +220,7 @@ def run():
     with open('app/src/main/assets/trailers.json', 'w', encoding='utf-8') as f:
         json.dump(updated_catalog, f, ensure_ascii=False, indent=2)
 
-    print("\n[SUCCESS] Successfully generated enriched catalog in trailers.json!")
+    print("\n[SUCCESS] Successfully generated disambiguated enriched catalog in trailers.json!")
 
 if __name__ == '__main__':
     run()
