@@ -110,9 +110,9 @@ def get_tmdb_info(title, provider="", media_type="PELÍCULA"):
                 og_images = re.findall(r'content="https://image\.tmdb\.org/t/p/[^/]+/([a-zA-Z0-9_\.]+\.jpg)"', d_html)
                 
             if len(og_images) >= 2:
-                backdrop_url = f"https://image.tmdb.org/t/p/w1280/{og_images[1]}"
+                backdrop_url = f"https://image.tmdb.org/t/p/w500/{og_images[1]}"
             elif len(og_images) == 1:
-                backdrop_url = f"https://image.tmdb.org/t/p/w1280/{og_images[0]}"
+                backdrop_url = f"https://image.tmdb.org/t/p/w500/{og_images[0]}"
             else:
                 backdrop_url = poster_url
                 
