@@ -45,6 +45,8 @@ class MainActivity : AppCompatActivity() {
         settings.allowContentAccess = true
         settings.useWideViewPort = true
         settings.loadWithOverviewMode = true
+        settings.cacheMode = WebSettings.LOAD_NO_CACHE
+        webView.clearCache(true)
 
         webView.webViewClient = object : WebViewClient() {
             override fun shouldInterceptRequest(
