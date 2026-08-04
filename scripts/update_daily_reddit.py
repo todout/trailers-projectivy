@@ -125,7 +125,7 @@ def update_catalog_with_reddit_items(titles=None, push_to_git=False):
         print("No se encontraron títulos. Especifica una lista de títulos.")
         return
 
-    print(f"Procesando {len(titles)} títulos para la categoría 'Fondos del Día (Reddit)':")
+    print(f"Procesando {len(titles)} títulos para la categoría 'Recomendaciones del día':")
     reddit_items = []
     
     for t in titles:
@@ -160,10 +160,10 @@ def update_catalog_with_reddit_items(titles=None, push_to_git=False):
         catalog = {"rows": []}
 
     rows = catalog.get('rows', [])
-    filtered_rows = [r for r in rows if r.get('category') != "Fondos del Día (Reddit r/IMDB_esp)"]
+    filtered_rows = [r for r in rows if r.get('category') not in ["Fondos del Día (Reddit r/IMDB_esp)", "Recomendaciones del día"]]
     
     reddit_category = {
-        "category": "Fondos del Día (Reddit r/IMDB_esp)",
+        "category": "Recomendaciones del día",
         "items": reddit_items
     }
     

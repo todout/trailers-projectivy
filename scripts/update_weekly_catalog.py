@@ -165,13 +165,14 @@ def run_weekly_update(gemini_api_key=None, push_to_git=False):
     if not os.path.exists(json_path):
         json_path = os.path.join(os.path.dirname(__file__), '../app/src/main/assets/trailers.json')
 
-    # Preservar primero los Fondos del Día de Reddit si existen
+    # Preservar primero la categoría Recomendaciones del día si existe
     reddit_category = None
     try:
         with open(json_path, 'r', encoding='utf-8') as f:
             catalog = json.load(f)
             for row in catalog.get('rows', []):
-                if row.get('category') == "Fondos del Día (Reddit r/IMDB_esp)":
+                if row.get('category') in ["Recomendaciones del día", "Fondos del Día (Reddit r/IMDB_esp)"]:
+                    row["category"] = "Recomendaciones del día"
                     reddit_category = row
                     break
     except Exception:
