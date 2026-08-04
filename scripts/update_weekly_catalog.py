@@ -226,7 +226,9 @@ def run_weekly_update(gemini_api_key=None, push_to_git=False):
         
         titles = None
         if cat_name == "Top 10 Netflix":
-            titles = default_titles
+            tudum_titles = get_netflix_tudum_top10()
+            if tudum_titles:
+                titles = tudum_titles
         elif gemini_api_key and "Top 10:" in cat_name:
             titles = query_gemini_recommendations(gemini_api_key, cat_name)
             
