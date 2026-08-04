@@ -30,7 +30,7 @@ GENRE_AND_PLATFORM_CATALOG = {
         "El precio de la verdad", "Bohemian Rhapsody", "Ford v Ferrari", "El irlandes", "Sound of Freedom"
     ],
     "Top 10 Disney+": [
-        "El diablo viste a la moda 2", "El diario de la princesa", "Furia",
+        "El diablo viste a la moda 2", "El diario de la princesa", {"title": "Furia", "tmdb_path": "tv/287238-furious"},
         "Avatar: Fuego y ceniza", "Los Simpson", "Malcolm en el medio",
         "Grey's Anatomy", "Modern Family", "Shōgun", "El encargado"
     ],
@@ -114,10 +114,14 @@ def query_gemini_recommendations(api_key, genre_prompt):
         print(f"  [Gemini Note]: Usando catálogo optimizado para '{genre_prompt}'")
     return None
 
-def get_tmdb_info(title):
-    encoded_title = urllib.parse.quote(title)
-    url = f"https://www.themoviedb.org/search?query={encoded_title}"
-    
+def get_tmdb_info(item):
+    if isinstance(item, dict):
+        title = item["title"]
+        tmdb_path = item.get("tmdb_path")
+    else:
+        title = item
+        tmdb_path = None
+
     poster_url = None
     backdrop_url = None
     overview = None
@@ -126,41 +130,60 @@ def get_tmdb_info(title):
     extra_info = "1h 48m"
     
     try:
-        req = urllib.request.Request(url, headers=HEADERS)
-        html = urllib.request.urlopen(req).read().decode('utf-8')
-        
-        match = re.search(r'href="/(movie|tv)/(\d+)[^"]*"', html)
-        if match:
+        if tmdb_path:
+            m_type = "tv" if tmdb_path.startswith("tv/") else "movie"
+            media_type = "SERIE" if m_type == "tv" else "PELÍCULA"
+            extra_info = "1 Temporada" if media_type == "SERIE" else "1h 48m"
+            detail_url = f"https://www.themoviedb.org/{tmdb_path}?language=es-MX"
+            d_req = urllib.request.Request(detail_url, headers=HEADERS)
+            d_html = urllib.request.urlopen(d_req).read().decode('utf-8')
+        else:
+            encoded_title = urllib.parse.quote(title)
+            url = f"https://www.themoviedb.org/search?query={encoded_title}"
+            req = urllib.request.Request(url, headers=HEADERS)
+            html = urllib.request.urlopen(req).read().decode('utf-8')
+            
+            match = re.search(r'href="/(movie|tv)/(\d+)[^"]*"', html)
+            if not match:
+                return {
+                    "title": title,
+                    "subtitle": f"{media_type} • {year} • {extra_info}",
+                    "media_type": media_type,
+                    "year": year,
+                    "extra_info": extra_info,
+                    "poster_url": "https://image.tmdb.org/t/p/w500/gp31EwMH5D2bftOjscwkgTmoLAB.jpg",
+                    "backdrop_url": "https://image.tmdb.org/t/p/w500/gp31EwMH5D2bftOjscwkgTmoLAB.jpg",
+                    "overview": f"Sigue la historia y los eventos de {title}."
+                }
             m_type, tmdb_id = match.groups()
             media_type = "SERIE" if m_type == "tv" else "PELÍCULA"
             extra_info = "1 Temporada" if media_type == "SERIE" else "1h 48m"
-            
             detail_url = f"https://www.themoviedb.org/{m_type}/{tmdb_id}?language=es-MX"
             d_req = urllib.request.Request(detail_url, headers=HEADERS)
             d_html = urllib.request.urlopen(d_req).read().decode('utf-8')
-            
-            p_match = re.search(r'https://image\.tmdb\.org/t/p/w\d+/([a-zA-Z0-9_\.]+\.jpg)', d_html)
-            if p_match:
-                poster_url = f"https://image.tmdb.org/t/p/w500/{p_match.group(1)}"
-                
-            og_images = re.findall(r'content="https://media\.themoviedb\.org/t/p/[^/]+/([a-zA-Z0-9_\.]+\.jpg)"', d_html)
-            if not og_images:
-                og_images = re.findall(r'content="https://image\.tmdb\.org/t/p/[^/]+/([a-zA-Z0-9_\.]+\.jpg)"', d_html)
-                
-            if len(og_images) >= 2:
-                backdrop_url = f"https://image.tmdb.org/t/p/w500/{og_images[1]}"
-            elif len(og_images) == 1:
-                backdrop_url = f"https://image.tmdb.org/t/p/w500/{og_images[0]}"
-            else:
-                backdrop_url = poster_url
-                
-            o_match = re.search(r'<meta name="description" content="([^"]+)"', d_html)
-            if o_match:
-                overview = o_match.group(1).replace('...', '').strip()
 
-            y_match = re.search(r'\((\d{4})\)', d_html)
-            if y_match:
-                year = y_match.group(1)
+        p_match = re.search(r'https://image\.tmdb\.org/t/p/w\d+/([a-zA-Z0-9_\.]+\.jpg)', d_html)
+        if p_match:
+            poster_url = f"https://image.tmdb.org/t/p/w500/{p_match.group(1)}"
+            
+        og_images = re.findall(r'content="https://media\.themoviedb\.org/t/p/[^/]+/([a-zA-Z0-9_\.]+\.jpg)"', d_html)
+        if not og_images:
+            og_images = re.findall(r'content="https://image\.tmdb\.org/t/p/[^/]+/([a-zA-Z0-9_\.]+\.jpg)"', d_html)
+            
+        if len(og_images) >= 2:
+            backdrop_url = f"https://image.tmdb.org/t/p/w500/{og_images[1]}"
+        elif len(og_images) == 1:
+            backdrop_url = f"https://image.tmdb.org/t/p/w500/{og_images[0]}"
+        else:
+            backdrop_url = poster_url
+            
+        o_match = re.search(r'<meta name="description" content="([^"]+)"', d_html)
+        if o_match:
+            overview = o_match.group(1).replace('...', '').strip()
+
+        y_match = re.search(r'\((\d{4})\)', d_html)
+        if y_match:
+            year = y_match.group(1)
     except Exception as e:
         print(f"  [TMDB Error para '{title}']:", e)
 
@@ -183,7 +206,8 @@ def get_tmdb_info(title):
         "overview": overview
     }
 
-def get_youtube_trailer_id(title):
+def get_youtube_trailer_id(item):
+    title = item["title"] if isinstance(item, dict) else item
     query = f"{title} trailer oficial espanol latino"
     url = f"https://www.youtube.com/results?search_query={urllib.parse.quote(query)}"
     try:
