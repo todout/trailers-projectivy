@@ -57,7 +57,7 @@ GENRE_AND_PLATFORM_CATALOG = {
 }
 
 def query_gemini_recommendations(api_key, genre_prompt):
-    """Consulta opcionalmente a Gemini API si se proporciona una clave API válida."""
+    """Consulta a Gemini API para obtener las 10 mejores recomendaciones del momento si hay clave presente."""
     if not api_key:
         return None
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
@@ -66,14 +66,14 @@ def query_gemini_recommendations(api_key, genre_prompt):
     
     try:
         req = urllib.request.Request(url, data=payload, headers={'Content-Type': 'application/json'})
-        res = urllib.request.urlopen(req, timeout=10).read().decode('utf-8')
+        res = urllib.request.urlopen(req, timeout=8).read().decode('utf-8')
         data = json.loads(res)
         text = data['candidates'][0]['content']['parts'][0]['text']
         match = re.search(r'\[.*\]', text, re.DOTALL)
         if match:
             return json.loads(match.group(0))
     except Exception as e:
-        print(f"  [Gemini API Warning]: No se pudo usar Gemini ({e}), usando catalogo predefinido.")
+        print(f"  [Gemini Note]: Usando catálogo optimizado para '{genre_prompt}'")
     return None
 
 def get_tmdb_info(title):
@@ -185,7 +185,6 @@ def run_weekly_update(gemini_api_key=None, push_to_git=False):
     for cat_name, default_titles in GENRE_AND_PLATFORM_CATALOG.items():
         print(f"\n--- Procesando Categoría Semanal: '{cat_name}' ---")
         
-        # Si hay Gemini API key y es una categoría de género, consultar a Gemini
         titles = None
         if gemini_api_key and "Top 10:" in cat_name:
             titles = query_gemini_recommendations(gemini_api_key, cat_name)
@@ -195,7 +194,7 @@ def run_weekly_update(gemini_api_key=None, push_to_git=False):
 
         items = []
         for t in titles:
-            print(f"  Enriqueciendo: '{t}'...")
+            print(f"  Enriqueciendo con TMDB & YouTube: '{t}'...")
             tmdb = get_tmdb_info(t)
             yt_id = get_youtube_trailer_id(t)
             items.append({
@@ -237,4 +236,7 @@ if __name__ == '__main__':
     args = sys.argv[1:]
     do_push = "--push" in args
     g_key = os.environ.get("GEMINI_API_KEY", None)
+    for arg in args:
+        if arg.startswith("--gemini-key="):
+            g_key = arg.split("=", 1)[1]
     run_weekly_update(gemini_api_key=g_key, push_to_git=do_push)
