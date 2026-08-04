@@ -724,46 +724,50 @@
             switch(e.keyCode) {
                 case 38: // Arriba - Ir a la 1ra tarjeta de la fila superior
                 case 19:
+                    e.preventDefault();
                     isPausedManually = false;
                     updateSelection(currentRowIndex - 1, 0);
                     break;
                 case 40: // Abajo - Ir a la 1ra tarjeta de la fila inferior
                 case 20:
+                    e.preventDefault();
                     isPausedManually = false;
                     updateSelection(currentRowIndex + 1, 0);
                     break;
                 case 37: // Izquierda - Moverse horizontalmente
                 case 21:
+                    e.preventDefault();
                     isPausedManually = false;
                     updateSelection(currentRowIndex, currentCardIndex - 1);
                     break;
                 case 39: // Derecha - Moverse horizontalmente
                 case 22:
+                    e.preventDefault();
                     isPausedManually = false;
                     updateSelection(currentRowIndex, currentCardIndex + 1);
                     break;
                 case 13: // Enter / OK / Select
                 case 23:
                 case 32:
-                    isPausedManually = false;
-                    if (!isVideoLoadedAndPlaying) {
-                        updateSelection(currentRowIndex, currentCardIndex, true);
-                    } else {
-                        togglePlayPause();
-                    }
+                    e.preventDefault();
+                    togglePlayPause();
                     break;
                 case 85: // Play/Pause Media Button
                 case 179:
+                    e.preventDefault();
                     togglePlayPause();
                     break;
                 case 228: // Fast Forward
+                    e.preventDefault();
                     seekBy(10);
                     break;
                 case 227: // Rewind
+                    e.preventDefault();
                     seekBy(-10);
                     break;
                 case 27: // ESC / BACK
                 case 4:
+                    e.preventDefault();
                     if (isPausedManually) {
                         isPausedManually = false;
                         player.playVideo();
