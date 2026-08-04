@@ -257,6 +257,65 @@
             text-overflow: ellipsis;
         }
 
+        /* Top-Left Mini Badge Panel (Aparece al reproducir limpio en pantalla completa) */
+        .mini-badge-panel {
+            position: fixed;
+            top: 28px;
+            left: 45px;
+            z-index: 25;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 8px 18px 8px 10px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+            transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
+            transform: translateY(-160%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        .mini-badge-panel.visible-badge {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .mini-poster-img {
+            width: 44px;
+            height: 64px;
+            object-fit: cover;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+            background: #141414;
+        }
+        .mini-info-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+        .mini-title-text {
+            font-size: 19px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+            max-width: 420px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .mini-subtitle-text {
+            font-size: 12px;
+            font-weight: 700;
+            color: #e50914;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+        }
+
         /* Loading Screen */
         .loader-container {
             position: fixed;
@@ -321,6 +380,15 @@
         <div id="movie-subtitle" class="movie-subtitle">...</div>
         <div id="movie-title" class="movie-title">...</div>
         <div id="movie-overview" class="movie-overview">...</div>
+    </div>
+
+    <!-- Top-Left Mini Badge Panel (Aparece al reproducir limpio en pantalla completa) -->
+    <div id="mini-badge" class="mini-badge-panel">
+        <img id="mini-poster" class="mini-poster-img" src="" alt="Mini Poster">
+        <div class="mini-info-wrapper">
+            <div id="mini-title" class="mini-title-text">...</div>
+            <div id="mini-subtitle" class="mini-subtitle-text">...</div>
+        </div>
     </div>
 
     <!-- Netflix Multi-Row Bottom Container -->
@@ -552,6 +620,16 @@
             document.getElementById('movie-subtitle').innerText = item.subtitle || 'PELÍCULA';
             document.getElementById('movie-overview').innerText = item.overview && item.overview.trim() ? item.overview : '';
 
+            // Actualizar Mini Badge (Póster, Título y Subtítulo)
+            document.getElementById('mini-title').innerText = item.title;
+            document.getElementById('mini-subtitle').innerText = item.subtitle || 'PELÍCULA';
+            const miniPoster = document.getElementById('mini-poster');
+            const posterSrc = item.poster_url || item.backdrop_url || '';
+            if (miniPoster && posterSrc) {
+                miniPoster.src = posterSrc;
+            }
+            document.getElementById('mini-badge').classList.remove('visible-badge');
+
             // Mostrar foto HD inmediatamente durante navegación rápida (gracias a precarga)
             const heroImg = document.getElementById('hero-bg-img');
             const heroSrc = item.backdrop_url || item.poster_url || '';
@@ -599,6 +677,9 @@
             clearTimeout(hideRowsTimer);
             clearTimeout(hideSinopsisTimer);
 
+            // Ocultar mini badge cuando los controles/paneles están despiertos
+            document.getElementById('mini-badge').classList.remove('visible-badge');
+
             if (isPausedManually || isVideoLoadedAndPlaying) {
                 document.getElementById('hero-bg-img').classList.add('hidden-hero');
             } else {
@@ -632,6 +713,11 @@
                     document.getElementById('osd-left').classList.add('fullscreen-active');
                     document.getElementById('hero-vignette').classList.add('fullscreen-active');
                     isFullscreenActive = true;
+
+                    // Mostrar mini badge en la esquina superior izquierda si el video está reproduciéndose limpio en pantalla completa
+                    if (isVideoLoadedAndPlaying) {
+                        document.getElementById('mini-badge').classList.add('visible-badge');
+                    }
                 }
             }, 5500);
         }
@@ -670,8 +756,14 @@
                         if (e.data === YT.PlayerState.PLAYING) {
                             isVideoLoadedAndPlaying = true;
                             document.getElementById('hero-bg-img').classList.add('hidden-hero');
+                            if (isFullscreenActive && !isPausedManually) {
+                                document.getElementById('mini-badge').classList.add('visible-badge');
+                            }
+                        } else if (e.data === YT.PlayerState.PAUSED) {
+                            document.getElementById('mini-badge').classList.remove('visible-badge');
                         } else if (e.data === YT.PlayerState.ENDED) {
                             isPausedManually = false;
+                            document.getElementById('mini-badge').classList.remove('visible-badge');
                             updateSelection(currentRowIndex, currentCardIndex + 1, true);
                         }
                     },
