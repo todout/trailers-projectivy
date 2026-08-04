@@ -308,127 +308,127 @@
       ]
     },
     {
-      "category": "Top 10: Terror y Thriller",
+      "category": "Top 10: Basadas en hechos reales",
       "items": [
         {
-          "title": "Boda sangrienta 2",
-          "subtitle": "PELÍCULA • 2026 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2026",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tQV0X354U142Cao8Be6eUt38spS.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/fx2cEuadZK28VHKkc0F1nFR96i0.jpg",
-          "overview": "Momentos después de sobrevivir a un ataque de la familia Le Domas, Grace descubre que ha alcanzado el siguiente nivel del juego, y esta vez acompañada por su hermana Faith, con quien mantiene una relación distante. Grace tiene una oportunidad para sobrevivir, mantener con vida a su hermana y reclamar el Alto Trono del Consejo que controla el mundo. Cuatro familias rivales la persiguen para hacerse con el trono, y quien gane lo gobernará todo.",
-          "youtube_id": "4pprkl7MaJg",
-          "trailer_url": "https://www.youtube.com/watch?v=4pprkl7MaJg"
-        },
-        {
-          "title": "El abismo secreto",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/3s0jkMh0YUhIeIeioH3kt2X4st4.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/9nhjGaFLKtddDPtPaX5EmKqsWdH.jpg",
-          "overview": "Dos agentes altamente entrenados se unen a la distancia tras ser enviados a proteger bordes opuestos de un abismo misterioso. Cuando la maldad emerge de él, tienen que trabajar juntos para sobrevivir a lo que yace dentro del abismo.",
-          "youtube_id": "68C85UWmOGQ",
-          "trailer_url": "https://www.youtube.com/watch?v=68C85UWmOGQ"
-        },
-        {
-          "title": "La maldicion de Widow's Bay",
-          "subtitle": "SERIE • 2026 • 1 Temporada",
-          "media_type": "SERIE",
-          "year": "2026",
-          "extra_info": "1 Temporada",
-          "poster_url": "https://image.tmdb.org/t/p/w500/hAI5wOXpKdbTRnjSZMw9FpfKlMS.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/u6XtMg9Ai9siEbEs0UudPS3EaZY.jpg",
-          "overview": "El alcalde de un pueblo en una isla de Nueva Inglaterra decide convertirla en la próxima sensación turística, a pesar de las advertencias locales de que está maldita.",
-          "youtube_id": "Eccgq9wiNyQ",
-          "trailer_url": "https://www.youtube.com/watch?v=Eccgq9wiNyQ"
-        },
-        {
-          "title": "From",
-          "subtitle": "SERIE • 2022 • 1 Temporada",
-          "media_type": "SERIE",
-          "year": "2022",
-          "extra_info": "1 Temporada",
-          "poster_url": "https://image.tmdb.org/t/p/w500/7pHMZ6EsZfs2qZu0Lv2UGtTo5MU.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/xLdw1xdHocKYFFvx7w41NchXMfJ.jpg",
-          "overview": "Desvela el misterio de un pueblo de pesadilla en el centro de América que atrapa a todos los que entran. Mientras los residentes involuntarios luchan por mantener una sensación de normalidad y buscan una salida, también deben sobrevivir a las amenazas del bosque circundante, incluidas las aterradoras criaturas que salen cuando se pone el sol.",
-          "youtube_id": "A-6HRIzZo7s",
-          "trailer_url": "https://www.youtube.com/watch?v=A-6HRIzZo7s"
-        },
-        {
-          "title": "Pesadilla en la cocina",
-          "subtitle": "SERIE • 2012 • 1 Temporada",
-          "media_type": "SERIE",
-          "year": "2012",
-          "extra_info": "1 Temporada",
-          "poster_url": "https://image.tmdb.org/t/p/w500/fBixlwDqcUX16qr5i99WJkiYO1v.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/1270gqc07xtPkbrtw99gMRPosj5.jpg",
-          "overview": "Alberto Chicote tratará de salvar negocios de hostelería en crisis utilizando unos métodos poco ortodoxos. No importa lo duro y radical que sea. Si alguien puede devolverle la chispa a un restaurante, ése alguien es Alberto Chicote.",
-          "youtube_id": "Qc-RAHO17k0",
-          "trailer_url": "https://www.youtube.com/watch?v=Qc-RAHO17k0"
-        },
-        {
-          "title": "El club de la pelea",
-          "subtitle": "PELÍCULA • 1999 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "1999",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/bI0BhpswEApC0B17RhLZtRVPZiQ.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/c6OLXfKAk5BKeR6broC8pYiCquX.jpg",
-          "overview": "Un hombre consumido por el insomnio y una vida sin sentido conoce a Tyler Durden, un carismático anarquista que lo arrastra a un club secreto donde el dolor despierta algo dormido. Lo que comienza como liberación pronto se convierte en una guerra contra el sistema…",
-          "youtube_id": "iBsiL3NaqhE",
-          "trailer_url": "https://www.youtube.com/watch?v=iBsiL3NaqhE"
-        },
-        {
-          "title": "True Detective",
-          "subtitle": "SERIE • 2014 • 1 Temporada",
-          "media_type": "SERIE",
-          "year": "2014",
-          "extra_info": "1 Temporada",
-          "poster_url": "https://image.tmdb.org/t/p/w500/xZSuQm2KQQKoVKf31HgUWkjAVga.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/v8YFr8BbU9qsO8PYIulzTeM6Qk.jpg",
-          "overview": "En Luisiana, en 1995, dos detectives investigan el atroz asesinato de una joven que fue sometida a un ritual pagano. En el año 2012, unos policías interrogan a estos dos detectives, dado que sospechan que el asesino de 1995 ha regresado",
-          "youtube_id": "TbVEuab_Fkw",
-          "trailer_url": "https://www.youtube.com/watch?v=TbVEuab_Fkw"
-        },
-        {
-          "title": "El Penguino",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/6kHxUwYDKch6BOdRgYr0x4kyZ4Y.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/6kHxUwYDKch6BOdRgYr0x4kyZ4Y.jpg",
-          "overview": "Sigue la historia y los eventos de El Penguino.",
-          "youtube_id": "RNEt4JPlrFE",
-          "trailer_url": "https://www.youtube.com/watch?v=RNEt4JPlrFE"
-        },
-        {
-          "title": "El encargado",
-          "subtitle": "SERIE • 2022 • 1 Temporada",
-          "media_type": "SERIE",
-          "year": "2022",
-          "extra_info": "1 Temporada",
-          "poster_url": "https://image.tmdb.org/t/p/w500/41SlC4xbNhYkuaGCo62fxYfNXQ7.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/9500oMhworfyr2lWrkZ4F2rJtgh.jpg",
-          "overview": "Narra, en registro de ironía y humor, las aventuras de Eliseo, el encargado de un edificio de clase alta, que, a espaldas del consorcio que lo emplea, hace uso y abuso de su poder de vigilancia e intromisión. El edificio es un universo cuyo ecosistema tiene su dinámica y normas específicas y Eliseo conoce todas a la perfección.",
-          "youtube_id": "gRiibk97NqI",
-          "trailer_url": "https://www.youtube.com/watch?v=gRiibk97NqI"
-        },
-        {
-          "title": "La extorsion",
+          "title": "Oppenheimer",
           "subtitle": "PELÍCULA • 2023 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2023",
           "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/9LZrDfLoxG4sCRoAMonWlE6Uoxy.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/w63V2pwH793FPSnfV05cp1ysgPF.jpg",
-          "overview": "Alejandro, un piloto a punto de jubilarse es extorsionado y forzado a transportar una misteriosa carga de Buenos Aires a Madrid.",
-          "youtube_id": "tODZ2a4BEKQ",
-          "trailer_url": "https://www.youtube.com/watch?v=tODZ2a4BEKQ"
+          "poster_url": "https://image.tmdb.org/t/p/w500/mJRUREPjTqqMEKwEiM2sdmIGngz.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/neeNHeXjMF5fXoCJRsOmkNGC7q.jpg",
+          "overview": "Película sobre el físico J. Robert Oppenheimer y su papel como desarrollador de la bomba atómica. Basada en el libro &#39;American Prometheus: The Triumph and Tragedy of J. Robert Oppenheimer&#39; de Kai Bird y Martin J. Sherwin.",
+          "youtube_id": "gMPEbJQun68",
+          "trailer_url": "https://www.youtube.com/watch?v=gMPEbJQun68"
+        },
+        {
+          "title": "Los asesinos de la luna",
+          "subtitle": "PELÍCULA • 1970 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "1970",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/ml79okPnGMnvPkMeq1VjyHC3G5w.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/egrxDU6GM8Dv5u5e8Nm2Wlq7k2E.jpg",
+          "overview": "Martha Beck, an obese nurse who is desperately lonely, joins a &quot;correspondence club&quot; and finds a romantic pen pal in Ray Fernandez. Martha falls hard for Ray, and is intent on sticking with him even when she discovers he&#39;s a con man who seduces lonely single women, kills them and then takes their money. She poses as Ray&#39;s sister and joins Ray on a wild killing spree, fueled by her lingering concern that Ray will leave her for one of his marks.",
+          "youtube_id": "57yrWZt5z2g",
+          "trailer_url": "https://www.youtube.com/watch?v=57yrWZt5z2g"
+        },
+        {
+          "title": "La sociedad de la nieve",
+          "subtitle": "PELÍCULA • 2023 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2023",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/9tkJPQb4X4VoU3S5nqLDohZijPj.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/md848EEPm3dHZOqwGxxTVwH2vu5.jpg",
+          "overview": "El 13 de octubre de 1972, el vuelo 571 de la Fuerza Aérea Uruguaya, fletado para llevar a un equipo de rugby a Chile, se estrella en un glaciar en el corazón de los Andes.",
+          "youtube_id": "l9tP4M8URhQ",
+          "trailer_url": "https://www.youtube.com/watch?v=l9tP4M8URhQ"
+        },
+        {
+          "title": "Shogun",
+          "subtitle": "SERIE • 2024 • 1 Temporada",
+          "media_type": "SERIE",
+          "year": "2024",
+          "extra_info": "1 Temporada",
+          "poster_url": "https://image.tmdb.org/t/p/w500/uIoDvVOQaKjSfz2oihkVS8M7l1v.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/bwSmgmd90hCWwqOKQYTEraeOZhJ.jpg",
+          "overview": "Ambientada en el Japón del año 1600, lord Yoshii Toranaga lucha por su vida mientras sus enemigos del Consejo de Regentes se unen contra él, cuando un misterioso barco europeo encalla en un pueblo pesquero cercano.",
+          "youtube_id": "uqn6-Bk2Ezs",
+          "trailer_url": "https://www.youtube.com/watch?v=uqn6-Bk2Ezs"
+        },
+        {
+          "title": "Chernobyl",
+          "subtitle": "SERIE • 2019 • 1 Temporada",
+          "media_type": "SERIE",
+          "year": "2019",
+          "extra_info": "1 Temporada",
+          "poster_url": "https://image.tmdb.org/t/p/w500/hlLXt2tOPT6RRnjiUmoxyG1LTFi.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/3URK0z9PzpVNJrGE7XOuyy6KFzk.jpg",
+          "overview": "Sigue &quot;la verdadera historia&quot; de una de las peores catástrofes provocadas por el hombre y habla de los valientes hombres y mujeres que se sacrificaron para salvar a Europa de un desastre inimaginable. La miniserie se centra en el desgarrador alcance del desastre de la planta nuclear que ocurrió en Ucrania en abril de 1986, revelando cómo y por qué ocurrió, además contando las sorprendentes y notables historias de los héroes que lucharon y cayeron.",
+          "youtube_id": "EJ3q98bD3XA",
+          "trailer_url": "https://www.youtube.com/watch?v=EJ3q98bD3XA"
+        },
+        {
+          "title": "El precio de la verdad",
+          "subtitle": "PELÍCULA • 2004 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2004",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/yf6qKwJeyLBdyBCTbOGqiMgBjmi.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/bAVdb4dA7PsHRoi0EsnAwjU9nxZ.jpg",
+          "overview": "Investigating judge at the 3rd Criminal Chamber of Marseille, Françoise Larchey is the wife of Jean-Pierre Larchey, a famous architect of the Coast. The couple has a son, Valentin, seventeen years old The death of Edith Mesniel, a local political figure, puts the town in turmoil. But when Emilie, Edith&#39;s only daughter and Valentin&#39;s girlfriend, confides to Françoise that her mother&#39;s death was not accidental, Madame le Juge decides to look into the case. By attacking this case, Françoise disturbs many people. She receives death threats, her son and Emilie are also threatened but she refuses to give up. And she discovers little by little that the mafia infiltrated in all the country.",
+          "youtube_id": "fYOB8D9xr4U",
+          "trailer_url": "https://www.youtube.com/watch?v=fYOB8D9xr4U"
+        },
+        {
+          "title": "Bohemian Rhapsody",
+          "subtitle": "PELÍCULA • 2018 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2018",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/gk6IErM0acV6HJRwKZy8ecBoddc.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/dcvbs8z0GEXslC1kCT77x19XDeR.jpg",
+          "overview": "Freddie Mercury desafía los estereotipos y se convierte en uno de los vocalistas más reconocidos de la música mundial. Después de dejar la banda Queen para seguir una carrera como solista, Mercury se reúne con la banda para dar una de las mejores actuaciones en la historia del rock and roll.",
+          "youtube_id": "LTAIlPsMOs4",
+          "trailer_url": "https://www.youtube.com/watch?v=LTAIlPsMOs4"
+        },
+        {
+          "title": "Ford v Ferrari",
+          "subtitle": "PELÍCULA • 2019 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2019",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/sfBgckNg92G34uJ7Ob7wmg0zinb.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/2vq5GTJOahE03mNYZGxIynlHcWr.jpg",
+          "overview": "Basada en la historia real del visionario diseñador americano de automóviles Carroll Shelby y el intrépido piloto británico Ken Miles. Juntos construyen un nuevo coche de carreras para Ford Motor Company y así enfrentar a Enzo Ferrari en las 24 Horas de Le Mans en Francia en 1966.",
+          "youtube_id": "vF74Jc2KSqQ",
+          "trailer_url": "https://www.youtube.com/watch?v=vF74Jc2KSqQ"
+        },
+        {
+          "title": "El irlandes",
+          "subtitle": "PELÍCULA • 2015 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2015",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/f6QAViAj4ualzAVRjwoIupT6Zal.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/lQl87im3WRSH3VAV6JJTzD6P6iq.jpg",
+          "overview": "A young Irish soldier falls prisoner after the English Invasions in Buenos Aires, in 1806. Encouraged in these lands by the same libertarian sentiments that inspired him in his country, his ideals will connect with the nobility of Luisa Ochoa, the young and vigorous widow he meets during his captivity. Love, loss and dignity are concurrent themes in an atypical work within Argentine film production.",
+          "youtube_id": "7strG6Gmoos",
+          "trailer_url": "https://www.youtube.com/watch?v=7strG6Gmoos"
+        },
+        {
+          "title": "Sound of Freedom",
+          "subtitle": "PELÍCULA • 2023 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2023",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/apxaWDCqjPrVc1v5HiKW2r10yiL.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/7JqWWLCajnt6XWCrRlgvtsYP0u6.jpg",
+          "overview": "La historia de Tim Ballard, un ex agente del gobierno de EE. UU., que deja su trabajo para dedicar su vida a rescatar a niños de los traficantes sexuales mundiales.",
+          "youtube_id": "M5W3596a2xo",
+          "trailer_url": "https://www.youtube.com/watch?v=M5W3596a2xo"
         }
       ]
     },
@@ -641,8 +641,8 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/gp31EwMH5D2bftOjscwkgTmoLAB.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/oz4U9eA6ilYf1tyiVuGmkftdLac.jpg",
           "overview": "Noah debe dejar su ciudad, novio y amigos para mudarse a la mansión del nuevo marido de su madre. Allí conoce a su nuevo hermanastro Nick y sus personalidades chocan desde el primer momento. Pero la atracción que sienten les llevará a vivir una relación prohibida, donde el carácter rebelde y atormentado de cada uno de ellos pondrá del revés sus mundos haciendo que acaben perdidamente enamorados. Adaptación del primer libro de la trilogía &quot;Culpables&quot; de Mercedes Ron.",
-          "youtube_id": "rGI6w2vLOLY",
-          "trailer_url": "https://www.youtube.com/watch?v=rGI6w2vLOLY"
+          "youtube_id": "XjhnaIeKjjk",
+          "trailer_url": "https://www.youtube.com/watch?v=XjhnaIeKjjk"
         },
         {
           "title": "La extorsion",
@@ -677,8 +677,8 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/oJvYWuL94S4n6KAICe0sexYp3UL.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/wpkx840m7AXwWsueWaF7yWF5Igk.jpg",
           "overview": "Sigue la historia y los eventos de Merlina.",
-          "youtube_id": "3ZpOfQ2Gb9A",
-          "trailer_url": "https://www.youtube.com/watch?v=3ZpOfQ2Gb9A"
+          "youtube_id": "gmp7LTKnVPo",
+          "trailer_url": "https://www.youtube.com/watch?v=gmp7LTKnVPo"
         }
       ]
     },

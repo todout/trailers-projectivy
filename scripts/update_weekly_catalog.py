@@ -15,7 +15,7 @@ HEADERS = {
     'Accept-Language': 'es-AR,es;q=0.9,en;q=0.8'
 }
 
-# Categorías por Género (Multi-plataforma) y Plataformas
+# Categorías por Género (Multi-plataforma) y Plataformas (Sin Terror)
 GENRE_AND_PLATFORM_CATALOG = {
     "Top 10: Misterio, Intriga y Suspenso": [
         "Sugar", "The Crow Girl", "Gone", "Huye", "El diablo en Ohio",
@@ -25,9 +25,9 @@ GENRE_AND_PLATFORM_CATALOG = {
         "Silo", "Separacion", "Duna: Parte dos", "F1 la pelicula", "Avatar: Fuego y ceniza",
         "Interestelar", "The Mandalorian", "Fundacion", "Avengers: Endgame", "Proyecto Fin del Mundo"
     ],
-    "Top 10: Terror y Thriller": [
-        "Boda sangrienta 2", "El abismo secreto", "La maldicion de Widow's Bay", "From", "Pesadilla en la cocina",
-        "El club de la pelea", "True Detective", "El Penguino", "El encargado", "La extorsion"
+    "Top 10: Basadas en hechos reales": [
+        "Oppenheimer", "Los asesinos de la luna", "La sociedad de la nieve", "Shogun", "Chernobyl",
+        "El precio de la verdad", "Bohemian Rhapsody", "Ford v Ferrari", "El irlandes", "Sound of Freedom"
     ],
     "Top 10 Disney+": [
         "El diablo viste a la moda 2", "El diario de la princesa", "Furia",
@@ -61,7 +61,7 @@ def query_gemini_recommendations(api_key, genre_prompt):
     if not api_key:
         return None
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
-    prompt = f"Devuelve exactamente un array JSON con 10 nombres de peliculas o series en tendencia sobre: {genre_prompt}. Formato estricto: [\"Titulo 1\", \"Titulo 2\", ...]"
+    prompt = f"Devuelve exactamente un array JSON con 10 nombres de peliculas o series en tendencia (sin incluir terror ni horror) sobre: {genre_prompt}. Formato estricto: [\"Titulo 1\", \"Titulo 2\", ...]"
     payload = json.dumps({"contents": [{"parts": [{"text": prompt}]}]}).encode('utf-8')
     
     try:
@@ -159,7 +159,7 @@ def get_youtube_trailer_id(title):
     return "cAHSi8AXbCE"
 
 def run_weekly_update(gemini_api_key=None, push_to_git=False):
-    print("=== INICIANDO ACTUALIZACIÓN SEMANAL DE CATÁLOGO Y GÉNEROS ===")
+    print("=== INICIANDO ACTUALIZACIÓN SEMANAL DE CATÁLOGO Y GÉNEROS (SIN TERROR) ===")
     
     json_path = 'app/src/main/assets/trailers.json'
     if not os.path.exists(json_path):
@@ -226,7 +226,7 @@ def run_weekly_update(gemini_api_key=None, push_to_git=False):
         try:
             print("Subiendo catálogo semanal a GitHub...")
             subprocess.run(["git", "add", json_path], check=True)
-            subprocess.run(["git", "commit", "-m", "Auto-update Catálogo Semanal y Géneros (Lunes)"], check=True)
+            subprocess.run(["git", "commit", "-m", "Auto-update Catálogo Semanal (Reemplazar Terror por Hechos Reales)"], check=True)
             subprocess.run(["git", "push"], check=True)
             print("[ÉXITO] Cambios semanales subidos a GitHub correctamente.")
         except Exception as e:
