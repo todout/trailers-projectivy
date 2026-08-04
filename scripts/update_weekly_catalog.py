@@ -49,7 +49,7 @@ GENRE_AND_PLATFORM_CATALOG = {
     ],
     "Top 10 Max": [
         "El diablo viste a la moda 2", "Boda sangrienta 2", "Duna: Parte dos",
-        "Batman", "El Club de la Pelea", "La casa del dragon", {"title": "El Pengüino", "tmdb_path": "tv/194764-the-penguin"},
+        {"title": "Batman Inicia", "tmdb_path": "movie/272-batman-begins"}, "El Club de la Pelea", "La casa del dragon", {"title": "El Pengüino", "tmdb_path": "tv/194764-the-penguin"},
         "Juego de tronos", "The Last of Us", "Succession"
     ],
     "Top 10 Apple TV+": [
