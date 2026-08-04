@@ -528,8 +528,8 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/gabjqvbqXsg4KL5JaBoPKPipiys.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/nO7EzksrBzlNpAg5rgv8HzaBIkx.jpg",
           "overview": "Narra el día a día de una gran familias compuesta por Jay Pritchett y su joven mujer Gloria Delgado, madre de Manny, y al mismo tiempo muestra la vida de las dos familias compuestas por sus hijos ya adultos: el abogado gay Mitchell, casado con Cameron Tucker y padres adoptivos de la pequeña Lily, y su hija Claire, casada con Phil Dunphy y que son padres de 3 hijos, la hija Haley, la estudiosa Alex y el simple Luke.",
-          "youtube_id": "Gyjz-5XLIdY",
-          "trailer_url": "https://www.youtube.com/watch?v=Gyjz-5XLIdY"
+          "youtube_id": "_W8Sbmxa-QQ",
+          "trailer_url": "https://www.youtube.com/watch?v=_W8Sbmxa-QQ"
         },
         {
           "title": "Shōgun",
@@ -560,18 +560,6 @@
     {
       "category": "Top 10 Netflix",
       "items": [
-        {
-          "title": "23 000 vidas",
-          "subtitle": "PELÍCULA • 2026 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2026",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/AnNQDqCXcdJrWknQtbBIlvMDboE.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/q5L3aXchoCgwbZbwWl5FjhGmuYs.jpg",
-          "overview": "Un grupo de jóvenes zarpa hacia el Mediterráneo para salvar las vidas de los refugiados, una misión que pondrá a prueba sus nociones sobre la ley y la justicia.",
-          "youtube_id": "CNTL54QxFJU",
-          "trailer_url": "https://www.youtube.com/watch?v=CNTL54QxFJU"
-        },
         {
           "title": "Elize: Sombras de una mujer",
           "subtitle": "PELÍCULA • 2026 • 1h 48m",
@@ -621,6 +609,18 @@
           "trailer_url": "https://www.youtube.com/watch?v=J1kaHcjkWEs"
         },
         {
+          "title": "23 000 vidas",
+          "subtitle": "PELÍCULA • 2026 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2026",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/AnNQDqCXcdJrWknQtbBIlvMDboE.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/q5L3aXchoCgwbZbwWl5FjhGmuYs.jpg",
+          "overview": "Un grupo de jóvenes zarpa hacia el Mediterráneo para salvar las vidas de los refugiados, una misión que pondrá a prueba sus nociones sobre la ley y la justicia.",
+          "youtube_id": "CNTL54QxFJU",
+          "trailer_url": "https://www.youtube.com/watch?v=CNTL54QxFJU"
+        },
+        {
           "title": "A pesar de ti",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
@@ -645,6 +645,54 @@
           "trailer_url": "https://www.youtube.com/watch?v=H4lkW2ZRJNs"
         },
         {
+          "title": "Una tóxica historia de amor",
+          "subtitle": "PELÍCULA • 2026 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2026",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/9CmyFXKqQRVbGGxyJE6kp7fhrHa.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/c3hLMqh2QqJd7m1ar6rxw9eio35.jpg",
+          "overview": "En este documental sobre un caso real, una serie de emails amenazantes se convierte en un plan de venganza que involucra a un alguacil recién casado y su exnovia.",
+          "youtube_id": "1w2A2wqtJrI",
+          "trailer_url": "https://www.youtube.com/watch?v=1w2A2wqtJrI"
+        },
+        {
+          "title": "3:10 Misión peligrosa",
+          "subtitle": "PELÍCULA • 2007 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2007",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/etmnvALqhRmG8oa061VUODSUiwK.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/2eznGndOi8s9CGReAvcQ8PEULwm.jpg",
+          "overview": "Arizona. Con la esperanza de conseguir una recompensa que le permita evitar la ruina de su rancho, Dan Evans decide colaborar en el traslado del peligroso forajido Ben Wade hasta un pueblo, donde deberán coger el tren de las 3:10 para llegar a la prisión de Yuma. Remake del film de 1957 de Delmer Daves",
+          "youtube_id": "aPSZY355FeM",
+          "trailer_url": "https://www.youtube.com/watch?v=aPSZY355FeM"
+        },
+        {
+          "title": "Cuarentena 2: Terminal",
+          "subtitle": "PELÍCULA • 2011 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2011",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/xvQkuTuH5QfSm2jh78t2i0iYwB7.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/mHMwoMPLkWHsMeNtFZSNSUOOJ1r.jpg",
+          "overview": "Secuela del remake americano de [REC], Quarantine. Continúa la historia después del final de ésta, esa misma noche. En un avión con destino Nashville, un pasajero da muestras de una violenta enfermedad similar a la rabia. El avión hace un aterrizaje de emergencia en un aeropuerto, momento en el que Jenny, una azafata de vuelo sin demasiada experiencia, es encargada de controlar a los pasajeros.",
+          "youtube_id": "js175qInEug",
+          "trailer_url": "https://www.youtube.com/watch?v=js175qInEug"
+        },
+        {
+          "title": "GIGN: Unidad de élite",
+          "subtitle": "SERIE • 2026 • 1 Temporada",
+          "media_type": "SERIE",
+          "year": "2026",
+          "extra_info": "1 Temporada",
+          "poster_url": "https://image.tmdb.org/t/p/w500/4uh8mjAwKOpTrlu4nldsBf0ZOuU.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/tMpfa73LmKpeZ3Fix1QmFGIUrKI.jpg",
+          "overview": "Tras un ataque sin precedentes contra su unidad, un oficial de alto rango a punto de retirarse lidera una peligrosa misión que lo obliga a enfrentar su pasado.",
+          "youtube_id": "Fk8q-Yzy2nY",
+          "trailer_url": "https://www.youtube.com/watch?v=Fk8q-Yzy2nY"
+        },
+        {
           "title": "El otro padre",
           "subtitle": "SERIE • 2026 • 1 Temporada",
           "media_type": "SERIE",
@@ -657,7 +705,7 @@
           "trailer_url": "https://www.youtube.com/watch?v=cAHSi8AXbCE"
         },
         {
-          "title": "Te encontrare",
+          "title": "Te encontraré",
           "subtitle": "PELÍCULA • 2026 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2026",
@@ -679,6 +727,78 @@
           "overview": "Antes de su muerte, Lucy crea un juego para su hermana, Greta, que la lleva a emprender un viaje de autodescubrimiento… y a conocer al carismático Will Tucker.",
           "youtube_id": "UFi1CcZ3Kbc",
           "trailer_url": "https://www.youtube.com/watch?v=UFi1CcZ3Kbc"
+        },
+        {
+          "title": "Valle Salvaje",
+          "subtitle": "SERIE • 2024 • 1 Temporada",
+          "media_type": "SERIE",
+          "year": "2024",
+          "extra_info": "1 Temporada",
+          "poster_url": "https://image.tmdb.org/t/p/w500/qB356qujmLpMZrY4TobXE9Wtalm.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/oncTvFY9goRyWAQRdDh2FKQ5Zhs.jpg",
+          "overview": "1763. The life of Adriana, a brave and loyal woman, suffers an unexpected setback when she receives a devastating blow: her father has died, and, as a result of a secret pact, she must travel from the city of Madrid to Valle Salvaje, in northern Spain, to marry a stranger. A dark secret from her past follows her to the remote valley, home to her fiancé&#39;s family and her troubled aunt, Doña Victoria. There, her life will change forever. She will experience true love, betrayal, and danger as she tries to uncover the truth behind her father&#39;s death.",
+          "youtube_id": "sLaeWOeoxUQ",
+          "trailer_url": "https://www.youtube.com/watch?v=sLaeWOeoxUQ"
+        },
+        {
+          "title": "El polígamo",
+          "subtitle": "SERIE • 2026 • 1 Temporada",
+          "media_type": "SERIE",
+          "year": "2026",
+          "extra_info": "1 Temporada",
+          "poster_url": "https://image.tmdb.org/t/p/w500/2vuwqi1lb5TB2cpi7VuVCm2tTSZ.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/hGCQ0tsJMpKjfrnCyYY0kMY2kY1.jpg",
+          "overview": "Joyce no es solo una influencer muy querida, sino también la imagen del matrimonio perfecto, pero todo se derrumba cuando las aventuras de su esposo desatan un escándalo.",
+          "youtube_id": "tqYhkI3wqR4",
+          "trailer_url": "https://www.youtube.com/watch?v=tqYhkI3wqR4"
+        },
+        {
+          "title": "La casa de la pradera",
+          "subtitle": "SERIE • 2005 • 1 Temporada",
+          "media_type": "SERIE",
+          "year": "2005",
+          "extra_info": "1 Temporada",
+          "poster_url": "https://image.tmdb.org/t/p/w500/sYnGuFtFE6DE1iiuMjij288HL3a.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/dRrsTEk0WrCZ0CzHv3yb1lPT3ap.jpg",
+          "overview": "Miniserie basada en la mítica serie de televisión de los años setenta &quot;La familia Ingalls&quot;. Corre el año 1870 cuando Charles Ingalls (Cameron Bancroft) llega con su familia a Walnut Grove, un pueblo del lejano Oeste americano, en busca de un futuro mejor. Tanto él como su esposa Caroline (Erin Cottrell) y sus hijas deberán hacer un gran esfuerzo por sobrevivir en tiempos difíciles Laura Ingals publicó en 1935 las memorias de su infancia, recordando cuando, a finales del siglo XIX, la familia Ingalls -formada por el matrimonio y sus tres hijas, Mary (Danielle Ryan Chuchran), Laura (Kyle Chavarria) y Carrie- abandona la ciudad en que viven para instalarse en una pradera del Medio Oeste y forjar una nueva vida.",
+          "youtube_id": "kV3ot7s55vs",
+          "trailer_url": "https://www.youtube.com/watch?v=kV3ot7s55vs"
+        },
+        {
+          "title": "Agente Kim reactivado",
+          "subtitle": "SERIE • 2026 • 1 Temporada",
+          "media_type": "SERIE",
+          "year": "2026",
+          "extra_info": "1 Temporada",
+          "poster_url": "https://image.tmdb.org/t/p/w500/3EKgMSbbaHiogDc1lBWZqdf1WQ5.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/g1LJLlmWP74zv9yXKEXm7g9p10O.jpg",
+          "overview": "Cuando la hija de un modesto padre desaparece, él desempolva sus antiguas habilidades como agente especial para encontrarla… y atrae la atención equivocada.",
+          "youtube_id": "Q36-a7W4Jnc",
+          "trailer_url": "https://www.youtube.com/watch?v=Q36-a7W4Jnc"
+        },
+        {
+          "title": "Perdiendo el juicio",
+          "subtitle": "SERIE • 2025 • 1 Temporada",
+          "media_type": "SERIE",
+          "year": "2025",
+          "extra_info": "1 Temporada",
+          "poster_url": "https://image.tmdb.org/t/p/w500/ioyuupNi55EPjqutl0Kl6KaXZuV.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/nbtIdcehsl91z1iGlsloH8Zs3QP.jpg",
+          "overview": "Sigue la historia y los eventos de Perdiendo el juicio.",
+          "youtube_id": "_9RzL-GrAHY",
+          "trailer_url": "https://www.youtube.com/watch?v=_9RzL-GrAHY"
+        },
+        {
+          "title": "Mi otra yo",
+          "subtitle": "PELÍCULA • 2021 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2021",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/11z4nAYm1ZYIEzTvG0dzyKDBn6R.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/f3SGepXZNToHtEs7wyd7QO8DIdY.jpg",
+          "overview": "A controversial TV host and comedian who has built his career on sexist humor is forced to assume a woman&#39;s identity to elude a relentless drug dealer.",
+          "youtube_id": "eiw16iuEVU0",
+          "trailer_url": "https://www.youtube.com/watch?v=eiw16iuEVU0"
         }
       ]
     },

@@ -35,9 +35,12 @@ GENRE_AND_PLATFORM_CATALOG = {
         "Grey's Anatomy", "Modern Family", "Shōgun", "El encargado"
     ],
     "Top 10 Netflix": [
-        "23 000 vidas", "Elize: Sombras de una mujer", "Los creyentes", "Deseo",
-        "72 horas", "A pesar de ti", "El cobrador de deudas", "El otro padre",
-        "Te encontrare", "El mapa de los anhelos"
+        "Elize: Sombras de una mujer", "Los creyentes", "Deseo", "72 horas",
+        "23 000 vidas", "A pesar de ti", "El cobrador de deudas",
+        "Una tóxica historia de amor", "3:10 Misión peligrosa", "Cuarentena 2: Terminal",
+        "GIGN: Unidad de élite", "El otro padre", "Te encontraré",
+        "El mapa de los anhelos", "Valle Salvaje", "El polígamo",
+        "La casa de la pradera", "Agente Kim reactivado", "Perdiendo el juicio", "Mi otra yo"
     ],
     "Top 10 Prime Video": [
         "Amos del Universo", "Nunca debimos entrar", "Proyecto Fin del Mundo",
@@ -83,20 +86,13 @@ def fetch_tudum_titles(url):
     return []
 
 def get_netflix_tudum_top10():
-    print("  [Scraping Netflix Tudum Argentina en vivo...]")
+    print("  [Scraping Netflix Tudum Argentina (10 Películas + 10 Series) en vivo...]")
     movies = fetch_tudum_titles("https://www.netflix.com/tudum/top10/es/argentina")
     series = fetch_tudum_titles("https://www.netflix.com/tudum/top10/es/argentina/tv")
     
-    combined = []
-    max_len = max(len(movies), len(series))
-    for i in range(max_len):
-        if i < len(movies):
-            combined.append(movies[i])
-        if i < len(series):
-            combined.append(series[i])
-        if len(combined) >= 10:
-            break
-    return combined[:10]
+    if movies or series:
+        return movies[:10] + series[:10]
+    return []
 
 def query_gemini_recommendations(api_key, genre_prompt):
     """Consulta a Gemini API para obtener las 10 mejores recomendaciones del momento si hay clave presente."""
