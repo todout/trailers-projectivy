@@ -22,7 +22,7 @@ GENRE_AND_PLATFORM_CATALOG = {
         "Mensajes de voz para Isabelle", "El botin", "El poligamo", "Hasta el final", "Frankenstein"
     ],
     "Top 10: Ciencia Ficción y Acción": [
-        "Silo", "Separacion", "Duna: Parte dos", "F1 la pelicula", "Avatar: Fuego y ceniza",
+        "Silo", "Separacion", "Duna: Parte dos", "F1 la pelicula", {"title": "Avatar: Fuego y ceniza", "tmdb_path": "movie/83533-avatar-fire-and-ash"},
         "Interestelar", "The Mandalorian", "Fundacion", "Avengers: Endgame", "Proyecto Fin del Mundo"
     ],
     "Top 10: Basadas en hechos reales": [
@@ -31,7 +31,7 @@ GENRE_AND_PLATFORM_CATALOG = {
     ],
     "Top 10 Disney+": [
         "El diablo viste a la moda 2", "El diario de la princesa", {"title": "Furia", "tmdb_path": "tv/287238-furious"},
-        "Avatar: Fuego y ceniza", "Los Simpson", "Malcolm en el medio",
+        {"title": "Avatar: Fuego y ceniza", "tmdb_path": "movie/83533-avatar-fire-and-ash"}, "Los Simpson", "Malcolm en el medio",
         "Grey's Anatomy", "Modern Family", "Shōgun", "El encargado"
     ],
     "Top 10 Netflix": [
