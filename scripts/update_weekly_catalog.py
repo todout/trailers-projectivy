@@ -35,9 +35,9 @@ GENRE_AND_PLATFORM_CATALOG = {
         "Grey's Anatomy", "Modern Family", "Shōgun", "El encargado"
     ],
     "Top 10 Netflix": [
-        "GIGN: Unidad de elite", "El otro padre", "No soy quien crees", "Pesadilla en la cocina",
-        "Deseo", "El cobrador de deudas", "Culpa mia", "La extorsion",
-        "Mision de rescate 2", "Merlina"
+        "23 000 vidas", "Elize: Sombras de una mujer", "Los creyentes", "Deseo",
+        "72 horas", "A pesar de ti", "El cobrador de deudas", "El otro padre",
+        "Te encontrare", "El mapa de los anhelos"
     ],
     "Top 10 Prime Video": [
         "Amos del Universo", "Nunca debimos entrar", "Proyecto Fin del Mundo",
@@ -55,6 +55,48 @@ GENRE_AND_PLATFORM_CATALOG = {
         "Fundacion", "Para toda la humanidad", "Presunto inocente"
     ]
 }
+
+import http.client
+
+def fetch_tudum_titles(url):
+    try:
+        req = urllib.request.Request(url, headers=HEADERS)
+        try:
+            res = urllib.request.urlopen(req, timeout=10)
+            html = res.read().decode('utf-8', errors='ignore')
+        except http.client.IncompleteRead as e:
+            html = e.partial.decode('utf-8', errors='ignore')
+        
+        card_logos = re.findall(r'data-uia="top10-card-logo"[^>]*><img [^>]*alt="([^"]+)"', html)
+        if not card_logos:
+            card_logos = re.findall(r'alt="([^"]+)"[^>]*class="[^"]*top10', html)
+            
+        clean_titles = []
+        for t in card_logos:
+            clean = re.sub(r': Temporada \d+|: Miniserie', '', t).strip()
+            if clean and clean not in clean_titles and not clean.startswith("Top 10"):
+                clean_titles.append(clean)
+        if clean_titles:
+            return clean_titles[:10]
+    except Exception as e:
+        print(f"  [Tudum Error para {url}]:", e)
+    return []
+
+def get_netflix_tudum_top10():
+    print("  [Scraping Netflix Tudum Argentina en vivo...]")
+    movies = fetch_tudum_titles("https://www.netflix.com/tudum/top10/es/argentina")
+    series = fetch_tudum_titles("https://www.netflix.com/tudum/top10/es/argentina/tv")
+    
+    combined = []
+    max_len = max(len(movies), len(series))
+    for i in range(max_len):
+        if i < len(movies):
+            combined.append(movies[i])
+        if i < len(series):
+            combined.append(series[i])
+        if len(combined) >= 10:
+            break
+    return combined[:10]
 
 def query_gemini_recommendations(api_key, genre_prompt):
     """Consulta a Gemini API para obtener las 10 mejores recomendaciones del momento si hay clave presente."""
@@ -187,7 +229,9 @@ def run_weekly_update(gemini_api_key=None, push_to_git=False):
         print(f"\n--- Procesando Categoría Semanal: '{cat_name}' ---")
         
         titles = None
-        if gemini_api_key and "Top 10:" in cat_name:
+        if cat_name == "Top 10 Netflix":
+            titles = default_titles
+        elif gemini_api_key and "Top 10:" in cat_name:
             titles = query_gemini_recommendations(gemini_api_key, cat_name)
             
         if not titles:
