@@ -12,8 +12,9 @@ if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
 
 HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    'Accept-Language': 'es-AR,es;q=0.9,en;q=0.8'
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language': 'es-ES,es;q=0.9,en;q=0.8'
 }
 
 def get_tmdb_info(item):
@@ -129,34 +130,56 @@ def get_youtube_trailer_id(title):
         print(f"  [YT Error para '{title}']:", e)
     return "cAHSi8AXbCE"
 
-def fetch_titles_from_reddit():
-    """Intenta obtener los últimos 4 títulos desde el RSS de Reddit r/IMDB_esp"""
+DEFAULT_REDDIT_TITLES = [
+    "ESCÁNDALO, RELATO DE UNA OBSESIÓN", "LA PROMESA", "TRES METROS SOBRE EL CIELO",
+    "HOMBRES DE PIEL DURA", "SUSANA Y ELVIRA SIN PLAN B", "PA QUERERTE",
+    "LOS DEL LADO OESTE", "EL HOYO", "GIGN: UNIDAD DE ÉLITE", "EL OTRO PADRE",
+    "EL COBRADOR DE DEUDAS", "EL LABERINTO DEL FAUNO", "LEY Y ORDEN: UNIDAD DE VÍCTIMAS ESPECIALES",
+    "SILO", "HOUSE", "CULPA MÍA", "ROSE OF NEVADA", "CUÁNTAME CÓMO PASÓ",
+    "FURIOSA", "LA AMBICIÓN DE LOS SAVAGE", "LOS CREYENTES", "DEXTER"
+]
+
+def fetch_titles_from_reddit(limit=25):
+    """Obtiene los últimos 25 títulos desde el RSS de Reddit r/IMDB_esp"""
     titles = []
-    try:
-        import xml.etree.ElementTree as ET
-        url = 'https://www.reddit.com/r/IMDB_esp/new.rss'
-        req = urllib.request.Request(url, headers=HEADERS)
-        xml_data = urllib.request.urlopen(req).read()
-        root = ET.fromstring(xml_data)
-        entries = root.findall('{http://www.w3.org/2005/Atom}entry')
-        for entry in entries[:4]:
-            t_node = entry.find('{http://www.w3.org/2005/Atom}title')
-            if t_node is not None and t_node.text:
-                clean_title = re.sub(r'\[.*?\]', '', t_node.text).strip()
-                titles.append(clean_title)
-    except Exception as e:
-        print("  [Error obteniendo RSS de Reddit]:", e)
+    urls = [
+        f'https://www.reddit.com/r/IMDB_esp/new/.rss?limit={limit}',
+        f'https://old.reddit.com/r/IMDB_esp/new/.rss?limit={limit}',
+        f'https://www.reddit.com/r/IMDB_esp/.rss?limit={limit}'
+    ]
+    import xml.etree.ElementTree as ET
+    for url in urls:
+        try:
+            req = urllib.request.Request(url, headers=HEADERS)
+            xml_data = urllib.request.urlopen(req, timeout=10).read()
+            root = ET.fromstring(xml_data)
+            entries = root.findall('{http://www.w3.org/2005/Atom}entry')
+            for entry in entries[:limit]:
+                t_node = entry.find('{http://www.w3.org/2005/Atom}title')
+                if t_node is not None and t_node.text:
+                    clean_title = re.sub(r'\[.*?\]', '', t_node.text).strip()
+                    if clean_title and clean_title not in titles:
+                        titles.append(clean_title)
+            if len(titles) > 0:
+                print(f"  [Obtenidos {len(titles)} títulos desde Reddit RSS]")
+                break
+        except Exception as e:
+            print(f"  [Advertencia RSS Reddit '{url}']:", e)
+
+    if not titles:
+        print("  [Usando lista de respaldo para r/IMDB_esp]")
+        titles = DEFAULT_REDDIT_TITLES[:limit]
+
     return titles
 
 def update_catalog_with_reddit_items(titles=None, push_to_git=False):
     if not titles:
-        titles = fetch_titles_from_reddit()
+        titles = fetch_titles_from_reddit(limit=25)
         
     if not titles:
-        print("No se encontraron títulos. Especifica una lista de títulos.")
-        return
+        titles = DEFAULT_REDDIT_TITLES[:25]
 
-    print(f"Procesando {len(titles)} títulos para la categoría 'Recomendaciones del día':")
+    print(f"Procesando {len(titles)} títulos para la categoría 'Últimos Fondos (r/IMDB_esp)':")
     reddit_items = []
     
     for t in titles:
@@ -191,10 +214,10 @@ def update_catalog_with_reddit_items(titles=None, push_to_git=False):
         catalog = {"rows": []}
 
     rows = catalog.get('rows', [])
-    filtered_rows = [r for r in rows if r.get('category') not in ["Fondos del Día (Reddit r/IMDB_esp)", "Recomendaciones del día"]]
+    filtered_rows = [r for r in rows if r.get('category') not in ["Fondos del Día (Reddit r/IMDB_esp)", "Recomendaciones del día", "Últimos Fondos (r/IMDB_esp)"]]
     
     reddit_category = {
-        "category": "Recomendaciones del día",
+        "category": "Últimos Fondos (r/IMDB_esp)",
         "items": reddit_items
     }
     
