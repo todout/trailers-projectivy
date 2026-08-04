@@ -182,7 +182,13 @@ def get_tmdb_info(item):
                     y_match = re.search(r'\((\d{4})\)', d_html)
                     cur_year = y_match.group(1) if y_match else "2026"
                     
-                    if cur_overview and not cur_overview.startswith("This in-house") and len(cur_overview) > 20:
+                    # Detect English overviews accurately (excluding Spanish prepositions like 'a')
+                    english_stopwords = {"is", "the", "who", "and", "with", "her", "his", "their", "from", "about", "which", "after", "when", "into"}
+                    words = [w.strip('.,;:"()') for w in cur_overview.lower().split()]
+                    match_count = sum(1 for w in words if w in english_stopwords)
+                    is_english = match_count >= 2
+
+                    if cur_overview and not is_english and not cur_overview.startswith("This in-house") and len(cur_overview) > 20:
                         subtitle = f"{cur_media_type} • {cur_year} • {cur_extra_info}"
                         return {
                             "title": title,
