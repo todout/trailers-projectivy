@@ -300,7 +300,7 @@ def get_personalized_recommendations(existing_catalog=None):
             item_final["provider"] = "Recomendado para Ti"
             rec_items.append(item_final)
 
-        if len(rec_items) >= 10:
+        if len(rec_items) >= 20:
             break
 
     log_data["recommendations"] = rec_log
