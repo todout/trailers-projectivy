@@ -257,22 +257,19 @@
             text-overflow: ellipsis;
         }
 
-        /* Top-Left Mini Badge Panel (Aparece al reproducir limpio en pantalla completa) */
+        /* Top-Left Mini Badge Panel (Solo póster y texto sin tarjeta de fondo) */
         .mini-badge-panel {
             position: fixed;
-            top: 28px;
+            top: 30px;
             left: 45px;
             z-index: 25;
             display: flex;
             align-items: center;
             gap: 14px;
-            background: rgba(0, 0, 0, 0.65);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 8px 18px 8px 10px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
             transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
             transform: translateY(-160%);
             opacity: 0;
@@ -287,7 +284,7 @@
             height: 64px;
             object-fit: cover;
             border-radius: 6px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.95);
             background: #141414;
         }
         .mini-info-wrapper {
@@ -296,24 +293,24 @@
             gap: 3px;
         }
         .mini-title-text {
-            font-size: 19px;
-            font-weight: 800;
+            font-size: 20px;
+            font-weight: 900;
             color: #ffffff;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.9);
-            max-width: 420px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.98), 0 0 12px rgba(0,0,0,0.9);
+            max-width: 450px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
         .mini-subtitle-text {
-            font-size: 12px;
-            font-weight: 700;
+            font-size: 13px;
+            font-weight: 800;
             color: #e50914;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
             text-transform: uppercase;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+            text-shadow: 0 2px 6px rgba(0,0,0,0.98);
         }
 
         /* Loading Screen */
@@ -807,9 +804,23 @@
 
         // Control Remoto D-Pad & Teclas Multimedia
         document.addEventListener('keydown', (e) => {
+            const isBackKey = (e.keyCode === 27 || e.keyCode === 4);
+
+            // Si se está reproduciendo el tráiler en pantalla limpia y se presiona ATRÁS (o cualquier tecla):
             if (isFullscreenActive) {
+                e.preventDefault();
                 isPausedManually = false;
                 wakeUI();
+                return;
+            }
+
+            // Si está en el menú y se presiona la tecla ATRÁS:
+            if (isBackKey) {
+                if (window.Android && typeof window.Android.exitApp === 'function') {
+                    e.preventDefault();
+                    window.Android.exitApp();
+                }
+                // Permitir que la acción por defecto del sistema / navegador cierre la app si estamos en el menú
                 return;
             }
 
@@ -856,19 +867,6 @@
                 case 227: // Rewind
                     e.preventDefault();
                     seekBy(-10);
-                    break;
-                case 27: // ESC / BACK
-                case 4:
-                    e.preventDefault();
-                    if (isPausedManually) {
-                        isPausedManually = false;
-                        player.playVideo();
-                    }
-                    document.getElementById('netflix-rows').classList.add('fullscreen-active');
-                    document.getElementById('hero-bg-img').classList.add('hidden-hero');
-                    document.getElementById('osd-left').classList.add('fullscreen-active');
-                    document.getElementById('hero-vignette').classList.add('fullscreen-active');
-                    isFullscreenActive = true;
                     break;
                 default:
                     if (!isPausedManually) wakeUI();
