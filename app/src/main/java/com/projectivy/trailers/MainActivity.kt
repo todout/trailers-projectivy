@@ -58,8 +58,19 @@ class MainActivity : AppCompatActivity() {
         }
         webView.webChromeClient = WebChromeClient()
 
+        webView.addJavascriptInterface(JavaScriptInterface(this), "Android")
+
         // Cargar reproductor HTML de TV desde origen virtual HTTPS para evitar Error 153 de YouTube
         webView.loadUrl("https://appassets.androidplatform.net/assets/tv_player.html")
+    }
+
+    class JavaScriptInterface(private val activity: MainActivity) {
+        @android.webkit.JavascriptInterface
+        fun exitApp() {
+            activity.runOnUiThread {
+                activity.finish()
+            }
+        }
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
@@ -85,7 +96,7 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
             KeyEvent.KEYCODE_BACK -> {
-                finish()
+                webView.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_BACK))
                 return true
             }
         }
