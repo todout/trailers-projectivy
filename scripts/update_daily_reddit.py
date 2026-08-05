@@ -187,13 +187,17 @@ def get_personalized_recommendations():
         "Los renglones torcidos de dios",
         "Bellas Artes",
         "El reino",
-        "Porno y helado",
         "La sociedad de la nieve",
         "Knives Out",
         "La noche de 12 años",
         "Cabo de miedo",
         "Terapia alternativa",
-        "Argentina, 1985"
+        "El jardín de bronce",
+        "Sugar",
+        "Relatos salvajes",
+        "El lobo de Wall Street",
+        "Huye",
+        "El botín"
     ]
     
     seen_titles = set()
