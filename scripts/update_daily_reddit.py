@@ -60,7 +60,7 @@ def get_tmdb_info(item):
                     
                     m_type = "tv" if path.startswith("tv/") else "movie"
                     cur_media_type = "SERIE" if m_type == "tv" else "PELÍCULA"
-                    cur_extra_info = "1 Temporada" if cur_media_type == "SERIE" else "1h 45m"
+                    cur_extra_info = get_tv_extra_info_from_tmdb_path(path) if cur_media_type == "SERIE" else "1h 45m"
 
                     p_match = re.search(r'https://image\.tmdb\.org/t/p/w\d+/([a-zA-Z0-9_\.]+\.jpg)', d_html)
                     cur_poster = f"https://image.tmdb.org/t/p/w500/{p_match.group(1)}" if p_match else None
