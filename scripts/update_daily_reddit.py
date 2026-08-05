@@ -123,18 +123,38 @@ def get_tmdb_info(item):
         "overview": overview or f"Sigue la historia y los eventos de {title}."
     }
 
+def is_youtube_video_playable(yt_id):
+    if not yt_id:
+        return False
+    try:
+        url = f"https://www.youtube.com/watch?v={yt_id}"
+        req = urllib.request.Request(url, headers=HEADERS)
+        html = urllib.request.urlopen(req, timeout=6).read().decode('utf-8', errors='ignore')
+        
+        if '"status":"LOGIN_REQUIRED"' in html or 'Accede para confirmar tu edad' in html or 'restricción de edad' in html or 'age-gate' in html:
+            return False
+            
+        playability_match = re.search(r'"playabilityStatus":\s*\{\s*"status":\s*"([^"]+)"', html)
+        if playability_match and playability_match.group(1) != "OK":
+            return False
+            
+        return True
+    except Exception:
+        return False
+
 def get_youtube_trailer_id(title):
     query = f"{title} trailer oficial español latino"
     url = f"https://www.youtube.com/results?search_query={urllib.parse.quote(query)}"
     try:
         req = urllib.request.Request(url, headers=HEADERS)
-        html = urllib.request.urlopen(req).read().decode('utf-8')
+        html = urllib.request.urlopen(req, timeout=8).read().decode('utf-8')
         vids = re.findall(r'"videoId":"([a-zA-Z0-9_-]{11})"', html)
-        if vids:
-            return vids[0]
+        for vid in vids[:6]:
+            if is_youtube_video_playable(vid):
+                return vid
     except Exception as e:
         print(f"  [YT Error para '{title}']:", e)
-    return "cAHSi8AXbCE"
+    return None
 
 DEFAULT_REDDIT_TITLES = [
     "ESCÁNDALO, RELATO DE UNA OBSESIÓN", "LA PROMESA", "TRES METROS SOBRE EL CIELO",
@@ -290,6 +310,10 @@ def get_personalized_recommendations(existing_catalog=None):
             time.sleep(0.2)
 
         if item_to_use:
+            yt_id = item_to_use.get("youtube_id")
+            if not yt_id or not is_youtube_video_playable(yt_id):
+                print(f"  [Recomendado para Ti] Descartado '{t}' porque su tráiler no es reproducible o tiene restricción de edad.")
+                return None
             used_keys.add(t_clean)
             item_final = dict(item_to_use)
             item_final["provider"] = "Recomendado para Ti"
@@ -345,9 +369,12 @@ def update_catalog_with_reddit_items(custom_titles=None, push_to_git=False):
     
     for t in titles:
         print(f" - Buscando metadatos y tráiler para: '{t}'...")
-        tmdb = get_tmdb_info(t)
         yt_id = get_youtube_trailer_id(t)
-        
+        if not yt_id:
+            print(f"  [Descartado por tráiler no reproducible o restricción de edad]: '{t}'")
+            continue
+
+        tmdb = get_tmdb_info(t)
         item = {
             "title": tmdb["title"],
             "subtitle": tmdb["subtitle"],
