@@ -4,6 +4,71 @@
       "category": "Últimos fondos de tu TV",
       "items": [
         {
+          "title": "ROSARIO TIJERAS",
+          "subtitle": "SERIE • 2016 • 1 Temporada",
+          "media_type": "SERIE",
+          "year": "2016",
+          "extra_info": "1 Temporada",
+          "poster_url": "https://image.tmdb.org/t/p/w500/q03eQL8AUx49lVH6IT3IlmWzhQu.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/hsSw3DuG2ah2wgaZeDTwyv5FPh3.jpg",
+          "overview": "La serie cuenta la historia de una guerrera de uno de los barrios más pobres y peligrosos en Ciudad de México. Su belleza y nobleza contrasta con el ambiente gris y desolado donde creció. Ella es temida por sus enemigos y adorada por sus amigos.",
+          "youtube_id": "Q6vktKx0z4s",
+          "trailer_url": "https://www.youtube.com/watch?v=Q6vktKx0z4s",
+          "provider": "Reddit r/IMDB_esp"
+        },
+        {
+          "title": "SHAMELESS",
+          "subtitle": "SERIE • 2011 • 1 Temporada",
+          "media_type": "SERIE",
+          "year": "2011",
+          "extra_info": "1 Temporada",
+          "poster_url": "https://image.tmdb.org/t/p/w500/ifo31fMWLmyOVpdak9K0kY4jldQ.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/5s9XHTB9SLPdg3mNU6BlSLnZ9Qq.jpg",
+          "overview": "En la peculiar familia Gallagher, Frank, un padre soltero y alcohólico, intenta educar a sus seis inteligentes, salvajes e independientes hijos.",
+          "youtube_id": "w94OXRiQUp4",
+          "trailer_url": "https://www.youtube.com/watch?v=w94OXRiQUp4",
+          "provider": "Reddit r/IMDB_esp"
+        },
+        {
+          "title": "TODO LO QUE NUNCA FUIMOS",
+          "subtitle": "PELÍCULA • 2026 • 1h 45m",
+          "media_type": "PELÍCULA",
+          "year": "2026",
+          "extra_info": "1h 45m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/zqxIT48mWFsC4NSjGEHAcp1pjEo.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/6cJUqJYfRu5HqLKPmG5NVUMOjuD.jpg",
+          "overview": "Cuando a su hermano mayor le ofrecen un trabajo lejos de casa, una joven aspirante a pintora, destrozada por un trágico accidente que se llevó a sus padres, le pide a su mejor amigo que cuide de ella. A medida que su atracción mutua crece hasta proporciones insoportables, los dos deben decidir si reprimir su amor o dejar que suceda.",
+          "youtube_id": "WMXm0KKGrdM",
+          "trailer_url": "https://www.youtube.com/watch?v=WMXm0KKGrdM",
+          "provider": "Reddit r/IMDB_esp"
+        },
+        {
+          "title": "AMORES PERROS",
+          "subtitle": "PELÍCULA • 2000 • 1h 45m",
+          "media_type": "PELÍCULA",
+          "year": "2000",
+          "extra_info": "1h 45m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/bVK4CPluBY9LFkzCAwhG5Fs04HE.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/iTkxwBriD9YKg4Q35qWEIlLXd6e.jpg",
+          "overview": "Ciudad de México: un fatal accidente automovilístico afecta trágicamente a tres personas. Octavio, un joven adolescente, decide fugarse con Susana, la esposa de su hermano; el Cofí, su perro, se convierte en el medio para conseguir el dinero que necesitan para poder escapar juntos. Al mismo tiempo, Daniel, un hombre de 42 años, deja a su esposa y a sus hijos para irse a vivir con Valeria, una hermosa modelo. El mismo día en que ambos festejan su nueva vida, el destino hace que Valeria sea víctima del trágico accidente.",
+          "youtube_id": "ebvWj98Yui0",
+          "trailer_url": "https://www.youtube.com/watch?v=ebvWj98Yui0",
+          "provider": "Reddit r/IMDB_esp"
+        },
+        {
+          "title": "ESCÁNDALO RELATO DE UNA OBSESIÓN",
+          "subtitle": "SERIE • 2023 • 1 Temporada",
+          "media_type": "SERIE",
+          "year": "2023",
+          "extra_info": "1 Temporada",
+          "poster_url": "https://image.tmdb.org/t/p/w500/mra3tUkixvDE0lxQw1ZjuSkCa1U.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/cfoFgrPULUMFAP0XCo6hfjzKZGN.jpg",
+          "overview": "Inés es una mujer de 42 años que en un momento complicado de su existencia se sumerge en el mar para acabar con su vida. Su salvador es Hugo, un adolescente del que se enamora obsesivamente. En su empeño porque nadie se entrometa en esa relación prohibida, Inés se irá dejando llevar por sus impulsos y no dudará en tomar decisiones que afectarán irremediablemente a cuantos la rodean, sumiendo a todo su entorno en una espiral de graves acontecimientos.",
+          "youtube_id": "ORClchSsW7g",
+          "trailer_url": "https://www.youtube.com/watch?v=ORClchSsW7g",
+          "provider": "Reddit r/IMDB_esp"
+        },
+        {
           "title": "ESCÁNDALO, RELATO DE UNA OBSESIÓN",
           "subtitle": "SERIE • 2023 • 1 Temporada",
           "media_type": "SERIE",
@@ -142,8 +207,8 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/loW8i6T3amH4CONDjaUNmQv9kva.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/dk68ykaNd3HdrDJyPJqEGsgvag7.jpg",
           "overview": "Atormentado por los errores del pasado y un diagnóstico terminal, un excobrador de deudas regresa al mundo del hampa para proteger a las víctimas de una organización violenta.",
-          "youtube_id": "-jDcQuW2Ikg",
-          "trailer_url": "https://www.youtube.com/watch?v=-jDcQuW2Ikg",
+          "youtube_id": "H4lkW2ZRJNs",
+          "trailer_url": "https://www.youtube.com/watch?v=H4lkW2ZRJNs",
           "provider": "Reddit r/IMDB_esp"
         },
         {
@@ -155,8 +220,8 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/gWPkUFGlO7ZIiArUcWRBmvAwVjB.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/6G6nqSW9S7EHA9HrYl0Z8uo2H7f.jpg",
           "overview": "En la España falangista de 1944, una joven aficionada a los libros e hijastra de un sádico oficial del ejército huye a un misterioso pero cautivador mundo de fantasía.",
-          "youtube_id": "gpEh4O8Hb5Y",
-          "trailer_url": "https://www.youtube.com/watch?v=gpEh4O8Hb5Y",
+          "youtube_id": "FGzvvUBXj5M",
+          "trailer_url": "https://www.youtube.com/watch?v=FGzvvUBXj5M",
           "provider": "Reddit r/IMDB_esp"
         },
         {
@@ -181,8 +246,8 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/lW7MvZ4m49IUj2UrUu4z0xVVl81.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/r0Q6eeN9L1ORL9QsV0Sg8ZV3vnv.jpg",
           "overview": "House M. D. es un drama médico Estadounidense que se emitió originalmente por la cadena Fox durante ocho temporadas, desde el 16 de noviembre de 2004 al 21 de mayo de 2012. El protagonista de la serie es el Dr. Gregory House, un médico nada convencional, genio, misántropo y adicto a las drogas que dirige un equipo de diagnósticos en el \"Princeton-Plainsboro Teaching Hospital\" (nombre ficticio) en Nueva Jersey.",
-          "youtube_id": "i86P9cBvtoM",
-          "trailer_url": "https://www.youtube.com/watch?v=i86P9cBvtoM",
+          "youtube_id": "BLt3K0phvX0",
+          "trailer_url": "https://www.youtube.com/watch?v=BLt3K0phvX0",
           "provider": "Reddit r/IMDB_esp"
         },
         {
@@ -207,8 +272,8 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/gp31EwMH5D2bftOjscwkgTmoLAB.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/oz4U9eA6ilYf1tyiVuGmkftdLac.jpg",
           "overview": "Noah debe dejar su ciudad, novio y amigos para mudarse a la mansión de William Leister, el flamante y rico marido de su madre Rafaela. Por otro lado, con 17 años, orgullosa e independiente, Noah se resiste a vivir en una mansión rodeada de lujo. Allí conoce a Nick, su nuevo hermanastro, y el choque de sus fuertes personalidades se hace evidente desde el primer momento.",
-          "youtube_id": "rGI6w2vLOLY",
-          "trailer_url": "https://www.youtube.com/watch?v=rGI6w2vLOLY",
+          "youtube_id": "sg4HGMIN9J4",
+          "trailer_url": "https://www.youtube.com/watch?v=sg4HGMIN9J4",
           "provider": "Reddit r/IMDB_esp"
         },
         {
@@ -261,71 +326,6 @@
           "overview": "En la Inglaterra del siglo XVIII, durante el brote de viruela y el levantamiento jacobita, Sir Chauncey y Lady Savage buscan una vida mejor entre la irónica decadencia y el derramamiento de sangre.",
           "youtube_id": "76fQeySCVTg",
           "trailer_url": "https://www.youtube.com/watch?v=76fQeySCVTg",
-          "provider": "Reddit r/IMDB_esp"
-        },
-        {
-          "title": "LOS CREYENTES",
-          "subtitle": "PELÍCULA • 2026 • 1h 45m",
-          "media_type": "PELÍCULA",
-          "year": "2026",
-          "extra_info": "1h 45m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/pUvs1iFFMDy3sNp5dNmkRak1oxD.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/2kQ71k6dq7DVNYuYY9ylNvRFKTv.jpg",
-          "overview": "Cuando su madre muere en extrañas circunstancias, una mujer de 30 años distanciada de su familia vuelve a casa. La relación tensa con su padre y el comportamiento cada vez más errático de éste la llevan a sospechar que él mató a su madre.",
-          "youtube_id": "svGU1Mq5irI",
-          "trailer_url": "https://www.youtube.com/watch?v=svGU1Mq5irI",
-          "provider": "Reddit r/IMDB_esp"
-        },
-        {
-          "title": "DEXTER",
-          "subtitle": "SERIE • 2006 • 1 Temporada",
-          "media_type": "SERIE",
-          "year": "2006",
-          "extra_info": "1 Temporada",
-          "poster_url": "https://image.tmdb.org/t/p/w500/q8dWfc4JwQuv3HayIZeO84jAXED.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/aSGSxGMTP893DPMCvMl9AdnEICE.jpg",
-          "overview": "Dexter Morgan, un analista de patrones de salpicaduras de sangre de la Policía Metropolitana de Miami, también lleva una vida secreta como asesino en serie, persiguiendo a criminales que han escapado a la justicia.",
-          "youtube_id": "mjXccGxvxhU",
-          "trailer_url": "https://www.youtube.com/watch?v=mjXccGxvxhU",
-          "provider": "Reddit r/IMDB_esp"
-        },
-        {
-          "title": "BREAKING BAD",
-          "subtitle": "SERIE • 2008 • 1 Temporada",
-          "media_type": "SERIE",
-          "year": "2008",
-          "extra_info": "1 Temporada",
-          "poster_url": "https://image.tmdb.org/t/p/w500/anFx9aTOOYqgS3v7x3R84Kz67ly.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tsRy63Mu5cu8etL1X7ZLyf7UP1M.jpg",
-          "overview": "Un profesor de química con cáncer terminal se asocia con un exalumno suyo para fabricar y vender metanfetamina a fin de que su familia no pase apuros económicos.",
-          "youtube_id": "mXd1zTwcQ18",
-          "trailer_url": "https://www.youtube.com/watch?v=mXd1zTwcQ18",
-          "provider": "Reddit r/IMDB_esp"
-        },
-        {
-          "title": "INTERSTELLAR",
-          "subtitle": "PELÍCULA • 2014 • 1h 45m",
-          "media_type": "PELÍCULA",
-          "year": "2014",
-          "extra_info": "1h 45m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/d1QKiYtceF3GDtxvTFXFAqwwah9.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/5XNQBqnBwPA9yT0jZ0p3s8bbLh0.jpg",
-          "overview": "Un grupo de exploradores hacen uso de un agujero de gusano recientemente descubierto para superar las limitaciones de los viajes espaciales tripulados y vencer las inmensas distancias que tiene un viaje interestelar.",
-          "youtube_id": "5mAbnQQiPD8",
-          "trailer_url": "https://www.youtube.com/watch?v=5mAbnQQiPD8",
-          "provider": "Reddit r/IMDB_esp"
-        },
-        {
-          "title": "DURANTE LA TORMENTA",
-          "subtitle": "PELÍCULA • 2018 • 1h 45m",
-          "media_type": "PELÍCULA",
-          "year": "2018",
-          "extra_info": "1h 45m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/c7nki04Co6DUXWAB2GXDjg0E5km.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/jOGRt1JEzfgmXbC88vGv4DwDppj.jpg",
-          "overview": "Durante una misteriosa tormenta eléctrica, Vera, una joven madre, logra salvar una vida en peligro, pero su buena acción crea una perturbadora cadena de inesperadas consecuencias.",
-          "youtube_id": "8Io2LclNoHw",
-          "trailer_url": "https://www.youtube.com/watch?v=8Io2LclNoHw",
           "provider": "Reddit r/IMDB_esp"
         }
       ]
