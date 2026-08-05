@@ -29,6 +29,10 @@ GENRE_AND_PLATFORM_CATALOG = {
         "Oppenheimer", "Los asesinos de la luna", "La sociedad de la nieve", "Shogun", "Chernobyl",
         "El precio de la verdad", "Bohemian Rhapsody", "Ford v Ferrari", "El irlandes", "Sound of Freedom"
     ],
+    "Cine y Series Argentinas Recientes": [
+        "Envidiosa", "El encargado", "El eternauta", "Cromañón", "División Palermo",
+        "El jockey", "Goyo", "Ángel Di María: Romper la pared", "Descansar en paz", "Muchachos, la película de la gente"
+    ],
     "Top 10 Disney+": [
         "El diablo viste a la moda 2", "El diario de la princesa", {"title": "Furia", "tmdb_path": "tv/287238-furious"},
         {"title": "Avatar: Fuego y ceniza", "tmdb_path": "movie/83533-avatar-fire-and-ash"}, "Los Simpson", "Malcolm en el medio",
@@ -273,14 +277,18 @@ def run_weekly_update(gemini_api_key=None, push_to_git=False):
     if not os.path.exists(json_path):
         json_path = os.path.join(os.path.dirname(__file__), '../app/src/main/assets/trailers.json')
 
-    # Preservar primero la categoría Recomendaciones del día si existe
+    # Preservar primero la categoría Últimos Fondos (r/IMDB_esp) si existe
     reddit_category = None
     try:
         with open(json_path, 'r', encoding='utf-8') as f:
             catalog = json.load(f)
             for row in catalog.get('rows', []):
-                if row.get('category') in ["Recomendaciones del día", "Fondos del Día (Reddit r/IMDB_esp)"]:
-                    row["category"] = "Recomendaciones del día"
+                if row.get('category') in [
+                    "Últimos Fondos (r/IMDB_esp)",
+                    "Recomendaciones del día",
+                    "Fondos del Día (Reddit r/IMDB_esp)"
+                ]:
+                    row["category"] = "Últimos Fondos (r/IMDB_esp)"
                     reddit_category = row
                     break
     except Exception:
