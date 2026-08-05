@@ -1,7 +1,7 @@
 {
   "rows": [
     {
-      "category": "Últimos Fondos (r/IMDB_esp)",
+      "category": "Últimos fondos de tu TV",
       "items": [
         {
           "title": "ESCÁNDALO, RELATO DE UNA OBSESIÓN",
@@ -37,7 +37,7 @@
           "extra_info": "1h 45m",
           "poster_url": "https://image.tmdb.org/t/p/w500/nNoMfNPnvEzGADXDkP6eJAP81KB.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/2Mq10FWFbxoYgsZysWlw7T9wSNe.jpg",
-          "overview": "En Barcelona, dos jóvenes que pertenecen a mundos opuestos se conocen. Ella, la dulce Babi, es una chica de clase alta que vive en un entorno tan protegido como poco excitante. Él, Hugo, conocido como el duro &quot;H&quot;, es un chico impulsivo e irresponsable, aficionado a las peleas y a las carreras ilegales de motos. Esta es la crónica de un amor inicialmente imposible que arrastrará a ambos a un frenético viaje iniciático a través del cual descubrirán el amor.",
+          "overview": "En Barcelona, dos jóvenes que pertenecen a mundos opuestos se conocen. Ella, la dulce Babi, es una chica de clase alta que vive en un entorno tan protegido como poco excitante. Él, Hugo, conocido como el duro \"H\", es un chico impulsivo e irresponsable, aficionado a las peleas y a las carreras ilegales de motos. Esta es la crónica de un amor inicialmente imposible que arrastrará a ambos a un frenético viaje iniciático a través del cual descubrirán el amor.",
           "youtube_id": "heOcee5ZB9c",
           "trailer_url": "https://www.youtube.com/watch?v=heOcee5ZB9c",
           "provider": "Reddit r/IMDB_esp"
@@ -95,19 +95,6 @@
           "provider": "Reddit r/IMDB_esp"
         },
         {
-          "title": "SUSANA Y ELVIRA: SIN PLAN B",
-          "subtitle": "PELÍCULA • 2026 • 1h 45m",
-          "media_type": "PELÍCULA",
-          "year": "2026",
-          "extra_info": "1h 45m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/amqNq4a3cugpf48nfpZFJwnFzbb.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/sSwxsbLD5jpGadBi0pPMzm7rTNS.jpg",
-          "overview": "A pesar de sus diferencias, dos ex mejores amigas se reencuentran para planear una boda de altísimo perfil…, en la que nada ―ni nadie― puede fallar.",
-          "youtube_id": "-uf_LZaWeN0",
-          "trailer_url": "https://www.youtube.com/watch?v=-uf_LZaWeN0",
-          "provider": "Reddit r/IMDB_esp"
-        },
-        {
           "title": "EL HOYO",
           "subtitle": "PELÍCULA • 2019 • 1h 45m",
           "media_type": "PELÍCULA",
@@ -122,19 +109,6 @@
         },
         {
           "title": "GIGN UNIDAD DE ÉLITE",
-          "subtitle": "SERIE • 2026 • 1 Temporada",
-          "media_type": "SERIE",
-          "year": "2026",
-          "extra_info": "1 Temporada",
-          "poster_url": "https://image.tmdb.org/t/p/w500/4uh8mjAwKOpTrlu4nldsBf0ZOuU.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tMpfa73LmKpeZ3Fix1QmFGIUrKI.jpg",
-          "overview": "Tras un ataque sin precedentes contra su unidad, un agente de alto rango a punto de retirarse lidera una peligrosa misión que le obliga a enfrentarse a su pasado.",
-          "youtube_id": "Fk8q-Yzy2nY",
-          "trailer_url": "https://www.youtube.com/watch?v=Fk8q-Yzy2nY",
-          "provider": "Reddit r/IMDB_esp"
-        },
-        {
-          "title": "GIGN: UNIDAD DE ÉLITE",
           "subtitle": "SERIE • 2026 • 1 Temporada",
           "media_type": "SERIE",
           "year": "2026",
@@ -181,21 +155,8 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/gWPkUFGlO7ZIiArUcWRBmvAwVjB.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/6G6nqSW9S7EHA9HrYl0Z8uo2H7f.jpg",
           "overview": "En la España falangista de 1944, una joven aficionada a los libros e hijastra de un sádico oficial del ejército huye a un misterioso pero cautivador mundo de fantasía.",
-          "youtube_id": "FGzvvUBXj5M",
-          "trailer_url": "https://www.youtube.com/watch?v=FGzvvUBXj5M",
-          "provider": "Reddit r/IMDB_esp"
-        },
-        {
-          "title": "LEY Y ORDEN UNIDAD DE VÍCTIMAS ESPECIALES",
-          "subtitle": "SERIE • 1999 • 1 Temporada",
-          "media_type": "SERIE",
-          "year": "1999",
-          "extra_info": "1 Temporada",
-          "poster_url": "https://image.tmdb.org/t/p/w500/kvo558UKEhp8v3JoRGCSIx3Xxab.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/obtdxPgmfykYwVnvuYXC5f2xKlQ.jpg",
-          "overview": "‘Ley y Orden: Unidad de Víctimas Especiales’ es una serie de televisión estadounidense grabada en Nueva York donde es también principalmente producida. Con el estilo de la original ‘Ley y Orden’ los episodios son usualmente &quot;sacados de los titulares&quot; o basados libremente en verdaderos asesinatos que han recibido la atención de los medios.",
-          "youtube_id": "ntZCmT9U--g",
-          "trailer_url": "https://www.youtube.com/watch?v=ntZCmT9U--g",
+          "youtube_id": "gpEh4O8Hb5Y",
+          "trailer_url": "https://www.youtube.com/watch?v=gpEh4O8Hb5Y",
           "provider": "Reddit r/IMDB_esp"
         },
         {
@@ -219,7 +180,7 @@
           "extra_info": "1 Temporada",
           "poster_url": "https://image.tmdb.org/t/p/w500/lW7MvZ4m49IUj2UrUu4z0xVVl81.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/r0Q6eeN9L1ORL9QsV0Sg8ZV3vnv.jpg",
-          "overview": "House M. D. es un drama médico Estadounidense que se emitió originalmente por la cadena Fox durante ocho temporadas, desde el 16 de noviembre de 2004 al 21 de mayo de 2012. El protagonista de la serie es el Dr. Gregory House, un médico nada convencional, genio, misántropo y adicto a las drogas que dirige un equipo de diagnósticos en el &quot;Princeton-Plainsboro Teaching Hospital&quot; (nombre ficticio) en Nueva Jersey.",
+          "overview": "House M. D. es un drama médico Estadounidense que se emitió originalmente por la cadena Fox durante ocho temporadas, desde el 16 de noviembre de 2004 al 21 de mayo de 2012. El protagonista de la serie es el Dr. Gregory House, un médico nada convencional, genio, misántropo y adicto a las drogas que dirige un equipo de diagnósticos en el \"Princeton-Plainsboro Teaching Hospital\" (nombre ficticio) en Nueva Jersey.",
           "youtube_id": "i86P9cBvtoM",
           "trailer_url": "https://www.youtube.com/watch?v=i86P9cBvtoM",
           "provider": "Reddit r/IMDB_esp"
@@ -232,7 +193,7 @@
           "extra_info": "1 Temporada",
           "poster_url": "https://image.tmdb.org/t/p/w500/kvo558UKEhp8v3JoRGCSIx3Xxab.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/obtdxPgmfykYwVnvuYXC5f2xKlQ.jpg",
-          "overview": "‘Ley y Orden: Unidad de Víctimas Especiales’ es una serie de televisión estadounidense grabada en Nueva York donde es también principalmente producida. Con el estilo de la original ‘Ley y Orden’ los episodios son usualmente &quot;sacados de los titulares&quot; o basados libremente en verdaderos asesinatos que han recibido la atención de los medios.",
+          "overview": "‘Ley y Orden: Unidad de Víctimas Especiales’ es una serie de televisión estadounidense grabada en Nueva York donde es también principalmente producida. Con el estilo de la original ‘Ley y Orden’ los episodios son usualmente \"sacados de los titulares\" o basados libremente en verdaderos asesinatos que han recibido la atención de los medios.",
           "youtube_id": "ntZCmT9U--g",
           "trailer_url": "https://www.youtube.com/watch?v=ntZCmT9U--g",
           "provider": "Reddit r/IMDB_esp"
@@ -246,8 +207,8 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/gp31EwMH5D2bftOjscwkgTmoLAB.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/oz4U9eA6ilYf1tyiVuGmkftdLac.jpg",
           "overview": "Noah debe dejar su ciudad, novio y amigos para mudarse a la mansión de William Leister, el flamante y rico marido de su madre Rafaela. Por otro lado, con 17 años, orgullosa e independiente, Noah se resiste a vivir en una mansión rodeada de lujo. Allí conoce a Nick, su nuevo hermanastro, y el choque de sus fuertes personalidades se hace evidente desde el primer momento.",
-          "youtube_id": "sg4HGMIN9J4",
-          "trailer_url": "https://www.youtube.com/watch?v=sg4HGMIN9J4",
+          "youtube_id": "rGI6w2vLOLY",
+          "trailer_url": "https://www.youtube.com/watch?v=rGI6w2vLOLY",
           "provider": "Reddit r/IMDB_esp"
         },
         {
@@ -327,6 +288,45 @@
           "youtube_id": "mjXccGxvxhU",
           "trailer_url": "https://www.youtube.com/watch?v=mjXccGxvxhU",
           "provider": "Reddit r/IMDB_esp"
+        },
+        {
+          "title": "BREAKING BAD",
+          "subtitle": "SERIE • 2008 • 1 Temporada",
+          "media_type": "SERIE",
+          "year": "2008",
+          "extra_info": "1 Temporada",
+          "poster_url": "https://image.tmdb.org/t/p/w500/anFx9aTOOYqgS3v7x3R84Kz67ly.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/tsRy63Mu5cu8etL1X7ZLyf7UP1M.jpg",
+          "overview": "Un profesor de química con cáncer terminal se asocia con un exalumno suyo para fabricar y vender metanfetamina a fin de que su familia no pase apuros económicos.",
+          "youtube_id": "mXd1zTwcQ18",
+          "trailer_url": "https://www.youtube.com/watch?v=mXd1zTwcQ18",
+          "provider": "Reddit r/IMDB_esp"
+        },
+        {
+          "title": "INTERSTELLAR",
+          "subtitle": "PELÍCULA • 2014 • 1h 45m",
+          "media_type": "PELÍCULA",
+          "year": "2014",
+          "extra_info": "1h 45m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/d1QKiYtceF3GDtxvTFXFAqwwah9.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/5XNQBqnBwPA9yT0jZ0p3s8bbLh0.jpg",
+          "overview": "Un grupo de exploradores hacen uso de un agujero de gusano recientemente descubierto para superar las limitaciones de los viajes espaciales tripulados y vencer las inmensas distancias que tiene un viaje interestelar.",
+          "youtube_id": "5mAbnQQiPD8",
+          "trailer_url": "https://www.youtube.com/watch?v=5mAbnQQiPD8",
+          "provider": "Reddit r/IMDB_esp"
+        },
+        {
+          "title": "DURANTE LA TORMENTA",
+          "subtitle": "PELÍCULA • 2018 • 1h 45m",
+          "media_type": "PELÍCULA",
+          "year": "2018",
+          "extra_info": "1h 45m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/c7nki04Co6DUXWAB2GXDjg0E5km.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/jOGRt1JEzfgmXbC88vGv4DwDppj.jpg",
+          "overview": "Durante una misteriosa tormenta eléctrica, Vera, una joven madre, logra salvar una vida en peligro, pero su buena acción crea una perturbadora cadena de inesperadas consecuencias.",
+          "youtube_id": "8Io2LclNoHw",
+          "trailer_url": "https://www.youtube.com/watch?v=8Io2LclNoHw",
+          "provider": "Reddit r/IMDB_esp"
         }
       ]
     },
@@ -365,7 +365,7 @@
           "extra_info": "1 Temporada",
           "poster_url": "https://image.tmdb.org/t/p/w500/fN3I7ly9XUCXJabIpn9hadJIpca.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/ul8Y9F7NGeImg9avbiFM9U8pfMA.jpg",
-          "overview": "Kit &quot;Kick&quot; Lannigan (Leven Rambin) es una mujer que fue secuestrada durante cinco años cuando era una niña y que fue rescatada por el agente del FBI Agent Frank Novak (Chris Noth). Años después, convertida en una experta en artes marciales y el uso de armas, Kit se une a un grupo de trabajo especial dedicado a resolver secuestros y casos de personas desaparecidas.",
+          "overview": "Kit \"Kick\" Lannigan (Leven Rambin) es una mujer que fue secuestrada durante cinco años cuando era una niña y que fue rescatada por el agente del FBI Agent Frank Novak (Chris Noth). Años después, convertida en una experta en artes marciales y el uso de armas, Kit se une a un grupo de trabajo especial dedicado a resolver secuestros y casos de personas desaparecidas.",
           "youtube_id": "1QrWVIjEbd8",
           "trailer_url": "https://www.youtube.com/watch?v=1QrWVIjEbd8"
         },
@@ -514,7 +514,7 @@
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/4n1U0Mwn7djux6VKNYDRWPgS2x6.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/sdZSjtGUTSN8B3al5o0f2WoQfQQ.jpg",
-          "overview": "Jake Sully y Neytiri enfrentan una nueva amenaza en Pandora: los Ash People, una tribu Na&#39;vi violenta y sedienta de poder, liderada por la implacable Varang. Tras la devastadora guerra contra la RDA y la pérdida de su hijo mayor, la familia de Jake deberá luchar por su supervivencia y el futuro de Pandora en un conflicto que llevará a los personajes a sus límites emocionales y físicos. Con nuevos y antiguos aliados, esta épica visual y emocional redefine el destino de un mundo al borde del abismo.",
+          "overview": "Jake Sully y Neytiri enfrentan una nueva amenaza en Pandora: los Ash People, una tribu Na'vi violenta y sedienta de poder, liderada por la implacable Varang. Tras la devastadora guerra contra la RDA y la pérdida de su hijo mayor, la familia de Jake deberá luchar por su supervivencia y el futuro de Pandora en un conflicto que llevará a los personajes a sus límites emocionales y físicos. Con nuevos y antiguos aliados, esta épica visual y emocional redefine el destino de un mundo al borde del abismo.",
           "youtube_id": "BlkNo-saOc0",
           "trailer_url": "https://www.youtube.com/watch?v=BlkNo-saOc0"
         },
@@ -585,13 +585,13 @@
       "items": [
         {
           "title": "Oppenheimer",
-          "subtitle": "PELÍCULA • 2026 • 1h 48m",
+          "subtitle": "PELÍCULA • 2023 • 1h 48m",
           "media_type": "PELÍCULA",
-          "year": "2026",
+          "year": "2023",
           "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/gp31EwMH5D2bftOjscwkgTmoLAB.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/gp31EwMH5D2bftOjscwkgTmoLAB.jpg",
-          "overview": "Sigue la historia y los eventos de Oppenheimer.",
+          "poster_url": "https://image.tmdb.org/t/p/w500/mJRUREPjTqqMEKwEiM2sdmIGngz.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/neeNHeXjMF5fXoCJRsOmkNGC7q.jpg",
+          "overview": "Película sobre el físico J. Robert Oppenheimer y su papel como desarrollador de la bomba atómica. Basada en el libro 'American Prometheus: The Triumph and Tragedy of J. Robert Oppenheimer' de Kai Bird y Martin J. Sherwin.",
           "youtube_id": "gMPEbJQun68",
           "trailer_url": "https://www.youtube.com/watch?v=gMPEbJQun68"
         },
@@ -651,7 +651,7 @@
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/iKY8ftuMyk3h71OVB0rH1WNcGNx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/u4OUSKeFwuP1z42dL58Mi0LYwIg.jpg",
-          "overview": "Basada en hechos reales, narra la historia de Stephen Glass, un joven y prometedor periodista de Washington que en 1998 cae en desgracia cuando se descubre que se ha inventado la mitad de sus reportajes. Pocos meses después de ser nombrado director de The New Republic, Charles Lane despidió a Stephen Glass, el más joven de sus reporteros, por inventarse un artículo que apareció en la revista con el título &quot;Hack Heayen&quot;. Este intrigante artículo, de rabiosa actualidad empresarial, describía con detalle las andanzas de un pirata informático menor de edad, cuyo representante lograba un lucrativo negocio extorsionando a una compañía de software que había sido una de las víctimas del pirata.",
+          "overview": "Basada en hechos reales, narra la historia de Stephen Glass, un joven y prometedor periodista de Washington que en 1998 cae en desgracia cuando se descubre que se ha inventado la mitad de sus reportajes. Pocos meses después de ser nombrado director de The New Republic, Charles Lane despidió a Stephen Glass, el más joven de sus reporteros, por inventarse un artículo que apareció en la revista con el título \"Hack Heayen\". Este intrigante artículo, de rabiosa actualidad empresarial, describía con detalle las andanzas de un pirata informático menor de edad, cuyo representante lograba un lucrativo negocio extorsionando a una compañía de software que había sido una de las víctimas del pirata.",
           "youtube_id": "fYOB8D9xr4U",
           "trailer_url": "https://www.youtube.com/watch?v=fYOB8D9xr4U"
         },
@@ -865,19 +865,19 @@
           "extra_info": "1 Temporada",
           "poster_url": "https://image.tmdb.org/t/p/w500/oudLzoZ9vqcH7BQAOAeHeC7bcjT.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/jIyEmnBrZtl6SEWyBoMO2hZnzMa.jpg",
-          "overview": "X-Men &#39;97 vuelve a la icónica época de los años 90, donde los X-Men, un grupo de mutantes que utilizan sus asombrosos poderes para proteger a un mundo que los odia y los teme, se enfrentarán a su mayor desafío y a un nuevo, insospechado y peligroso futuro.",
+          "overview": "X-Men '97 vuelve a la icónica época de los años 90, donde los X-Men, un grupo de mutantes que utilizan sus asombrosos poderes para proteger a un mundo que los odia y los teme, se enfrentarán a su mayor desafío y a un nuevo, insospechado y peligroso futuro.",
           "youtube_id": "o-dnfm7cDtU",
           "trailer_url": "https://www.youtube.com/watch?v=o-dnfm7cDtU"
         },
         {
           "title": "El oso",
-          "subtitle": "SERIE • 2009 • 1 Temporada",
+          "subtitle": "SERIE • 2022 • 1 Temporada",
           "media_type": "SERIE",
-          "year": "2009",
+          "year": "2022",
           "extra_info": "1 Temporada",
-          "poster_url": "https://image.tmdb.org/t/p/w500/fwvNu121w5zGWA5i7d7gDBrLgmN.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/mZmxNM7XMMT1QroznAQWmRf7duP.jpg",
-          "overview": "Masha vive en el bosque con sus mascotas: un perro, una cabra y un cerdo. Ella obliga a los animales del bosque a que jueguen con ella, por lo que ellos le temen. Masha vive cerca del transiberiano y una mañana, Masha mira a una mariposa y la sigue cuando viene a darse cuenta entra a la casa de un oso que había salido a purgar. Mientras juega allí, Masha termina haciendo un gran desorden en la casa. El oso regresa a su hogar y ve el desastre causado por Masha. El oso intenta sin éxito deshacerse de ella. Al final, Masha y el oso se vuelven amigos.",
+          "poster_url": "https://image.tmdb.org/t/p/w500/5TZnk9ryzfcNlsCOghURfZsBong.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/aJtG4txtmiRHwAAqENQHZvBs6kY.jpg",
+          "overview": "Un joven chef lucha por transformar una tienda de bocadillos junto a un equipo de cocineros novatos.",
           "youtube_id": "7pVIdkd37k0",
           "trailer_url": "https://www.youtube.com/watch?v=7pVIdkd37k0"
         },
@@ -913,7 +913,7 @@
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/4n1U0Mwn7djux6VKNYDRWPgS2x6.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/sdZSjtGUTSN8B3al5o0f2WoQfQQ.jpg",
-          "overview": "Jake Sully y Neytiri enfrentan una nueva amenaza en Pandora: los Ash People, una tribu Na&#39;vi violenta y sedienta de poder, liderada por la implacable Varang. Tras la devastadora guerra contra la RDA y la pérdida de su hijo mayor, la familia de Jake deberá luchar por su supervivencia y el futuro de Pandora en un conflicto que llevará a los personajes a sus límites emocionales y físicos. Con nuevos y antiguos aliados, esta épica visual y emocional redefine el destino de un mundo al borde del abismo.",
+          "overview": "Jake Sully y Neytiri enfrentan una nueva amenaza en Pandora: los Ash People, una tribu Na'vi violenta y sedienta de poder, liderada por la implacable Varang. Tras la devastadora guerra contra la RDA y la pérdida de su hijo mayor, la familia de Jake deberá luchar por su supervivencia y el futuro de Pandora en un conflicto que llevará a los personajes a sus límites emocionales y físicos. Con nuevos y antiguos aliados, esta épica visual y emocional redefine el destino de un mundo al borde del abismo.",
           "youtube_id": "BlkNo-saOc0",
           "trailer_url": "https://www.youtube.com/watch?v=BlkNo-saOc0"
         },
@@ -990,7 +990,7 @@
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/2xgGWjM3a38E4KTLapvC53RnpN1.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/3ffPx9jqg0yj9y1KWeagT7D20CB.jpg",
-          "overview": "Po se prepara para ser el líder espiritual del Valle de la Paz, buscando un sucesor como Guerrero Dragón. Mientras entrena a un nuevo practicante de kung fu, enfrenta al villano llamado &quot;el Camaleón&quot;, que evoca villanos del pasado, desafiando todo lo que Po y sus amigos han aprendido.",
+          "overview": "Po se prepara para ser el líder espiritual del Valle de la Paz, buscando un sucesor como Guerrero Dragón. Mientras entrena a un nuevo practicante de kung fu, enfrenta al villano llamado \"el Camaleón\", que evoca villanos del pasado, desafiando todo lo que Po y sus amigos han aprendido.",
           "youtube_id": "tYMDHo9xy1I",
           "trailer_url": "https://www.youtube.com/watch?v=tYMDHo9xy1I"
         },
@@ -1014,7 +1014,7 @@
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/rtESNbKHSVqiNyYeugvMYWvbKe6.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/hGxxyV1L7nSXmjPiI9umf0vqNjf.jpg",
-          "overview": "Historia ocurrida en el verano de 1816, cuando María Shelley escribió &quot;Frankenstein&quot;. Los juegos de la mente y las manipulaciones eran los mayores referentes del amor y así lo vemos en las intensas y neuróticas relaciones que existieron entre Byron, Shelley, María y su hermanastra Clara Godwin.",
+          "overview": "Historia ocurrida en el verano de 1816, cuando María Shelley escribió \"Frankenstein\". Los juegos de la mente y las manipulaciones eran los mayores referentes del amor y así lo vemos en las intensas y neuróticas relaciones que existieron entre Byron, Shelley, María y su hermanastra Clara Godwin.",
           "youtube_id": "Puyf88oLLgg",
           "trailer_url": "https://www.youtube.com/watch?v=Puyf88oLLgg"
         },
@@ -1223,7 +1223,7 @@
           "extra_info": "1 Temporada",
           "poster_url": "https://image.tmdb.org/t/p/w500/snKUzvCl3kGv0RWBjEjnOXMGvdl.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/q3pCsNvJ7CmdJUz2sJEEUY3pOPC.jpg",
-          "overview": "El mentalista es una serie policiaca americana sobre Patrick Jane, ex médium, que trabaja de asesor para la Oficina de Investigación de California (California Bureau of Investigation), usando su altamente desarrollada capacidad de observación, que anteriormente usaba para &quot;leer&quot; mentes.",
+          "overview": "El mentalista es una serie policiaca americana sobre Patrick Jane, ex médium, que trabaja de asesor para la Oficina de Investigación de California (California Bureau of Investigation), usando su altamente desarrollada capacidad de observación, que anteriormente usaba para \"leer\" mentes.",
           "youtube_id": "fJl0QBspvJg",
           "trailer_url": "https://www.youtube.com/watch?v=fJl0QBspvJg"
         },
@@ -1283,7 +1283,7 @@
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/7OOQRx9SmkMC3UQfdzj4QsQHtA1.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/bf5TG9RODkPXmtJSgf8Iymof1wl.jpg",
-          "overview": "Tras el fin de la II Guerra Mundial, con ocasión de los cruciales e inminentes juicios de Nuremberg contra el derrotado régimen Nazi, el psiquiatra estadounidense Douglas Kelley (Malek), encargado de determinar si los oficiales nazis prisioneros son aptos para ser juzgados por sus crímenes de guerra, se ve inmerso en una compleja batalla de ingenio dialéctico con Hermann Göring (Crowe), mano derecha de Hitler. Basada en el libro &quot;El nazi y el psiquiatra&quot;, de Jack El-Hai.",
+          "overview": "Tras el fin de la II Guerra Mundial, con ocasión de los cruciales e inminentes juicios de Nuremberg contra el derrotado régimen Nazi, el psiquiatra estadounidense Douglas Kelley (Malek), encargado de determinar si los oficiales nazis prisioneros son aptos para ser juzgados por sus crímenes de guerra, se ve inmerso en una compleja batalla de ingenio dialéctico con Hermann Göring (Crowe), mano derecha de Hitler. Basada en el libro \"El nazi y el psiquiatra\", de Jack El-Hai.",
           "youtube_id": "n3Ht0sBjv4g",
           "trailer_url": "https://www.youtube.com/watch?v=n3Ht0sBjv4g"
         },
@@ -1312,7 +1312,7 @@
           "extra_info": "1 Temporada",
           "poster_url": "https://image.tmdb.org/t/p/w500/8MaxftF69sEAAD5673vTjIl8yT3.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/577eXC8wFQT0eUrJcgznSiFPRmk.jpg",
-          "overview": "Basada en el libro &#39;Fuego y Sangre&#39; de George R.R. Martin. La serie se centra en la casa Targaryen, trescientos años antes de los eventos vistos en &#39;Juego de Tronos&#39;.",
+          "overview": "Basada en el libro 'Fuego y Sangre' de George R.R. Martin. La serie se centra en la casa Targaryen, trescientos años antes de los eventos vistos en 'Juego de Tronos'.",
           "youtube_id": "n9ANzBmOxho",
           "trailer_url": "https://www.youtube.com/watch?v=n9ANzBmOxho"
         },
@@ -1324,7 +1324,7 @@
           "extra_info": "1 Temporada",
           "poster_url": "https://image.tmdb.org/t/p/w500/snKUzvCl3kGv0RWBjEjnOXMGvdl.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/q3pCsNvJ7CmdJUz2sJEEUY3pOPC.jpg",
-          "overview": "El mentalista es una serie policiaca americana sobre Patrick Jane, ex médium, que trabaja de asesor para la Oficina de Investigación de California (California Bureau of Investigation), usando su altamente desarrollada capacidad de observación, que anteriormente usaba para &quot;leer&quot; mentes.",
+          "overview": "El mentalista es una serie policiaca americana sobre Patrick Jane, ex médium, que trabaja de asesor para la Oficina de Investigación de California (California Bureau of Investigation), usando su altamente desarrollada capacidad de observación, que anteriormente usaba para \"leer\" mentes.",
           "youtube_id": "fJl0QBspvJg",
           "trailer_url": "https://www.youtube.com/watch?v=fJl0QBspvJg"
         },
@@ -1385,8 +1385,8 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/85OfcPsWIpERIr7yRWOUr7S1g8b.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/4BSJVRQ3EsHMIVZSiKz1l58jDhg.jpg",
           "overview": "Una presentadora de pódcast de terror se muda con su madre terminal. Cintas misteriosas sobre vivencias paranormales de una pareja embarazada reflejan su situación, enloqueciendo.",
-          "youtube_id": "fjQExa22vFE",
-          "trailer_url": "https://www.youtube.com/watch?v=fjQExa22vFE"
+          "youtube_id": "FN-Mz1XRhNo",
+          "trailer_url": "https://www.youtube.com/watch?v=FN-Mz1XRhNo"
         },
         {
           "title": "Rick & Morty",
@@ -1497,7 +1497,7 @@
           "extra_info": "1 Temporada",
           "poster_url": "https://image.tmdb.org/t/p/w500/ex1K2iIwgxuzv54w89BrOJMqpTd.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/3IJPtnlFoY8bjllHxnEw21qlK2p.jpg",
-          "overview": "Ömer, un joven que regresa del servicio militar, es creado por sus amigos y su prometido y termina en prisión durante diez años. Finge su propia muerte y logra escapar. Se recrea a sí mismo como &quot;Ezel&quot;, un jugador de alto nivel que aparentemente es un hombre exitoso, pero internamente impulsado por una cosa: su determinación de comprender por qué las personas que ama lo traicionaron y vengarse.",
+          "overview": "Ömer, un joven que regresa del servicio militar, es creado por sus amigos y su prometido y termina en prisión durante diez años. Finge su propia muerte y logra escapar. Se recrea a sí mismo como \"Ezel\", un jugador de alto nivel que aparentemente es un hombre exitoso, pero internamente impulsado por una cosa: su determinación de comprender por qué las personas que ama lo traicionaron y vengarse.",
           "youtube_id": "XS5cHOh2EQ8",
           "trailer_url": "https://www.youtube.com/watch?v=XS5cHOh2EQ8"
         },

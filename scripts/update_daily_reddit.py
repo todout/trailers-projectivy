@@ -76,17 +76,23 @@ def get_tmdb_info(item):
                     else:
                         cur_backdrop = cur_poster
                         
-                    o_match = re.search(r'<meta name="description" content="([^"]+)"', d_html)
+                    o_match = re.search(r'<div class="overview"[^>]*>\s*<p>([^<]+)</p>', d_html)
+                    if not o_match:
+                        o_match = re.search(r'property="og:description" content="([^"]+)"', d_html)
+                    if not o_match:
+                        o_match = re.search(r'<meta name="description" content="([^"]+)"', d_html)
                     cur_overview = o_match.group(1).replace('...', '').strip() if o_match else None
 
                     y_match = re.search(r'\((\d{4})\)', d_html)
                     cur_year = y_match.group(1) if y_match else "2026"
                     
-                    # Detect English overviews accurately (excluding Spanish prepositions like 'a')
+                    # Detect English overviews accurately
+                    spanish_stopwords = {"de", "la", "el", "en", "un", "una", "los", "las", "por", "para", "con", "que", "su", "sus", "del", "como", "sobre"}
                     english_stopwords = {"is", "the", "who", "and", "with", "her", "his", "their", "from", "about", "which", "after", "when", "into"}
                     words = [w.strip('.,;:"()') for w in cur_overview.lower().split()]
-                    match_count = sum(1 for w in words if w in english_stopwords)
-                    is_english = match_count >= 2
+                    spanish_count = sum(1 for w in words if w in spanish_stopwords)
+                    english_count = sum(1 for w in words if w in english_stopwords)
+                    is_english = (english_count >= 3) and (spanish_count < 2)
 
                     if cur_overview and not is_english and len(cur_overview) > 20:
                         subtitle = f"{cur_media_type} • {cur_year} • {cur_extra_info}"
@@ -179,7 +185,7 @@ def update_catalog_with_reddit_items(titles=None, push_to_git=False):
     if not titles:
         titles = DEFAULT_REDDIT_TITLES[:25]
 
-    print(f"Procesando {len(titles)} títulos para la categoría 'Últimos Fondos (r/IMDB_esp)':")
+    print(f"Procesando {len(titles)} títulos para la categoría 'Últimos fondos de tu TV':")
     reddit_items = []
     
     for t in titles:
@@ -214,10 +220,10 @@ def update_catalog_with_reddit_items(titles=None, push_to_git=False):
         catalog = {"rows": []}
 
     rows = catalog.get('rows', [])
-    filtered_rows = [r for r in rows if r.get('category') not in ["Fondos del Día (Reddit r/IMDB_esp)", "Recomendaciones del día", "Últimos Fondos (r/IMDB_esp)"]]
+    filtered_rows = [r for r in rows if r.get('category') not in ["Fondos del Día (Reddit r/IMDB_esp)", "Recomendaciones del día", "Últimos Fondos (r/IMDB_esp)", "Últimos fondos de tu TV"]]
     
     reddit_category = {
-        "category": "Últimos Fondos (r/IMDB_esp)",
+        "category": "Últimos fondos de tu TV",
         "items": reddit_items
     }
     

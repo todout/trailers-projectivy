@@ -26,7 +26,7 @@ GENRE_AND_PLATFORM_CATALOG = {
         "Interestelar", "The Mandalorian", "Fundacion", "Avengers: Endgame", "Proyecto Fin del Mundo"
     ],
     "Top 10: Basadas en hechos reales": [
-        "Oppenheimer", "Los asesinos de la luna", "La sociedad de la nieve", "Shogun", "Chernobyl",
+        {"title": "Oppenheimer", "tmdb_path": "movie/872585-oppenheimer"}, "Los asesinos de la luna", "La sociedad de la nieve", "Shogun", "Chernobyl",
         "El precio de la verdad", "Bohemian Rhapsody", "Ford v Ferrari", "El irlandes", "Sound of Freedom"
     ],
     "Cine y Series Argentinas Recientes": [
@@ -123,6 +123,10 @@ def fetch_justwatch_top10(category_name, provider_slug):
                 # Special disambiguation overrides
                 if category_name == "Top 10 Disney+" and clean_t == "Furia":
                     titles.append({"title": "Furia", "tmdb_path": "tv/287238-furious"})
+                elif clean_t in ["El oso", "El Oso", "The Bear"]:
+                    titles.append({"title": "El oso", "tmdb_path": "tv/136315-the-bear"})
+                elif clean_t == "Oppenheimer":
+                    titles.append({"title": "Oppenheimer", "tmdb_path": "movie/872585-oppenheimer"})
                 elif clean_t == "Avatar: Fuego y ceniza":
                     titles.append({"title": "Avatar: Fuego y ceniza", "tmdb_path": "movie/83533-avatar-fire-and-ash"})
                 else:
@@ -160,6 +164,12 @@ def get_tmdb_info(item):
     else:
         title = item
         tmdb_path = None
+
+    if not tmdb_path:
+        if title in ["El oso", "El Oso", "The Bear"]:
+            tmdb_path = "tv/136315-the-bear"
+        elif title == "Oppenheimer":
+            tmdb_path = "movie/872585-oppenheimer"
 
     poster_url = None
     backdrop_url = None
@@ -215,17 +225,23 @@ def get_tmdb_info(item):
                     else:
                         cur_backdrop = cur_poster
                         
-                    o_match = re.search(r'<meta name="description" content="([^"]+)"', d_html)
+                    o_match = re.search(r'<div class="overview"[^>]*>\s*<p>([^<]+)</p>', d_html)
+                    if not o_match:
+                        o_match = re.search(r'property="og:description" content="([^"]+)"', d_html)
+                    if not o_match:
+                        o_match = re.search(r'<meta name="description" content="([^"]+)"', d_html)
                     cur_overview = o_match.group(1).replace('...', '').strip() if o_match else None
 
                     y_match = re.search(r'\((\d{4})\)', d_html)
                     cur_year = y_match.group(1) if y_match else "2026"
                     
-                    # Detect English overviews accurately (excluding Spanish prepositions like 'a')
+                    # Detect English overviews accurately
+                    spanish_stopwords = {"de", "la", "el", "en", "un", "una", "los", "las", "por", "para", "con", "que", "su", "sus", "del", "como", "sobre"}
                     english_stopwords = {"is", "the", "who", "and", "with", "her", "his", "their", "from", "about", "which", "after", "when", "into"}
                     words = [w.strip('.,;:"()') for w in cur_overview.lower().split()]
-                    match_count = sum(1 for w in words if w in english_stopwords)
-                    is_english = match_count >= 2
+                    spanish_count = sum(1 for w in words if w in spanish_stopwords)
+                    english_count = sum(1 for w in words if w in english_stopwords)
+                    is_english = (english_count >= 3) and (spanish_count < 2)
 
                     if cur_overview and not is_english and not cur_overview.startswith("This in-house") and len(cur_overview) > 20:
                         subtitle = f"{cur_media_type} • {cur_year} • {cur_extra_info}"
@@ -277,18 +293,19 @@ def run_weekly_update(gemini_api_key=None, push_to_git=False):
     if not os.path.exists(json_path):
         json_path = os.path.join(os.path.dirname(__file__), '../app/src/main/assets/trailers.json')
 
-    # Preservar primero la categoría Últimos Fondos (r/IMDB_esp) si existe
+    # Preservar primero la categoría Últimos fondos de tu TV si existe
     reddit_category = None
     try:
         with open(json_path, 'r', encoding='utf-8') as f:
             catalog = json.load(f)
             for row in catalog.get('rows', []):
                 if row.get('category') in [
+                    "Últimos fondos de tu TV",
                     "Últimos Fondos (r/IMDB_esp)",
                     "Recomendaciones del día",
                     "Fondos del Día (Reddit r/IMDB_esp)"
                 ]:
-                    row["category"] = "Últimos Fondos (r/IMDB_esp)"
+                    row["category"] = "Últimos fondos de tu TV"
                     reddit_category = row
                     break
     except Exception:
