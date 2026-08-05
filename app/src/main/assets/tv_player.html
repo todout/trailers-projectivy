@@ -802,25 +802,39 @@
             }
         }
 
+        function handleAndroidBackKey() {
+            // Si el tráiler está reproduciéndose en pantalla limpia (o en pausa limpia):
+            if (isFullscreenActive) {
+                // Hacer lo mismo que la función pausa: pausar video y restaurar portadas, degradé, título, sinopsis
+                if (player && isPlayerReady) {
+                    player.pauseVideo();
+                }
+                isPausedManually = true;
+                clearTimeout(preloadTimer);
+                clearTimeout(hideRowsTimer);
+                clearTimeout(hideSinopsisTimer);
+                wakeUI(true);
+                return true; // Tráiler cerrado, NO cerrar la aplicación
+            }
+            // Si ya estamos en el menú con las portadas visibles, retornar false para que Android cierre la app
+            return false;
+        }
+
         // Control Remoto D-Pad & Teclas Multimedia
         document.addEventListener('keydown', (e) => {
             const isBackKey = (e.keyCode === 27 || e.keyCode === 4);
 
-            // Si se está reproduciendo el tráiler en pantalla limpia y se presiona ATRÁS (o cualquier tecla):
-            if (isFullscreenActive) {
-                e.preventDefault();
-                isPausedManually = false;
-                wakeUI();
-                return;
+            if (isBackKey) {
+                const handled = handleAndroidBackKey();
+                if (handled) {
+                    e.preventDefault();
+                    return;
+                }
             }
 
-            // Si está en el menú y se presiona la tecla ATRÁS:
-            if (isBackKey) {
-                if (window.Android && typeof window.Android.exitApp === 'function') {
-                    e.preventDefault();
-                    window.Android.exitApp();
-                }
-                // Permitir que la acción por defecto del sistema / navegador cierre la app si estamos en el menú
+            if (isFullscreenActive) {
+                isPausedManually = false;
+                wakeUI();
                 return;
             }
 

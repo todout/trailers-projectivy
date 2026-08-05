@@ -74,6 +74,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            webView.evaluateJavascript("handleAndroidBackKey()") { result ->
+                if (result == "false" || result == "null" || result == null) {
+                    finish()
+                }
+            }
+            return true
+        }
+
         when (keyCode) {
             KeyEvent.KEYCODE_DPAD_UP -> {
                 webView.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DPAD_UP))
@@ -95,11 +104,16 @@ class MainActivity : AppCompatActivity() {
                 webView.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER))
                 return true
             }
-            KeyEvent.KEYCODE_BACK -> {
-                webView.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_BACK))
-                return true
-            }
         }
         return super.onKeyDown(keyCode, event)
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        webView.evaluateJavascript("handleAndroidBackKey()") { result ->
+            if (result == "false" || result == "null" || result == null) {
+                finish()
+            }
+        }
     }
 }
