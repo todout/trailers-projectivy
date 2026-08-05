@@ -74,17 +74,26 @@ def fetch_tudum_titles(url):
         except http.client.IncompleteRead as e:
             html = e.partial.decode('utf-8', errors='ignore')
         
-        card_logos = re.findall(r'data-uia="top10-card-logo"[^>]*><img [^>]*alt="([^"]+)"', html)
-        if not card_logos:
-            card_logos = re.findall(r'alt="([^"]+)"[^>]*class="[^"]*top10', html)
+        button_titles = re.findall(r'<td[^>]*class="title"[^>]*>.*?<button>([^<]+)</button>', html, re.DOTALL)
+        if not button_titles:
+            button_titles = re.findall(r'data-uia="top10-card-logo"[^>]*><img [^>]*alt="([^"]+)"', html)
             
-        clean_titles = []
-        for t in card_logos:
+        items = []
+        for t in button_titles:
             clean = re.sub(r': Temporada \d+|: Miniserie', '', t).strip()
-            if clean and clean not in clean_titles and not clean.startswith("Top 10"):
-                clean_titles.append(clean)
-        if clean_titles:
-            return clean_titles[:10]
+            if clean and clean not in [i if isinstance(i, str) else i["title"] for i in items] and not clean.startswith("Top 10"):
+                if clean == "Atormentado":
+                    items.append({"title": "Atormentado", "tmdb_path": "movie/64720-take-shelter"})
+                elif clean == "Contrato para matar":
+                    items.append({"title": "Contrato para matar", "tmdb_path": "movie/945937-fast-charlie"})
+                elif clean in ["El sobreviviente", "El Sobreviviente"]:
+                    items.append({"title": "El sobreviviente", "tmdb_path": "movie/798645-the-running-man"})
+                elif clean == "Miedo":
+                    items.append({"title": "Miedo", "tmdb_path": "movie/880100-fear"})
+                else:
+                    items.append(clean)
+        if items:
+            return items[:10]
     except Exception as e:
         print(f"  [Tudum Error para {url}]:", e)
     return []
@@ -170,6 +179,14 @@ def get_tmdb_info(item):
             tmdb_path = "tv/136315-the-bear"
         elif title == "Oppenheimer":
             tmdb_path = "movie/872585-oppenheimer"
+        elif title == "Atormentado":
+            tmdb_path = "movie/64720-take-shelter"
+        elif title == "Contrato para matar":
+            tmdb_path = "movie/945937-fast-charlie"
+        elif title in ["El sobreviviente", "El Sobreviviente"]:
+            tmdb_path = "movie/798645-the-running-man"
+        elif title == "Miedo":
+            tmdb_path = "movie/880100-fear"
 
     poster_url = None
     backdrop_url = None
@@ -274,7 +291,10 @@ def get_tmdb_info(item):
 
 def get_youtube_trailer_id(item):
     title = item["title"] if isinstance(item, dict) else item
-    query = f"{title} trailer oficial espanol latino"
+    if title in ["Furioso", "Furioso: Temporada 1"]:
+        return "ExwpmKH9pKA"
+        
+    query = f"{title} netflix 2026 trailer espanol latino" if "Furioso" in title else f"{title} trailer oficial espanol latino"
     url = f"https://www.youtube.com/results?search_query={urllib.parse.quote(query)}"
     try:
         req = urllib.request.Request(url, headers=HEADERS)
