@@ -94,6 +94,41 @@ def get_netflix_tudum_top10():
         return movies[:10] + series[:10]
     return []
 
+JUSTWATCH_SLUGS = {
+    "Top 10 Disney+": "disney-plus",
+    "Top 10 Prime Video": "amazon-prime-video",
+    "Top 10 Max": "hbo-max",
+    "Top 10 Apple TV+": "apple-tv-plus"
+}
+
+def fetch_justwatch_top10(category_name, provider_slug):
+    url = f"https://www.justwatch.com/ar/proveedor/{provider_slug}"
+    print(f"  [Scraping JustWatch Argentina en vivo para '{category_name}' ({url})...]")
+    titles = []
+    try:
+        req = urllib.request.Request(url, headers=HEADERS)
+        html = urllib.request.urlopen(req, timeout=10).read().decode('utf-8')
+        
+        raw_titles = re.findall(r'<a[^>]*href="/ar/(?:pelicula|serie)/[^"]+"[^>]*>.*?alt="([^"]+)"', html, re.DOTALL)
+        if not raw_titles:
+            raw_titles = re.findall(r'<img[^>]*alt="([^"]+)"[^>]*class="picture-comp__img', html)
+            
+        for t in raw_titles:
+            clean_t = t.replace('&#39;', "'").replace('&amp;', '&').strip()
+            if clean_t and clean_t not in titles and clean_t != 'JustWatch':
+                # Special disambiguation overrides
+                if category_name == "Top 10 Disney+" and clean_t == "Furia":
+                    titles.append({"title": "Furia", "tmdb_path": "tv/287238-furious"})
+                elif clean_t == "Avatar: Fuego y ceniza":
+                    titles.append({"title": "Avatar: Fuego y ceniza", "tmdb_path": "movie/83533-avatar-fire-and-ash"})
+                else:
+                    titles.append(clean_t)
+            if len(titles) >= 10:
+                break
+    except Exception as e:
+        print(f"  [JustWatch Error para {provider_slug}]:", e)
+    return titles
+
 def query_gemini_recommendations(api_key, genre_prompt):
     """Consulta a Gemini API para obtener las 10 mejores recomendaciones del momento si hay clave presente."""
     if not api_key:
@@ -264,6 +299,11 @@ def run_weekly_update(gemini_api_key=None, push_to_git=False):
             tudum_titles = get_netflix_tudum_top10()
             if tudum_titles:
                 titles = tudum_titles
+        elif cat_name in JUSTWATCH_SLUGS:
+            slug = JUSTWATCH_SLUGS[cat_name]
+            jw_titles = fetch_justwatch_top10(cat_name, slug)
+            if jw_titles:
+                titles = jw_titles
         elif gemini_api_key and "Top 10:" in cat_name:
             titles = query_gemini_recommendations(gemini_api_key, cat_name)
             
