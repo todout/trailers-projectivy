@@ -205,33 +205,33 @@ def get_personalized_recommendations(existing_catalog=None):
                     if t_key not in existing_items_map or item.get('media_type') == 'SERIE':
                         existing_items_map[t_key] = item
 
-    candidates = [
+    recent_candidates = [
         "Los renglones torcidos de dios",
         "Bellas Artes",
         "El reino",
         "La sociedad de la nieve",
-        "Knives Out",
-        "La noche de 12 años",
         "Cabo de miedo",
         "Terapia alternativa",
-        "El jardín de bronce",
         "Sugar",
-        "Relatos salvajes",
-        "El lobo de Wall Street",
-        "Huye",
         "El botín",
         "Fundación",
-        "Silo",
-        "Chernobyl",
-        "Bohemian Rhapsody",
-        "Ford v Ferrari",
-        "El irlandés",
-        "Oppenheimer",
-        "La casa del dragón",
         "Duna: Parte dos",
-        "The Last of Us"
+        "Oppenheimer",
+        "The Last of Us",
+        "La casa del dragón",
+        "Severance"
     ]
-    
+
+    free_candidates = [
+        "Knives Out",
+        "La noche de 12 años",
+        "El jardín de bronce",
+        "El lobo de Wall Street",
+        "Huye",
+        "Ford v Ferrari",
+        "El irlandés"
+    ]
+
     seen_titles = set()
     if os.path.exists(pref_path):
         try:
@@ -245,23 +245,19 @@ def get_personalized_recommendations(existing_catalog=None):
             print("  [Error cargando user_preferences]:", e)
 
     today_str = time.strftime('%Y-%m-%d')
-    rec_items = []
+    used_keys = set()
 
-    for t in candidates:
+    def resolve_item(t):
         t_clean = t.strip().lower()
-        if t_clean in seen_titles:
-            continue
+        if t_clean in seen_titles or t_clean in used_keys:
+            return None
 
         item_to_use = None
-
-        # 1. Buscar en Log de Historial
         if t_clean in rec_log and "item" in rec_log[t_clean]:
             print(f"  [Recomendado para Ti] Reutilizando desde Historial Log para: '{t}' (Recomendada {rec_log[t_clean].get('count', 0) + 1} veces)...")
             item_to_use = dict(rec_log[t_clean]["item"])
             rec_log[t_clean]["count"] = rec_log[t_clean].get("count", 0) + 1
             rec_log[t_clean]["last_recommended"] = today_str
-
-        # 2. Buscar en Catálogo Existente
         elif t_clean in existing_items_map:
             print(f"  [Recomendado para Ti] Reutilizando metadatos existentes en catálogo para: '{t}'...")
             item_to_use = dict(existing_items_map[t_clean])
@@ -270,8 +266,6 @@ def get_personalized_recommendations(existing_catalog=None):
                 "last_recommended": today_str,
                 "item": item_to_use
             }
-
-        # 3. Scraping Nuevo desde Web (TMDB & YouTube)
         else:
             print(f"  [Recomendado para Ti] Enriqueciendo nuevo título desde Web: '{t}'...")
             tmdb = get_tmdb_info(t)
@@ -296,12 +290,36 @@ def get_personalized_recommendations(existing_catalog=None):
             time.sleep(0.2)
 
         if item_to_use:
+            used_keys.add(t_clean)
             item_final = dict(item_to_use)
             item_final["provider"] = "Recomendado para Ti"
-            rec_items.append(item_final)
+            return item_final
+        return None
 
-        if len(rec_items) >= 20:
-            break
+    recent_items = []
+    for t in recent_candidates:
+        item = resolve_item(t)
+        if item:
+            try:
+                item_year = int(item.get("year", "2000"))
+            except ValueError:
+                item_year = 2026
+            
+            if item_year >= 2021:
+                recent_items.append(item)
+            if len(recent_items) >= 10:
+                break
+
+    free_items = []
+    all_remaining_candidates = [c for c in recent_candidates + free_candidates if c.strip().lower() not in used_keys]
+    for t in all_remaining_candidates:
+        item = resolve_item(t)
+        if item:
+            free_items.append(item)
+            if len(free_items) >= 10:
+                break
+
+    rec_items = recent_items + free_items
 
     log_data["recommendations"] = rec_log
     try:
