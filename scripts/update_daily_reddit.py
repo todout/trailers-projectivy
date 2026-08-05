@@ -178,10 +178,20 @@ def fetch_titles_from_reddit(limit=25):
 
     return titles
 
-def get_personalized_recommendations():
+def get_personalized_recommendations(existing_catalog=None):
     pref_path = r'd:\Antrigravity - Projects\fondos-projectivy\user_preferences.json'
     if not os.path.exists(pref_path):
         pref_path = os.path.join(os.path.dirname(__file__), '../../fondos-projectivy/user_preferences.json')
+    
+    # Mapa de ítems existentes en el catálogo para reutilizar metadatos si ya existen
+    existing_items_map = {}
+    if existing_catalog and 'rows' in existing_catalog:
+        for row in existing_catalog['rows']:
+            for item in row.get('items', []):
+                t_key = item.get('title', '').strip().lower()
+                if t_key:
+                    if t_key not in existing_items_map or item.get('media_type') == 'SERIE':
+                        existing_items_map[t_key] = item
     
     candidates = [
         "Los renglones torcidos de dios",
@@ -214,25 +224,34 @@ def get_personalized_recommendations():
 
     rec_items = []
     for t in candidates:
-        if t.lower().strip() in seen_titles:
+        t_clean = t.strip().lower()
+        if t_clean in seen_titles:
             continue
-        print(f"  [Recomendado para Ti] Enriqueciendo: '{t}'...")
-        tmdb = get_tmdb_info(t)
-        yt_id = get_youtube_trailer_id(t)
-        rec_items.append({
-            "title": tmdb["title"],
-            "subtitle": tmdb["subtitle"],
-            "media_type": tmdb["media_type"],
-            "year": tmdb["year"],
-            "extra_info": tmdb["extra_info"],
-            "poster_url": tmdb["poster_url"],
-            "backdrop_url": tmdb["backdrop_url"],
-            "overview": tmdb["overview"],
-            "youtube_id": yt_id,
-            "trailer_url": f"https://www.youtube.com/watch?v={yt_id}",
-            "provider": "Recomendado para Ti"
-        })
-        time.sleep(0.2)
+        
+        if t_clean in existing_items_map:
+            print(f"  [Recomendado para Ti] Reutilizando metadatos existentes en catálogo para: '{t}'...")
+            item_copy = dict(existing_items_map[t_clean])
+            item_copy["provider"] = "Recomendado para Ti"
+            rec_items.append(item_copy)
+        else:
+            print(f"  [Recomendado para Ti] Enriqueciendo nuevo título: '{t}'...")
+            tmdb = get_tmdb_info(t)
+            yt_id = get_youtube_trailer_id(t)
+            rec_items.append({
+                "title": tmdb["title"],
+                "subtitle": tmdb["subtitle"],
+                "media_type": tmdb["media_type"],
+                "year": tmdb["year"],
+                "extra_info": tmdb["extra_info"],
+                "poster_url": tmdb["poster_url"],
+                "backdrop_url": tmdb["backdrop_url"],
+                "overview": tmdb["overview"],
+                "youtube_id": yt_id,
+                "trailer_url": f"https://www.youtube.com/watch?v={yt_id}",
+                "provider": "Recomendado para Ti"
+            })
+            time.sleep(0.2)
+
         if len(rec_items) >= 10:
             break
             
@@ -289,7 +308,7 @@ def update_catalog_with_reddit_items(custom_titles=None, push_to_git=False):
         "items": reddit_items
     }
 
-    rec_items = get_personalized_recommendations()
+    rec_items = get_personalized_recommendations(catalog)
     rec_category = {
         "category": "Recomendado para Ti",
         "items": rec_items
