@@ -136,6 +136,10 @@ def fetch_justwatch_top10(category_name, provider_slug):
                     titles.append({"title": "El oso", "tmdb_path": "tv/136315-the-bear"})
                 elif clean_t == "Oppenheimer":
                     titles.append({"title": "Oppenheimer", "tmdb_path": "movie/872585-oppenheimer"})
+                elif clean_t in ["Cabo de miedo", "Cabo de Miedo"]:
+                    titles.append({"title": "Cabo de miedo", "tmdb_path": "tv/277439-cape-fear"})
+                elif clean_t in ["Eternidad", "Eternity"]:
+                    titles.append({"title": "Eternidad", "tmdb_path": "movie/1259102-eternity"})
                 elif clean_t == "Avatar: Fuego y ceniza":
                     titles.append({"title": "Avatar: Fuego y ceniza", "tmdb_path": "movie/83533-avatar-fire-and-ash"})
                 else:
@@ -187,6 +191,10 @@ def get_tmdb_info(item):
             tmdb_path = "movie/798645-the-running-man"
         elif title == "Miedo":
             tmdb_path = "movie/880100-fear"
+        elif title in ["Cabo de miedo", "Cabo de Miedo"]:
+            tmdb_path = "tv/277439-cape-fear"
+        elif title in ["Eternidad", "Eternity"]:
+            tmdb_path = "movie/1259102-eternity"
 
     poster_url = None
     backdrop_url = None
