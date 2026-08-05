@@ -182,6 +182,18 @@ def get_personalized_recommendations(existing_catalog=None):
     pref_path = r'd:\Antrigravity - Projects\fondos-projectivy\user_preferences.json'
     if not os.path.exists(pref_path):
         pref_path = os.path.join(os.path.dirname(__file__), '../../fondos-projectivy/user_preferences.json')
+
+    log_path = os.path.join(os.path.dirname(__file__), 'recommendations_log.json')
+    if os.path.exists(log_path):
+        try:
+            with open(log_path, 'r', encoding='utf-8') as f:
+                log_data = json.load(f)
+        except Exception:
+            log_data = {"recommendations": {}}
+    else:
+        log_data = {"recommendations": {}}
+
+    rec_log = log_data.get("recommendations", {})
     
     # Mapa de ítems existentes en el catálogo para reutilizar metadatos si ya existen
     existing_items_map = {}
@@ -192,7 +204,7 @@ def get_personalized_recommendations(existing_catalog=None):
                 if t_key:
                     if t_key not in existing_items_map or item.get('media_type') == 'SERIE':
                         existing_items_map[t_key] = item
-    
+
     candidates = [
         "Los renglones torcidos de dios",
         "Bellas Artes",
@@ -207,7 +219,17 @@ def get_personalized_recommendations(existing_catalog=None):
         "Relatos salvajes",
         "El lobo de Wall Street",
         "Huye",
-        "El botín"
+        "El botín",
+        "Fundación",
+        "Silo",
+        "Chernobyl",
+        "Bohemian Rhapsody",
+        "Ford v Ferrari",
+        "El irlandés",
+        "Oppenheimer",
+        "La casa del dragón",
+        "Duna: Parte dos",
+        "The Last of Us"
     ]
     
     seen_titles = set()
@@ -222,22 +244,39 @@ def get_personalized_recommendations(existing_catalog=None):
         except Exception as e:
             print("  [Error cargando user_preferences]:", e)
 
+    today_str = time.strftime('%Y-%m-%d')
     rec_items = []
+
     for t in candidates:
         t_clean = t.strip().lower()
         if t_clean in seen_titles:
             continue
-        
-        if t_clean in existing_items_map:
+
+        item_to_use = None
+
+        # 1. Buscar en Log de Historial
+        if t_clean in rec_log and "item" in rec_log[t_clean]:
+            print(f"  [Recomendado para Ti] Reutilizando desde Historial Log para: '{t}' (Recomendada {rec_log[t_clean].get('count', 0) + 1} veces)...")
+            item_to_use = dict(rec_log[t_clean]["item"])
+            rec_log[t_clean]["count"] = rec_log[t_clean].get("count", 0) + 1
+            rec_log[t_clean]["last_recommended"] = today_str
+
+        # 2. Buscar en Catálogo Existente
+        elif t_clean in existing_items_map:
             print(f"  [Recomendado para Ti] Reutilizando metadatos existentes en catálogo para: '{t}'...")
-            item_copy = dict(existing_items_map[t_clean])
-            item_copy["provider"] = "Recomendado para Ti"
-            rec_items.append(item_copy)
+            item_to_use = dict(existing_items_map[t_clean])
+            rec_log[t_clean] = {
+                "count": 1,
+                "last_recommended": today_str,
+                "item": item_to_use
+            }
+
+        # 3. Scraping Nuevo desde Web (TMDB & YouTube)
         else:
-            print(f"  [Recomendado para Ti] Enriqueciendo nuevo título: '{t}'...")
+            print(f"  [Recomendado para Ti] Enriqueciendo nuevo título desde Web: '{t}'...")
             tmdb = get_tmdb_info(t)
             yt_id = get_youtube_trailer_id(t)
-            rec_items.append({
+            item_to_use = {
                 "title": tmdb["title"],
                 "subtitle": tmdb["subtitle"],
                 "media_type": tmdb["media_type"],
@@ -247,14 +286,31 @@ def get_personalized_recommendations(existing_catalog=None):
                 "backdrop_url": tmdb["backdrop_url"],
                 "overview": tmdb["overview"],
                 "youtube_id": yt_id,
-                "trailer_url": f"https://www.youtube.com/watch?v={yt_id}",
-                "provider": "Recomendado para Ti"
-            })
+                "trailer_url": f"https://www.youtube.com/watch?v={yt_id}"
+            }
+            rec_log[t_clean] = {
+                "count": 1,
+                "last_recommended": today_str,
+                "item": item_to_use
+            }
             time.sleep(0.2)
+
+        if item_to_use:
+            item_final = dict(item_to_use)
+            item_final["provider"] = "Recomendado para Ti"
+            rec_items.append(item_final)
 
         if len(rec_items) >= 10:
             break
-            
+
+    log_data["recommendations"] = rec_log
+    try:
+        with open(log_path, 'w', encoding='utf-8') as f:
+            json.dump(log_data, f, ensure_ascii=False, indent=2)
+        print(f"  [Historial Log] Guardado correctamente en '{log_path}'.")
+    except Exception as e:
+        print("  [Error guardando log de recomendaciones]:", e)
+
     return rec_items
 
 def update_catalog_with_reddit_items(custom_titles=None, push_to_git=False):
@@ -325,7 +381,7 @@ def update_catalog_with_reddit_items(custom_titles=None, push_to_git=False):
     if push_to_git:
         try:
             print("Subiendo cambios a GitHub...")
-            subprocess.run(["git", "add", json_path], check=True)
+            subprocess.run(["git", "add", json_path, "scripts/recommendations_log.json"], check=True)
             subprocess.run(["git", "commit", "-m", "Auto-update Fondos y Recomendaciones para Ti 4AM"], check=True)
             subprocess.run(["git", "push"], check=True)
             print("[ÉXITO] Cambios subidos a GitHub correctamente.")
