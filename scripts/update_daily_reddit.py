@@ -178,8 +178,66 @@ def fetch_titles_from_reddit(limit=25):
 
     return titles
 
-def update_catalog_with_reddit_items(titles=None, push_to_git=False):
-    if not titles:
+def get_personalized_recommendations():
+    pref_path = r'd:\Antrigravity - Projects\fondos-projectivy\user_preferences.json'
+    if not os.path.exists(pref_path):
+        pref_path = os.path.join(os.path.dirname(__file__), '../../fondos-projectivy/user_preferences.json')
+    
+    candidates = [
+        "Los renglones torcidos de dios",
+        "Bellas Artes",
+        "El reino",
+        "Porno y helado",
+        "La sociedad de la nieve",
+        "Knives Out",
+        "La noche de 12 años",
+        "Cabo de miedo",
+        "Terapia alternativa",
+        "Argentina, 1985"
+    ]
+    
+    seen_titles = set()
+    if os.path.exists(pref_path):
+        try:
+            with open(pref_path, 'r', encoding='utf-8') as f:
+                prefs = json.load(f)
+            for key in ['likes', 'dislikes', 'neutral']:
+                for item in prefs.get(key, []):
+                    if isinstance(item, dict) and 'title' in item:
+                        seen_titles.add(item['title'].lower().strip())
+        except Exception as e:
+            print("  [Error cargando user_preferences]:", e)
+
+    rec_items = []
+    for t in candidates:
+        if t.lower().strip() in seen_titles:
+            continue
+        print(f"  [Recomendado para Ti] Enriqueciendo: '{t}'...")
+        tmdb = get_tmdb_info(t)
+        yt_id = get_youtube_trailer_id(t)
+        rec_items.append({
+            "title": tmdb["title"],
+            "subtitle": tmdb["subtitle"],
+            "media_type": tmdb["media_type"],
+            "year": tmdb["year"],
+            "extra_info": tmdb["extra_info"],
+            "poster_url": tmdb["poster_url"],
+            "backdrop_url": tmdb["backdrop_url"],
+            "overview": tmdb["overview"],
+            "youtube_id": yt_id,
+            "trailer_url": f"https://www.youtube.com/watch?v={yt_id}",
+            "provider": "Recomendado para Ti"
+        })
+        time.sleep(0.2)
+        if len(rec_items) >= 10:
+            break
+            
+    return rec_items
+
+def update_catalog_with_reddit_items(custom_titles=None, push_to_git=False):
+    if custom_titles:
+        titles = custom_titles
+    else:
         titles = fetch_titles_from_reddit(limit=25)
         
     if not titles:
@@ -220,26 +278,32 @@ def update_catalog_with_reddit_items(titles=None, push_to_git=False):
         catalog = {"rows": []}
 
     rows = catalog.get('rows', [])
-    filtered_rows = [r for r in rows if r.get('category') not in ["Fondos del Día (Reddit r/IMDB_esp)", "Recomendaciones del día", "Últimos Fondos (r/IMDB_esp)", "Últimos fondos de tu TV"]]
+    filtered_rows = [r for r in rows if r.get('category') not in ["Fondos del Día (Reddit r/IMDB_esp)", "Recomendaciones del día", "Últimos Fondos (r/IMDB_esp)", "Últimos fondos de tu TV", "Recomendado para Ti"]]
     
     reddit_category = {
         "category": "Últimos fondos de tu TV",
         "items": reddit_items
     }
+
+    rec_items = get_personalized_recommendations()
+    rec_category = {
+        "category": "Recomendado para Ti",
+        "items": rec_items
+    }
     
-    new_rows = [reddit_category] + filtered_rows
+    new_rows = [reddit_category, rec_category] + filtered_rows
     updated_catalog = {"rows": new_rows}
 
     with open(json_path, 'w', encoding='utf-8') as f:
         json.dump(updated_catalog, f, ensure_ascii=False, indent=2)
 
-    print(f"\n[ÉXITO] Actualizado '{json_path}' con {len(reddit_items)} fondos del día.")
+    print(f"\n[ÉXITO] Actualizado '{json_path}' con Fondos del Día y Recomendaciones a medida.")
 
     if push_to_git:
         try:
             print("Subiendo cambios a GitHub...")
             subprocess.run(["git", "add", json_path], check=True)
-            subprocess.run(["git", "commit", "-m", "Auto-update Fondos Reddit 4AM"], check=True)
+            subprocess.run(["git", "commit", "-m", "Auto-update Fondos y Recomendaciones para Ti 4AM"], check=True)
             subprocess.run(["git", "push"], check=True)
             print("[ÉXITO] Cambios subidos a GitHub correctamente.")
         except Exception as e:

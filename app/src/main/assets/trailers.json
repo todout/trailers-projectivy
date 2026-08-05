@@ -12,8 +12,8 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/q03eQL8AUx49lVH6IT3IlmWzhQu.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/hsSw3DuG2ah2wgaZeDTwyv5FPh3.jpg",
           "overview": "La serie cuenta la historia de una guerrera de uno de los barrios más pobres y peligrosos en Ciudad de México. Su belleza y nobleza contrasta con el ambiente gris y desolado donde creció. Ella es temida por sus enemigos y adorada por sus amigos.",
-          "youtube_id": "Q6vktKx0z4s",
-          "trailer_url": "https://www.youtube.com/watch?v=Q6vktKx0z4s",
+          "youtube_id": "1GzZwAIqRZg",
+          "trailer_url": "https://www.youtube.com/watch?v=1GzZwAIqRZg",
           "provider": "Reddit r/IMDB_esp"
         },
         {
@@ -25,8 +25,8 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/ifo31fMWLmyOVpdak9K0kY4jldQ.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/5s9XHTB9SLPdg3mNU6BlSLnZ9Qq.jpg",
           "overview": "En la peculiar familia Gallagher, Frank, un padre soltero y alcohólico, intenta educar a sus seis inteligentes, salvajes e independientes hijos.",
-          "youtube_id": "29nzDppVH8w",
-          "trailer_url": "https://www.youtube.com/watch?v=29nzDppVH8w&t=16s",
+          "youtube_id": "w94OXRiQUp4",
+          "trailer_url": "https://www.youtube.com/watch?v=w94OXRiQUp4",
           "provider": "Reddit r/IMDB_esp"
         },
         {
@@ -194,8 +194,8 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/loW8i6T3amH4CONDjaUNmQv9kva.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/dk68ykaNd3HdrDJyPJqEGsgvag7.jpg",
           "overview": "Atormentado por los errores del pasado y un diagnóstico terminal, un excobrador de deudas regresa al mundo del hampa para proteger a las víctimas de una organización violenta.",
-          "youtube_id": "H4lkW2ZRJNs",
-          "trailer_url": "https://www.youtube.com/watch?v=H4lkW2ZRJNs",
+          "youtube_id": "-jDcQuW2Ikg",
+          "trailer_url": "https://www.youtube.com/watch?v=-jDcQuW2Ikg",
           "provider": "Reddit r/IMDB_esp"
         },
         {
@@ -233,8 +233,8 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/lW7MvZ4m49IUj2UrUu4z0xVVl81.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/r0Q6eeN9L1ORL9QsV0Sg8ZV3vnv.jpg",
           "overview": "House M. D. es un drama médico Estadounidense que se emitió originalmente por la cadena Fox durante ocho temporadas, desde el 16 de noviembre de 2004 al 21 de mayo de 2012. El protagonista de la serie es el Dr. Gregory House, un médico nada convencional, genio, misántropo y adicto a las drogas que dirige un equipo de diagnósticos en el \"Princeton-Plainsboro Teaching Hospital\" (nombre ficticio) en Nueva Jersey.",
-          "youtube_id": "BLt3K0phvX0",
-          "trailer_url": "https://www.youtube.com/watch?v=BLt3K0phvX0",
+          "youtube_id": "i86P9cBvtoM",
+          "trailer_url": "https://www.youtube.com/watch?v=i86P9cBvtoM",
           "provider": "Reddit r/IMDB_esp"
         },
         {
@@ -314,6 +314,154 @@
           "youtube_id": "76fQeySCVTg",
           "trailer_url": "https://www.youtube.com/watch?v=76fQeySCVTg",
           "provider": "Reddit r/IMDB_esp"
+        },
+        {
+          "title": "LOS CREYENTES",
+          "subtitle": "PELÍCULA • 2026 • 1h 45m",
+          "media_type": "PELÍCULA",
+          "year": "2026",
+          "extra_info": "1h 45m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/pUvs1iFFMDy3sNp5dNmkRak1oxD.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/2kQ71k6dq7DVNYuYY9ylNvRFKTv.jpg",
+          "overview": "Cuando su madre muere en extrañas circunstancias, una mujer de 30 años distanciada de su familia vuelve a casa. La relación tensa con su padre y el comportamiento cada vez más errático de éste la llevan a sospechar que él mató a su madre.",
+          "youtube_id": "svGU1Mq5irI",
+          "trailer_url": "https://www.youtube.com/watch?v=svGU1Mq5irI",
+          "provider": "Reddit r/IMDB_esp"
+        }
+      ]
+    },
+    {
+      "category": "Recomendado para Ti",
+      "items": [
+        {
+          "title": "Los renglones torcidos de dios",
+          "subtitle": "PELÍCULA • 2022 • 1h 45m",
+          "media_type": "PELÍCULA",
+          "year": "2022",
+          "extra_info": "1h 45m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/hB2VqiLDiHAyLdZ1dlXIGqDJy06.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/dtXcuwF1uUi9m0VVfEGEa7GpDzX.jpg",
+          "overview": "Alice Gould, una investigadora privada, simula que padece una enfermedad mental con objeto de ingresar en un hospital psiquiátrico y recabar pruebas del caso en el que trabaja: la muerte de un paciente en circunstancias poco claras.",
+          "youtube_id": "VpZjyY4wPi0",
+          "trailer_url": "https://www.youtube.com/watch?v=VpZjyY4wPi0",
+          "provider": "Recomendado para Ti"
+        },
+        {
+          "title": "Bellas Artes",
+          "subtitle": "SERIE • 2024 • 1 Temporada",
+          "media_type": "SERIE",
+          "year": "2024",
+          "extra_info": "1 Temporada",
+          "poster_url": "https://image.tmdb.org/t/p/w500/qAwpgOb59jvBu6eFfxztUQ3tN1Y.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/aMUHIBGoR61cZh3bTGCbGQU626B.jpg",
+          "overview": "Antonio Dumas, un prestigioso historiador de arte y gestor cultural. Culto y sofisticado, aunque bastante cínico y engreído, es nombrado director de un importante museo de arte contemporáneo en Madrid al salir victorioso en un concurso para ese cargo. Una vez asumida su nueva posición deberá afrontar, en medio de la fauna insólita del mundo del arte, un abanico de circunstancias y conflictos dispares: desde problemas gremiales y presiones políticas, hasta situaciones disparatadas en relación a las exposiciones y a los artistas.",
+          "youtube_id": "GETmKHsvTnM",
+          "trailer_url": "https://www.youtube.com/watch?v=GETmKHsvTnM",
+          "provider": "Recomendado para Ti"
+        },
+        {
+          "title": "El reino",
+          "subtitle": "SERIE • 2021 • 1 Temporada",
+          "media_type": "SERIE",
+          "year": "2021",
+          "extra_info": "1 Temporada",
+          "poster_url": "https://image.tmdb.org/t/p/w500/jQZIZcmkSFPL1QEMjQgqXKKFb44.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/yhhStAMdc6Q0iwDlOdqgjN2x5L0.jpg",
+          "overview": "“El Reino” cuenta la historia del pastor Emilio Vázquez Pena, candidato a vicepresidente de la República Argentina, cuyo compañero de fórmula es asesinado el día de cierre de campaña. A partir de entonces comienza el camino de su ascenso político a la vez que se descubre el entramado detrás del crimen.",
+          "youtube_id": "QMWtJ3Mx-8g",
+          "trailer_url": "https://www.youtube.com/watch?v=QMWtJ3Mx-8g",
+          "provider": "Recomendado para Ti"
+        },
+        {
+          "title": "Porno y helado",
+          "subtitle": "SERIE • 2022 • 1 Temporada",
+          "media_type": "SERIE",
+          "year": "2022",
+          "extra_info": "1 Temporada",
+          "poster_url": "https://image.tmdb.org/t/p/w500/4BOfJlIY99rCrDFI2nR0ID6Isu8.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/nDycsiUtUozp5XJq1nZfi8hWLbB.jpg",
+          "overview": "La historia de Pablo y Ramón, dos treintañeros perdedores que junto a Ceci, una joven estafadora, fingen tener una banda de rock. La mentira se saldrá de control hasta hacerse realidad, pero los obstáculos en el camino pondrán en peligro su proyecto. Finalmente se darán cuenta que su amistad, es lo más importante.",
+          "youtube_id": "cAHSi8AXbCE",
+          "trailer_url": "https://www.youtube.com/watch?v=cAHSi8AXbCE",
+          "provider": "Recomendado para Ti"
+        },
+        {
+          "title": "La sociedad de la nieve",
+          "subtitle": "PELÍCULA • 2023 • 1h 45m",
+          "media_type": "PELÍCULA",
+          "year": "2023",
+          "extra_info": "1h 45m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/9tkJPQb4X4VoU3S5nqLDohZijPj.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/md848EEPm3dHZOqwGxxTVwH2vu5.jpg",
+          "overview": "El 13 de octubre de 1972, el vuelo 571 de la Fuerza Aérea Uruguaya, fletado para llevar a un equipo de rugby a Chile, se estrella en un glaciar en el corazón de los Andes.",
+          "youtube_id": "l9tP4M8URhQ",
+          "trailer_url": "https://www.youtube.com/watch?v=l9tP4M8URhQ",
+          "provider": "Recomendado para Ti"
+        },
+        {
+          "title": "Knives Out",
+          "subtitle": "PELÍCULA • 2019 • 1h 45m",
+          "media_type": "PELÍCULA",
+          "year": "2019",
+          "extra_info": "1h 45m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/7scJ3fVmwdSpGG87wvxH3kk0RPc.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/4HWAQu28e2yaWrtupFPGFkdNU7V.jpg",
+          "overview": "Cuando el renombrado novelista de misterio Harlan Thrombey es encontrado muerto en su mansión justo después de su 85 cumpleaños, el inquisitivo y cortés detective Benoit Blanc es misteriosamente reclutado para investigar. Se moverá entre una red de pistas falsas y mentiras interesadas para tratar de descubrir la verdad tras la prematura muerte del escritor.",
+          "youtube_id": "WoB-N1h4NlQ",
+          "trailer_url": "https://www.youtube.com/watch?v=WoB-N1h4NlQ",
+          "provider": "Recomendado para Ti"
+        },
+        {
+          "title": "La noche de 12 años",
+          "subtitle": "PELÍCULA • 2018 • 1h 45m",
+          "media_type": "PELÍCULA",
+          "year": "2018",
+          "extra_info": "1h 45m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/mPipNlgQ63KmDEmKzMtKgF9cgBw.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/cdGuUnVxlngUNjfl7APfZLrQiZx.jpg",
+          "overview": "Año 1973. Uruguay está bajo el poder de la dictadura militar. Una noche de otoño, nueve presos Tupamaros son sacados de sus celdas en una operación militar secreta. La orden es precisa: \"como no pudimos matarles, vamos a volverles locos\". Los tres hombres permanecerán aislados durante 12 años. Durante más de una década, los presos permanecerán aislados en diminutas celdas en dónde pasarán la mayoría del tiempo encapuchados, atados, en silencio, privados de sus necesidades básicas, apenas alimentados, y viendo reducidos al mínimo sus sentidos. Entre ellos estaba Pepe Mújica, quien más tarde llegó a convertirse en presidente de Uruguay.",
+          "youtube_id": "sibdnOVc-fA",
+          "trailer_url": "https://www.youtube.com/watch?v=sibdnOVc-fA",
+          "provider": "Recomendado para Ti"
+        },
+        {
+          "title": "Cabo de miedo",
+          "subtitle": "PELÍCULA • 1991 • 1h 45m",
+          "media_type": "PELÍCULA",
+          "year": "1991",
+          "extra_info": "1h 45m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/rDZLjlSxHRTvoTu1rvRiPTWsdND.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/ntgpger7OwFNlEldxuvvFHDKzjW.jpg",
+          "overview": "Los Bowden son una pareja feliz: Sam es un abogado de éxito y Leig diseñadora gráfica. Tienen una hija de 15 años, Danielle, y acaban de trasladarse a una preciosa casa en una tranquila ciudad. Max Cady acaba de salir de la cárcel, trás pasar en ella 14 años, acusado de violar y apalear a una adolescente. En prisión ha estudiado leyes, y ha llegado a la conclusión de que el responsable directo de su condena fue su abogado, Sam Bowden. Ahora va a dedicar cada minuto de su existencia a hacerle pagar su error. Candy ejecutará su terrible venganza, aterrorizando a la familia Bowden y convirtiendo su vida en una pesadilla.",
+          "youtube_id": "KvqYciK9jIY",
+          "trailer_url": "https://www.youtube.com/watch?v=KvqYciK9jIY",
+          "provider": "Recomendado para Ti"
+        },
+        {
+          "title": "Terapia alternativa",
+          "subtitle": "SERIE • 2021 • 1 Temporada",
+          "media_type": "SERIE",
+          "year": "2021",
+          "extra_info": "1 Temporada",
+          "poster_url": "https://image.tmdb.org/t/p/w500/kWete6wKQJB90idzRN5MLon1Pd8.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/vW7YFbpHDSkKLHwEbgPMCohbVLz.jpg",
+          "overview": "Selva es una consejera matrimonial excéntrica que se ha hecho famosa por sus sesiones poco convencionales. Pero la carrera de Selva se topa con un obstáculo cuando trata a Elías y a Malena, una joven pareja que busca orientación para separarse.",
+          "youtube_id": "lX15xJHRVtA",
+          "trailer_url": "https://www.youtube.com/watch?v=lX15xJHRVtA",
+          "provider": "Recomendado para Ti"
+        },
+        {
+          "title": "Argentina, 1985",
+          "subtitle": "PELÍCULA • 2022 • 1h 45m",
+          "media_type": "PELÍCULA",
+          "year": "2022",
+          "extra_info": "1h 45m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/isLWtcB9TK3wLlTzEny2dPH6beh.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/gh1Rghpf3BIISHSAw9GsObG4TN3.jpg",
+          "overview": "Narra la estrategia de dos fiscales para llevar adelante el juicio que sentó en el banquillo de los acusados por crímenes de lesa humanidad a los comandantes de la última dictadura militar.",
+          "youtube_id": "EDK2FtU5oxg",
+          "trailer_url": "https://www.youtube.com/watch?v=EDK2FtU5oxg",
+          "provider": "Recomendado para Ti"
         }
       ]
     },
