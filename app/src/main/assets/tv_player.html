@@ -878,12 +878,12 @@
 
             if (isPausedManually || isVideoLoadedAndPlaying) {
                 document.getElementById('hero-bg-img').classList.add('hidden-hero');
-                document.getElementById('hero-vignette').classList.add('fullscreen-active');
             } else {
                 document.getElementById('hero-bg-img').classList.remove('hidden-hero');
-                document.getElementById('hero-vignette').classList.remove('fullscreen-active');
             }
 
+            // El degradé (.hero-vignette) SIEMPRE se muestra cuando la interfaz (sinopsis/miniaturas) está despierta para legibilidad del texto
+            document.getElementById('hero-vignette').classList.remove('fullscreen-active');
             document.getElementById('osd-left').classList.remove('fullscreen-active');
             document.getElementById('netflix-rows').classList.remove('fullscreen-active');
 
