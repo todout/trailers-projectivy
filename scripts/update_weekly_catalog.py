@@ -170,6 +170,25 @@ def query_gemini_recommendations(api_key, genre_prompt):
         print(f"  [Gemini Note]: Usando catálogo optimizado para '{genre_prompt}'")
     return None
 
+def get_gemini_metadata(title):
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        return None
+    try:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
+        prompt = f"Información sobre la película o serie '{title}'. Responde ÚNICAMENTE en formato JSON con los campos: title, year (ej '2024'), media_type ('PELÍCULA' o 'SERIE'), overview (sinopsis detallada en español de 2 a 3 oraciones), poster_path (path tmdb ej '/abc.jpg' o null)."
+        data = json.dumps({"contents": [{"parts": [{"text": prompt}]}]}).encode('utf-8')
+        req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'}, method='POST')
+        res = urllib.request.urlopen(req, timeout=8)
+        res_json = json.loads(res.read().decode('utf-8'))
+        text = res_json['candidates'][0]['content']['parts'][0]['text']
+        match = re.search(r'\{.*\}', text, re.DOTALL)
+        if match:
+            return json.loads(match.group(0))
+    except Exception as e:
+        print(f"  [Gemini API Warning para '{title}']:", e)
+    return None
+
 def get_tmdb_info(item):
     if isinstance(item, dict):
         title = item["title"]
@@ -179,9 +198,7 @@ def get_tmdb_info(item):
         tmdb_path = None
 
     if not tmdb_path:
-        if title in ["El oso", "El Oso", "The Bear"]:
-            tmdb_path = "tv/136315-the-bear"
-        elif title == "Oppenheimer":
+        if title == "Oppenheimer":
             tmdb_path = "movie/872585-oppenheimer"
         elif title == "Atormentado":
             tmdb_path = "movie/64720-take-shelter"
@@ -199,9 +216,9 @@ def get_tmdb_info(item):
     poster_url = None
     backdrop_url = None
     overview = None
-    year = "2026"
-    media_type = "PELÍCULA"
-    extra_info = "1h 48m"
+    year = "2025"
+    cur_media_type = "PELÍCULA"
+    cur_extra_info = "1h 48m"
     
     search_query = title.replace("El Pengüino", "El Pingüino")
 
@@ -214,87 +231,96 @@ def get_tmdb_info(item):
             req = urllib.request.Request(url, headers=HEADERS)
             html = urllib.request.urlopen(req, timeout=10).read().decode('utf-8')
             
-            # Find result cards specifically
-            matches = re.findall(r'<a[^>]*class="[^"]*result[^"]*"[^>]*href="/(movie|tv)/(\d+)[^"]*"', html)
+            matches = re.findall(r'href="/(movie|tv)/(\d+[^"]*)"', html)
             if not matches:
-                matches = re.findall(r'<div class="card[^"]*">.*?<a[^>]*href="/(movie|tv)/(\d+)[^"]*"', html, re.DOTALL)
-            if not matches:
-                matches = re.findall(r'<h2><a[^>]*href="/(movie|tv)/(\d+)[^"]*"', html)
-            if not matches:
-                matches = re.findall(r'href="/(movie|tv)/(\d+)[^"]*"', html)
+                clean_t = re.sub(r'[^\w\s]', '', search_query)
+                url2 = f"https://www.themoviedb.org/search?query={urllib.parse.quote(clean_t)}&language=es-ES"
+                html2 = urllib.request.urlopen(urllib.request.Request(url2, headers=HEADERS), timeout=10).read().decode('utf-8')
+                matches = re.findall(r'href="/(movie|tv)/(\d+[^"]*)"', html2)
                 
-            paths_to_try = [f"{m_type}/{tmdb_id}" for m_type, tmdb_id in matches[:3]] if matches else []
+            paths_to_try = [f"{m_type}/{path_id.split('?')[0].split('#')[0]}" for m_type, path_id in matches[:3]] if matches else []
 
         for path in paths_to_try:
-            for lang in ["es-ES", "es-MX", "es"]:
+            m_type = "tv" if path.startswith("tv/") else "movie"
+            cur_media_type = "SERIE" if m_type == "tv" else "PELÍCULA"
+            cur_extra_info = "Serie" if cur_media_type == "SERIE" else "1h 48m"
+
+            for lang in ["es-ES", "es-MX", "es", "en-US"]:
                 detail_url = f"https://www.themoviedb.org/{path}?language={lang}"
                 try:
                     d_req = urllib.request.Request(detail_url, headers=HEADERS)
                     d_html = urllib.request.urlopen(d_req, timeout=8).read().decode('utf-8')
                     
-                    m_type = "tv" if path.startswith("tv/") else "movie"
-                    cur_media_type = "SERIE" if m_type == "tv" else "PELÍCULA"
-                    cur_extra_info = "1 Temporada" if cur_media_type == "SERIE" else "1h 48m"
+                    if not poster_url:
+                        p_match = re.search(r'https://image\.tmdb\.org/t/p/w\d+/([a-zA-Z0-9_\.]+\.jpg)', d_html)
+                        og_images = re.findall(r'content="https://(?:image|media)\.themoviedb\.org/t/p/[^/]+/([a-zA-Z0-9_\.]+\.jpg)"', d_html)
+                        
+                        if p_match:
+                            poster_url = f"https://image.tmdb.org/t/p/w500/{p_match.group(1)}"
+                        elif og_images:
+                            poster_url = f"https://image.tmdb.org/t/p/w500/{og_images[0]}"
+                            
+                        if og_images and len(og_images) >= 2:
+                            backdrop_url = f"https://image.tmdb.org/t/p/w500/{og_images[1]}"
+                        elif poster_url:
+                            backdrop_url = poster_url
+                        
+                    y_match = re.search(r'\((\d{4})\)', d_html)
+                    if y_match:
+                        year = y_match.group(1)
 
-                    p_match = re.search(r'https://image\.tmdb\.org/t/p/w\d+/([a-zA-Z0-9_\.]+\.jpg)', d_html)
-                    cur_poster = f"https://image.tmdb.org/t/p/w500/{p_match.group(1)}" if p_match else None
-                        
-                    og_images = re.findall(r'content="https://media\.themoviedb\.org/t/p/[^/]+/([a-zA-Z0-9_\.]+\.jpg)"', d_html)
-                    if not og_images:
-                        og_images = re.findall(r'content="https://image\.tmdb\.org/t/p/[^/]+/([a-zA-Z0-9_\.]+\.jpg)"', d_html)
-                        
-                    if len(og_images) >= 2:
-                        cur_backdrop = f"https://image.tmdb.org/t/p/w500/{og_images[1]}"
-                    elif len(og_images) == 1:
-                        cur_backdrop = f"https://image.tmdb.org/t/p/w500/{og_images[0]}"
-                    else:
-                        cur_backdrop = cur_poster
-                        
                     o_match = re.search(r'<div class="overview"[^>]*>\s*<p>([^<]+)</p>', d_html)
                     if not o_match:
                         o_match = re.search(r'property="og:description" content="([^"]+)"', d_html)
                     if not o_match:
                         o_match = re.search(r'<meta name="description" content="([^"]+)"', d_html)
-                    cur_overview = o_match.group(1).replace('...', '').strip() if o_match else None
 
-                    y_match = re.search(r'\((\d{4})\)', d_html)
-                    cur_year = y_match.group(1) if y_match else "2026"
-                    
-                    # Detect English overviews accurately
-                    spanish_stopwords = {"de", "la", "el", "en", "un", "una", "los", "las", "por", "para", "con", "que", "su", "sus", "del", "como", "sobre"}
-                    english_stopwords = {"is", "the", "who", "and", "with", "her", "his", "their", "from", "about", "which", "after", "when", "into"}
-                    words = [w.strip('.,;:"()') for w in cur_overview.lower().split()]
-                    spanish_count = sum(1 for w in words if w in spanish_stopwords)
-                    english_count = sum(1 for w in words if w in english_stopwords)
-                    is_english = (english_count >= 3) and (spanish_count < 2)
-
-                    if cur_overview and not is_english and not cur_overview.startswith("This in-house") and len(cur_overview) > 20:
-                        subtitle = f"{cur_media_type} • {cur_year} • {cur_extra_info}"
-                        return {
-                            "title": title,
-                            "subtitle": subtitle,
-                            "media_type": cur_media_type,
-                            "year": cur_year,
-                            "extra_info": cur_extra_info,
-                            "poster_url": cur_poster or "https://image.tmdb.org/t/p/w500/gp31EwMH5D2bftOjscwkgTmoLAB.jpg",
-                            "backdrop_url": cur_backdrop or cur_poster or "https://image.tmdb.org/t/p/w500/gp31EwMH5D2bftOjscwkgTmoLAB.jpg",
-                            "overview": cur_overview
-                        }
+                    if o_match:
+                        cand_overview = o_match.group(1).replace('...', '').strip()
+                        spanish_stopwords = {"de", "la", "el", "en", "un", "una", "los", "las", "por", "para", "con", "que", "su", "sus", "del", "como", "sobre"}
+                        words = [w.strip('.,;:"()') for w in cand_overview.lower().split()]
+                        spanish_count = sum(1 for w in words if w in spanish_stopwords)
+                        if spanish_count >= 2 and len(cand_overview) > 20:
+                            overview = cand_overview
+                            break
                 except Exception:
                     pass
+
+            if poster_url and overview:
+                break
+
     except Exception as e:
         print(f"  [TMDB Error para '{title}']:", e)
 
-    subtitle = f"{media_type} • {year} • {extra_info}"
+    # Fallback to Gemini if overview or poster is missing
+    if not overview or not poster_url:
+        gem = get_gemini_metadata(title)
+        if gem:
+            if not overview and gem.get("overview"):
+                overview = gem["overview"]
+            if not year and gem.get("year"):
+                year = gem["year"]
+            if gem.get("media_type"):
+                cur_media_type = gem["media_type"]
+                cur_extra_info = "Serie" if cur_media_type == "SERIE" else "1h 48m"
+            if not poster_url and gem.get("poster_path"):
+                p_path = gem["poster_path"].strip('/')
+                poster_url = f"https://image.tmdb.org/t/p/w500/{p_path}"
+                backdrop_url = poster_url
+
+    if not poster_url or not overview:
+        return None
+
+    subtitle = f"{cur_media_type} • {year} • {cur_extra_info}"
     return {
         "title": title,
         "subtitle": subtitle,
-        "media_type": media_type,
+        "media_type": cur_media_type,
         "year": year,
-        "extra_info": extra_info,
-        "poster_url": poster_url or "https://image.tmdb.org/t/p/w500/gp31EwMH5D2bftOjscwkgTmoLAB.jpg",
-        "backdrop_url": backdrop_url or poster_url or "https://image.tmdb.org/t/p/w500/gp31EwMH5D2bftOjscwkgTmoLAB.jpg",
-        "overview": overview or f"Sigue la historia y los eventos de {title}."
+        "extra_info": cur_extra_info,
+        "poster_url": poster_url,
+        "backdrop_url": backdrop_url or poster_url,
+        "overview": overview
     }
 
 def get_youtube_trailer_id(item):

@@ -17,6 +17,25 @@ HEADERS = {
     'Accept-Language': 'es-ES,es;q=0.9,en;q=0.8'
 }
 
+def get_gemini_metadata(title):
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        return None
+    try:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
+        prompt = f"Información sobre la película o serie '{title}'. Responde ÚNICAMENTE en formato JSON con los campos: title, year (ej '2024'), media_type ('PELÍCULA' o 'SERIE'), overview (sinopsis detallada en español de 2 a 3 oraciones), poster_path (path tmdb ej '/abc.jpg' o null)."
+        data = json.dumps({"contents": [{"parts": [{"text": prompt}]}]}).encode('utf-8')
+        req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'}, method='POST')
+        res = urllib.request.urlopen(req, timeout=8)
+        res_json = json.loads(res.read().decode('utf-8'))
+        text = res_json['candidates'][0]['content']['parts'][0]['text']
+        match = re.search(r'\{.*\}', text, re.DOTALL)
+        if match:
+            return json.loads(match.group(0))
+    except Exception as e:
+        print(f"  [Gemini API Warning para '{title}']:", e)
+    return None
+
 def get_tmdb_info(item):
     if isinstance(item, dict):
         title = item["title"]
@@ -28,9 +47,9 @@ def get_tmdb_info(item):
     poster_url = None
     backdrop_url = None
     overview = None
-    year = "2026"
-    media_type = "PELÍCULA"
-    extra_info = "1h 45m"
+    year = "2025"
+    cur_media_type = "PELÍCULA"
+    cur_extra_info = "1h 45m"
     
     try:
         if tmdb_path:
@@ -41,86 +60,96 @@ def get_tmdb_info(item):
             req = urllib.request.Request(url, headers=HEADERS)
             html = urllib.request.urlopen(req, timeout=10).read().decode('utf-8')
             
-            matches = re.findall(r'<a[^>]*class="[^"]*result[^"]*"[^>]*href="/(movie|tv)/(\d+)[^"]*"', html)
+            matches = re.findall(r'href="/(movie|tv)/(\d+[^"]*)"', html)
             if not matches:
-                matches = re.findall(r'<div class="card[^"]*">.*?<a[^>]*href="/(movie|tv)/(\d+)[^"]*"', html, re.DOTALL)
-            if not matches:
-                matches = re.findall(r'<h2><a[^>]*href="/(movie|tv)/(\d+)[^"]*"', html)
-            if not matches:
-                matches = re.findall(r'href="/(movie|tv)/(\d+)[^"]*"', html)
+                clean_t = re.sub(r'[^\w\s]', '', title)
+                url2 = f"https://www.themoviedb.org/search?query={urllib.parse.quote(clean_t)}&language=es-ES"
+                html2 = urllib.request.urlopen(urllib.request.Request(url2, headers=HEADERS), timeout=10).read().decode('utf-8')
+                matches = re.findall(r'href="/(movie|tv)/(\d+[^"]*)"', html2)
                 
-            paths_to_try = [f"{m_type}/{tmdb_id}" for m_type, tmdb_id in matches[:3]] if matches else []
+            paths_to_try = [f"{m_type}/{path_id.split('?')[0].split('#')[0]}" for m_type, path_id in matches[:3]] if matches else []
 
         for path in paths_to_try:
-            for lang in ["es-ES", "es-MX", "es"]:
+            m_type = "tv" if path.startswith("tv/") else "movie"
+            cur_media_type = "SERIE" if m_type == "tv" else "PELÍCULA"
+            cur_extra_info = "Serie" if cur_media_type == "SERIE" else "1h 45m"
+
+            for lang in ["es-ES", "es-MX", "es", "en-US"]:
                 detail_url = f"https://www.themoviedb.org/{path}?language={lang}"
                 try:
                     d_req = urllib.request.Request(detail_url, headers=HEADERS)
                     d_html = urllib.request.urlopen(d_req, timeout=8).read().decode('utf-8')
                     
-                    m_type = "tv" if path.startswith("tv/") else "movie"
-                    cur_media_type = "SERIE" if m_type == "tv" else "PELÍCULA"
-                    cur_extra_info = get_tv_extra_info_from_tmdb_path(path) if cur_media_type == "SERIE" else "1h 45m"
+                    if not poster_url:
+                        p_match = re.search(r'https://image\.tmdb\.org/t/p/w\d+/([a-zA-Z0-9_\.]+\.jpg)', d_html)
+                        og_images = re.findall(r'content="https://(?:image|media)\.themoviedb\.org/t/p/[^/]+/([a-zA-Z0-9_\.]+\.jpg)"', d_html)
+                        
+                        if p_match:
+                            poster_url = f"https://image.tmdb.org/t/p/w500/{p_match.group(1)}"
+                        elif og_images:
+                            poster_url = f"https://image.tmdb.org/t/p/w500/{og_images[0]}"
+                            
+                        if og_images and len(og_images) >= 2:
+                            backdrop_url = f"https://image.tmdb.org/t/p/w500/{og_images[1]}"
+                        elif poster_url:
+                            backdrop_url = poster_url
+                        
+                    y_match = re.search(r'\((\d{4})\)', d_html)
+                    if y_match:
+                        year = y_match.group(1)
 
-                    p_match = re.search(r'https://image\.tmdb\.org/t/p/w\d+/([a-zA-Z0-9_\.]+\.jpg)', d_html)
-                    cur_poster = f"https://image.tmdb.org/t/p/w500/{p_match.group(1)}" if p_match else None
-                        
-                    og_images = re.findall(r'content="https://media\.themoviedb\.org/t/p/[^/]+/([a-zA-Z0-9_\.]+\.jpg)"', d_html)
-                    if not og_images:
-                        og_images = re.findall(r'content="https://image\.tmdb\.org/t/p/[^/]+/([a-zA-Z0-9_\.]+\.jpg)"', d_html)
-                        
-                    if len(og_images) >= 2:
-                        cur_backdrop = f"https://image.tmdb.org/t/p/w500/{og_images[1]}"
-                    elif len(og_images) == 1:
-                        cur_backdrop = f"https://image.tmdb.org/t/p/w500/{og_images[0]}"
-                    else:
-                        cur_backdrop = cur_poster
-                        
                     o_match = re.search(r'<div class="overview"[^>]*>\s*<p>([^<]+)</p>', d_html)
                     if not o_match:
                         o_match = re.search(r'property="og:description" content="([^"]+)"', d_html)
                     if not o_match:
                         o_match = re.search(r'<meta name="description" content="([^"]+)"', d_html)
-                    cur_overview = o_match.group(1).replace('...', '').strip() if o_match else None
 
-                    y_match = re.search(r'\((\d{4})\)', d_html)
-                    cur_year = y_match.group(1) if y_match else "2026"
-                    
-                    # Detect English overviews accurately
-                    spanish_stopwords = {"de", "la", "el", "en", "un", "una", "los", "las", "por", "para", "con", "que", "su", "sus", "del", "como", "sobre"}
-                    english_stopwords = {"is", "the", "who", "and", "with", "her", "his", "their", "from", "about", "which", "after", "when", "into"}
-                    words = [w.strip('.,;:"()') for w in cur_overview.lower().split()]
-                    spanish_count = sum(1 for w in words if w in spanish_stopwords)
-                    english_count = sum(1 for w in words if w in english_stopwords)
-                    is_english = (english_count >= 3) and (spanish_count < 2)
-
-                    if cur_overview and not is_english and len(cur_overview) > 20:
-                        subtitle = f"{cur_media_type} • {cur_year} • {cur_extra_info}"
-                        return {
-                            "title": title,
-                            "subtitle": subtitle,
-                            "media_type": cur_media_type,
-                            "year": cur_year,
-                            "extra_info": cur_extra_info,
-                            "poster_url": cur_poster or "https://image.tmdb.org/t/p/w500/gp31EwMH5D2bftOjscwkgTmoLAB.jpg",
-                            "backdrop_url": cur_backdrop or cur_poster or "https://image.tmdb.org/t/p/w500/gp31EwMH5D2bftOjscwkgTmoLAB.jpg",
-                            "overview": cur_overview
-                        }
+                    if o_match:
+                        cand_overview = o_match.group(1).replace('...', '').strip()
+                        spanish_stopwords = {"de", "la", "el", "en", "un", "una", "los", "las", "por", "para", "con", "que", "su", "sus", "del", "como", "sobre"}
+                        words = [w.strip('.,;:"()') for w in cand_overview.lower().split()]
+                        spanish_count = sum(1 for w in words if w in spanish_stopwords)
+                        if spanish_count >= 2 and len(cand_overview) > 20:
+                            overview = cand_overview
+                            break
                 except Exception:
                     pass
+
+            if poster_url and overview:
+                break
+
     except Exception as e:
         print(f"  [TMDB Error para '{title}']:", e)
 
-    subtitle = f"{media_type} • {year} • {extra_info}"
+    # Fallback to Gemini if overview or poster is missing
+    if not overview or not poster_url:
+        gem = get_gemini_metadata(title)
+        if gem:
+            if not overview and gem.get("overview"):
+                overview = gem["overview"]
+            if not year and gem.get("year"):
+                year = gem["year"]
+            if gem.get("media_type"):
+                cur_media_type = gem["media_type"]
+                cur_extra_info = "Serie" if cur_media_type == "SERIE" else "1h 45m"
+            if not poster_url and gem.get("poster_path"):
+                p_path = gem["poster_path"].strip('/')
+                poster_url = f"https://image.tmdb.org/t/p/w500/{p_path}"
+                backdrop_url = poster_url
+
+    if not poster_url or not overview:
+        return None
+
+    subtitle = f"{cur_media_type} • {year} • {cur_extra_info}"
     return {
         "title": title,
         "subtitle": subtitle,
-        "media_type": media_type,
+        "media_type": cur_media_type,
         "year": year,
-        "extra_info": extra_info,
-        "poster_url": poster_url or "https://image.tmdb.org/t/p/w500/gp31EwMH5D2bftOjscwkgTmoLAB.jpg",
-        "backdrop_url": backdrop_url or poster_url or "https://image.tmdb.org/t/p/w500/gp31EwMH5D2bftOjscwkgTmoLAB.jpg",
-        "overview": overview or f"Sigue la historia y los eventos de {title}."
+        "extra_info": cur_extra_info,
+        "poster_url": poster_url,
+        "backdrop_url": backdrop_url or poster_url,
+        "overview": overview
     }
 
 def is_youtube_video_playable(yt_id):
@@ -356,6 +385,32 @@ def get_personalized_recommendations(existing_catalog=None):
     return rec_items
 
 def update_catalog_with_reddit_items(custom_titles=None, push_to_git=False):
+    json_path = 'app/src/main/assets/trailers.json'
+    if not os.path.exists(json_path):
+        json_path = os.path.join(os.path.dirname(__file__), '../app/src/main/assets/trailers.json')
+
+    try:
+        with open(json_path, 'r', encoding='utf-8') as f:
+            catalog = json.load(f)
+    except Exception:
+        catalog = {"rows": []}
+
+    rows = catalog.get('rows', [])
+    
+    # 1. Extraer ítems existentes de "Últimos fondos de tu TV"
+    existing_reddit_items = []
+    existing_items_map = {}
+    for r in rows:
+        if r.get('category') == "Últimos fondos de tu TV":
+            existing_reddit_items = r.get('items', [])
+            for item in existing_reddit_items:
+                t_key = item.get('title', '').strip().lower()
+                p_url = item.get('poster_url', '')
+                ov = item.get('overview', '')
+                # Solo reutilizar si tiene póster real y sinopsis válida
+                if t_key and 'gp31EwMH5D2bftOjscwkgTmoLAB' not in p_url and not ov.startswith("Sigue la historia y los eventos de"):
+                    existing_items_map[t_key] = item
+
     if custom_titles:
         titles = custom_titles
     else:
@@ -365,16 +420,32 @@ def update_catalog_with_reddit_items(custom_titles=None, push_to_git=False):
         titles = DEFAULT_REDDIT_TITLES[:25]
 
     print(f"Procesando {len(titles)} títulos para la categoría 'Últimos fondos de tu TV':")
-    reddit_items = []
-    
+    final_reddit_items = []
+    processed_keys = set()
+
     for t in titles:
-        print(f" - Buscando metadatos y tráiler para: '{t}'...")
+        t_key = t.strip().lower()
+        if t_key in processed_keys:
+            continue
+
+        # Reutilizar si ya existe y es válido
+        if t_key in existing_items_map:
+            print(f"  [Reutilizando existente sin rescrapear]: '{t}'")
+            final_reddit_items.append(existing_items_map[t_key])
+            processed_keys.add(t_key)
+            continue
+
+        print(f" - Buscando metadatos y tráiler para NUEVO título de Reddit: '{t}'...")
         yt_id = get_youtube_trailer_id(t)
         if not yt_id:
             print(f"  [Descartado por tráiler no reproducible o restricción de edad]: '{t}'")
             continue
 
         tmdb = get_tmdb_info(t)
+        if not tmdb or 'gp31EwMH5D2bftOjscwkgTmoLAB' in tmdb.get('poster_url', ''):
+            print(f"  [Descartado por metadatos o póster inválido]: '{t}'")
+            continue
+
         item = {
             "title": tmdb["title"],
             "subtitle": tmdb["subtitle"],
@@ -388,25 +459,27 @@ def update_catalog_with_reddit_items(custom_titles=None, push_to_git=False):
             "trailer_url": f"https://www.youtube.com/watch?v={yt_id}",
             "provider": "Reddit r/IMDB_esp"
         }
-        reddit_items.append(item)
+        final_reddit_items.append(item)
+        processed_keys.add(t_key)
         time.sleep(0.3)
 
-    json_path = 'app/src/main/assets/trailers.json'
-    if not os.path.exists(json_path):
-        json_path = os.path.join(os.path.dirname(__file__), '../app/src/main/assets/trailers.json')
+    # Conservar ítems válidos anteriores que no venían en este scrape de Reddit para mantener profundidad de catálogo (hasta 25)
+    for item in existing_reddit_items:
+        t_key = item.get('title', '').strip().lower()
+        if t_key and t_key not in processed_keys:
+            p_url = item.get('poster_url', '')
+            ov = item.get('overview', '')
+            if 'gp31EwMH5D2bftOjscwkgTmoLAB' not in p_url and not ov.startswith("Sigue la historia y los eventos de"):
+                final_reddit_items.append(item)
+                processed_keys.add(t_key)
+                if len(final_reddit_items) >= 25:
+                    break
 
-    try:
-        with open(json_path, 'r', encoding='utf-8') as f:
-            catalog = json.load(f)
-    except Exception:
-        catalog = {"rows": []}
-
-    rows = catalog.get('rows', [])
     filtered_rows = [r for r in rows if r.get('category') not in ["Fondos del Día (Reddit r/IMDB_esp)", "Recomendaciones del día", "Últimos Fondos (r/IMDB_esp)", "Últimos fondos de tu TV", "Recomendado para Ti"]]
     
     reddit_category = {
         "category": "Últimos fondos de tu TV",
-        "items": reddit_items
+        "items": final_reddit_items[:25]
     }
 
     rec_items = get_personalized_recommendations(catalog)
