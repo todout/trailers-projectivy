@@ -854,11 +854,11 @@
 
             document.getElementById('netflix-rows').classList.add('fullscreen-active');
             document.getElementById('osd-left').classList.add('fullscreen-active');
-            document.getElementById('hero-vignette').classList.add('fullscreen-active');
             isFullscreenActive = true;
 
             if (isVideoLoadedAndPlaying) {
                 document.getElementById('hero-bg-img').classList.add('hidden-hero');
+                document.getElementById('hero-vignette').classList.add('fullscreen-active');
                 document.getElementById('mini-badge').classList.add('visible-badge');
             }
         }
@@ -881,11 +881,12 @@
 
             if (isPausedManually || isVideoLoadedAndPlaying) {
                 document.getElementById('hero-bg-img').classList.add('hidden-hero');
+                document.getElementById('hero-vignette').classList.add('fullscreen-active');
             } else {
                 document.getElementById('hero-bg-img').classList.remove('hidden-hero');
+                document.getElementById('hero-vignette').classList.remove('fullscreen-active');
             }
 
-            document.getElementById('hero-vignette').classList.remove('fullscreen-active');
             document.getElementById('osd-left').classList.remove('fullscreen-active');
             document.getElementById('netflix-rows').classList.remove('fullscreen-active');
 
@@ -910,13 +911,13 @@
             // Ocultar sinopsis a los 10.5 segundos (2.5s después de que arranca el tráiler)
             hideSinopsisTimer = setTimeout(() => {
                 if (!isPausedManually) {
-                    document.getElementById('hero-bg-img').classList.add('hidden-hero');
                     document.getElementById('osd-left').classList.add('fullscreen-active');
-                    document.getElementById('hero-vignette').classList.add('fullscreen-active');
                     isFullscreenActive = true;
 
                     // Mostrar mini badge en la esquina superior izquierda si el video está reproduciéndose limpio en pantalla completa
                     if (isVideoLoadedAndPlaying) {
+                        document.getElementById('hero-bg-img').classList.add('hidden-hero');
+                        document.getElementById('hero-vignette').classList.add('fullscreen-active');
                         document.getElementById('mini-badge').classList.add('visible-badge');
                     }
                 }
@@ -957,6 +958,7 @@
                         if (e.data === YT.PlayerState.PLAYING) {
                             isVideoLoadedAndPlaying = true;
                             document.getElementById('hero-bg-img').classList.add('hidden-hero');
+                            document.getElementById('hero-vignette').classList.add('fullscreen-active');
                             if (isFullscreenActive && !isPausedManually) {
                                 document.getElementById('mini-badge').classList.add('visible-badge');
                             }
