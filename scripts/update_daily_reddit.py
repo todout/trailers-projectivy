@@ -44,6 +44,11 @@ def get_tmdb_info(item):
         title = item
         tmdb_path = None
 
+    if not tmdb_path:
+        t_upper = title.strip().upper()
+        if t_upper in ["PA QUERERTE", "PA' QUERERTE"]:
+            tmdb_path = "tv/136228-pa-quererte"
+
     poster_url = None
     backdrop_url = None
     overview = None
