@@ -1,6 +1,6 @@
 {
   "versionCode": 7,
   "versionName": "1.6",
-  "apkUrl": "https://raw.githubusercontent.com/todout/trailers-projectivy/main/app-release.apk",
-  "releaseNotes": "Sincronización de degradé en pausa para lectura perfecta de sinopsis"
+  "apkUrl": "https://github.com/todout/trailers-projectivy/releases/latest/download/trailers-projectivy.apk",
+  "releaseNotes": "Sincronización de degradé en pausa y lectura perfecta de sinopsis"
 }
