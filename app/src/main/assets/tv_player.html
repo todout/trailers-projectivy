@@ -859,11 +859,28 @@
             }, delay);
         }
 
+        let loaderShowTimer = null;
+
+        function showLoaderPill() {
+            clearTimeout(loaderShowTimer);
+            loaderShowTimer = setTimeout(() => {
+                const pill = document.getElementById('trailer-loader-pill');
+                if (pill && !isVideoLoadedAndPlaying) {
+                    pill.classList.add('visible');
+                }
+            }, 350);
+        }
+
+        function hideLoaderPill() {
+            clearTimeout(loaderShowTimer);
+            const pill = document.getElementById('trailer-loader-pill');
+            if (pill) pill.classList.remove('visible');
+        }
+
         function startPreloadingVideo(videoId) {
             if (player && isPlayerReady && videoId) {
                 currentVideoId = videoId;
-                const pill = document.getElementById('trailer-loader-pill');
-                if (pill) pill.classList.add('visible');
+                showLoaderPill();
                 player.loadVideoById({ videoId: videoId, startSeconds: 0 });
             }
         }
@@ -999,22 +1016,23 @@
                         dismissLoader();
                     },
                     'onStateChange': (e) => {
-                        const pill = document.getElementById('trailer-loader-pill');
                         if (e.data === YT.PlayerState.BUFFERING) {
-                            if (pill) pill.classList.add('visible');
+                            showLoaderPill();
                         } else if (e.data === YT.PlayerState.PLAYING) {
                             isVideoLoadedAndPlaying = true;
-                            if (pill) pill.classList.remove('visible');
-                            document.getElementById('hero-bg-img').classList.add('hidden-hero');
-                            document.getElementById('hero-vignette').classList.add('fullscreen-active');
-                            if (isFullscreenActive && !isPausedManually) {
-                                document.getElementById('mini-badge').classList.add('visible-badge');
+                            hideLoaderPill();
+                            if (isFullscreenActive) {
+                                document.getElementById('hero-bg-img').classList.add('hidden-hero');
+                                document.getElementById('hero-vignette').classList.add('fullscreen-active');
+                                if (!isPausedManually) {
+                                    document.getElementById('mini-badge').classList.add('visible-badge');
+                                }
                             }
                         } else if (e.data === YT.PlayerState.PAUSED) {
-                            if (pill) pill.classList.remove('visible');
+                            hideLoaderPill();
                             document.getElementById('mini-badge').classList.remove('visible-badge');
                         } else if (e.data === YT.PlayerState.ENDED) {
-                            if (pill) pill.classList.remove('visible');
+                            hideLoaderPill();
                             isPausedManually = false;
                             document.getElementById('mini-badge').classList.remove('visible-badge');
                             updateSelection(currentRowIndex, currentCardIndex + 1, true);

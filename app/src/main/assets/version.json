@@ -1,6 +1,6 @@
 {
-  "versionCode": 9,
-  "versionName": "1.8",
+  "versionCode": 10,
+  "versionName": "1.9",
   "apkUrl": "https://github.com/todout/trailers-projectivy/releases/latest/download/trailers-projectivy.apk",
-  "releaseNotes": "Indicador discreto de carga de tráiler y buffereado HD"
+  "releaseNotes": "Transición instantánea de video y optimización de memoria RAM"
 }
