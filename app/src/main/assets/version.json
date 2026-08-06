@@ -1,6 +1,6 @@
 {
-  "versionCode": 7,
-  "versionName": "1.6",
+  "versionCode": 8,
+  "versionName": "1.7",
   "apkUrl": "https://github.com/todout/trailers-projectivy/releases/latest/download/trailers-projectivy.apk",
-  "releaseNotes": "Sincronización de degradé en pausa y lectura perfecta de sinopsis"
+  "releaseNotes": "Transición suave estilo cine y firma digital unificada"
 }

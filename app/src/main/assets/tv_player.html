@@ -56,11 +56,14 @@
             object-fit: cover;
             object-position: center top;
             z-index: 3;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.85s cubic-bezier(0.25, 1, 0.5, 1), transform 0.85s cubic-bezier(0.25, 1, 0.5, 1);
             opacity: 1;
+            transform: scale(1) translateZ(0);
+            will-change: opacity, transform;
         }
         #hero-bg-img.hidden-hero {
             opacity: 0;
+            transform: scale(1.04) translateZ(0);
             pointer-events: none;
         }
         
@@ -86,9 +89,11 @@
             z-index: 5;
             background: linear-gradient(90deg, #000000 0%, #000000 38%, rgba(0,0,0,0.85) 55%, rgba(0,0,0,0.2) 75%, rgba(0,0,0,0) 100%),
                         linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.85) 60%, #000000 85%);
-            transition: opacity 0.5s ease;
+            transition: opacity 0.85s cubic-bezier(0.25, 1, 0.5, 1);
             opacity: 1;
             pointer-events: none;
+            will-change: opacity;
+            transform: translateZ(0);
         }
         .hero-vignette.fullscreen-active {
             opacity: 0;
@@ -105,10 +110,11 @@
             display: flex;
             flex-direction: column;
             gap: 6px;
-            transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
+            transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.75s cubic-bezier(0.25, 1, 0.5, 1);
             transform: translateX(0);
             opacity: 1;
             pointer-events: none;
+            will-change: transform, opacity;
         }
         .osd-left-panel.fullscreen-active {
             transform: translateX(-120%);
