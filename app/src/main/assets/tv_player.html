@@ -637,17 +637,20 @@
                 }
             }
 
-            // Pausar inmediatamente el video anterior al cambiar de tarjeta para cortar el audio del ítem previo
+            // Detener por completo el video anterior al cambiar de tarjeta para evitar cualquier despausado o fuga de audio del ítem previo
             if (player && isPlayerReady) {
-                player.pauseVideo();
+                try {
+                    player.stopVideo();
+                } catch(e) {}
             }
 
+            currentVideoId = null;
             isVideoLoadedAndPlaying = false;
             wakeUI();
 
-            // Esperar 3 segundos (3000ms) antes de iniciar el trailer automáticamente al navegar, o 0ms si el usuario presiona OK
+            // Esperar 8 segundos (8000ms) antes de iniciar el tráiler automáticamente al navegar, o 0ms si el usuario presiona OK
             clearTimeout(preloadTimer);
-            const delay = forcePlay ? 0 : 3000;
+            const delay = forcePlay ? 0 : 8000;
             preloadTimer = setTimeout(() => {
                 startPreloadingVideo(item.youtube_id);
             }, delay);
@@ -655,12 +658,8 @@
 
         function startPreloadingVideo(videoId) {
             if (player && isPlayerReady && videoId) {
-                if (currentVideoId !== videoId) {
-                    currentVideoId = videoId;
-                    player.loadVideoById({ videoId: videoId, startSeconds: 0 });
-                } else {
-                    player.playVideo();
-                }
+                currentVideoId = videoId;
+                player.loadVideoById({ videoId: videoId, startSeconds: 0 });
             }
         }
 
@@ -698,12 +697,14 @@
 
             if (isPausedManually) return;
 
+            // Ocultar filas a los 8.5 segundos (0.5s después de que arranca el tráiler automático de 8s)
             hideRowsTimer = setTimeout(() => {
                 if (!isPausedManually) {
                     document.getElementById('netflix-rows').classList.add('fullscreen-active');
                 }
-            }, 3500);
+            }, 8500);
 
+            // Ocultar sinopsis a los 10.5 segundos (2.5s después de que arranca el tráiler)
             hideSinopsisTimer = setTimeout(() => {
                 if (!isPausedManually) {
                     document.getElementById('hero-bg-img').classList.add('hidden-hero');
@@ -716,7 +717,7 @@
                         document.getElementById('mini-badge').classList.add('visible-badge');
                     }
                 }
-            }, 5500);
+            }, 10500);
         }
 
         function initPlayer() {
