@@ -1,6 +1,6 @@
 {
-  "versionCode": 8,
-  "versionName": "1.7",
+  "versionCode": 9,
+  "versionName": "1.8",
   "apkUrl": "https://github.com/todout/trailers-projectivy/releases/latest/download/trailers-projectivy.apk",
-  "releaseNotes": "Transición suave estilo cine y firma digital unificada"
+  "releaseNotes": "Indicador discreto de carga de tráiler y buffereado HD"
 }

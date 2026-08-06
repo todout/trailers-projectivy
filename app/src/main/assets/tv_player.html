@@ -154,6 +154,41 @@
             margin-top: 2px;
         }
 
+        /* Trailer Loader Pill inside Synopsis Panel */
+        .trailer-loader-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 14px;
+            background: rgba(0, 0, 0, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 0.5px;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            pointer-events: none;
+            width: fit-content;
+            margin-top: 6px;
+        }
+        .trailer-loader-pill.visible {
+            opacity: 1;
+        }
+        .spinner-dot {
+            width: 11px;
+            height: 11px;
+            border: 2px solid rgba(229, 9, 20, 0.3);
+            border-top-color: #e50914;
+            border-radius: 50%;
+            animation: spinDot 0.7s linear infinite;
+        }
+        @keyframes spinDot {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         /* Netflix Multi-Row Bottom Container */
         .netflix-rows-panel {
             position: fixed;
@@ -428,6 +463,10 @@
         <div id="movie-subtitle" class="movie-subtitle">...</div>
         <div id="movie-title" class="movie-title">...</div>
         <div id="movie-overview" class="movie-overview">...</div>
+        <div id="trailer-loader-pill" class="trailer-loader-pill">
+            <div class="spinner-dot"></div>
+            <span>Cargando tráiler HD...</span>
+        </div>
     </div>
 
     <!-- Top-Left Mini Badge Panel (Aparece al reproducir limpio en pantalla completa) -->
@@ -823,6 +862,8 @@
         function startPreloadingVideo(videoId) {
             if (player && isPlayerReady && videoId) {
                 currentVideoId = videoId;
+                const pill = document.getElementById('trailer-loader-pill');
+                if (pill) pill.classList.add('visible');
                 player.loadVideoById({ videoId: videoId, startSeconds: 0 });
             }
         }
@@ -958,16 +999,22 @@
                         dismissLoader();
                     },
                     'onStateChange': (e) => {
-                        if (e.data === YT.PlayerState.PLAYING) {
+                        const pill = document.getElementById('trailer-loader-pill');
+                        if (e.data === YT.PlayerState.BUFFERING) {
+                            if (pill) pill.classList.add('visible');
+                        } else if (e.data === YT.PlayerState.PLAYING) {
                             isVideoLoadedAndPlaying = true;
+                            if (pill) pill.classList.remove('visible');
                             document.getElementById('hero-bg-img').classList.add('hidden-hero');
                             document.getElementById('hero-vignette').classList.add('fullscreen-active');
                             if (isFullscreenActive && !isPausedManually) {
                                 document.getElementById('mini-badge').classList.add('visible-badge');
                             }
                         } else if (e.data === YT.PlayerState.PAUSED) {
+                            if (pill) pill.classList.remove('visible');
                             document.getElementById('mini-badge').classList.remove('visible-badge');
                         } else if (e.data === YT.PlayerState.ENDED) {
+                            if (pill) pill.classList.remove('visible');
                             isPausedManually = false;
                             document.getElementById('mini-badge').classList.remove('visible-badge');
                             updateSelection(currentRowIndex, currentCardIndex + 1, true);
