@@ -219,6 +219,7 @@ def get_tmdb_info(item):
     year = "2025"
     cur_media_type = "PELÍCULA"
     cur_extra_info = "1h 48m"
+    latest_d_html = None
     
     search_query = title.replace("El Pengüino", "El Pingüino")
 
@@ -243,13 +244,13 @@ def get_tmdb_info(item):
         for path in paths_to_try:
             m_type = "tv" if path.startswith("tv/") else "movie"
             cur_media_type = "SERIE" if m_type == "tv" else "PELÍCULA"
-            cur_extra_info = "Serie" if cur_media_type == "SERIE" else "1h 48m"
 
             for lang in ["es-ES", "es-MX", "es", "en-US"]:
                 detail_url = f"https://www.themoviedb.org/{path}?language={lang}"
                 try:
                     d_req = urllib.request.Request(detail_url, headers=HEADERS)
                     d_html = urllib.request.urlopen(d_req, timeout=8).read().decode('utf-8')
+                    latest_d_html = d_html
                     
                     if not poster_url:
                         p_match = re.search(r'https://image\.tmdb\.org/t/p/w\d+/([a-zA-Z0-9_\.]+\.jpg)', d_html)
@@ -293,7 +294,8 @@ def get_tmdb_info(item):
         print(f"  [TMDB Error para '{title}']:", e)
 
     # Fallback to Gemini if overview or poster is missing
-    if not overview or not poster_url:
+    gem = None
+    if not overview or not poster_url or cur_media_type == "SERIE":
         gem = get_gemini_metadata(title)
         if gem:
             if not overview and gem.get("overview"):
@@ -302,7 +304,6 @@ def get_tmdb_info(item):
                 year = gem["year"]
             if gem.get("media_type"):
                 cur_media_type = gem["media_type"]
-                cur_extra_info = "Serie" if cur_media_type == "SERIE" else "1h 48m"
             if not poster_url and gem.get("poster_path"):
                 p_path = gem["poster_path"].strip('/')
                 poster_url = f"https://image.tmdb.org/t/p/w500/{p_path}"
@@ -310,6 +311,11 @@ def get_tmdb_info(item):
 
     if not poster_url or not overview:
         return None
+
+    if cur_media_type == "SERIE":
+        cur_extra_info = parse_tv_extra_info(latest_d_html, gem.get("extra_info") if gem else None)
+    else:
+        cur_extra_info = "1h 48m"
 
     subtitle = f"{cur_media_type} • {year} • {cur_extra_info}"
     return {

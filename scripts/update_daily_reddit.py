@@ -23,7 +23,7 @@ def get_gemini_metadata(title):
         return None
     try:
         url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
-        prompt = f"Información sobre la película o serie '{title}'. Responde ÚNICAMENTE en formato JSON con los campos: title, year (ej '2024'), media_type ('PELÍCULA' o 'SERIE'), overview (sinopsis detallada en español de 2 a 3 oraciones), poster_path (path tmdb ej '/abc.jpg' o null)."
+        prompt = f"Información sobre la película o serie '{title}'. Responde ÚNICAMENTE en formato JSON con los campos: title, year (ej '2024'), media_type ('PELÍCULA' o 'SERIE'), overview (sinopsis detallada en español de 2 a 3 oraciones), poster_path (path tmdb ej '/abc.jpg' o null), extra_info (si es película ej '1h 45m', si es serie ej '1 Temporada • 12 cap. • 45m')."
         data = json.dumps({"contents": [{"parts": [{"text": prompt}]}]}).encode('utf-8')
         req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'}, method='POST')
         res = urllib.request.urlopen(req, timeout=8)
@@ -35,6 +35,47 @@ def get_gemini_metadata(title):
     except Exception as e:
         print(f"  [Gemini API Warning para '{title}']:", e)
     return None
+
+def parse_tv_extra_info(d_html, gem_extra=None):
+    seasons = None
+    episodes = None
+    runtime = None
+
+    if d_html:
+        s_match = re.search(r'(\d+)\s+Temporada', d_html, re.IGNORECASE)
+        if not s_match:
+            s_match = re.search(r'(\d+)\s+Season', d_html, re.IGNORECASE)
+        if s_match:
+            n_s = int(s_match.group(1))
+            seasons = f"{n_s} Temporada{'s' if n_s > 1 else ''}"
+
+        e_match = re.search(r'(\d+)\s+Episodio', d_html, re.IGNORECASE)
+        if not e_match:
+            e_match = re.search(r'(\d+)\s+Episode', d_html, re.IGNORECASE)
+        if e_match:
+            episodes = f"{e_match.group(1)} cap."
+
+        r_match = re.search(r'(\d+)\s*m\b', d_html)
+        if not r_match:
+            r_match = re.search(r'(\d+)\s*min', d_html, re.IGNORECASE)
+        if r_match:
+            runtime = f"{r_match.group(1)}m"
+
+    parts = []
+    if seasons:
+        parts.append(seasons)
+    if episodes:
+        parts.append(episodes)
+    if runtime:
+        parts.append(runtime)
+
+    if parts:
+        return " • ".join(parts)
+
+    if gem_extra and "Serie" not in gem_extra and len(gem_extra) > 3:
+        return gem_extra
+
+    return "1 Temporada • 10 cap."
 
 def get_tmdb_info(item):
     if isinstance(item, dict):
@@ -55,6 +96,7 @@ def get_tmdb_info(item):
     year = "2025"
     cur_media_type = "PELÍCULA"
     cur_extra_info = "1h 45m"
+    latest_d_html = None
     
     try:
         if tmdb_path:
@@ -77,13 +119,13 @@ def get_tmdb_info(item):
         for path in paths_to_try:
             m_type = "tv" if path.startswith("tv/") else "movie"
             cur_media_type = "SERIE" if m_type == "tv" else "PELÍCULA"
-            cur_extra_info = "Serie" if cur_media_type == "SERIE" else "1h 45m"
 
             for lang in ["es-ES", "es-MX", "es", "en-US"]:
                 detail_url = f"https://www.themoviedb.org/{path}?language={lang}"
                 try:
                     d_req = urllib.request.Request(detail_url, headers=HEADERS)
                     d_html = urllib.request.urlopen(d_req, timeout=8).read().decode('utf-8')
+                    latest_d_html = d_html
                     
                     if not poster_url:
                         p_match = re.search(r'https://image\.tmdb\.org/t/p/w\d+/([a-zA-Z0-9_\.]+\.jpg)', d_html)
@@ -127,7 +169,8 @@ def get_tmdb_info(item):
         print(f"  [TMDB Error para '{title}']:", e)
 
     # Fallback to Gemini if overview or poster is missing
-    if not overview or not poster_url:
+    gem = None
+    if not overview or not poster_url or cur_media_type == "SERIE":
         gem = get_gemini_metadata(title)
         if gem:
             if not overview and gem.get("overview"):
@@ -136,7 +179,6 @@ def get_tmdb_info(item):
                 year = gem["year"]
             if gem.get("media_type"):
                 cur_media_type = gem["media_type"]
-                cur_extra_info = "Serie" if cur_media_type == "SERIE" else "1h 45m"
             if not poster_url and gem.get("poster_path"):
                 p_path = gem["poster_path"].strip('/')
                 poster_url = f"https://image.tmdb.org/t/p/w500/{p_path}"
@@ -144,6 +186,11 @@ def get_tmdb_info(item):
 
     if not poster_url or not overview:
         return None
+
+    if cur_media_type == "SERIE":
+        cur_extra_info = parse_tv_extra_info(latest_d_html, gem.get("extra_info") if gem else None)
+    else:
+        cur_extra_info = "1h 45m"
 
     subtitle = f"{cur_media_type} • {year} • {cur_extra_info}"
     return {
@@ -412,9 +459,12 @@ def update_catalog_with_reddit_items(custom_titles=None, push_to_git=False):
                 t_key = item.get('title', '').strip().lower()
                 p_url = item.get('poster_url', '')
                 ov = item.get('overview', '')
-                # Solo reutilizar si tiene póster real y sinopsis válida
+                # Solo reutilizar si tiene póster real, sinopsis válida y extra_info completo (no 'Serie')
                 if t_key and 'gp31EwMH5D2bftOjscwkgTmoLAB' not in p_url and not ov.startswith("Sigue la historia y los eventos de"):
-                    existing_items_map[t_key] = item
+                    if item.get('media_type') == 'SERIE' and (item.get('extra_info') == 'Serie' or item.get('subtitle', '').endswith('• Serie')):
+                        pass
+                    else:
+                        existing_items_map[t_key] = item
 
     if custom_titles:
         titles = custom_titles

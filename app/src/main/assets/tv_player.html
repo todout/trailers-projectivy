@@ -176,6 +176,8 @@
             transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
             padding: 8px 50px 0 50px;
             will-change: transform;
+            transform: translateZ(0);
+            contain: layout style;
         }
 
         .netflix-row {
@@ -183,6 +185,8 @@
             flex-direction: column;
             gap: 4px;
             transition: opacity 0.35s ease;
+            will-change: opacity;
+            transform: translateZ(0);
         }
         .row-header {
             display: flex;
@@ -207,6 +211,8 @@
             scroll-behavior: smooth;
             padding: 12px 10px;
             margin: 0;
+            will-change: scroll-position;
+            contain: layout style;
         }
         .row-cards::-webkit-scrollbar {
             display: none;
@@ -224,6 +230,9 @@
             transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
             cursor: pointer;
             box-shadow: 0 6px 14px rgba(0,0,0,0.8);
+            will-change: transform, border-color, box-shadow;
+            transform: translateZ(0);
+            backface-visibility: hidden;
         }
         .netflix-card img {
             width: 100%;
@@ -231,6 +240,8 @@
             object-fit: cover;
             opacity: 0.85;
             transition: opacity 0.25s ease, transform 0.25s ease;
+            will-change: opacity, transform;
+            transform: translateZ(0);
         }
         .netflix-card.active {
             border-color: #e50914;
@@ -255,6 +266,38 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+
+        /* Discreet Footer Update Link */
+        .footer-update-row {
+            display: flex;
+            justify-content: flex-start;
+            padding: 12px 10px 40px 10px;
+            opacity: 0.5;
+            transition: opacity 0.25s ease;
+        }
+        .footer-update-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 18px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.85);
+            transition: all 0.25s ease;
+            will-change: transform, border-color;
+            transform: translateZ(0);
+        }
+        .footer-update-btn.active {
+            background: rgba(229, 9, 20, 0.9);
+            border-color: #e50914;
+            color: #ffffff;
+            box-shadow: 0 0 20px rgba(229, 9, 20, 0.8);
+            transform: scale(1.08);
         }
 
         /* Top-Left Mini Badge Panel (Solo póster y texto sin tarjeta de fondo) */
@@ -290,10 +333,10 @@
         .mini-info-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 3px;
+            gap: 2px;
         }
         .mini-title-text {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 900;
             color: #ffffff;
             letter-spacing: 0.5px;
@@ -303,14 +346,16 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            line-height: 1.15;
         }
         .mini-subtitle-text {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 800;
             color: #e50914;
             letter-spacing: 1.2px;
             text-transform: uppercase;
             text-shadow: 0 2px 6px rgba(0,0,0,0.98);
+            line-height: 1.15;
         }
 
         /* Loading Screen */
@@ -384,7 +429,8 @@
         <img id="mini-poster" class="mini-poster-img" src="" alt="Mini Poster">
         <div class="mini-info-wrapper">
             <div id="mini-title" class="mini-title-text">...</div>
-            <div id="mini-subtitle" class="mini-subtitle-text">...</div>
+            <div id="mini-subtitle-1" class="mini-subtitle-text">...</div>
+            <div id="mini-subtitle-2" class="mini-subtitle-text">...</div>
         </div>
     </div>
 
@@ -428,18 +474,19 @@
 
         function preloadRowFirstItems() {
             categories.forEach((cat, rIdx) => {
-                if (cat && cat.items && cat.items.length > 0) {
-                    const firstItem = cat.items[0];
-                    if (firstItem.backdrop_url) {
-                        const bg = new Image();
-                        bg.src = firstItem.backdrop_url;
-                        preloadedBackdrops[rIdx] = bg;
-                    }
-                    if (firstItem.poster_url) {
-                        const poster = new Image();
-                        poster.src = firstItem.poster_url;
-                        preloadedPosters[rIdx] = poster;
-                    }
+                if (cat && cat.items) {
+                    cat.items.forEach((item, cIdx) => {
+                        if (item.backdrop_url) {
+                            const bg = new Image();
+                            bg.src = item.backdrop_url;
+                            if (cIdx === 0) preloadedBackdrops[rIdx] = bg;
+                        }
+                        if (item.poster_url) {
+                            const poster = new Image();
+                            poster.src = item.poster_url;
+                            if (cIdx === 0) preloadedPosters[rIdx] = poster;
+                        }
+                    });
                 }
             });
         }
@@ -482,7 +529,7 @@
                 return;
             }
 
-            // Precargar fotos, sinopsis y datos del 1er item de cada fila inmediatamente al iniciar
+            // Precargar fotos, sinopsis y datos en memoria para navegación instantánea
             preloadRowFirstItems();
 
             // Mensajes dinámicos durante la construcción
@@ -533,7 +580,8 @@
 
                 const cardsHtml = cat.items.map((item, cIdx) => {
                     const posterSrc = item.poster_url || item.backdrop_url || '';
-                    const bgImg = posterSrc ? `<img src="${posterSrc}" alt="${item.title}" onerror="this.style.display='none'">` : '';
+                    const loadAttr = (rIdx < 2 && cIdx < 6) ? 'eager' : 'lazy';
+                    const bgImg = posterSrc ? `<img src="${posterSrc}" alt="${item.title}" loading="${loadAttr}" decoding="async" onerror="this.style.display='none'">` : '';
                     return `
                         <div class="netflix-card ${rIdx === 0 && cIdx === 0 ? 'active' : ''}" id="card-${rIdx}-${cIdx}" onclick="onCardClicked(${rIdx}, ${cIdx})">
                             ${bgImg}
@@ -553,11 +601,116 @@
 
                 wrapper.appendChild(rowDiv);
             });
+
+            const footerDiv = document.createElement('div');
+            footerDiv.className = 'footer-update-row';
+            footerDiv.id = `row-${categories.length}`;
+            footerDiv.innerHTML = `
+                <div class="footer-update-btn" id="card-${categories.length}-0" onclick="checkAppUpdates(true)">
+                    <span>⚙️</span>
+                    <span>Comprobar actualizaciones de la app</span>
+                </div>
+            `;
+            wrapper.appendChild(footerDiv);
+            
+            // Silently check for updates in background 4s after launch
+            setTimeout(() => checkAppUpdates(false), 4000);
+        }
+
+        function getMiniBadgeSubtitles(subtitle) {
+            if (!subtitle) return { line1: '', line2: '' };
+            if (subtitle.includes('\n')) {
+                const lines = subtitle.split('\n');
+                return { line1: lines[0].trim(), line2: lines[1] ? lines[1].trim() : '' };
+            }
+
+            const parts = subtitle.split('•').map(p => p.trim()).filter(p => p.length > 0);
+            if (parts.length === 0) return { line1: '', line2: '' };
+            if (parts.length === 1) return { line1: parts[0], line2: '' };
+
+            function formatToken(token) {
+                return token
+                    .replace(/\bTEMPORADAS\b/gi, 'TEMP')
+                    .replace(/\bTEMPORADA\b/gi, 'TEMP')
+                    .replace(/\bCAP\.\b/gi, 'CAPITULOS')
+                    .replace(/\bCAPS\.\b/gi, 'CAPITULOS')
+                    .replace(/\bCAP\b/gi, 'CAPITULOS');
+            }
+
+            if (parts.length >= 5) {
+                const l1 = `${parts[0]} • ${parts[1]} • ${formatToken(parts[2])}`;
+                const l2 = `${formatToken(parts[3])} • ${parts[4]}`;
+                return { line1: l1, line2: l2 };
+            }
+
+            if (parts.length === 4) {
+                const isSerie = parts[0].toUpperCase().includes('SERIE');
+                if (isSerie) {
+                    const l1 = `${parts[0]} • ${parts[1]} • ${formatToken(parts[2])}`;
+                    const l2 = formatToken(parts[3]);
+                    return { line1: l1, line2: l2 };
+                } else {
+                    const l1 = `${parts[0]} • ${parts[1]}`;
+                    const l2 = `${parts[2]} • ${parts[3]}`;
+                    return { line1: l1, line2: l2 };
+                }
+            }
+
+            if (parts.length === 3) {
+                const l1 = `${parts[0]} • ${parts[1]}`;
+                const l2 = formatToken(parts[2]);
+                return { line1: l1, line2: l2 };
+            }
+
+            if (parts.length === 2) {
+                return { line1: parts[0], line2: parts[1] };
+            }
+
+            return { line1: subtitle, line2: '' };
+        }
+
+        function checkAppUpdates(isManual = true) {
+            if (window.Android && window.Android.checkAppUpdate) {
+                window.Android.checkAppUpdate(isManual);
+            }
         }
 
         function updateSelection(rIdx, cIdx, forcePlay = false) {
             if (rIdx < 0) rIdx = 0;
-            if (rIdx >= categories.length) rIdx = categories.length - 1;
+            if (rIdx > categories.length) rIdx = categories.length;
+
+            const prevCard = document.getElementById(`card-${currentRowIndex}-${currentCardIndex}`);
+            if (prevCard) prevCard.classList.remove('active');
+
+            currentRowIndex = rIdx;
+
+            if (currentRowIndex === categories.length) {
+                currentCardIndex = 0;
+                const activeCard = document.getElementById(`card-${categories.length}-0`);
+                if (activeCard) activeCard.classList.add('active');
+
+                const wrapper = document.getElementById('rows-wrapper');
+                const targetRowDiv = document.getElementById(`row-${currentRowIndex}`);
+                if (targetRowDiv && wrapper) {
+                    const targetY = Math.max(0, targetRowDiv.offsetTop - 30);
+                    wrapper.style.transform = `translateY(-${targetY}px)`;
+                }
+
+                categories.forEach((_, idx) => {
+                    const rowDiv = document.getElementById(`row-${idx}`);
+                    if (rowDiv) {
+                        rowDiv.style.opacity = '0.15';
+                        rowDiv.style.pointerEvents = 'none';
+                    }
+                });
+
+                document.getElementById('movie-title').innerText = "ACTUALIZAR APLICACIÓN";
+                document.getElementById('movie-subtitle').innerText = "SISTEMA • COMPROBAR NUEVAS VERSIONES";
+                document.getElementById('movie-overview').innerText = "Presiona OK en el control remoto para comprobar de forma segura si hay alguna actualización disponible para esta aplicación.";
+                document.getElementById('mini-badge').classList.remove('visible-badge');
+                clearTimeout(preloadTimer);
+                return;
+            }
 
             const targetRow = categories[rIdx];
             if (!targetRow || !targetRow.items || targetRow.items.length === 0) return;
@@ -565,10 +718,6 @@
             if (cIdx < 0) cIdx = 0;
             if (cIdx >= targetRow.items.length) cIdx = targetRow.items.length - 1;
 
-            const prevCard = document.getElementById(`card-${currentRowIndex}-${currentCardIndex}`);
-            if (prevCard) prevCard.classList.remove('active');
-
-            currentRowIndex = rIdx;
             currentCardIndex = cIdx;
 
             const item = targetRow.items[currentCardIndex];
@@ -617,9 +766,21 @@
             document.getElementById('movie-subtitle').innerText = item.subtitle || 'PELÍCULA';
             document.getElementById('movie-overview').innerText = item.overview && item.overview.trim() ? item.overview : '';
 
-            // Actualizar Mini Badge (Póster, Título y Subtítulo)
+            // Actualizar Mini Badge (Póster, Título y 2 Líneas de Subtítulo)
             document.getElementById('mini-title').innerText = item.title;
-            document.getElementById('mini-subtitle').innerText = item.subtitle || 'PELÍCULA';
+            const miniSubs = getMiniBadgeSubtitles(item.subtitle || 'PELÍCULA');
+            const elSub1 = document.getElementById('mini-subtitle-1');
+            const elSub2 = document.getElementById('mini-subtitle-2');
+            if (elSub1) elSub1.innerText = miniSubs.line1;
+            if (elSub2) {
+                if (miniSubs.line2) {
+                    elSub2.innerText = miniSubs.line2;
+                    elSub2.style.display = 'block';
+                } else {
+                    elSub2.innerText = '';
+                    elSub2.style.display = 'none';
+                }
+            }
             const miniPoster = document.getElementById('mini-poster');
             const posterSrc = item.poster_url || item.backdrop_url || '';
             if (miniPoster && posterSrc) {
@@ -663,9 +824,51 @@
             }
         }
 
+        function playNowAndHideUI() {
+            if (currentRowIndex === categories.length) {
+                checkAppUpdates(true);
+                return;
+            }
+            isPausedManually = false;
+            clearTimeout(preloadTimer);
+            clearTimeout(hideRowsTimer);
+            clearTimeout(hideSinopsisTimer);
+
+            const targetRow = categories[currentRowIndex];
+            if (!targetRow || !targetRow.items || targetRow.items.length === 0) return;
+            const item = targetRow.items[currentCardIndex];
+            if (!item) return;
+
+            if (currentVideoId !== item.youtube_id) {
+                startPreloadingVideo(item.youtube_id);
+            } else if (player && isPlayerReady) {
+                try {
+                    const state = player.getPlayerState();
+                    if (state !== YT.PlayerState.PLAYING && state !== YT.PlayerState.BUFFERING) {
+                        player.playVideo();
+                    }
+                } catch(e) {
+                    startPreloadingVideo(item.youtube_id);
+                }
+            }
+
+            document.getElementById('netflix-rows').classList.add('fullscreen-active');
+            document.getElementById('osd-left').classList.add('fullscreen-active');
+            document.getElementById('hero-vignette').classList.add('fullscreen-active');
+            isFullscreenActive = true;
+
+            if (isVideoLoadedAndPlaying) {
+                document.getElementById('hero-bg-img').classList.add('hidden-hero');
+                document.getElementById('mini-badge').classList.add('visible-badge');
+            }
+        }
+
         function onCardClicked(rIdx, cIdx) {
             isPausedManually = false;
-            updateSelection(rIdx, cIdx, true);
+            if (currentRowIndex !== rIdx || currentCardIndex !== cIdx) {
+                updateSelection(rIdx, cIdx);
+            }
+            playNowAndHideUI();
         }
 
         function wakeUI(keepPaused = false) {
@@ -868,7 +1071,13 @@
                 case 23:
                 case 32:
                     e.preventDefault();
-                    togglePlayPause();
+                    playNowAndHideUI();
+                    break;
+                case 82: // Botón Menú / Opciones en el control
+                case 166: // Botón Info / Canal
+                case 170:
+                    e.preventDefault();
+                    checkAppUpdates(true);
                     break;
                 case 85: // Play/Pause Media Button
                 case 179:
