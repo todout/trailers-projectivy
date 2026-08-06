@@ -152,10 +152,20 @@ class MainActivity : AppCompatActivity() {
             try {
                 val url = URL(apkUrl)
                 val conn = url.openConnection() as HttpURLConnection
+                conn.instanceFollowRedirects = true
+                conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Android TV)")
                 conn.connectTimeout = 15000
                 conn.readTimeout = 15000
-                val input = conn.inputStream
 
+                val responseCode = conn.responseCode
+                if (responseCode != HttpURLConnection.HTTP_OK) {
+                    runOnUiThread {
+                        Toast.makeText(this, "El archivo APK de actualización aún no está subido en GitHub (HTTP $responseCode)", Toast.LENGTH_LONG).show()
+                    }
+                    return@Thread
+                }
+
+                val input = conn.inputStream
                 val downloadDir = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)
                 val apkFile = File(downloadDir, "app-update.apk")
                 if (apkFile.exists()) apkFile.delete()
@@ -175,7 +185,7 @@ class MainActivity : AppCompatActivity() {
             } catch (e: Exception) {
                 e.printStackTrace()
                 runOnUiThread {
-                    Toast.makeText(this, "Error al descargar la actualización.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Error al descargar la actualización: ${e.localizedMessage}", Toast.LENGTH_LONG).show()
                 }
             }
         }.start()
