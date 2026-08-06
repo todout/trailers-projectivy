@@ -36,7 +36,7 @@ def get_gemini_metadata(title):
         print(f"  [Gemini API Warning para '{title}']:", e)
     return None
 
-def parse_tv_extra_info(d_html, gem_extra=None):
+def parse_tv_extra_info(d_html, gem=None):
     seasons = None
     episodes = None
     runtime = None
@@ -55,27 +55,32 @@ def parse_tv_extra_info(d_html, gem_extra=None):
         if e_match:
             episodes = f"{e_match.group(1)} cap."
 
-        r_match = re.search(r'(\d+)\s*m\b', d_html)
-        if not r_match:
-            r_match = re.search(r'(\d+)\s*min', d_html, re.IGNORECASE)
+        r_matches = re.findall(r'(\d+)\s*(?:m|min|minutos)\b', d_html, re.IGNORECASE)
+        for rm in r_matches:
+            val = int(rm)
+            if 15 <= val <= 150:
+                runtime = f"{val}m"
+                break
+
+    if not runtime and isinstance(gem, dict):
+        gem_ex = gem.get("extra_info") or gem.get("episode_runtime") or ""
+        r_match = re.search(r'(\d+)\s*m', str(gem_ex), re.IGNORECASE)
         if r_match:
-            runtime = f"{r_match.group(1)}m"
+            val = int(r_match.group(1))
+            if 15 <= val <= 150:
+                runtime = f"{val}m"
+
+    if not runtime:
+        runtime = "45m"
 
     parts = []
     if seasons:
         parts.append(seasons)
     if episodes:
         parts.append(episodes)
-    if runtime:
-        parts.append(runtime)
+    parts.append(runtime)
 
-    if parts:
-        return " • ".join(parts)
-
-    if gem_extra and "Serie" not in gem_extra and len(gem_extra) > 3:
-        return gem_extra
-
-    return "1 Temporada • 10 cap."
+    return " • ".join(parts)
 
 def get_tmdb_info(item):
     if isinstance(item, dict):
@@ -459,9 +464,9 @@ def update_catalog_with_reddit_items(custom_titles=None, push_to_git=False):
                 t_key = item.get('title', '').strip().lower()
                 p_url = item.get('poster_url', '')
                 ov = item.get('overview', '')
-                # Solo reutilizar si tiene póster real, sinopsis válida y extra_info completo (no 'Serie')
+                # Solo reutilizar si tiene póster real, sinopsis válida y extra_info completo con minutos (ej '45m')
                 if t_key and 'gp31EwMH5D2bftOjscwkgTmoLAB' not in p_url and not ov.startswith("Sigue la historia y los eventos de"):
-                    if item.get('media_type') == 'SERIE' and (item.get('extra_info') == 'Serie' or item.get('subtitle', '').endswith('• Serie')):
+                    if item.get('media_type') == 'SERIE' and not re.search(r'\d+m', item.get('extra_info', '')):
                         pass
                     else:
                         existing_items_map[t_key] = item

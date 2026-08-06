@@ -189,6 +189,52 @@ def get_gemini_metadata(title):
         print(f"  [Gemini API Warning para '{title}']:", e)
     return None
 
+def parse_tv_extra_info(d_html, gem=None):
+    seasons = None
+    episodes = None
+    runtime = None
+
+    if d_html:
+        s_match = re.search(r'(\d+)\s+Temporada', d_html, re.IGNORECASE)
+        if not s_match:
+            s_match = re.search(r'(\d+)\s+Season', d_html, re.IGNORECASE)
+        if s_match:
+            n_s = int(s_match.group(1))
+            seasons = f"{n_s} Temporada{'s' if n_s > 1 else ''}"
+
+        e_match = re.search(r'(\d+)\s+Episodio', d_html, re.IGNORECASE)
+        if not e_match:
+            e_match = re.search(r'(\d+)\s+Episode', d_html, re.IGNORECASE)
+        if e_match:
+            episodes = f"{e_match.group(1)} cap."
+
+        r_matches = re.findall(r'(\d+)\s*(?:m|min|minutos)\b', d_html, re.IGNORECASE)
+        for rm in r_matches:
+            val = int(rm)
+            if 15 <= val <= 150:
+                runtime = f"{val}m"
+                break
+
+    if not runtime and isinstance(gem, dict):
+        gem_ex = gem.get("extra_info") or gem.get("episode_runtime") or ""
+        r_match = re.search(r'(\d+)\s*m', str(gem_ex), re.IGNORECASE)
+        if r_match:
+            val = int(r_match.group(1))
+            if 15 <= val <= 150:
+                runtime = f"{val}m"
+
+    if not runtime:
+        runtime = "45m"
+
+    parts = []
+    if seasons:
+        parts.append(seasons)
+    if episodes:
+        parts.append(episodes)
+    parts.append(runtime)
+
+    return " • ".join(parts)
+
 def get_tmdb_info(item):
     if isinstance(item, dict):
         title = item["title"]
