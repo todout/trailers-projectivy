@@ -1035,10 +1035,19 @@
                 }
             }
 
+            // Si el tráiler está en pantalla completa limpia:
             if (isFullscreenActive) {
-                isPausedManually = false;
-                wakeUI();
-                return;
+                const isOKKey = (e.keyCode === 13 || e.keyCode === 23 || e.keyCode === 32);
+                if (isOKKey) {
+                    e.preventDefault();
+                    // Al presionar OK en pantalla limpia: pausar video y mostrar sinopsis/miniaturas
+                    if (player && isPlayerReady) {
+                        try { player.pauseVideo(); } catch(e) {}
+                    }
+                    isPausedManually = true;
+                    wakeUI(true);
+                    return;
+                }
             }
 
             switch(e.keyCode) {
