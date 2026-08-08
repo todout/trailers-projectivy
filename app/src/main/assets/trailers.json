@@ -4,6 +4,58 @@
       "category": "Últimos fondos de tu TV",
       "items": [
         {
+          "title": "THE SHARDS",
+          "subtitle": "SERIE • 2026 • 10 cap. • 19m",
+          "media_type": "SERIE",
+          "year": "2026",
+          "extra_info": "10 cap. • 19m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/78AYtwPTxWL7Q4Oe9e2TKHxPZLZ.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/vTzfZ55Qp1GP3uKGSMlsLEYrn6.jpg",
+          "overview": "Ambientada en un elitista instituto de Los Ángeles en los años 80, la historia gira alrededor de Bret, un joven aspirante a escritor, muy observador y perspicaz cuya realidad comienza a tambalearse con la llegada de un nuevo alumno misterioso, Robert Mallory. Su incorporación al instituto coincide con el creciente terror provocado por «The Trawler», un asesino en serie que tiene como objetivo a adolescentes en toda la ciudad",
+          "youtube_id": "7oJKZvUyTkg",
+          "trailer_url": "https://www.youtube.com/watch?v=7oJKZvUyTkg",
+          "provider": "Reddit r/IMDB_esp"
+        },
+        {
+          "title": "MUERTOS S.L.",
+          "subtitle": "SERIE • 2024 • 28 cap. • 19m",
+          "media_type": "SERIE",
+          "year": "2024",
+          "extra_info": "28 cap. • 19m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/g6vptk7afH3OHOKSjdjJJtEoOMh.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/rNnTUZgVhzJc36FViudinVPBDSh.jpg",
+          "overview": "Comedia de situación que transcurre en el día a día de la funeraria Torregrosa: un negocio familiar al borde del desastre que siempre consigue mantenerse a flote.",
+          "youtube_id": "RhFiBdl0484",
+          "trailer_url": "https://www.youtube.com/watch?v=RhFiBdl0484",
+          "provider": "Reddit r/IMDB_esp"
+        },
+        {
+          "title": "SEND HELP (ENVIAD AYUDA)",
+          "subtitle": "PELÍCULA • 2026 • 1h 45m",
+          "media_type": "PELÍCULA",
+          "year": "2026",
+          "extra_info": "1h 45m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/qXZZtyzuTX3KMfSLssCR6J0mODd.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/bpp58yHuQmpt6xwggI63mVRw7po.jpg",
+          "overview": "Después de que un accidente de avión deje varados en una isla remota a una competente empleada y a su insoportable jefe, ella deberá utilizar sus habilidades de supervivencia para mantenerlos a ambos con vida, a pesar de su difícil relación.",
+          "youtube_id": "37jXU_JQVZY",
+          "trailer_url": "https://www.youtube.com/watch?v=37jXU_JQVZY",
+          "provider": "Reddit r/IMDB_esp"
+        },
+        {
+          "title": "SEPARACIÓN",
+          "subtitle": "SERIE • 2022 • 19 cap. • 19m",
+          "media_type": "SERIE",
+          "year": "2022",
+          "extra_info": "19 cap. • 19m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/wrZjYKxObEaWZmjB7scQMYo40o8.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/ixgFmf1X59PUZam2qbAfskx2gQr.jpg",
+          "overview": "Mark Scout dirige un equipo en Lumon Industries cuyos empleados se han sometido a un procedimiento quirúrgico que separa sus recuerdos entre trabajo y vida personal. Este arriesgado experimento de conciliación es puesto en tela de juicio cuando Mark se encuentra envuelto en un misterio que le obligará a confrontar la verdadera naturaleza de su trabajo y de sí mismo.",
+          "youtube_id": "69p1h2en2OI",
+          "trailer_url": "https://www.youtube.com/watch?v=69p1h2en2OI",
+          "provider": "Reddit r/IMDB_esp"
+        },
+        {
           "title": "MI VIDA CON LOS CHICOS WALTER",
           "subtitle": "SERIE • 2023 • 30 cap. • 45m",
           "media_type": "SERIE",
@@ -274,58 +326,6 @@
           "overview": "Nueva York, principios de los años ochenta. Dos hombres que se conocen desde la infancia toman caminos distintos en la vida: uno se convierte en policía y el otro, en miembro de la banda criminal de los Westies. Conflictos internos entre la generación más joven y los líderes más veteranos amenazan con prender el polvorín y pondrá a los Westies en el centro de una investigación cada vez más profunda del FBI.",
           "youtube_id": "FxE1kOCS5js",
           "trailer_url": "https://www.youtube.com/watch?v=FxE1kOCS5js",
-          "provider": "Reddit r/IMDB_esp"
-        },
-        {
-          "title": "EL HOYO",
-          "subtitle": "PELÍCULA • 2019 • 1h 45m",
-          "media_type": "PELÍCULA",
-          "year": "2019",
-          "extra_info": "1h 45m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/qv30R1uDDKTLWDlNc3qi6MRdRf0.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/3tkDMNfM2YuIAJlvGO6rfIzAnfG.jpg",
-          "overview": "Un lugar misterioso, una prisión indescriptible, un agujero muy profundo. Un número desconocido de niveles. Dos reclusos viviendo en cada nivel. Una plataforma descendente que contiene alimentos para todos ellos. Una lucha inhumana por la supervivencia, pero también una oportunidad para ser solidario.",
-          "youtube_id": "24Lf7fmKIXI",
-          "trailer_url": "https://www.youtube.com/watch?v=24Lf7fmKIXI",
-          "provider": "Reddit r/IMDB_esp"
-        },
-        {
-          "title": "GIGN UNIDAD DE ÉLITE",
-          "subtitle": "SERIE • 2026 • 6 cap. • 45m",
-          "media_type": "SERIE",
-          "year": "2026",
-          "extra_info": "6 cap. • 45m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/4uh8mjAwKOpTrlu4nldsBf0ZOuU.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tMpfa73LmKpeZ3Fix1QmFGIUrKI.jpg",
-          "overview": "Tras un ataque sin precedentes contra su unidad, un agente de alto rango a punto de retirarse lidera una peligrosa misión que le obliga a enfrentarse a su pasado.",
-          "youtube_id": "Fk8q-Yzy2nY",
-          "trailer_url": "https://www.youtube.com/watch?v=Fk8q-Yzy2nY",
-          "provider": "Reddit r/IMDB_esp"
-        },
-        {
-          "title": "EL OTRO PADRE",
-          "subtitle": "SERIE • 2026 • 10 cap. • 45m",
-          "media_type": "SERIE",
-          "year": "2026",
-          "extra_info": "10 cap. • 45m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/zdhVMPQBKDheDVRbcEbNN0DLx5O.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/aQFeADnhJimn635owevcpwyaUAG.jpg",
-          "overview": "Sigue a Julieta, quien, durante su fiesta de graduación, sufre una crisis de salud que pone en peligro su vida y obliga a su madre, Maca, a enfrentarse a secretos del pasado.",
-          "youtube_id": "cAHSi8AXbCE",
-          "trailer_url": "https://www.youtube.com/watch?v=cAHSi8AXbCE",
-          "provider": "Reddit r/IMDB_esp"
-        },
-        {
-          "title": "EL COBRADOR DE DEUDAS",
-          "subtitle": "PELÍCULA • 2026 • 1h 45m",
-          "media_type": "PELÍCULA",
-          "year": "2026",
-          "extra_info": "1h 45m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/loW8i6T3amH4CONDjaUNmQv9kva.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/dk68ykaNd3HdrDJyPJqEGsgvag7.jpg",
-          "overview": "Atormentado por los errores del pasado y un diagnóstico terminal, un excobrador de deudas regresa al mundo del hampa para proteger a las víctimas de una organización violenta.",
-          "youtube_id": "H4lkW2ZRJNs",
-          "trailer_url": "https://www.youtube.com/watch?v=H4lkW2ZRJNs",
           "provider": "Reddit r/IMDB_esp"
         }
       ]
