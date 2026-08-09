@@ -1,7 +1,7 @@
 {
   "recommendations": {
     "los renglones torcidos de dios": {
-      "count": 13,
+      "count": 14,
       "last_recommended": "2026-08-09",
       "item": {
         "title": "Los renglones torcidos de dios",
@@ -18,7 +18,7 @@
       }
     },
     "bellas artes": {
-      "count": 13,
+      "count": 14,
       "last_recommended": "2026-08-09",
       "item": {
         "title": "Bellas Artes",
@@ -52,24 +52,23 @@
       }
     },
     "la sociedad de la nieve": {
-      "count": 12,
+      "count": 13,
       "last_recommended": "2026-08-09",
       "item": {
         "title": "La sociedad de la nieve",
-        "subtitle": "PELÍCULA • 2023 • 1h 45m",
+        "subtitle": "PELÍCULA • 2023 • 1h 48m",
         "media_type": "PELÍCULA",
         "year": "2023",
-        "extra_info": "1h 45m",
+        "extra_info": "1h 48m",
         "poster_url": "https://image.tmdb.org/t/p/w500/9tkJPQb4X4VoU3S5nqLDohZijPj.jpg",
         "backdrop_url": "https://image.tmdb.org/t/p/w500/md848EEPm3dHZOqwGxxTVwH2vu5.jpg",
         "overview": "El 13 de octubre de 1972, el vuelo 571 de la Fuerza Aérea Uruguaya, fletado para llevar a un equipo de rugby a Chile, se estrella en un glaciar en el corazón de los Andes.",
         "youtube_id": "l9tP4M8URhQ",
-        "trailer_url": "https://www.youtube.com/watch?v=l9tP4M8URhQ",
-        "provider": "Recomendado para Ti"
+        "trailer_url": "https://www.youtube.com/watch?v=l9tP4M8URhQ"
       }
     },
     "knives out": {
-      "count": 11,
+      "count": 12,
       "last_recommended": "2026-08-09",
       "item": {
         "title": "Knives Out",
@@ -86,7 +85,7 @@
       }
     },
     "la noche de 12 años": {
-      "count": 11,
+      "count": 12,
       "last_recommended": "2026-08-09",
       "item": {
         "title": "La noche de 12 años",
@@ -103,7 +102,7 @@
       }
     },
     "cabo de miedo": {
-      "count": 11,
+      "count": 12,
       "last_recommended": "2026-08-09",
       "item": {
         "title": "Cabo de miedo",
@@ -119,7 +118,7 @@
       }
     },
     "terapia alternativa": {
-      "count": 11,
+      "count": 12,
       "last_recommended": "2026-08-09",
       "item": {
         "title": "Terapia alternativa",
@@ -136,7 +135,7 @@
       }
     },
     "el jardín de bronce": {
-      "count": 11,
+      "count": 12,
       "last_recommended": "2026-08-09",
       "item": {
         "title": "El jardín de bronce",
@@ -153,7 +152,7 @@
       }
     },
     "sugar": {
-      "count": 11,
+      "count": 12,
       "last_recommended": "2026-08-09",
       "item": {
         "title": "Sugar",
@@ -185,7 +184,7 @@
       }
     },
     "el lobo de wall street": {
-      "count": 10,
+      "count": 11,
       "last_recommended": "2026-08-09",
       "item": {
         "title": "El lobo de Wall Street",
@@ -201,7 +200,7 @@
       }
     },
     "huye": {
-      "count": 10,
+      "count": 11,
       "last_recommended": "2026-08-09",
       "item": {
         "title": "Huye",
@@ -217,7 +216,7 @@
       }
     },
     "el botín": {
-      "count": 10,
+      "count": 11,
       "last_recommended": "2026-08-09",
       "item": {
         "title": "El botín",
@@ -233,7 +232,7 @@
       }
     },
     "fundación": {
-      "count": 10,
+      "count": 11,
       "last_recommended": "2026-08-09",
       "item": {
         "title": "Fundación",
@@ -297,7 +296,7 @@
       }
     },
     "ford v ferrari": {
-      "count": 10,
+      "count": 11,
       "last_recommended": "2026-08-09",
       "item": {
         "title": "Ford v Ferrari",
@@ -313,7 +312,7 @@
       }
     },
     "el irlandés": {
-      "count": 2,
+      "count": 3,
       "last_recommended": "2026-08-09",
       "item": {
         "title": "El irlandés",
@@ -329,7 +328,7 @@
       }
     },
     "duna: parte dos": {
-      "count": 9,
+      "count": 10,
       "last_recommended": "2026-08-09",
       "item": {
         "title": "Duna: Parte dos",
@@ -345,7 +344,7 @@
       }
     },
     "oppenheimer": {
-      "count": 9,
+      "count": 10,
       "last_recommended": "2026-08-09",
       "item": {
         "title": "Oppenheimer",
@@ -361,7 +360,7 @@
       }
     },
     "the last of us": {
-      "count": 9,
+      "count": 10,
       "last_recommended": "2026-08-09",
       "item": {
         "title": "The Last of Us",
@@ -377,7 +376,7 @@
       }
     },
     "la casa del dragón": {
-      "count": 9,
+      "count": 10,
       "last_recommended": "2026-08-09",
       "item": {
         "title": "La casa del dragón",
@@ -393,7 +392,7 @@
       }
     },
     "severance": {
-      "count": 9,
+      "count": 10,
       "last_recommended": "2026-08-09",
       "item": {
         "title": "Severance",
