@@ -1,7 +1,7 @@
 {
   "recommendations": {
     "los renglones torcidos de dios": {
-      "count": 10,
+      "count": 11,
       "last_recommended": "2026-08-09",
       "item": {
         "title": "Los renglones torcidos de dios",
@@ -18,7 +18,7 @@
       }
     },
     "bellas artes": {
-      "count": 10,
+      "count": 11,
       "last_recommended": "2026-08-09",
       "item": {
         "title": "Bellas Artes",
@@ -52,7 +52,7 @@
       }
     },
     "la sociedad de la nieve": {
-      "count": 10,
+      "count": 11,
       "last_recommended": "2026-08-09",
       "item": {
         "title": "La sociedad de la nieve",
@@ -393,7 +393,7 @@
       }
     },
     "severance": {
-      "count": 8,
+      "count": 9,
       "last_recommended": "2026-08-09",
       "item": {
         "title": "Severance",
@@ -405,7 +405,264 @@
         "backdrop_url": "https://image.tmdb.org/t/p/w500/ixgFmf1X59PUZam2qbAfskx2gQr.jpg",
         "overview": "Mark Scout dirige un equipo en Lumon Industries cuyos empleados se han sometido a un procedimiento quirúrgico que separa sus recuerdos entre trabajo y vida personal. Este arriesgado experimento de conciliación es puesto en tela de juicio cuando Mark se encuentra envuelto en un misterio que le obligará a confrontar la verdadera naturaleza de su trabajo y de sí mismo.",
         "youtube_id": "69p1h2en2OI",
-        "trailer_url": "https://www.youtube.com/watch?v=69p1h2en2OI"
+        "trailer_url": "https://www.youtube.com/watch?v=69p1h2en2OI",
+        "provider": "Recomendado para Ti"
+      }
+    },
+    "competencia oficial": {
+      "count": 1,
+      "last_recommended": "2026-08-09",
+      "item": {
+        "title": "Competencia oficial",
+        "subtitle": "PELÍCULA • 2021 • 1h 45m",
+        "media_type": "PELÍCULA",
+        "year": "2021",
+        "extra_info": "1h 45m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/jVRPUtO6i13YuFf6uk4RWYHzvBh.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/cuyXEls6uOMDqflx2MSzZOuQSn2.jpg",
+        "overview": "Dos actores de muy diferentes trayectorias chocarán por sus métodos contrapuestos durante la preparación de una película financiada por un millonario ávido de notoriedad y dirigida por una prestigiosa y algo excéntrica directora.",
+        "youtube_id": "SRTG-cSzqlA",
+        "trailer_url": "https://www.youtube.com/watch?v=SRTG-cSzqlA"
+      }
+    },
+    "nada": {
+      "count": 1,
+      "last_recommended": "2026-08-09",
+      "item": {
+        "title": "Nada",
+        "subtitle": "PELÍCULA • 1974 • 1h 45m",
+        "media_type": "PELÍCULA",
+        "year": "1974",
+        "extra_info": "1h 45m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/wxxNqUgtpQPCFS8Bkg50olhsBFA.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/qLnZ9U1jiAIXVWoLLGF8DAiKbq2.jpg",
+        "overview": "Un grupo terrorista europeo llamado 'Nada\" secuestra al embajador americano. Pronto surgen tensiones entre ellos debido a las discrepancias sobre los pasos a seguir. La división interna de la banda junto a la total confusión de la policía hace que la violencia se intensifique cada vez más en ambos lados",
+        "youtube_id": "4l6twsLh5P4",
+        "trailer_url": "https://www.youtube.com/watch?v=4l6twsLh5P4"
+      }
+    },
+    "el inocente": {
+      "count": 1,
+      "last_recommended": "2026-08-09",
+      "item": {
+        "title": "El inocente",
+        "subtitle": "SERIE • 2021 • 8 cap. • 19m",
+        "media_type": "SERIE",
+        "year": "2021",
+        "extra_info": "8 cap. • 19m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/4S4WD60F020WAltGxaRS9jDjpQZ.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/gB9l7epUG4lZKe68bTdL6u6eZCK.jpg",
+        "overview": "Una muerte accidental arrastra a un hombre a un turbio mundo de intrigas y asesinatos. Cuando por fin encuentra el amor y la libertad, una llamada resucita su pesadilla.",
+        "youtube_id": "FoYWQ3hC5jo",
+        "trailer_url": "https://www.youtube.com/watch?v=FoYWQ3hC5jo"
+      }
+    },
+    "un crimen argentino": {
+      "count": 1,
+      "last_recommended": "2026-08-09",
+      "item": {
+        "title": "Un crimen argentino",
+        "subtitle": "PELÍCULA • 2022 • 1h 45m",
+        "media_type": "PELÍCULA",
+        "year": "2022",
+        "extra_info": "1h 45m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/1iGVhDwTaLMPYVK2DeOLa1uAKjN.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/aMBCjbwCw51ino91kmS7VbmxbAl.jpg",
+        "overview": "Basado en un hecho criminal ocurrido en 1980: la intrigante desaparición de un acaudalado empresario en la ciudad de Rosario, en el marco de la dictadura militar. La investigación es liderada por dos jóvenes secretarios de un juzgado de instrucción, pocas semanas antes que uno de ellos emigre a España. En una carrera contra el tiempo, ambos juristas intentarán resolver el caso enfrentando las interferencias de una policía subordinada al poder represor.",
+        "youtube_id": "9asnDzEQJ4g",
+        "trailer_url": "https://www.youtube.com/watch?v=9asnDzEQJ4g"
+      }
+    },
+    "los delincuentes": {
+      "count": 1,
+      "last_recommended": "2026-08-09",
+      "item": {
+        "title": "Los delincuentes",
+        "subtitle": "PELÍCULA • 2023 • 1h 45m",
+        "media_type": "PELÍCULA",
+        "year": "2023",
+        "extra_info": "1h 45m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/rEMspUNW6J2Hn6CYecdg4pBOywA.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/xwMI3XD4EvQtLcBCGUoGx0TBWwd.jpg",
+        "overview": "Dos empleados de banco en un determinado momento de sus vidas se cuestionan la existencia rutinaria que llevan adelante. Uno de ellos encuentra una solución, cometer un delito. De alguna manera lo logra y compromete su destino al de su compañero.",
+        "youtube_id": "sxxbOFfagKI",
+        "trailer_url": "https://www.youtube.com/watch?v=sxxbOFfagKI"
+      }
+    },
+    "the white lotus": {
+      "count": 1,
+      "last_recommended": "2026-08-09",
+      "item": {
+        "title": "The White Lotus",
+        "subtitle": "SERIE • 2021 • 14 cap. • 19m",
+        "media_type": "SERIE",
+        "year": "2021",
+        "extra_info": "14 cap. • 19m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/gbSaK9v1CbcYH1ISgbM7XObD2dW.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/rCTLaPwuApDx8vLGjYZ9pRl7zRB.jpg",
+        "overview": "Ingeniosa sátira social que sigue las andanzas de diferentes empleados y huéspedes de un exclusivo resort a lo largo de una semana de lo más transformativa.",
+        "youtube_id": "CKyDlmdGc5k",
+        "trailer_url": "https://www.youtube.com/watch?v=CKyDlmdGc5k"
+      }
+    },
+    "nueve reinas": {
+      "count": 1,
+      "last_recommended": "2026-08-09",
+      "item": {
+        "title": "Nueve reinas",
+        "subtitle": "PELÍCULA • 2000 • 1h 45m",
+        "media_type": "PELÍCULA",
+        "year": "2000",
+        "extra_info": "1h 45m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/v8l85vxFe9J1uEvK9qyIMBlYJNv.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/e4tZvefBtA6P1T0vAPfeXG4Bj3r.jpg",
+        "overview": "Buenos Aires. Juan y Marcos son dos estafadores de poca monta, uno joven y un veterano en el arte del timpo, que casualmente se ven envueltos en un asunto que les puede hacer millonarios: tienen menos de un día para hacer una estafa que no puede fallar.",
+        "youtube_id": "I42JYVjQkPI",
+        "trailer_url": "https://www.youtube.com/watch?v=I42JYVjQkPI"
+      }
+    },
+    "tiempo de valientes": {
+      "count": 1,
+      "last_recommended": "2026-08-09",
+      "item": {
+        "title": "Tiempo de valientes",
+        "subtitle": "PELÍCULA • 2005 • 1h 45m",
+        "media_type": "PELÍCULA",
+        "year": "2005",
+        "extra_info": "1h 45m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/ZZ00teEWJMPEAqSYJ6xIxNTu4q.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/q2ZFyrDHq7vDk0buN4DE9ch6HQ6.jpg",
+        "overview": "Mariano Silverstein es un psicoanalista que a raíz de un accidente de tráfico está involucrado en un juicio penal. Comprometido a realizar tareas comunitarias dentro de su actividad, el juez le asigna a atender a Alfredo Díaz, un inspector de la Policía Federal anímicamente devastado por la infidelidad de su mujer. Así es como Silverstein debe improvisar una itinerante sesión de psicoanálisis mientras acompaña a Díaz en la investigación de un crimen, sumergiéndose progresivamente en el universo policial. Pero eventos fuera de programa dispararán la trama hacia zonas inesperadas, obligando a nuestros héroes a enfrentarse a grandes peligros, físicos y emocionales, para los que, por supuesto, no estarán preparados.",
+        "youtube_id": "tEIAEJxuu-w",
+        "trailer_url": "https://www.youtube.com/watch?v=tEIAEJxuu-w"
+      }
+    },
+    "la comunidad": {
+      "count": 1,
+      "last_recommended": "2026-08-09",
+      "item": {
+        "title": "La comunidad",
+        "subtitle": "PELÍCULA • 2000 • 1h 45m",
+        "media_type": "PELÍCULA",
+        "year": "2000",
+        "extra_info": "1h 45m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/exNxxEar6sfJLG0BCbo4sF7gs6b.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/lTjyjtr1NLNfeglWKzLS3gPW94v.jpg",
+        "overview": "En un viejo edificio del centro de Madrid, Julia, una avispada vendedora de pisos, encuentra 300 millones de pesetas bajo una baldosa en la casa de un vecino fallecido. Sin embargo a Julia no le quedará más remedio que sortear la ira de toda una comunidad de vecinos dispuestos a repartirse el codiciado botín.",
+        "youtube_id": "5FFVXpLJBcQ",
+        "trailer_url": "https://www.youtube.com/watch?v=5FFVXpLJBcQ"
+      }
+    },
+    "puñales por la espalda": {
+      "count": 1,
+      "last_recommended": "2026-08-09",
+      "item": {
+        "title": "Puñales por la espalda",
+        "subtitle": "PELÍCULA • 2019 • 1h 45m",
+        "media_type": "PELÍCULA",
+        "year": "2019",
+        "extra_info": "1h 45m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/7scJ3fVmwdSpGG87wvxH3kk0RPc.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/4HWAQu28e2yaWrtupFPGFkdNU7V.jpg",
+        "overview": "Cuando el renombrado novelista de misterio Harlan Thrombey es encontrado muerto en su mansión justo después de su 85 cumpleaños, el inquisitivo y cortés detective Benoit Blanc es misteriosamente reclutado para investigar. Se moverá entre una red de pistas falsas y mentiras interesadas para tratar de descubrir la verdad tras la prematura muerte del escritor.",
+        "youtube_id": "dzt1BPkm97I",
+        "trailer_url": "https://www.youtube.com/watch?v=dzt1BPkm97I"
+      }
+    },
+    "la cara oculta": {
+      "count": 1,
+      "last_recommended": "2026-08-09",
+      "item": {
+        "title": "La cara oculta",
+        "subtitle": "PELÍCULA • 2011 • 1h 45m",
+        "media_type": "PELÍCULA",
+        "year": "2011",
+        "extra_info": "1h 45m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/3a3mID4rsAbUP8IldftghZOd3bS.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/ez0zntkwczsv1d1n8WFhMe5rtq5.jpg",
+        "overview": "La cara oculta explora los límites del amor, los celos y la traición. Adrián (Quim Gutiérrez) el atractivo director de la Orquesta Filarmónica de Bogotá, y su novia Belén (Clara Lago) parecen estar muy enamorados, pero cuando Belén empieza a dudar de su fidelidad, desaparece sin dejar rastro.  Afligido, Adrián encuentra consuelo tanto en su música como en los brazos de una hermosa camarera, Fabiana (Martina García), y a medida que la pasión entre ellos crece, las preguntas sobre la misteriosa desaparición de Belén comienzan a aflorar y el pasado de Adrián estará más presente de lo que nunca pudieron imaginar.",
+        "youtube_id": "aDFHd0suMMs",
+        "trailer_url": "https://www.youtube.com/watch?v=aDFHd0suMMs"
+      }
+    },
+    "succession": {
+      "count": 1,
+      "last_recommended": "2026-08-09",
+      "item": {
+        "title": "Succession",
+        "subtitle": "SERIE • 2018 • 39 cap. • 19m",
+        "media_type": "SERIE",
+        "year": "2018",
+        "extra_info": "39 cap. • 19m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/xyHasySw0HQ4ndRWHvrpRTAsWXd.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/bcdUYUFk8GdpZJPiSAas9UeocLH.jpg",
+        "overview": "La serie gira en torno a la vida de la familia Roy. Son multimillonarios y poderosos, tienen todo lo que ansían, salvo vida familiar. Son dueños de una de la compañías de comunicaciones más exitosas del mundo. Su objetivo principal es hacer que el imperio crezca y, para ello, las lealtades se pondrán en juego.",
+        "youtube_id": "I9PRSk53f5o",
+        "trailer_url": "https://www.youtube.com/watch?v=I9PRSk53f5o"
+      }
+    },
+    "mindhunter": {
+      "count": 1,
+      "last_recommended": "2026-08-09",
+      "item": {
+        "title": "Mindhunter",
+        "subtitle": "SERIE • 2017 • 19 cap. • 19m",
+        "media_type": "SERIE",
+        "year": "2017",
+        "extra_info": "19 cap. • 19m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/fbKE87mojpIETWepSbD5Qt741fp.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/lpDVJuIro21gtMj9iXMFKHuroZN.jpg",
+        "overview": "Un agente del FBI, experto en asesinos en serie, inventa técnicas de creación de perfiles mientras persigue a violadores y asesinos famosos.",
+        "youtube_id": "Fz5au4VLZjo",
+        "trailer_url": "https://www.youtube.com/watch?v=Fz5au4VLZjo"
+      }
+    },
+    "fargo": {
+      "count": 1,
+      "last_recommended": "2026-08-09",
+      "item": {
+        "title": "Fargo",
+        "subtitle": "SERIE • 2014 • 12 cap. • 19m",
+        "media_type": "SERIE",
+        "year": "2014",
+        "extra_info": "12 cap. • 19m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/a3VW6khsyUVKrG0GBCWFG3NzWPX.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/4jrSbRpLqpvYJtLKncaxZVC47EW.jpg",
+        "overview": "Un vendedor ve cómo su mundo cambia por completo con la llegada de un misterioso y salvaje desconocido. Serie basada en la película del mismo título de los hermanos Coen, que sin embargo presenta personajes diferentes y se ambienta en 2006.",
+        "youtube_id": "-vFPtCfVBOo",
+        "trailer_url": "https://www.youtube.com/watch?v=-vFPtCfVBOo"
+      }
+    },
+    "cien años de perdón": {
+      "count": 1,
+      "last_recommended": "2026-08-09",
+      "item": {
+        "title": "Cien años de perdón",
+        "subtitle": "PELÍCULA • 2016 • 1h 45m",
+        "media_type": "PELÍCULA",
+        "year": "2016",
+        "extra_info": "1h 45m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/v2j3jrNrnzvMiEkCsgaXFbyj2hV.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/61x4IXb92ZPhqBJvzVW6Et9pvmY.jpg",
+        "overview": "Un grupo de ladrones profesionales liderados por \"El uruguayo\" se dispone a robar un banco en Valencia. El objetivo es robar el mayor número de cajas de seguridad posibles. El plan es perfecto, pues el banco comunica a través de un túnel excavado con una estación de metro abandonada, por donde tienen pensado escapar.",
+        "youtube_id": "RwU2s0Qs2ys",
+        "trailer_url": "https://www.youtube.com/watch?v=RwU2s0Qs2ys"
+      }
+    },
+    "tesis": {
+      "count": 1,
+      "last_recommended": "2026-08-09",
+      "item": {
+        "title": "Tesis",
+        "subtitle": "PELÍCULA • 1996 • 1h 45m",
+        "media_type": "PELÍCULA",
+        "year": "1996",
+        "extra_info": "1h 45m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/lqIQE6VfShKU07cUX2J7OE6Y9aX.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/pqVNPjSwu1NsSjREl14HTbm3dXQ.jpg",
+        "overview": "Ángela, licenciada en ciencias de la información, prepara su tesis sobre la violencia audiovisual. Su director, Figueroa, se compromete a buscarle películas, mientras que un amigo, Chema, la invita a su casa a una sesión de cine gore y pornográfico. Figueroa descubre en la videoteca de la Facultad unas galerías con cientos de videocintas. Poco después muere en extrañas circunstancias. Ángela descubre el cadáver y se da cuenta de que ha sufrido un infarto mientras veía una cinta de vídeo. Ángela se hace con la cinta y hace un terrible descubrimiento: se trata de una snuff movie, una película ilegal en la que se filma al asesinato real de gente inocente. La joven comienza a sospechar que en la Facultad existe una red de tráfico de este tipo de películas. Pero, ¿quién es el responsable de ella?",
+        "youtube_id": "Ku4CbW2m7Sg",
+        "trailer_url": "https://www.youtube.com/watch?v=Ku4CbW2m7Sg"
       }
     }
   }
