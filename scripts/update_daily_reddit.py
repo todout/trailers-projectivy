@@ -17,24 +17,147 @@ HEADERS = {
     'Accept-Language': 'es-ES,es;q=0.9,en;q=0.8'
 }
 
-def get_gemini_metadata(title):
+def load_gemini_api_key():
     api_key = os.environ.get("GEMINI_API_KEY")
+    if api_key:
+        return api_key
+    
+    env_paths = [
+        r'd:\Antrigravity - Projects\fondos-projectivy\.env',
+        os.path.join(os.path.dirname(__file__), '../../fondos-projectivy/.env'),
+        os.path.join(os.path.dirname(__file__), '../.env'),
+        '.env'
+    ]
+    for env_path in env_paths:
+        if os.path.exists(env_path):
+            try:
+                with open(env_path, 'r', encoding='utf-8') as f:
+                    for line in f:
+                        line = line.strip()
+                        if line.startswith("GEMINI_API_KEY="):
+                            key_val = line.split("GEMINI_API_KEY=", 1)[1].strip().strip("'\"")
+                            if key_val:
+                                os.environ["GEMINI_API_KEY"] = key_val
+                                return key_val
+            except Exception:
+                pass
+    return None
+
+def call_gemini_api(prompt, timeout=30):
+    api_key = load_gemini_api_key()
     if not api_key:
         return None
+
+    models_to_try = ["gemini-flash-latest", "gemini-2.0-flash-lite", "gemini-2.0-flash"]
+    for model in models_to_try:
+        try:
+            url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
+            data = json.dumps({"contents": [{"parts": [{"text": prompt}]}]}).encode('utf-8')
+            req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'}, method='POST')
+            res = urllib.request.urlopen(req, timeout=timeout)
+            res_json = json.loads(res.read().decode('utf-8'))
+            text = res_json['candidates'][0]['content']['parts'][0]['text']
+            if text:
+                return text
+        except Exception as e:
+            print(f"  [Gemini API Model Warning '{model}']:", e)
+            continue
+    return None
+
+def get_gemini_metadata(title):
     try:
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
         prompt = f"Información sobre la película o serie '{title}'. Responde ÚNICAMENTE en formato JSON con los campos: title, year (ej '2024'), media_type ('PELÍCULA' o 'SERIE'), overview (sinopsis detallada en español de 2 a 3 oraciones), poster_path (path tmdb ej '/abc.jpg' o null), extra_info (si es película ej '1h 45m', si es serie ej '1 Temporada • 12 cap. • 45m')."
-        data = json.dumps({"contents": [{"parts": [{"text": prompt}]}]}).encode('utf-8')
-        req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'}, method='POST')
-        res = urllib.request.urlopen(req, timeout=8)
-        res_json = json.loads(res.read().decode('utf-8'))
-        text = res_json['candidates'][0]['content']['parts'][0]['text']
-        match = re.search(r'\{.*\}', text, re.DOTALL)
-        if match:
-            return json.loads(match.group(0))
+        text = call_gemini_api(prompt, timeout=10)
+        if text:
+            match = re.search(r'\{.*\}', text, re.DOTALL)
+            if match:
+                return json.loads(match.group(0))
     except Exception as e:
         print(f"  [Gemini API Warning para '{title}']:", e)
     return None
+
+def get_gemini_recommendation_candidates(pref_path):
+    api_key = load_gemini_api_key()
+    if not api_key:
+        print("  [Gemini API Warning]: No se encontró GEMINI_API_KEY en entorno ni en .env")
+        return None, None
+
+    likes_summary = []
+    dislikes_summary = []
+    all_rated = []
+
+    if os.path.exists(pref_path):
+        try:
+            with open(pref_path, 'r', encoding='utf-8') as f:
+                prefs = json.load(f)
+            
+            for item in prefs.get('likes', []):
+                if isinstance(item, dict) and 'title' in item:
+                    t = item['title']
+                    all_rated.append(t)
+                    genres = ", ".join(item.get('genres', []))
+                    yr = item.get('year', '')
+                    likes_summary.append(f"{t} ({yr}, {genres})")
+            
+            for item in prefs.get('dislikes', []):
+                if isinstance(item, dict) and 'title' in item:
+                    t = item['title']
+                    all_rated.append(t)
+                    genres = ", ".join(item.get('genres', []))
+                    yr = item.get('year', '')
+                    dislikes_summary.append(f"{t} ({yr}, {genres})")
+            
+            for item in prefs.get('neutral', []):
+                if isinstance(item, dict) and 'title' in item:
+                    all_rated.append(item['title'])
+        except Exception as e:
+            print("  [Error leyendo user_preferences para Gemini]:", e)
+
+    likes_txt = "\n".join("- " + x for x in likes_summary) if likes_summary else "Ninguno especificado"
+    dislikes_txt = "\n".join("- " + x for x in dislikes_summary) if dislikes_summary else "Ninguno especificado"
+    all_rated_txt = ", ".join(all_rated) if all_rated else "Ninguno"
+
+    prompt = f"""Eres un recomendador experto de cine y series de TV en español.
+Basándote estricta y minuciosamente en el perfil de gustos del usuario:
+
+CONTENIDO QUE LE ENCANTA (LIKES):
+{likes_txt}
+
+CONTENIDO QUE NO LE GUSTA (DISLIKES - EVITAR ESTRICTAMENTE GÉNEROS Y ESTILOS SIMILARES):
+{dislikes_txt}
+
+TÍTULOS YA VISTOS O EVALUADOS (¡PROHIBIDO RECOMENDAR NINGUNO DE ESTOS TÍTULOS!):
+{all_rated_txt}
+
+Genera EXACTAMENTE 20 recomendaciones únicas (películas o series disponibles en plataformas de streaming o cine) en español:
+- 10 títulos RECIENTES (lanzamientos de los últimos 5-6 años, entre 2020 y 2026).
+- 10 títulos de CUALQUIER ÉPOCA / CLÁSICOS QUE ENCAJEN CON SUS GUSTOS.
+
+Asegúrate de que coincidan con el tono de sus likes (suspenso, misterio, drama inteligente, comedia argentina/hispana de calidad, thrillers psicológicos) y que NO se parezcan a lo que no le gusta.
+
+Responde ÚNICAMENTE con un objeto JSON válido con el siguiente esquema exacto (sin texto adicional ni explicaciones):
+{{
+  "recent": ["Título 1", "Título 2", "Título 3", "Título 4", "Título 5", "Título 6", "Título 7", "Título 8", "Título 9", "Título 10"],
+  "any_year": ["Título 11", "Título 12", "Título 13", "Título 14", "Título 15", "Título 16", "Título 17", "Título 18", "Título 19", "Título 20"]
+}}"""
+
+    try:
+        text = call_gemini_api(prompt, timeout=25)
+        if text:
+            match = re.search(r'\{.*\}', text, re.DOTALL)
+            if match:
+                parsed = json.loads(match.group(0))
+                recent = parsed.get("recent", [])
+                any_year = parsed.get("any_year", [])
+                if isinstance(recent, list) and isinstance(any_year, list) and len(recent) > 0:
+                    print(f"  [Gemini AI] ¡Éxito! Generados {len(recent)} títulos recientes y {len(any_year)} títulos variados basados en gustos del usuario.")
+                    return recent, any_year
+    except Exception as e:
+        print("  [Gemini AI Error al pedir recomendaciones]:", e)
+
+    return None, None
+
+
 
 def parse_tv_extra_info(d_html, gem=None):
     seasons = None
@@ -301,42 +424,43 @@ def get_personalized_recommendations(existing_catalog=None):
 
     rec_log = log_data.get("recommendations", {})
     
-    # Mapa de ítems existentes en el catálogo para reutilizar metadatos si ya existen
+    # Mapa de ítems existentes en el catálogo para reutilizar metadatos (Top 10 Netflix, Disney+, Prime, Max, etc.)
     existing_items_map = {}
     if existing_catalog and 'rows' in existing_catalog:
         for row in existing_catalog['rows']:
             for item in row.get('items', []):
-                t_key = item.get('title', '').strip().lower()
+                t_raw = item.get('title', '').strip()
+                t_key = t_raw.lower()
                 if t_key:
                     if t_key not in existing_items_map or item.get('media_type') == 'SERIE':
                         existing_items_map[t_key] = item
+                    # También mapear título normalizado sin caracteres especiales
+                    t_norm = re.sub(r'[^\w\s]', '', t_key)
+                    if t_norm and t_norm not in existing_items_map:
+                        existing_items_map[t_norm] = item
 
-    recent_candidates = [
-        "Los renglones torcidos de dios",
-        "Bellas Artes",
-        "El reino",
-        "La sociedad de la nieve",
-        "Cabo de miedo",
-        "Terapia alternativa",
-        "Sugar",
-        "El botín",
-        "Fundación",
-        "Duna: Parte dos",
-        "Oppenheimer",
-        "The Last of Us",
-        "La casa del dragón",
-        "Severance"
-    ]
+    # Pedir candidatas dinámicas a Gemini AI basadas en gustos del usuario
+    gem_recent, gem_any = get_gemini_recommendation_candidates(pref_path)
 
-    free_candidates = [
-        "Knives Out",
-        "La noche de 12 años",
-        "El jardín de bronce",
-        "El lobo de Wall Street",
-        "Huye",
-        "Ford v Ferrari",
-        "El irlandés"
-    ]
+    if gem_recent and gem_any:
+        recent_candidates = gem_recent
+        free_candidates = gem_any
+    else:
+        print("  [Recomendado para Ti] Usando lista de respaldo con orden dinámico...")
+        backup_recent = [
+            "Los renglones torcidos de dios", "Bellas Artes", "El reino", "La sociedad de la nieve",
+            "Terapia alternativa", "Sugar", "El botín", "Fundación", "Duna: Parte dos",
+            "Oppenheimer", "The Last of Us", "La casa del dragón", "Severance"
+        ]
+        backup_free = [
+            "Knives Out", "La noche de 12 años", "El jardín de bronce", "El lobo de Wall Street",
+            "Huye", "Ford v Ferrari", "El irlandés", "Cabo de miedo"
+        ]
+        import random
+        random.shuffle(backup_recent)
+        random.shuffle(backup_free)
+        recent_candidates = backup_recent
+        free_candidates = backup_free
 
     seen_titles = set()
     if os.path.exists(pref_path):
@@ -346,7 +470,9 @@ def get_personalized_recommendations(existing_catalog=None):
             for key in ['likes', 'dislikes', 'neutral']:
                 for item in prefs.get(key, []):
                     if isinstance(item, dict) and 'title' in item:
-                        seen_titles.add(item['title'].lower().strip())
+                        t_l = item['title'].lower().strip()
+                        seen_titles.add(t_l)
+                        seen_titles.add(re.sub(r'[^\w\s]', '', t_l))
         except Exception as e:
             print("  [Error cargando user_preferences]:", e)
 
@@ -355,27 +481,43 @@ def get_personalized_recommendations(existing_catalog=None):
 
     def resolve_item(t):
         t_clean = t.strip().lower()
-        if t_clean in seen_titles or t_clean in used_keys:
+        t_norm = re.sub(r'[^\w\s]', '', t_clean)
+
+        if t_clean in seen_titles or t_norm in seen_titles or t_clean in used_keys or t_norm in used_keys:
             return None
 
         item_to_use = None
-        if t_clean in rec_log and "item" in rec_log[t_clean]:
+
+        # 1º PRIORIDAD: Buscar en ítems existentes del catálogo (Top 10 Netflix, Disney+, Prime, Max, etc.)
+        matched_catalog_item = existing_items_map.get(t_clean) or existing_items_map.get(t_norm)
+        if matched_catalog_item:
+            print(f"  [Recomendado para Ti] Reutilizando metadatos existentes de plataforma para: '{t}' (desde catálogo)...")
+            item_to_use = dict(matched_catalog_item)
+            rec_log[t_clean] = {
+                "count": rec_log.get(t_clean, {}).get("count", 0) + 1,
+                "last_recommended": today_str,
+                "item": item_to_use
+            }
+
+        # 2º PRIORIDAD: Buscar en Historial Log previo
+        elif t_clean in rec_log and "item" in rec_log[t_clean]:
             print(f"  [Recomendado para Ti] Reutilizando desde Historial Log para: '{t}' (Recomendada {rec_log[t_clean].get('count', 0) + 1} veces)...")
             item_to_use = dict(rec_log[t_clean]["item"])
             rec_log[t_clean]["count"] = rec_log[t_clean].get("count", 0) + 1
             rec_log[t_clean]["last_recommended"] = today_str
-        elif t_clean in existing_items_map:
-            print(f"  [Recomendado para Ti] Reutilizando metadatos existentes en catálogo para: '{t}'...")
-            item_to_use = dict(existing_items_map[t_clean])
-            rec_log[t_clean] = {
-                "count": 1,
-                "last_recommended": today_str,
-                "item": item_to_use
-            }
+
+        # 3º PRIORIDAD: Enriquecer desde Web (TMDb + YouTube)
         else:
-            print(f"  [Recomendado para Ti] Enriqueciendo nuevo título desde Web: '{t}'...")
+            print(f"  [Recomendado para Ti] Enriqueciendo nuevo título sugerido por Gemini desde Web: '{t}'...")
             tmdb = get_tmdb_info(t)
+            if not tmdb:
+                print(f"  [Recomendado para Ti] No se pudieron obtener metadatos TMDb para '{t}'. Descartado.")
+                return None
             yt_id = get_youtube_trailer_id(t)
+            if not yt_id:
+                print(f"  [Recomendado para Ti] No se encontró tráiler reproducible en YouTube para '{t}'. Descartado.")
+                return None
+
             item_to_use = {
                 "title": tmdb["title"],
                 "subtitle": tmdb["subtitle"],
@@ -401,6 +543,7 @@ def get_personalized_recommendations(existing_catalog=None):
                 print(f"  [Recomendado para Ti] Descartado '{t}' porque su tráiler no es reproducible o tiene restricción de edad.")
                 return None
             used_keys.add(t_clean)
+            used_keys.add(t_norm)
             item_final = dict(item_to_use)
             item_final["provider"] = "Recomendado para Ti"
             return item_final
@@ -415,13 +558,17 @@ def get_personalized_recommendations(existing_catalog=None):
             except ValueError:
                 item_year = 2026
             
-            if item_year >= 2021:
+            if item_year >= 2020:
                 recent_items.append(item)
+            else:
+                # Si es más vieja pero válida, guardarla para free_items
+                pass
+
             if len(recent_items) >= 10:
                 break
 
     free_items = []
-    all_remaining_candidates = [c for c in recent_candidates + free_candidates if c.strip().lower() not in used_keys]
+    all_remaining_candidates = [c for c in free_candidates + recent_candidates if c.strip().lower() not in used_keys]
     for t in all_remaining_candidates:
         item = resolve_item(t)
         if item:
