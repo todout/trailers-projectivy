@@ -347,7 +347,20 @@ def is_youtube_video_playable(yt_id):
         playability_match = re.search(r'"playabilityStatus":\s*\{\s*"status":\s*"([^"]+)"', html)
         if playability_match and playability_match.group(1) != "OK":
             return False
-            
+
+        # Filtrar vídeos cortos (< 30s) o excesivamente largos (> 15m) que no sean verdaderos tráileres
+        m_len = re.search(r'"lengthSeconds":"(\d+)"', html)
+        m_dur = re.search(r'"approxDurationMs":"(\d+)"', html)
+        duration_sec = 0
+        if m_len:
+            duration_sec = int(m_len.group(1))
+        elif m_dur:
+            duration_sec = int(m_dur.group(1)) // 1000
+
+        if duration_sec > 0 and (duration_sec < 30 or duration_sec > 900):
+            print(f"  [YouTube Filter] Descartado '{yt_id}' por duración ({duration_sec}s). Debe durar al menos 30s.")
+            return False
+
         return True
     except Exception:
         return False
@@ -359,7 +372,7 @@ def get_youtube_trailer_id(title):
         req = urllib.request.Request(url, headers=HEADERS)
         html = urllib.request.urlopen(req, timeout=8).read().decode('utf-8')
         vids = re.findall(r'"videoId":"([a-zA-Z0-9_-]{11})"', html)
-        for vid in vids[:6]:
+        for vid in vids[:8]:
             if is_youtube_video_playable(vid):
                 return vid
     except Exception as e:
