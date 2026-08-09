@@ -43,7 +43,7 @@ def load_gemini_api_key():
                 pass
     return None
 
-def call_gemini_api(prompt, timeout=30):
+def call_gemini_api(prompt, timeout=45):
     api_key = load_gemini_api_key()
     if not api_key:
         return None
@@ -67,7 +67,7 @@ def call_gemini_api(prompt, timeout=30):
 def get_gemini_metadata(title):
     try:
         prompt = f"Información sobre la película o serie '{title}'. Responde ÚNICAMENTE en formato JSON con los campos: title, year (ej '2024'), media_type ('PELÍCULA' o 'SERIE'), overview (sinopsis detallada en español de 2 a 3 oraciones), poster_path (path tmdb ej '/abc.jpg' o null), extra_info (si es película ej '1h 45m', si es serie ej '1 Temporada • 12 cap. • 45m')."
-        text = call_gemini_api(prompt, timeout=10)
+        text = call_gemini_api(prompt, timeout=12)
         if text:
             match = re.search(r'\{.*\}', text, re.DOTALL)
             if match:
@@ -120,20 +120,21 @@ def get_gemini_recommendation_candidates(pref_path):
     prompt = f"""Eres un recomendador experto de cine y series de TV en español.
 Basándote estricta y minuciosamente en el perfil de gustos del usuario:
 
+PELÍCULA FAVORITA PRINCIPAL (REFERENCIA SUPREMA):
+- Tiempo de valientes (2005, Comedia, Crimen, Misterio, Acción, Buddy Movie por Damián Szifron) y Nueve reinas (2000, Crimen, Suspense).
+
 CONTENIDO QUE LE ENCANTA (LIKES):
 {likes_txt}
 
-CONTENIDO QUE NO LE GUSTA (DISLIKES - EVITAR ESTRICTAMENTE GÉNEROS Y ESTILOS SIMILARES):
+CONTENIDO QUE NO LE GUSTA (DISLIKES - EVITAR ESTRICTAMENTE):
 {dislikes_txt}
 
 TÍTULOS YA VISTOS O EVALUADOS (¡PROHIBIDO RECOMENDAR NINGUNO DE ESTOS TÍTULOS!):
 {all_rated_txt}
 
-Genera EXACTAMENTE 20 recomendaciones únicas (películas o series disponibles en plataformas de streaming o cine) en español:
+Genera EXACTAMENTE 20 recomendaciones únicas (películas o series disponibles en streaming o cine) en español:
 - 10 títulos RECIENTES (lanzamientos de los últimos 5-6 años, entre 2020 y 2026).
-- 10 títulos de CUALQUIER ÉPOCA / CLÁSICOS QUE ENCAJEN CON SUS GUSTOS.
-
-Asegúrate de que coincidan con el tono de sus likes (suspenso, misterio, drama inteligente, comedia argentina/hispana de calidad, thrillers psicológicos) y que NO se parezcan a lo que no le gusta.
+- 10 títulos de CUALQUIER ÉPOCA / CLÁSICOS QUE ENCAJEN CON SUS GUSTOS (comedia inteligente, intriga, suspenso, buddy movie, cine argentino e hispano de culto).
 
 Responde ÚNICAMENTE con un objeto JSON válido con el siguiente esquema exacto (sin texto adicional ni explicaciones):
 {{
@@ -142,7 +143,7 @@ Responde ÚNICAMENTE con un objeto JSON válido con el siguiente esquema exacto 
 }}"""
 
     try:
-        text = call_gemini_api(prompt, timeout=25)
+        text = call_gemini_api(prompt, timeout=45)
         if text:
             match = re.search(r'\{.*\}', text, re.DOTALL)
             if match:
