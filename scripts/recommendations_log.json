@@ -1,7 +1,7 @@
 {
   "recommendations": {
     "los renglones torcidos de dios": {
-      "count": 18,
+      "count": 20,
       "last_recommended": "2026-08-15",
       "item": {
         "title": "LOS RENGLONES TORCIDOS DE DIOS",
@@ -14,12 +14,12 @@
         "overview": "Alice Gould, una investigadora privada, simula que padece una enfermedad mental con objeto de ingresar en un hospital psiquiátrico y recabar pruebas del caso en el que trabaja: la muerte de un paciente en circunstancias poco claras.",
         "youtube_id": "VpZjyY4wPi0",
         "trailer_url": "https://www.youtube.com/watch?v=VpZjyY4wPi0",
-        "provider": "Reddit r/IMDB_esp"
+        "provider": "Recomendado para Ti"
       }
     },
     "bellas artes": {
-      "count": 18,
-      "last_recommended": "2026-08-14",
+      "count": 19,
+      "last_recommended": "2026-08-15",
       "item": {
         "title": "Bellas Artes",
         "subtitle": "SERIE • 2024 • 1 Temporada • 12 cap. • 29m",
@@ -35,7 +35,7 @@
       }
     },
     "el reino": {
-      "count": 16,
+      "count": 18,
       "last_recommended": "2026-08-15",
       "item": {
         "title": "El reino",
@@ -52,24 +52,24 @@
       }
     },
     "la sociedad de la nieve": {
-      "count": 18,
+      "count": 19,
       "last_recommended": "2026-08-15",
       "item": {
-        "title": "La sociedad de la nieve",
-        "subtitle": "PELÍCULA • 2023 • 1h 48m",
+        "title": "LA SOCIEDAD DE LA NIEVE",
+        "subtitle": "PELÍCULA • 2023 • 1h 45m",
         "media_type": "PELÍCULA",
         "year": "2023",
-        "extra_info": "1h 48m",
+        "extra_info": "1h 45m",
         "poster_url": "https://image.tmdb.org/t/p/w500/9tkJPQb4X4VoU3S5nqLDohZijPj.jpg",
         "backdrop_url": "https://image.tmdb.org/t/p/w500/md848EEPm3dHZOqwGxxTVwH2vu5.jpg",
         "overview": "El 13 de octubre de 1972, el vuelo 571 de la Fuerza Aérea Uruguaya, fletado para llevar a un equipo de rugby a Chile, se estrella en un glaciar en el corazón de los Andes.",
         "youtube_id": "l9tP4M8URhQ",
         "trailer_url": "https://www.youtube.com/watch?v=l9tP4M8URhQ",
-        "provider": "Recomendado para Ti"
+        "provider": "Reddit r/IMDB_esp"
       }
     },
     "knives out": {
-      "count": 17,
+      "count": 18,
       "last_recommended": "2026-08-15",
       "item": {
         "title": "Knives Out",
@@ -86,7 +86,7 @@
       }
     },
     "la noche de 12 años": {
-      "count": 17,
+      "count": 18,
       "last_recommended": "2026-08-15",
       "item": {
         "title": "La noche de 12 años",
@@ -103,7 +103,7 @@
       }
     },
     "cabo de miedo": {
-      "count": 17,
+      "count": 18,
       "last_recommended": "2026-08-15",
       "item": {
         "title": "Cabo de miedo",
@@ -119,7 +119,7 @@
       }
     },
     "terapia alternativa": {
-      "count": 16,
+      "count": 17,
       "last_recommended": "2026-08-15",
       "item": {
         "title": "Terapia alternativa",
@@ -136,7 +136,7 @@
       }
     },
     "el jardín de bronce": {
-      "count": 17,
+      "count": 18,
       "last_recommended": "2026-08-15",
       "item": {
         "title": "El jardín de bronce",
@@ -153,7 +153,7 @@
       }
     },
     "sugar": {
-      "count": 17,
+      "count": 18,
       "last_recommended": "2026-08-15",
       "item": {
         "title": "Sugar",
@@ -185,7 +185,7 @@
       }
     },
     "el lobo de wall street": {
-      "count": 16,
+      "count": 17,
       "last_recommended": "2026-08-15",
       "item": {
         "title": "El lobo de Wall Street",
@@ -202,7 +202,7 @@
       }
     },
     "huye": {
-      "count": 16,
+      "count": 17,
       "last_recommended": "2026-08-15",
       "item": {
         "title": "Huye",
@@ -219,7 +219,7 @@
       }
     },
     "el botín": {
-      "count": 16,
+      "count": 17,
       "last_recommended": "2026-08-15",
       "item": {
         "title": "El botín",
@@ -236,7 +236,7 @@
       }
     },
     "fundación": {
-      "count": 16,
+      "count": 17,
       "last_recommended": "2026-08-15",
       "item": {
         "title": "Fundación",
@@ -301,7 +301,7 @@
       }
     },
     "ford v ferrari": {
-      "count": 16,
+      "count": 17,
       "last_recommended": "2026-08-15",
       "item": {
         "title": "Ford v Ferrari",
@@ -318,7 +318,7 @@
       }
     },
     "el irlandés": {
-      "count": 8,
+      "count": 9,
       "last_recommended": "2026-08-15",
       "item": {
         "title": "El irlandés",
@@ -335,7 +335,7 @@
       }
     },
     "duna: parte dos": {
-      "count": 15,
+      "count": 16,
       "last_recommended": "2026-08-15",
       "item": {
         "title": "Duna: Parte dos",
@@ -352,7 +352,7 @@
       }
     },
     "oppenheimer": {
-      "count": 15,
+      "count": 16,
       "last_recommended": "2026-08-15",
       "item": {
         "title": "Oppenheimer",
@@ -369,7 +369,7 @@
       }
     },
     "the last of us": {
-      "count": 15,
+      "count": 16,
       "last_recommended": "2026-08-15",
       "item": {
         "title": "The Last of Us",
@@ -402,7 +402,7 @@
       }
     },
     "severance": {
-      "count": 14,
+      "count": 15,
       "last_recommended": "2026-08-15",
       "item": {
         "title": "Severance",
@@ -419,8 +419,8 @@
       }
     },
     "competencia oficial": {
-      "count": 1,
-      "last_recommended": "2026-08-09",
+      "count": 2,
+      "last_recommended": "2026-08-15",
       "item": {
         "title": "Competencia oficial",
         "subtitle": "PELÍCULA • 2021 • 1h 45m",
@@ -435,8 +435,8 @@
       }
     },
     "nada": {
-      "count": 2,
-      "last_recommended": "2026-08-09",
+      "count": 3,
+      "last_recommended": "2026-08-15",
       "item": {
         "title": "Nada",
         "subtitle": "PELÍCULA • 1974 • 1h 45m",
@@ -451,8 +451,8 @@
       }
     },
     "el inocente": {
-      "count": 2,
-      "last_recommended": "2026-08-09",
+      "count": 3,
+      "last_recommended": "2026-08-15",
       "item": {
         "title": "El inocente",
         "subtitle": "SERIE • 2021 • 8 cap. • 19m",
@@ -467,8 +467,8 @@
       }
     },
     "un crimen argentino": {
-      "count": 1,
-      "last_recommended": "2026-08-09",
+      "count": 2,
+      "last_recommended": "2026-08-15",
       "item": {
         "title": "Un crimen argentino",
         "subtitle": "PELÍCULA • 2022 • 1h 45m",
@@ -547,8 +547,8 @@
       }
     },
     "la comunidad": {
-      "count": 2,
-      "last_recommended": "2026-08-09",
+      "count": 3,
+      "last_recommended": "2026-08-15",
       "item": {
         "title": "La comunidad",
         "subtitle": "PELÍCULA • 2000 • 1h 45m",
@@ -643,8 +643,8 @@
       }
     },
     "cien años de perdón": {
-      "count": 2,
-      "last_recommended": "2026-08-09",
+      "count": 3,
+      "last_recommended": "2026-08-15",
       "item": {
         "title": "Cien años de perdón",
         "subtitle": "PELÍCULA • 2016 • 1h 45m",
@@ -659,8 +659,8 @@
       }
     },
     "tesis": {
-      "count": 2,
-      "last_recommended": "2026-08-09",
+      "count": 3,
+      "last_recommended": "2026-08-15",
       "item": {
         "title": "Tesis",
         "subtitle": "PELÍCULA • 1996 • 1h 45m",
@@ -707,8 +707,8 @@
       }
     },
     "misántropo": {
-      "count": 1,
-      "last_recommended": "2026-08-09",
+      "count": 2,
+      "last_recommended": "2026-08-15",
       "item": {
         "title": "Misántropo",
         "subtitle": "PELÍCULA • 2023 • 1h 45m",
@@ -723,8 +723,8 @@
       }
     },
     "iosi, el espía arrepentido": {
-      "count": 1,
-      "last_recommended": "2026-08-09",
+      "count": 2,
+      "last_recommended": "2026-08-15",
       "item": {
         "title": "Iosi, el espía arrepentido",
         "subtitle": "SERIE • 2022 • 16 cap. • 19m",
@@ -755,8 +755,8 @@
       }
     },
     "los simuladores": {
-      "count": 1,
-      "last_recommended": "2026-08-09",
+      "count": 2,
+      "last_recommended": "2026-08-15",
       "item": {
         "title": "Los simuladores",
         "subtitle": "SERIE • 2002 • 24 cap. • 19m",
@@ -771,8 +771,8 @@
       }
     },
     "la odisea de los giles": {
-      "count": 1,
-      "last_recommended": "2026-08-09",
+      "count": 2,
+      "last_recommended": "2026-08-15",
       "item": {
         "title": "La odisea de los giles",
         "subtitle": "PELÍCULA • 2019 • 1h 45m",
@@ -803,8 +803,8 @@
       }
     },
     "el método": {
-      "count": 1,
-      "last_recommended": "2026-08-09",
+      "count": 2,
+      "last_recommended": "2026-08-15",
       "item": {
         "title": "El método",
         "subtitle": "SERIE • 2026 • 3 cap. • 19m",
@@ -819,8 +819,8 @@
       }
     },
     "hermanos y detectives": {
-      "count": 1,
-      "last_recommended": "2026-08-09",
+      "count": 2,
+      "last_recommended": "2026-08-15",
       "item": {
         "title": "Hermanos y detectives",
         "subtitle": "SERIE • 2006 • 16 cap. • 19m",
@@ -835,8 +835,8 @@
       }
     },
     "el clan": {
-      "count": 1,
-      "last_recommended": "2026-08-09",
+      "count": 2,
+      "last_recommended": "2026-08-15",
       "item": {
         "title": "El clan",
         "subtitle": "PELÍCULA • 2015 • 1h 45m",
@@ -864,6 +864,70 @@
         "overview": "Tomando como base la reciente epidemia de la Gripe A y más interesado por la situación de psicosis que generó que por la infección en si misma, Fase 7 se va convirtiendo poco a poco en un relato cerrado, desarrollado en un bloque de apartamentos donde las situaciones cómicas, absurdas y aterradoras se van desarrollando. Nicolás Goldbart dirige con pulso hábil a un estupendo grupo de actores encabezados por Daniel Hendler y el mítico Federico Luppi, componiendo un fresco de comportamientos humanos al límite que no seria raro describir como una especie de Rec pasado por el ácido humor bonaerense.",
         "youtube_id": "0PW0PQjXp4w",
         "trailer_url": "https://www.youtube.com/watch?v=0PW0PQjXp4w"
+      }
+    },
+    "descansar en paz": {
+      "count": 1,
+      "last_recommended": "2026-08-15",
+      "item": {
+        "title": "Descansar en paz",
+        "subtitle": "PELÍCULA • 2024 • 1h 48m",
+        "media_type": "PELÍCULA",
+        "year": "2024",
+        "extra_info": "1h 48m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/hdqOqkFlig9uUTdxQKZLVQJg5Mr.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/kPDhJ0abEc8OCulKgE1PNLzRj68.jpg",
+        "overview": "Un hombre de familia, acorralado por las deudas, decide aprovechar una circunstancia única e imprevisible para desaparecer. Después de muchos años de vivir alejado de su país bajo una identidad falsa, un hallazgo fortuito pone a prueba la tentación irresistible de querer saber cómo ha continuado la vida de los suyos en su ausencia. La pregunta se vuelve obsesión: ¿Se puede desaparecer y olvidar toda una vida? ¿Se puede empezar de cero y nunca más mirar atrás?",
+        "youtube_id": "mTc3ItAnfzU",
+        "trailer_url": "https://www.youtube.com/watch?v=mTc3ItAnfzU"
+      }
+    },
+    "as bestas": {
+      "count": 1,
+      "last_recommended": "2026-08-15",
+      "item": {
+        "title": "As bestas",
+        "subtitle": "PELÍCULA • 2022 • 1h 45m",
+        "media_type": "PELÍCULA",
+        "year": "2022",
+        "extra_info": "1h 45m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/d5Vv89re9tBtukMUnktyseam0g7.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/vlhzpgLDoiiMCNa3Jxj2VcuRAoD.jpg",
+        "overview": "Una pareja francesa de mediana edad, Antoine y Olga, llega a vivir a un pueblo gallego en busca de una mayor cercanía con la naturaleza. Su presencia, sin embargo, enciende a dos lugareños, los hermanos Xan y Lorenzo, hasta el punto de una abierta hostilidad y luego una violencia impactante.",
+        "youtube_id": "8FfTwEbN9YA",
+        "trailer_url": "https://www.youtube.com/watch?v=8FfTwEbN9YA"
+      }
+    },
+    "carancho": {
+      "count": 1,
+      "last_recommended": "2026-08-15",
+      "item": {
+        "title": "Carancho",
+        "subtitle": "PELÍCULA • 2010 • 1h 45m",
+        "media_type": "PELÍCULA",
+        "year": "2010",
+        "extra_info": "1h 45m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/5raNl2q1SyBYQkhkg9mdXAQqgeq.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/vzhb18e8CVKhs3KAwhOb64XOM63.jpg",
+        "overview": "Cada año mueren en Argentina más de ocho mil personas, y detrás de cada una de esas tragedias existe una industria floreciente basada en los pagos de los seguros y resquicios legales. Sosa es un abogado que recorre los hospitales públicos y las comisarías en busca de potenciales clientes. Luján es una joven doctora que acaba de llegar a Buenos Aires. Una noche sus destinos se cruzan cuando coinciden en un accidente.",
+        "youtube_id": "o4LEsWcTuCo",
+        "trailer_url": "https://www.youtube.com/watch?v=o4LEsWcTuCo"
+      }
+    },
+    "crimen ferpecto": {
+      "count": 1,
+      "last_recommended": "2026-08-15",
+      "item": {
+        "title": "Crimen ferpecto",
+        "subtitle": "PELÍCULA • 2004 • 1h 45m",
+        "media_type": "PELÍCULA",
+        "year": "2004",
+        "extra_info": "1h 45m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/1wOWudCNA550cLNk3JFoqhxLOGB.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/vZUntwE0BLPxvjDVi54qQqxYyOI.jpg",
+        "overview": "Rafael (Willy Toledo) es un tipo seductor y ambicioso al que le gustan las mujeres guapas, la ropa elegante y el ambiente selecto. Trabaja en unos grandes almacenes y quiere convertirse en el nuevo Jefe de planta. Su único rival es don Antonio, al cual mata en una acalorada discusión. La única testigo es Lourdes (Mónica Cervera), quién decide chantajearle para convertirle en su amante primero y en su marido después.",
+        "youtube_id": "yAA3kBfdO7o",
+        "trailer_url": "https://www.youtube.com/watch?v=yAA3kBfdO7o"
       }
     }
   }
