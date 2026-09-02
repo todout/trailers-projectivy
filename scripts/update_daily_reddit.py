@@ -12,7 +12,7 @@ if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
 
 HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     'Accept-Language': 'es-ES,es;q=0.9,en;q=0.8'
 }
@@ -23,10 +23,11 @@ def load_gemini_api_key():
         return api_key
     
     env_paths = [
-        r'd:\Antrigravity - Projects\fondos-projectivy\.env',
-        os.path.join(os.path.dirname(__file__), '../../fondos-projectivy/.env'),
         os.path.join(os.path.dirname(__file__), '../.env'),
-        '.env'
+        os.path.join(os.getcwd(), '.env'),
+        '.env',
+        r'd:\Antrigravity - Projects\fondos-projectivy\.env',
+        os.path.join(os.path.dirname(__file__), '../../fondos-projectivy/.env')
     ]
     for env_path in env_paths:
         if os.path.exists(env_path):
@@ -48,7 +49,7 @@ def call_gemini_api(prompt, timeout=45):
     if not api_key:
         return None
 
-    models_to_try = ["gemini-flash-latest", "gemini-2.0-flash-lite", "gemini-2.0-flash"]
+    models_to_try = ["gemini-2.5-flash", "gemini-3.6-flash", "gemini-flash-latest"]
     for model in models_to_try:
         try:
             url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
@@ -392,9 +393,9 @@ def fetch_titles_from_reddit(limit=25):
     """Obtiene los últimos 25 títulos desde el RSS de Reddit r/IMDB_esp"""
     titles = []
     urls = [
-        f'https://www.reddit.com/r/IMDB_esp/new/.rss?limit={limit}',
-        f'https://old.reddit.com/r/IMDB_esp/new/.rss?limit={limit}',
-        f'https://www.reddit.com/r/IMDB_esp/.rss?limit={limit}'
+        'https://www.reddit.com/r/IMDB_esp/new/.rss',
+        'https://old.reddit.com/r/IMDB_esp/new/.rss',
+        'https://www.reddit.com/r/IMDB_esp/.rss'
     ]
     import xml.etree.ElementTree as ET
     for url in urls:
@@ -721,7 +722,7 @@ def update_catalog_with_reddit_items(custom_titles=None, push_to_git=False):
         try:
             print("Subiendo cambios a GitHub...")
             subprocess.run(["git", "add", json_path, "scripts/recommendations_log.json"], check=True)
-            subprocess.run(["git", "commit", "-m", "Auto-update Fondos y Recomendaciones para Ti 4AM"], check=True)
+            subprocess.run(["git", "commit", "-m", "Auto-update Fondos y Recomendaciones para Ti 4:15AM"], check=True)
             subprocess.run(["git", "push"], check=True)
             print("[ÉXITO] Cambios subidos a GitHub correctamente.")
         except Exception as e:

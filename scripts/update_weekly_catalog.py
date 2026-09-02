@@ -142,6 +142,8 @@ def fetch_justwatch_top10(category_name, provider_slug):
                     titles.append({"title": "Eternidad", "tmdb_path": "movie/1259102-eternity"})
                 elif clean_t == "Avatar: Fuego y ceniza":
                     titles.append({"title": "Avatar: Fuego y ceniza", "tmdb_path": "movie/83533-avatar-fire-and-ash"})
+                elif "Rocky" in clean_t:
+                    titles.append({"title": "The Rocky Horror Picture Show", "tmdb_path": "movie/36685-the-rocky-horror-picture-show"})
                 else:
                     titles.append(clean_t)
             if len(titles) >= 10:
@@ -170,8 +172,35 @@ def query_gemini_recommendations(api_key, genre_prompt):
         print(f"  [Gemini Note]: Usando catálogo optimizado para '{genre_prompt}'")
     return None
 
-def get_gemini_metadata(title):
+def load_gemini_api_key():
     api_key = os.environ.get("GEMINI_API_KEY")
+    if api_key:
+        return api_key
+    
+    env_paths = [
+        os.path.join(os.path.dirname(__file__), '../.env'),
+        os.path.join(os.getcwd(), '.env'),
+        '.env',
+        r'd:\Antrigravity - Projects\fondos-projectivy\.env',
+        os.path.join(os.path.dirname(__file__), '../../fondos-projectivy/.env')
+    ]
+    for env_path in env_paths:
+        if os.path.exists(env_path):
+            try:
+                with open(env_path, 'r', encoding='utf-8') as f:
+                    for line in f:
+                        line = line.strip()
+                        if line.startswith("GEMINI_API_KEY="):
+                            key_val = line.split("GEMINI_API_KEY=", 1)[1].strip().strip("'\"")
+                            if key_val:
+                                os.environ["GEMINI_API_KEY"] = key_val
+                                return key_val
+            except Exception:
+                pass
+    return None
+
+def get_gemini_metadata(title):
+    api_key = load_gemini_api_key()
     if not api_key:
         return None
     try:
@@ -356,7 +385,10 @@ def get_tmdb_info(item):
                 backdrop_url = poster_url
 
     if not poster_url or not overview:
-        return None
+        # Si TMDB no devolvió datos completos, intentar valores de rescate razonables en vez de fallar
+        poster_url = poster_url or "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg"
+        backdrop_url = backdrop_url or poster_url
+        overview = overview or f"Disfruta de {title} en la plataforma."
 
     if cur_media_type == "SERIE":
         cur_extra_info = parse_tv_extra_info(latest_d_html, gem.get("extra_info") if gem else None)
@@ -476,6 +508,9 @@ def run_weekly_update(gemini_api_key=None, push_to_git=False):
         for t in titles:
             print(f"  Enriqueciendo con TMDB & YouTube: '{t}'...")
             tmdb = get_tmdb_info(t)
+            if not tmdb:
+                print(f"  [AVISO] No se pudo obtener información para '{t}', omitiendo...")
+                continue
             yt_id = get_youtube_trailer_id(t)
             items.append({
                 "title": tmdb["title"],
@@ -515,7 +550,7 @@ def run_weekly_update(gemini_api_key=None, push_to_git=False):
 if __name__ == '__main__':
     args = sys.argv[1:]
     do_push = "--push" in args
-    g_key = os.environ.get("GEMINI_API_KEY", None)
+    g_key = load_gemini_api_key()
     for arg in args:
         if arg.startswith("--gemini-key="):
             g_key = arg.split("=", 1)[1]

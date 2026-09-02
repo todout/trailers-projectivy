@@ -3,6 +3,11 @@ name: Build Android TV APK
 on:
   push:
     branches: [ "main", "master" ]
+    paths-ignore:
+      - 'app/src/main/assets/**'
+      - 'scripts/**'
+      - '**.json'
+      - '**.md'
   workflow_dispatch:
 
 permissions:
@@ -27,8 +32,11 @@ jobs:
         with:
           gradle-version: '8.5'
 
+      - name: Dar permisos de ejecución a gradlew
+        run: chmod +x gradlew
+
       - name: Compilar APK (Debug)
-        run: gradle assembleDebug
+        run: ./gradlew assembleDebug
 
       - name: Renombrar APK para descarga directa
         run: |

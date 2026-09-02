@@ -1,0 +1,16 @@
+# Environment & Secrets
+.env
+*.env
+
+# Python
+__pycache__/
+*.pyc
+
+# Gradle & Android Build
+.gradle/
+build/
+app/build/
+.idea/
+*.iml
+local.properties
+.DS_Store
