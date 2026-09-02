@@ -1,55 +1,53 @@
 # 🎬 Tráileres Fondos Projectivy (Android TV App)
 
-Aplicación nativa para **Android TV** (ONN TV Box) diseñada para reproducir tráileres en español a pantalla completa de los fondos automáticos de tu **Projectivy Launcher**.
+Aplicación nativa para **Android TV** (ONN TV Box, Chromecast con Google TV, Fire TV, etc.) diseñada para reproducir tráileres oficiales en español a pantalla completa y sincronizados automáticamente con tu feed de fondos y recomendaciones en **Projectivy Launcher**.
+
+---
+
+## 📥 Instalación Rápida con Downloader (AFTVnews)
+
+Puedes instalar la aplicación directamente en tu TV Box mediante la app **Downloader**:
+
+| Método | Código / Enlace |
+| :--- | :--- |
+| **Código Downloader (AFTV)** | `4981706` |
+| **Enlace AFTV Corto** | [go.aftvnews.com/4981706](https://go.aftvnews.com/4981706) |
+| **Descarga Directa APK** | [trailers-projectivy.apk (GitHub Release)](https://github.com/todout/trailers-projectivy/releases/latest/download/trailers-projectivy.apk) |
+
+### Pasos para instalar en tu Android TV / ONN Box:
+1. Abre la aplicación **Downloader** en tu TV Box.
+2. Ingresa el código **`4981706`** y pulsa en **Go**.
+3. Acepta la descarga e instala la aplicación cuando finalice.
+4. ¡Listo! El icono **Tráileres Fondos** aparecerá disponible en tu pantalla de inicio de Projectivy Launcher.
 
 ---
 
 ## ⚡ Características Principales
 
-* 🚀 **Inicio "De Una"**: Al hacer clic en el icono desde Projectivy Launcher, arranca inmediatamente el tráiler oficial en español a pantalla completa.
-* 🎮 **Navegación 100% Control Remoto (D-Pad)**:
-  * **▲ / ▼ (Arriba / Abajo)**: Cambia al **Tráiler Siguiente / Anterior** del feed de fondos.
-  * **◄ / ► (Izquierda / Derecha)**: **Adelanta o atrasa 10 segundos** el tráiler actual.
-  * **OK / Seleccionar**: **Pausa / Reanuda** el vídeo.
-  * **Atrás (Back)**: Vuelve a Projectivy Launcher.
-* 📺 **Interfaz Integrada**: Overlay transparente elegante con el título de la película, badges y contador que desaparece a los 3 segundos.
+* 🚀 **Inicio Inmediato**: Al presionar la app desde tu pantalla de inicio, arranca directamente el tráiler oficial en español a pantalla completa sin pantallas intermedias ni tiempos muertos.
+* 🔄 **Catálogo Dinámico y Enriquecido**:
+  * **Diario (4 AM)**: Sincronización automática de *"Últimos fondos de tu TV"* y *"Recomendado para Ti"*.
+  * **Semanal**: Top 10 en vivo de **Netflix** (Tudum Argentina), **Disney+**, **Prime Video**, **Max** y **Apple TV+**, además de categorías por género enriquecidas con TMDB y YouTube.
+* 📺 **Overlay Inteligente**: Información elegante con póster, título, año, duración/episodios, sinopsis y proveedor que se oculta automáticamente a los 3 segundos.
 
 ---
 
-## 🛠️ Cómo Subir a GitHub y Generar tu Enlace AFTVnews (Downloader)
+## 🎮 Controles del Control Remoto (D-Pad)
 
-### Paso 1: Inicializar Git y subir a GitHub (Solo 1 vez)
+| Botón Control Remoto | Acción |
+| :---: | :--- |
+| **▲ / ▼ (Arriba / Abajo)** | Cambia de categoría / fila del catálogo. |
+| **◄ / ► (Izquierda / Derecha)** | Navega entre los títulos de la categoría actual. |
+| **OK / Seleccionar** | **Pausa / Reanuda** la reproducción del tráiler. |
+| **Doble toque ◄ / ►** | **Retrocede o avanza 10 segundos** en el vídeo. |
+| **Atrás (Back)** | Cierra el reproductor y vuelve a Projectivy Launcher. |
 
-Desde la terminal en esta carpeta (`D:\Antrigravity - Projects\trailers-projectivy`):
+---
 
-```bash
-git init
-git add .
-git commit -m "Inicializar app Android TV para Projectivy"
-git branch -M main
-git remote add origin https://github.com/TU_USUARIO/trailers-projectivy.git
-git push -u origin main
-```
+## ⚙️ Estructura del Proyecto
 
-*(Reemplaza `TU_USUARIO` con tu usuario de GitHub).*
-
-### Paso 2: Descarga Directa Automática
-Una vez subas el código, **GitHub Actions** compilará el archivo `.apk` en 1 minuto y generará automáticamente un enlace permanente:
-
-```
-https://github.com/TU_USUARIO/trailers-projectivy/releases/latest/download/trailers-projectivy.apk
-```
-
-### Paso 3: Crear Código Corto en AFTVnews (Downloader)
-
-1. Ingresa en tu navegador a: **[https://go.aftvnews.com/](https://go.aftvnews.com/)**
-2. Pega tu enlace de GitHub: `https://github.com/TU_USUARIO/trailers-projectivy/releases/latest/download/trailers-projectivy.apk`
-3. Haz clic en **Create Short Code**.
-4. ¡Anota el código de 5 dígitos generado (por ejemplo `12345`)!
-
-### Paso 4: Instalar en tu ONN TV Box
-
-1. En tu ONN TV Box, abre la aplicación **Downloader**.
-2. Escribe el **código de 5 dígitos** en la casilla central de Downloader y dale a **Go**.
-3. Se descargará el archivo `.apk` y te pedirá confirmación para **Instalar**.
-4. ¡Listo! El icono **Tráileres Fondos** aparecerá nativamente en tu launcher Projectivy.
+* `app/`: Código fuente Android (Kotlin, ExoPlayer / YouTube Player nativo).
+* `app/src/main/assets/trailers.json`: Catálogo JSON local empaquetado y actualizado.
+* `scripts/update_daily_reddit.py`: Script diario de extracción de fondos y recomendaciones.
+* `scripts/update_weekly_catalog.py`: Script semanal de plataformas y géneros (JustWatch, Tudum, Gemini y TMDB).
+* `.github/workflows/build-apk.yml`: Compilación y release automático en GitHub Actions.
