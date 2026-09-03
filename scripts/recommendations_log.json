@@ -1,25 +1,24 @@
 {
   "recommendations": {
     "los renglones torcidos de dios": {
-      "count": 37,
-      "last_recommended": "2026-09-01",
+      "count": 38,
+      "last_recommended": "2026-09-03",
       "item": {
-        "title": "LOS RENGLONES TORCIDOS DE DIOS",
-        "subtitle": "PELÍCULA • 2022 • 1h 45m",
+        "title": "Los renglones torcidos de Dios",
+        "subtitle": "PELÍCULA • 2022 • 2h 35m",
         "media_type": "PELÍCULA",
         "year": "2022",
-        "extra_info": "1h 45m",
-        "poster_url": "https://image.tmdb.org/t/p/w500/hB2VqiLDiHAyLdZ1dlXIGqDJy06.jpg",
-        "backdrop_url": "https://image.tmdb.org/t/p/w500/dtXcuwF1uUi9m0VVfEGEa7GpDzX.jpg",
-        "overview": "Alice Gould, una investigadora privada, simula que padece una enfermedad mental con objeto de ingresar en un hospital psiquiátrico y recabar pruebas del caso en el que trabaja: la muerte de un paciente en circunstancias poco claras.",
+        "extra_info": "2h 35m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/ukYuuFzPTumN1QNpQyz863bcNvr.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/lHhRU3jEnju4pKibOeYOgxaEw2y.jpg",
+        "overview": "Alice Gould, una investigadora privada, ingresa a un hospital psiquiátrico simulando una paranoia para recabar pruebas sobre la extraña muerte de un interno.",
         "youtube_id": "VpZjyY4wPi0",
-        "trailer_url": "https://www.youtube.com/watch?v=VpZjyY4wPi0",
-        "provider": "Recomendado para Ti"
+        "trailer_url": "https://www.youtube.com/watch?v=VpZjyY4wPi0"
       }
     },
     "bellas artes": {
-      "count": 34,
-      "last_recommended": "2026-08-31",
+      "count": 35,
+      "last_recommended": "2026-09-03",
       "item": {
         "title": "Bellas Artes",
         "subtitle": "SERIE • 2024 • 1 Temporada • 12 cap. • 29m",
@@ -35,25 +34,24 @@
       }
     },
     "el reino": {
-      "count": 33,
-      "last_recommended": "2026-09-01",
+      "count": 34,
+      "last_recommended": "2026-09-03",
       "item": {
-        "title": "El reino",
-        "subtitle": "SERIE • 2021 • 1 Temporada • 6 cap. • 54m",
+        "title": "El Reino",
+        "subtitle": "SERIE • 2021 • 2 Temporadas • 14 cap. • 45m",
         "media_type": "SERIE",
         "year": "2021",
-        "extra_info": "1 Temporada • 6 cap. • 54m",
-        "poster_url": "https://image.tmdb.org/t/p/w500/jQZIZcmkSFPL1QEMjQgqXKKFb44.jpg",
-        "backdrop_url": "https://image.tmdb.org/t/p/w500/yhhStAMdc6Q0iwDlOdqgjN2x5L0.jpg",
-        "overview": "“El Reino” cuenta la historia del pastor Emilio Vázquez Pena, candidato a vicepresidente de la República Argentina, cuyo compañero de fórmula es asesinado el día de cierre de campaña. A partir de entonces comienza el camino de su ascenso político a la vez que se descubre el entramado detrás del crimen.",
+        "extra_info": "45m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/gG7VzFKAOuGqCJyHQJRTn9f7UMl.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/5772mIxerrOtleSmFadAV8RyXQZ.jpg",
+        "overview": "Tras el asesinato de su compañero de fórmula presidencial, el pastor Emilio Vázquez Pena se perfila para asumir el poder mientras se destapa una oscura red de corrupción eclesiástica y política.",
         "youtube_id": "QMWtJ3Mx-8g",
-        "trailer_url": "https://www.youtube.com/watch?v=QMWtJ3Mx-8g",
-        "provider": "Recomendado para Ti"
+        "trailer_url": "https://www.youtube.com/watch?v=QMWtJ3Mx-8g"
       }
     },
     "la sociedad de la nieve": {
-      "count": 37,
-      "last_recommended": "2026-09-01",
+      "count": 38,
+      "last_recommended": "2026-09-03",
       "item": {
         "title": "La sociedad de la nieve",
         "subtitle": "PELÍCULA • 2023 • 1h 48m",
@@ -64,13 +62,12 @@
         "backdrop_url": "https://image.tmdb.org/t/p/w500/md848EEPm3dHZOqwGxxTVwH2vu5.jpg",
         "overview": "El 13 de octubre de 1972, el vuelo 571 de la Fuerza Aérea Uruguaya, fletado para llevar a un equipo de rugby a Chile, se estrella en un glaciar en el corazón de los Andes.",
         "youtube_id": "l9tP4M8URhQ",
-        "trailer_url": "https://www.youtube.com/watch?v=l9tP4M8URhQ",
-        "provider": "Recomendado para Ti"
+        "trailer_url": "https://www.youtube.com/watch?v=l9tP4M8URhQ"
       }
     },
     "knives out": {
-      "count": 36,
-      "last_recommended": "2026-09-01",
+      "count": 37,
+      "last_recommended": "2026-09-03",
       "item": {
         "title": "Knives Out",
         "subtitle": "PELÍCULA • 2019 • 1h 45m",
@@ -86,8 +83,8 @@
       }
     },
     "la noche de 12 años": {
-      "count": 36,
-      "last_recommended": "2026-09-01",
+      "count": 37,
+      "last_recommended": "2026-09-03",
       "item": {
         "title": "La noche de 12 años",
         "subtitle": "PELÍCULA • 2018 • 1h 45m",
@@ -103,8 +100,8 @@
       }
     },
     "cabo de miedo": {
-      "count": 36,
-      "last_recommended": "2026-09-01",
+      "count": 37,
+      "last_recommended": "2026-09-03",
       "item": {
         "title": "Cabo de miedo",
         "subtitle": "SERIE • 2026 • 10 cap. • 19m",
@@ -119,8 +116,8 @@
       }
     },
     "terapia alternativa": {
-      "count": 34,
-      "last_recommended": "2026-09-01",
+      "count": 35,
+      "last_recommended": "2026-09-03",
       "item": {
         "title": "Terapia alternativa",
         "subtitle": "SERIE • 2021 • 1 Temporada • 17 cap. • 39m",
@@ -136,8 +133,8 @@
       }
     },
     "el jardín de bronce": {
-      "count": 36,
-      "last_recommended": "2026-09-01",
+      "count": 37,
+      "last_recommended": "2026-09-03",
       "item": {
         "title": "El jardín de bronce",
         "subtitle": "SERIE • 2017 • 2 Temporadas • 24 cap. • 45m",
@@ -153,8 +150,8 @@
       }
     },
     "sugar": {
-      "count": 34,
-      "last_recommended": "2026-09-01",
+      "count": 35,
+      "last_recommended": "2026-09-03",
       "item": {
         "title": "Sugar",
         "subtitle": "SERIE • 2024 • 16 cap. • 19m",
@@ -185,8 +182,8 @@
       }
     },
     "el lobo de wall street": {
-      "count": 35,
-      "last_recommended": "2026-09-01",
+      "count": 36,
+      "last_recommended": "2026-09-03",
       "item": {
         "title": "El lobo de Wall Street",
         "subtitle": "PELÍCULA • 2013 • 1h 45m",
@@ -202,8 +199,8 @@
       }
     },
     "huye": {
-      "count": 35,
-      "last_recommended": "2026-09-01",
+      "count": 36,
+      "last_recommended": "2026-09-03",
       "item": {
         "title": "Huye",
         "subtitle": "PELÍCULA • 2026 • 1h 48m",
@@ -214,13 +211,12 @@
         "backdrop_url": "https://image.tmdb.org/t/p/w500/9NwMU5H8CToHSPmwxMxuId4TVR9.jpg",
         "overview": "Mar, una joven atleta de alto rendimiento, se ve envuelta en unos sueños perturbadores que le llevarán a perder la percepción de la realidad y a dudar de si ella misma es quien dice ser.",
         "youtube_id": "xGhKr2uNkI4",
-        "trailer_url": "https://www.youtube.com/watch?v=xGhKr2uNkI4",
-        "provider": "Recomendado para Ti"
+        "trailer_url": "https://www.youtube.com/watch?v=xGhKr2uNkI4"
       }
     },
     "el botín": {
-      "count": 35,
-      "last_recommended": "2026-09-01",
+      "count": 36,
+      "last_recommended": "2026-09-03",
       "item": {
         "title": "El botín",
         "subtitle": "PELÍCULA • 2026 • 1h 45m",
@@ -236,8 +232,8 @@
       }
     },
     "fundación": {
-      "count": 34,
-      "last_recommended": "2026-09-01",
+      "count": 35,
+      "last_recommended": "2026-09-03",
       "item": {
         "title": "Fundación",
         "subtitle": "SERIE • 2021 • 2 Temporadas • 30 cap. • 48m",
@@ -301,8 +297,8 @@
       }
     },
     "ford v ferrari": {
-      "count": 35,
-      "last_recommended": "2026-09-01",
+      "count": 36,
+      "last_recommended": "2026-09-03",
       "item": {
         "title": "Ford v Ferrari",
         "subtitle": "PELÍCULA • 2019 • 1h 48m",
@@ -313,13 +309,12 @@
         "backdrop_url": "https://image.tmdb.org/t/p/w500/2vq5GTJOahE03mNYZGxIynlHcWr.jpg",
         "overview": "Se centra en un excéntrico y decidido equipo americano de ingenieros y diseñadores liderados por el visionario automovilístico Carroll Shelby y su conductor británico Ken Miles. Henry Ford II y Lee Iacocca les dan la misión de construir desde cero un nuevo automóvil con el fin de derrocar el dominio de Ferrari en el Campeonato del Mundo de Le Mans de 1966.",
         "youtube_id": "vF74Jc2KSqQ",
-        "trailer_url": "https://www.youtube.com/watch?v=vF74Jc2KSqQ",
-        "provider": "Recomendado para Ti"
+        "trailer_url": "https://www.youtube.com/watch?v=vF74Jc2KSqQ"
       }
     },
     "el irlandés": {
-      "count": 27,
-      "last_recommended": "2026-09-01",
+      "count": 28,
+      "last_recommended": "2026-09-03",
       "item": {
         "title": "El irlandés",
         "subtitle": "PELÍCULA • 2019 • 1h 45m",
@@ -335,8 +330,8 @@
       }
     },
     "duna: parte dos": {
-      "count": 32,
-      "last_recommended": "2026-09-01",
+      "count": 33,
+      "last_recommended": "2026-09-03",
       "item": {
         "title": "Duna: Parte dos",
         "subtitle": "PELÍCULA • 2024 • 1h 48m",
@@ -369,8 +364,8 @@
       }
     },
     "the last of us": {
-      "count": 32,
-      "last_recommended": "2026-09-01",
+      "count": 33,
+      "last_recommended": "2026-09-03",
       "item": {
         "title": "The Last of Us",
         "subtitle": "SERIE • 2023 • 1 Temporada • 16 cap. • 42m",
@@ -386,8 +381,8 @@
       }
     },
     "la casa del dragón": {
-      "count": 32,
-      "last_recommended": "2026-09-01",
+      "count": 33,
+      "last_recommended": "2026-09-03",
       "item": {
         "title": "La casa del dragón",
         "subtitle": "SERIE • 2022 • 26 cap. • 19m",
@@ -402,8 +397,8 @@
       }
     },
     "severance": {
-      "count": 33,
-      "last_recommended": "2026-09-01",
+      "count": 34,
+      "last_recommended": "2026-09-03",
       "item": {
         "title": "Severance",
         "subtitle": "SERIE • 2022 • 2 Temporadas • 19 cap. • 48m",
