@@ -1,6 +1,6 @@
 {
-  "versionCode": 10,
-  "versionName": "1.9",
+  "versionCode": 11,
+  "versionName": "2.0",
   "apkUrl": "https://github.com/todout/trailers-projectivy/releases/latest/download/trailers-projectivy.apk",
-  "releaseNotes": "Transición instantánea de video y optimización de memoria RAM"
+  "releaseNotes": "Carga instantánea de carátulas, optimización de rendimiento y nuevas categorías de Crimen/Policiales y Habladas en Español"
 }

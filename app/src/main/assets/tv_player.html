@@ -266,7 +266,7 @@
             border-radius: 8px;
             overflow: hidden;
             position: relative;
-            background: #141414;
+            background: linear-gradient(135deg, #222222 0%, #111111 100%);
             border: 2.5px solid rgba(255, 255, 255, 0.15);
             transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
             cursor: pointer;
@@ -518,18 +518,15 @@
         }
 
         function preloadRowFirstItems() {
-            categories.forEach((cat, rIdx) => {
+            // Precarga eficiente de las 2 primeras filas sin saturar la red
+            categories.slice(0, 3).forEach((cat, rIdx) => {
                 if (cat && cat.items) {
-                    cat.items.forEach((item, cIdx) => {
-                        if (item.backdrop_url) {
+                    cat.items.slice(0, 2).forEach((item, cIdx) => {
+                        const key = `${rIdx}-${cIdx}`;
+                        if (item.backdrop_url && !preloadedBackdrops[key]) {
                             const bg = new Image();
                             bg.src = item.backdrop_url;
-                            if (cIdx === 0) preloadedBackdrops[rIdx] = bg;
-                        }
-                        if (item.poster_url) {
-                            const poster = new Image();
-                            poster.src = item.poster_url;
-                            if (cIdx === 0) preloadedPosters[rIdx] = poster;
+                            preloadedBackdrops[key] = bg;
                         }
                     });
                 }
@@ -540,69 +537,55 @@
             setLoaderStatusText("Cargando recomendaciones para vos...");
             categories = [];
 
+            // 1. Carga ultra-rápida inmediata desde los assets locales (0ms de latencia)
+            try {
+                const localRes = await fetch('./trailers.json');
+                if (localRes.ok) {
+                    const localData = await localRes.json();
+                    if (localData && localData.rows) {
+                        categories = localData.rows;
+                    } else if (Array.isArray(localData)) {
+                        categories = [{ category: "Recomendaciones para vos", items: localData }];
+                    }
+                }
+            } catch (e) {
+                console.warn("No se pudo cargar trailers.json local:", e);
+            }
+
+            // Si se cargó localmente, renderizar e iniciar la app de inmediato
+            if (categories.length > 0) {
+                preloadRowFirstItems();
+                renderNetflixRows();
+                if (!player) {
+                    initPlayer();
+                } else {
+                    updateSelection(0, 0, true);
+                    dismissLoader();
+                }
+            }
+
+            // 2. Sincronizar en segundo plano desde GitHub Raw para obtener novedades sin bloquear
             try {
                 const cacheUrl = `https://raw.githubusercontent.com/todout/trailers-projectivy/main/app/src/main/assets/trailers.json?t=${Date.now()}`;
                 const remoteRes = await fetch(cacheUrl);
                 if (remoteRes.ok) {
                     const data = await remoteRes.json();
-                    if (data && data.rows) {
-                        categories = data.rows;
-                    } else if (Array.isArray(data)) {
-                        categories = [{ category: "Recomendaciones para vos", items: data }];
+                    const remoteRows = data && data.rows ? data.rows : (Array.isArray(data) ? [{ category: "Recomendaciones para vos", items: data }] : []);
+                    if (remoteRows.length > 0 && categories.length === 0) {
+                        categories = remoteRows;
+                        preloadRowFirstItems();
+                        renderNetflixRows();
+                        if (!player) initPlayer();
+                        else { updateSelection(0, 0, true); dismissLoader(); }
                     }
                 }
             } catch (e) {
-                console.warn("Error cargando desde GitHub Raw:", e);
-            }
-
-            if (categories.length === 0) {
-                try {
-                    const localRes = await fetch('./trailers.json');
-                    if (localRes.ok) {
-                        const localData = await localRes.json();
-                        if (localData && localData.rows) {
-                            categories = localData.rows;
-                        } else if (Array.isArray(localData)) {
-                            categories = [{ category: "Recomendaciones para vos", items: localData }];
-                        }
-                    }
-                } catch (e) {}
+                console.warn("Error sincronizando catálogo remoto en segundo plano:", e);
             }
 
             if (categories.length === 0) {
                 setLoaderStatusText("No se pudo cargar el catálogo.");
                 return;
-            }
-
-            // Precargar fotos, sinopsis y datos en memoria para navegación instantánea
-            preloadRowFirstItems();
-
-            // Mensajes dinámicos durante la construcción
-            const loadingSteps = [
-                "Cargando Top 10 NETFLIX...",
-                "Cargando Top 10 Disney+...",
-                "Cargando Top 10 Prime Video...",
-                "Cargando Top 10 Apple TV+...",
-                "Cargando Top 10 Max..."
-            ];
-            let stepIdx = 0;
-            const msgInterval = setInterval(() => {
-                if (stepIdx < loadingSteps.length) {
-                    setLoaderStatusText(loadingSteps[stepIdx]);
-                    stepIdx++;
-                } else {
-                    clearInterval(msgInterval);
-                }
-            }, 300);
-
-            renderNetflixRows();
-
-            if (!player) {
-                initPlayer();
-            } else {
-                updateSelection(0, 0, true);
-                clearInterval(msgInterval);
-                dismissLoader();
             }
         }
 
@@ -625,8 +608,9 @@
 
                 const cardsHtml = cat.items.map((item, cIdx) => {
                     const posterSrc = item.poster_url || item.backdrop_url || '';
-                    const loadAttr = (rIdx < 2 && cIdx < 6) ? 'eager' : 'lazy';
-                    const bgImg = posterSrc ? `<img src="${posterSrc}" alt="${item.title}" loading="${loadAttr}" decoding="async" onerror="this.style.display='none'">` : '';
+                    const priorityAttr = (rIdx === 0 && cIdx < 6) ? 'fetchpriority="high"' : '';
+                    // Eliminamos 'loading=lazy' que causaba carátulas en blanco en scroll horizontal
+                    const bgImg = posterSrc ? `<img src="${posterSrc}" alt="${item.title}" loading="eager" decoding="async" ${priorityAttr} onerror="this.style.display='none'">` : '';
                     return `
                         <div class="netflix-card ${rIdx === 0 && cIdx === 0 ? 'active' : ''}" id="card-${rIdx}-${cIdx}" onclick="onCardClicked(${rIdx}, ${cIdx})">
                             ${bgImg}
@@ -837,6 +821,24 @@
                 heroImg.src = heroSrc;
                 if (!isPausedManually && !isVideoLoadedAndPlaying) {
                     heroImg.classList.remove('hidden-hero');
+                }
+            }
+
+            // Precarga anticipada de fondos adyacentes para transición instantánea al navegar
+            if (targetRow.items[cIdx + 1] && targetRow.items[cIdx + 1].backdrop_url) {
+                const nextKey = `${rIdx}-${cIdx + 1}`;
+                if (!preloadedBackdrops[nextKey]) {
+                    const img = new Image();
+                    img.src = targetRow.items[cIdx + 1].backdrop_url;
+                    preloadedBackdrops[nextKey] = img;
+                }
+            }
+            if (targetRow.items[cIdx - 1] && targetRow.items[cIdx - 1].backdrop_url) {
+                const prevKey = `${rIdx}-${cIdx - 1}`;
+                if (!preloadedBackdrops[prevKey]) {
+                    const img = new Image();
+                    img.src = targetRow.items[cIdx - 1].backdrop_url;
+                    preloadedBackdrops[prevKey] = img;
                 }
             }
 

@@ -57,6 +57,7 @@ class MainActivity : AppCompatActivity() {
         settings.useWideViewPort = true
         settings.loadWithOverviewMode = true
         settings.cacheMode = WebSettings.LOAD_DEFAULT
+        settings.loadsImagesAutomatically = true
 
         // Habilitar aceleración por hardware a nivel de vista
         webView.setLayerType(View.LAYER_TYPE_HARDWARE, null)

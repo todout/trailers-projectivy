@@ -21,17 +21,33 @@ GENRE_AND_PLATFORM_CATALOG = {
         "Sugar", "The Crow Girl", "Gone", "Huye", "El diablo en Ohio",
         "Mensajes de voz para Isabelle", "El botin", "El poligamo", "Hasta el final", "Frankenstein"
     ],
-    "Top 10: Ciencia Ficción y Acción": [
-        "Silo", "Separacion", "Duna: Parte dos", "F1 la pelicula", {"title": "Avatar: Fuego y ceniza", "tmdb_path": "movie/83533-avatar-fire-and-ash"},
-        "Interestelar", "The Mandalorian", "Fundacion", "Avengers: Endgame", "Proyecto Fin del Mundo"
+    "Top 10: Crimen, Policiales y Thrillers": [
+        {"title": "Mindhunter", "tmdb_path": "tv/67744-mindhunter"},
+        {"title": "True Detective", "tmdb_path": "tv/46648-true-detective"},
+        {"title": "Fargo", "tmdb_path": "tv/57243-fargo"},
+        {"title": "Pecados Capitales", "tmdb_path": "movie/807-se7en"},
+        {"title": "Sicario", "tmdb_path": "movie/273481-sicario"},
+        {"title": "El secreto de sus ojos", "tmdb_path": "movie/25376-el-secreto-de-sus-ojos"},
+        {"title": "Prisioneros", "tmdb_path": "movie/146233-prisoners"},
+        {"title": "Zodiac", "tmdb_path": "movie/1949-zodiac"},
+        {"title": "Mare of Easttown", "tmdb_path": "tv/101088-mare-of-easttown"},
+        {"title": "El robo del siglo", "tmdb_path": "movie/653601-el-robo-del-siglo"}
     ],
     "Top 10: Basadas en hechos reales": [
         {"title": "Oppenheimer", "tmdb_path": "movie/872585-oppenheimer"}, "Los asesinos de la luna", "La sociedad de la nieve", "Shogun", "Chernobyl",
         "El precio de la verdad", "Bohemian Rhapsody", "Ford v Ferrari", "El irlandes", "Sound of Freedom"
     ],
-    "Cine y Series Argentinas Recientes": [
-        "Envidiosa", "El encargado", "El eternauta", "Cromañón", "División Palermo",
-        "El jockey", "Goyo", "Ángel Di María: Romper la pared", "Descansar en paz", "Muchachos, la película de la gente"
+    "Top 10: Habladas en Español (Latam y España)": [
+        {"title": "La casa de papel", "tmdb_path": "tv/71446-money-heist"},
+        {"title": "El encargado", "tmdb_path": "tv/154823-el-encargado"},
+        {"title": "Envidiosa", "tmdb_path": "tv/270425-envidiosa"},
+        {"title": "El eternauta", "tmdb_path": "tv/103516-el-eternauta"},
+        {"title": "Berlín", "tmdb_path": "tv/202250-berlin"},
+        {"title": "Cromañón", "tmdb_path": "tv/273934-cromanon"},
+        {"title": "Relatos salvajes", "tmdb_path": "movie/265195-wild-tales"},
+        {"title": "División Palermo", "tmdb_path": "tv/218843-division-palermo"},
+        {"title": "Machos Alfa", "tmdb_path": "tv/215707-machos-alfa"},
+        {"title": "Los Simuladores", "tmdb_path": "tv/15647-los-simuladores"}
     ],
     "Top 10 Disney+": [
         "El diablo viste a la moda 2", "El diario de la princesa", {"title": "Furia", "tmdb_path": "tv/287238-furious"},
