@@ -1,6 +1,6 @@
 {
-  "versionCode": 11,
-  "versionName": "2.0",
+  "versionCode": 12,
+  "versionName": "2.1",
   "apkUrl": "https://github.com/todout/trailers-projectivy/releases/latest/download/trailers-projectivy.apk",
-  "releaseNotes": "Carga instantánea de carátulas, optimización de rendimiento y nuevas categorías de Crimen/Policiales y Habladas en Español"
+  "releaseNotes": "Catálogo renovado: series y películas recientes de Crimen/Policiales y Habladas en Español (sin repetir vistas)"
 }

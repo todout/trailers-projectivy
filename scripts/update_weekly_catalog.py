@@ -22,32 +22,32 @@ GENRE_AND_PLATFORM_CATALOG = {
         "Mensajes de voz para Isabelle", "El botin", "El poligamo", "Hasta el final", "Frankenstein"
     ],
     "Top 10: Crimen, Policiales y Thrillers": [
-        {"title": "Mindhunter", "tmdb_path": "tv/67744-mindhunter"},
-        {"title": "True Detective", "tmdb_path": "tv/46648-true-detective"},
-        {"title": "Fargo", "tmdb_path": "tv/57243-fargo"},
-        {"title": "Pecados Capitales", "tmdb_path": "movie/807-se7en"},
-        {"title": "Sicario", "tmdb_path": "movie/273481-sicario"},
-        {"title": "El secreto de sus ojos", "tmdb_path": "movie/25376-el-secreto-de-sus-ojos"},
-        {"title": "Prisioneros", "tmdb_path": "movie/146233-prisoners"},
-        {"title": "Zodiac", "tmdb_path": "movie/1949-zodiac"},
+        {"title": "El Pingüino", "tmdb_path": "tv/194764-the-penguin"},
+        {"title": "Presunto inocente", "tmdb_path": "tv/205739-presumed-innocent"},
         {"title": "Mare of Easttown", "tmdb_path": "tv/101088-mare-of-easttown"},
-        {"title": "El robo del siglo", "tmdb_path": "movie/653601-el-robo-del-siglo"}
+        {"title": "Rebel Ridge", "tmdb_path": "movie/646097-rebel-ridge"},
+        {"title": "Slow Horses", "tmdb_path": "tv/99966-slow-horses"},
+        {"title": "El asesino", "tmdb_path": "movie/800158-the-killer"},
+        {"title": "The Batman", "tmdb_path": "movie/414906-the-batman"},
+        {"title": "Ripley", "tmdb_path": "tv/91363-ripley"},
+        {"title": "El robo del siglo", "tmdb_path": "movie/653601-el-robo-del-siglo"},
+        {"title": "Elize: Sombras de una mujer", "tmdb_path": "movie/1487861-elize-sombras-de-una-mujer"}
     ],
     "Top 10: Basadas en hechos reales": [
         {"title": "Oppenheimer", "tmdb_path": "movie/872585-oppenheimer"}, "Los asesinos de la luna", "La sociedad de la nieve", "Shogun", "Chernobyl",
         "El precio de la verdad", "Bohemian Rhapsody", "Ford v Ferrari", "El irlandes", "Sound of Freedom"
     ],
     "Top 10: Habladas en Español (Latam y España)": [
-        {"title": "La casa de papel", "tmdb_path": "tv/71446-money-heist"},
-        {"title": "El encargado", "tmdb_path": "tv/154823-el-encargado"},
-        {"title": "Envidiosa", "tmdb_path": "tv/270425-envidiosa"},
-        {"title": "El eternauta", "tmdb_path": "tv/103516-el-eternauta"},
         {"title": "Berlín", "tmdb_path": "tv/202250-berlin"},
-        {"title": "Cromañón", "tmdb_path": "tv/273934-cromanon"},
-        {"title": "Relatos salvajes", "tmdb_path": "movie/265195-wild-tales"},
-        {"title": "División Palermo", "tmdb_path": "tv/218843-division-palermo"},
+        {"title": "Reina Roja", "tmdb_path": "tv/158742-reina-roja"},
+        {"title": "El Reino", "tmdb_path": "tv/130542-el-reino"},
+        {"title": "El jockey", "tmdb_path": "movie/1090333-el-jockey"},
+        {"title": "Mano de hierro", "tmdb_path": "tv/239770-mano-de-hierro"},
+        {"title": "Descansar en paz", "tmdb_path": "movie/1199996-descansar-en-paz"},
+        {"title": "El cuerpo en llamas", "tmdb_path": "tv/210344-el-cuerpo-en-llamas"},
+        {"title": "Los renglones torcidos de Dios", "tmdb_path": "movie/833339-los-renglones-torcidos-de-dios"},
         {"title": "Machos Alfa", "tmdb_path": "tv/215707-machos-alfa"},
-        {"title": "Los Simuladores", "tmdb_path": "tv/15647-los-simuladores"}
+        {"title": "Secuestro del vuelo 601", "tmdb_path": "tv/244588-secuestro-del-vuelo-601"}
     ],
     "Top 10 Disney+": [
         "El diablo viste a la moda 2", "El diario de la princesa", {"title": "Furia", "tmdb_path": "tv/287238-furious"},
