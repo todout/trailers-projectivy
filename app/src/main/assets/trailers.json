@@ -331,271 +331,6 @@
       ]
     },
     {
-      "category": "Recomendado para Ti",
-      "items": [
-        {
-          "title": "Bellas Artes",
-          "subtitle": "SERIE • 2024 • 1 Temporada • 12 cap. • 29m",
-          "media_type": "SERIE",
-          "year": "2024",
-          "extra_info": "1 Temporada • 12 cap. • 29m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/qAwpgOb59jvBu6eFfxztUQ3tN1Y.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/aMUHIBGoR61cZh3bTGCbGQU626B.jpg",
-          "overview": "Antonio Dumas, un prestigioso historiador de arte y gestor cultural. Culto y sofisticado, aunque bastante cínico y engreído, es nombrado director de un importante museo de arte contemporáneo en Madrid al salir victorioso en un concurso para ese cargo. Una vez asumida su nueva posición deberá afrontar, en medio de la fauna insólita del mundo del arte, un abanico de circunstancias y conflictos dispares: desde problemas gremiales y presiones políticas, hasta situaciones disparatadas en relación a las exposiciones y a los artistas.",
-          "youtube_id": "GETmKHsvTnM",
-          "trailer_url": "https://www.youtube.com/watch?v=GETmKHsvTnM",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "Fundación",
-          "subtitle": "SERIE • 2021 • 2 Temporadas • 30 cap. • 48m",
-          "media_type": "SERIE",
-          "year": "2021",
-          "extra_info": "2 Temporadas • 30 cap. • 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/wSUYYcMMNtob0qslOwA0PAcqH0J.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/7NNNXo0qG2SqH4JoG7GPvJ2hzes.jpg",
-          "overview": "Basada en la fascinante obra de Isaac Asimov, Foundation gira en torno a un grupo de exiliados en el ocaso del Imperio Galáctico y su afán por salvar a la humanidad y reconstruir la civilización.",
-          "youtube_id": "1dqOSD2iDdI",
-          "trailer_url": "https://www.youtube.com/watch?v=1dqOSD2iDdI",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "Oppenheimer",
-          "subtitle": "PELÍCULA • 2023 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2023",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/mJRUREPjTqqMEKwEiM2sdmIGngz.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/7CENyUim29IEsaJhUxIGymCRvPu.jpg",
-          "overview": "Película sobre el físico J. Robert Oppenheimer y su papel como desarrollador de la bomba atómica. Basada en el libro 'American Prometheus: The Triumph and Tragedy of J. Robert Oppenheimer' de Kai Bird y Martin J. Sherwin.",
-          "youtube_id": "gMPEbJQun68",
-          "trailer_url": "https://www.youtube.com/watch?v=gMPEbJQun68",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "Los renglones torcidos de Dios",
-          "subtitle": "PELÍCULA • 2022 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2022",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/ukYuuFzPTumN1QNpQyz863bcNvr.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/lHhRU3jEnju4pKibOeYOgxaEw2y.jpg",
-          "overview": "Una familia danesa visita a una familia holandesa que conocieron en unas vacaciones. Lo que se suponía que iba a ser un fin de semana idílico comienza a desmoronarse lentamente a medida que los daneses intentan mantenerse educados frente a lo desagradable.",
-          "youtube_id": "VpZjyY4wPi0",
-          "trailer_url": "https://www.youtube.com/watch?v=VpZjyY4wPi0",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "Duna: Parte dos",
-          "subtitle": "PELÍCULA • 2024 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2024",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/xCHmhHeO7aOCMlzcNukGH6Q7EiD.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/eZ239CUp1d6OryZEBPnO2n87gMG.jpg",
-          "overview": "Sigue el viaje mítico de Paul Atreides mientras se une a Chani y los Fremen en una guerra de venganza contra los conspiradores que destruyeron a su familia. Al enfrentarse a una elección entre el amor de su vida y el destino del universo conocido, Paul se esfuerza por evitar un futuro terrible que solo él puede prever.",
-          "youtube_id": "ni55SHApxhA",
-          "trailer_url": "https://www.youtube.com/watch?v=ni55SHApxhA",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "Sugar",
-          "subtitle": "SERIE • 2024 • 16 cap. • 19m",
-          "media_type": "SERIE",
-          "year": "2024",
-          "extra_info": "16 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tLmwLYiI7EpPbhgmdeivNGY0xw7.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/hL8GNwTjFlvB3nyMuIYldLWWYb5.jpg",
-          "overview": "John Sugar es un detective privado que se adentra en los barrios más oscuros de L.A., aunque él solo ve lo bueno de la humanidad. A Sugar lo acecha un secreto demasiado peligroso.",
-          "youtube_id": "bb_UeDI7rT4",
-          "trailer_url": "https://www.youtube.com/watch?v=bb_UeDI7rT4",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "El botín",
-          "subtitle": "PELÍCULA • 2026 • 1h 45m",
-          "media_type": "PELÍCULA",
-          "year": "2026",
-          "extra_info": "1h 45m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/28hTjQCq0ul6WUR22qRsWEeuxlj.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/kwNIQW7egAmI66sb0zIugMbpCfU.jpg",
-          "overview": "El descubrimiento de varios millones de dólares en efectivo en un zulo abandonado de Miami quiebra la confianza de un grupo de policías. Ahora, todo y todos están bajo sospecha.",
-          "youtube_id": "QyNsK7ds8uU",
-          "trailer_url": "https://www.youtube.com/watch?v=QyNsK7ds8uU",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "LA SOCIEDAD DE LA NIEVE",
-          "subtitle": "PELÍCULA • 2023 • 1h 45m",
-          "media_type": "PELÍCULA",
-          "year": "2023",
-          "extra_info": "1h 45m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/9tkJPQb4X4VoU3S5nqLDohZijPj.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/md848EEPm3dHZOqwGxxTVwH2vu5.jpg",
-          "overview": "El 13 de octubre de 1972, el vuelo 571 de la Fuerza Aérea Uruguaya, fletado para llevar a un equipo de rugby a Chile, se estrella en un glaciar en el corazón de los Andes.",
-          "youtube_id": "l9tP4M8URhQ",
-          "trailer_url": "https://www.youtube.com/watch?v=l9tP4M8URhQ",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "El Reino",
-          "subtitle": "SERIE • 2021 • 719 cap. • 19m",
-          "media_type": "SERIE",
-          "year": "2021",
-          "extra_info": "719 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/gG7VzFKAOuGqCJyHQJRTn9f7UMl.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/5772mIxerrOtleSmFadAV8RyXQZ.jpg",
-          "overview": "Disfruta de El Reino en la plataforma.",
-          "youtube_id": "QMWtJ3Mx-8g",
-          "trailer_url": "https://www.youtube.com/watch?v=QMWtJ3Mx-8g",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "Terapia alternativa",
-          "subtitle": "SERIE • 2021 • 1 Temporada • 17 cap. • 39m",
-          "media_type": "SERIE",
-          "year": "2021",
-          "extra_info": "1 Temporada • 17 cap. • 39m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/kWete6wKQJB90idzRN5MLon1Pd8.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/vW7YFbpHDSkKLHwEbgPMCohbVLz.jpg",
-          "overview": "Selva es una consejera matrimonial excéntrica que se ha hecho famosa por sus sesiones poco convencionales. Pero la carrera de Selva se topa con un obstáculo cuando trata a Elías y a Malena, una joven pareja que busca orientación para separarse.",
-          "youtube_id": "lX15xJHRVtA",
-          "trailer_url": "https://www.youtube.com/watch?v=lX15xJHRVtA",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "Knives Out",
-          "subtitle": "PELÍCULA • 2019 • 1h 45m",
-          "media_type": "PELÍCULA",
-          "year": "2019",
-          "extra_info": "1h 45m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/7scJ3fVmwdSpGG87wvxH3kk0RPc.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/4HWAQu28e2yaWrtupFPGFkdNU7V.jpg",
-          "overview": "Cuando el renombrado novelista de misterio Harlan Thrombey es encontrado muerto en su mansión justo después de su 85 cumpleaños, el inquisitivo y cortés detective Benoit Blanc es misteriosamente reclutado para investigar. Se moverá entre una red de pistas falsas y mentiras interesadas para tratar de descubrir la verdad tras la prematura muerte del escritor.",
-          "youtube_id": "WoB-N1h4NlQ",
-          "trailer_url": "https://www.youtube.com/watch?v=WoB-N1h4NlQ",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "La noche de 12 años",
-          "subtitle": "PELÍCULA • 2018 • 1h 45m",
-          "media_type": "PELÍCULA",
-          "year": "2018",
-          "extra_info": "1h 45m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/mPipNlgQ63KmDEmKzMtKgF9cgBw.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/cdGuUnVxlngUNjfl7APfZLrQiZx.jpg",
-          "overview": "Año 1973. Uruguay está bajo el poder de la dictadura militar. Una noche de otoño, nueve presos Tupamaros son sacados de sus celdas en una operación militar secreta. La orden es precisa: \"como no pudimos matarles, vamos a volverles locos\". Los tres hombres permanecerán aislados durante 12 años. Durante más de una década, los presos permanecerán aislados en diminutas celdas en dónde pasarán la mayoría del tiempo encapuchados, atados, en silencio, privados de sus necesidades básicas, apenas alimentados, y viendo reducidos al mínimo sus sentidos. Entre ellos estaba Pepe Mújica, quien más tarde llegó a convertirse en presidente de Uruguay.",
-          "youtube_id": "sibdnOVc-fA",
-          "trailer_url": "https://www.youtube.com/watch?v=sibdnOVc-fA",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "El lobo de Wall Street",
-          "subtitle": "PELÍCULA • 2013 • 1h 45m",
-          "media_type": "PELÍCULA",
-          "year": "2013",
-          "extra_info": "1h 45m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/uthRoUeTtiep5HCoySlOjQSPCbJ.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/7Nwnmyzrtd0FkcRyPqmdzTPppQa.jpg",
-          "overview": "Película basada en hechos reales del corredor de bolsa neoyorquino Jordan Belfort. A mediados de los años 80, Belfort era un joven honrado que perseguía el sueño americano, pero pronto en la agencia de valores aprendió que lo más importante no era hacer ganar a sus clientes, sino ser ambicioso y ganar una buena comisión. Su enorme éxito y fortuna le valió el mote de \"El lobo de Wall Street\". Dinero. Poder. Mujeres. Drogas. Las tentaciones abundaban y el temor a la ley era irrelevante. Jordan y su manada de lobos consideraban que la discreción era una cualidad anticuada; nunca se conformaban con lo que tenían.",
-          "youtube_id": "DEMZSa0esCU",
-          "trailer_url": "https://www.youtube.com/watch?v=DEMZSa0esCU",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "Ford v Ferrari",
-          "subtitle": "PELÍCULA • 2019 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2019",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/kFkZFPBU7vnDDu4m9eOgk7w9W7O.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/2vq5GTJOahE03mNYZGxIynlHcWr.jpg",
-          "overview": "Se centra en un excéntrico y decidido equipo americano de ingenieros y diseñadores liderados por el visionario automovilístico Carroll Shelby y su conductor británico Ken Miles. Henry Ford II y Lee Iacocca les dan la misión de construir desde cero un nuevo automóvil con el fin de derrocar el dominio de Ferrari en el Campeonato del Mundo de Le Mans de 1966.",
-          "youtube_id": "vF74Jc2KSqQ",
-          "trailer_url": "https://www.youtube.com/watch?v=vF74Jc2KSqQ",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "El jardín de bronce",
-          "subtitle": "SERIE • 2017 • 2 Temporadas • 24 cap. • 45m",
-          "media_type": "SERIE",
-          "year": "2017",
-          "extra_info": "2 Temporadas • 24 cap. • 45m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/riEur2nRDGtOCD4EoDnsPDCwpNa.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/v5KXrQ78P2boBk2Zsjm53uTbcH.jpg",
-          "overview": "La vida de Fabián Danubio y su esposa Lila se derrumba cuando Moira, su hija de cuatro años, desaparece en el metro de Buenos Aires sin dejar rastros. Para la investigación del caso son asignados los policías, Raúl Mondragón y la recién incorporada al departamento, Lidia Blanco, quienes como primera línea de investigación, entrevistan a Jonathan Cisneros, el novio de Cecilia, la niñera también desaparecida.",
-          "youtube_id": "f7teRWv8wA8",
-          "trailer_url": "https://www.youtube.com/watch?v=f7teRWv8wA8",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "El irlandés",
-          "subtitle": "PELÍCULA • 2019 • 1h 45m",
-          "media_type": "PELÍCULA",
-          "year": "2019",
-          "extra_info": "1h 45m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/sNilmIAwBbH0DmBOWBS6gWvNDex.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/1RDto0tLo8Fhq7OcwgDaM7nECb7.jpg",
-          "overview": "Pennsylvania, 1956. Frank Sheeran, un veterano de guerra de origen irlandés que trabaja como camionero, conoce accidentalmente al mafioso Russell Bufalino. Una vez convertido en su hombre de confianza, Bufalino envía a Frank a Chicago con el encargo de ayudar a Jimmy Hoffa, un poderoso líder sindical relacionado con el crimen organizado, con quien Frank mantendrá una estrecha amistad durante casi veinte años.",
-          "youtube_id": "7strG6Gmoos",
-          "trailer_url": "https://www.youtube.com/watch?v=7strG6Gmoos",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "Cabo de miedo",
-          "subtitle": "SERIE • 2026 • 10 cap. • 19m",
-          "media_type": "SERIE",
-          "year": "2026",
-          "extra_info": "10 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/raCZsl0tmpNjSSWfmTZHfleECDF.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/maOzDEEudq82nN9lRTumrGo9MvJ.jpg",
-          "overview": "El caos se cierne sobre una pareja de abogados felizmente casados cuando un famoso asesino de su pasado sale de la cárcel.",
-          "youtube_id": "KvqYciK9jIY",
-          "trailer_url": "https://www.youtube.com/watch?v=KvqYciK9jIY",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "Huye",
-          "subtitle": "PELÍCULA • 2024 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2024",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/9lmyxRJtf9LR8gsKOeVnZiPRNXh.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/sFwkgsMOjQb8zuXKXozSoSetQqo.jpg",
-          "overview": "Una doctora de una clínica de fertilidad descubre que su hermana pequeña se comporta de una manera extraña, lo que pondrá a prueba sus valores y le obligará a afrontar los fantasmas de su pasado.",
-          "youtube_id": "xGhKr2uNkI4",
-          "trailer_url": "https://www.youtube.com/watch?v=xGhKr2uNkI4",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "Severance",
-          "subtitle": "SERIE • 2022 • 2 Temporadas • 19 cap. • 48m",
-          "media_type": "SERIE",
-          "year": "2022",
-          "extra_info": "2 Temporadas • 19 cap. • 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/wrZjYKxObEaWZmjB7scQMYo40o8.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/ixgFmf1X59PUZam2qbAfskx2gQr.jpg",
-          "overview": "Mark Scout dirige un equipo en Lumon Industries cuyos empleados se han sometido a un procedimiento quirúrgico que separa sus recuerdos entre trabajo y vida personal. Este arriesgado experimento de conciliación es puesto en tela de juicio cuando Mark se encuentra envuelto en un misterio que le obligará a confrontar la verdadera naturaleza de su trabajo y de sí mismo.",
-          "youtube_id": "69p1h2en2OI",
-          "trailer_url": "https://www.youtube.com/watch?v=69p1h2en2OI",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "La casa del dragón",
-          "subtitle": "SERIE • 2022 • 26 cap. • 19m",
-          "media_type": "SERIE",
-          "year": "2022",
-          "extra_info": "26 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/8MaxftF69sEAAD5673vTjIl8yT3.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/577eXC8wFQT0eUrJcgznSiFPRmk.jpg",
-          "overview": "Basada en el libro 'Fuego y Sangre' de George R.R. Martin. La serie se centra en la casa Targaryen, trescientos años antes de los eventos vistos en 'Juego de Tronos'.",
-          "youtube_id": "5h6XfziHUAA",
-          "trailer_url": "https://www.youtube.com/watch?v=5h6XfziHUAA",
-          "provider": "Recomendado para Ti"
-        }
-      ]
-    },
-    {
       "category": "Top 10: Misterio, Intriga y Suspenso",
       "items": [
         {
@@ -768,8 +503,8 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/lH3uawGaDUEV6oJNc5No4n8IQPA.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/cyKH7pDFlxIXluqRyNoHHEpxSDX.jpg",
           "overview": "Un exmarine se enfrenta a la corrupción en una pequeña ciudad cuando la policía local le confisca, de forma injusta, la bolsa de dinero que necesita para la fianza de su primo.",
-          "youtube_id": "avZjgVRxGzI",
-          "trailer_url": "https://www.youtube.com/watch?v=avZjgVRxGzI"
+          "youtube_id": "cAHSi8AXbCE",
+          "trailer_url": "https://www.youtube.com/watch?v=cAHSi8AXbCE"
         },
         {
           "title": "Slow Horses",
@@ -941,8 +676,8 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/kFkZFPBU7vnDDu4m9eOgk7w9W7O.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/2vq5GTJOahE03mNYZGxIynlHcWr.jpg",
           "overview": "Se centra en un excéntrico y decidido equipo americano de ingenieros y diseñadores liderados por el visionario automovilístico Carroll Shelby y su conductor británico Ken Miles. Henry Ford II y Lee Iacocca les dan la misión de construir desde cero un nuevo automóvil con el fin de derrocar el dominio de Ferrari en el Campeonato del Mundo de Le Mans de 1966.",
-          "youtube_id": "vF74Jc2KSqQ",
-          "trailer_url": "https://www.youtube.com/watch?v=vF74Jc2KSqQ"
+          "youtube_id": "7S2FOhGVGfE",
+          "trailer_url": "https://www.youtube.com/watch?v=7S2FOhGVGfE"
         },
         {
           "title": "El irlandes",
@@ -994,8 +729,8 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "overview": "No tenemos una sinopsis en español. Ayúdamos a ampliar nuestra base de datos añadiendo una.",
-          "youtube_id": "vMr7kbXDB0M",
-          "trailer_url": "https://www.youtube.com/watch?v=vMr7kbXDB0M"
+          "youtube_id": "bH1g07mBHGw",
+          "trailer_url": "https://www.youtube.com/watch?v=bH1g07mBHGw"
         },
         {
           "title": "El Reino",
@@ -1104,7 +839,7 @@
           "media_type": "SERIE",
           "year": "2026",
           "extra_info": "8 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/vehimd6qdCdLaGZbhuqUErw4Bp3.jpg",
+          "poster_url": "https://image.tmdb.org/t/p/w500/yfcCHbWg1XtFvqcp6cWmEnYWA7r.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/iAOPgUlh7inOebFrUFHAjnFRCGS.jpg",
           "overview": "Alice Black, una agente del FBI, persigue a una misteriosa y metódica asesina en serie. Ambas recorren su propio camino hacia la justicia y, a medida que sus vidas comienzan a entrelazarse, la línea entre el bien y el mal empieza a difuminarse.",
           "youtube_id": "Qg3arbZWdcg",
@@ -1135,28 +870,16 @@
           "trailer_url": "https://www.youtube.com/watch?v=MoH65JnEFko"
         },
         {
-          "title": "Adultos",
-          "subtitle": "PELÍCULA • 2026 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2026",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/oiIPU4lvnI0Ag2K9cyAi44eCaoE.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tBRSSfgqOAq7YlG8udcoJIBm2FG.jpg",
-          "overview": "En el paraíso costero de Goa, un poderoso cártel de la droga mueve los hilos tras una fachada de playas bañadas por el sol y vibrante cultura. A medida que las rutas del contrabando se convierten en campos de batalla y las lealtades se deshacen en sospechas, la paranoia se convierte en un medio de supervivencia.",
-          "youtube_id": "lockMMxd10s",
-          "trailer_url": "https://www.youtube.com/watch?v=lockMMxd10s"
-        },
-        {
-          "title": "Chad Powers: Mariscal de campo",
-          "subtitle": "SERIE • 2025 • 12 cap. • 19m",
+          "title": "The Americans",
+          "subtitle": "SERIE • 2013 • 75 cap. • 19m",
           "media_type": "SERIE",
-          "year": "2025",
-          "extra_info": "12 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/A0xADJotz0h8NtNWjzGpbzhVf62.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/r7uH0Wa7rzHyK83XQpxRZVH76u7.jpg",
-          "overview": "Ocho años después de que un error imperdonable echara por tierra su prometedora carrera en el fútbol universitario, el quarterback de primera Russ Holliday busca revivir sus sueños disfrazándose de Chad Powers, un talentoso personaje que se une a unos South Georgia Catfish que luchan por subsistir.",
-          "youtube_id": "1p9FMOnAS2o",
-          "trailer_url": "https://www.youtube.com/watch?v=1p9FMOnAS2o"
+          "year": "2013",
+          "extra_info": "75 cap. • 19m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/w1UBlxEXhbKe8sp0fxFZh7MqTce.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/7RrcmIQ7e37M3vMkUNAKCEA6uEy.jpg",
+          "overview": "Drama de época cuyos protagonistas son un matrimonio de espías del KGB que, en los años 80, viven cerca de Washington DC y se hacen pasar por estadounidenses. Phillip y Elizabeth Jennings tienen dos hijos que no saben nada sobre la verdadera identidad de sus padres. Tendrán que afrontar situaciones muy difícles debido al recrudecimiento de la Guerra Fría durante la presidencia de Ronald Reagan. Otro problema no menor es la creciente afinidad que siente Phillip por el modo de vida americano.",
+          "youtube_id": "wt7NPuabEgQ",
+          "trailer_url": "https://www.youtube.com/watch?v=wt7NPuabEgQ"
         },
         {
           "title": "El diablo viste de Prada 2",
@@ -1171,6 +894,18 @@
           "trailer_url": "https://www.youtube.com/watch?v=laIQnBssTzw"
         },
         {
+          "title": "City of Blood",
+          "subtitle": "SERIE • 2026 • 8 cap. • 19m",
+          "media_type": "SERIE",
+          "year": "2026",
+          "extra_info": "8 cap. • 19m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/dfCSK88iG2Z2V9u6sXZkruiygq7.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/icPBB9V5IX1hggtNs1fvskP2lsi.jpg",
+          "overview": "Berlín, una ciudad-estado al límite. La criminalidad conforma la vida cotidiana en un mundo destrozado por el cambio climático. Mientras unos pocos privilegiados viven bajo una cúpula totalmente climatizada, el resto de la ciudad se hunde en la corrupción y la violencia. Las hermanas Bea y Phoebe se separaron de niñas por un giro del destino. Bea, enferma crónica, creció protegida con su madre adoptiva, mientras Phoebe luchaba por sobrevivir en las calles de Berlín. Cuando sus mundos colisionan de nuevo la víspera de unas elecciones decisivas, descubren una verdad aterradora: los vampiros controlan el crimen organizado y están decididos a hacerse con el poder político. La sangre se ha convertido en la verdadera moneda de la ciudad. Atrapadas entre fuerzas rivales, Bea y Phoebe deben enfrentarse a la pregunta clave: ¿quién presenta la mayor amenaza: los humanos o los vampiros?",
+          "youtube_id": "u0Vmm4mWReQ",
+          "trailer_url": "https://www.youtube.com/watch?v=u0Vmm4mWReQ"
+        },
+        {
           "title": "El cuento de la criada",
           "subtitle": "SERIE • 2017 • 66 cap. • 19m",
           "media_type": "SERIE",
@@ -1183,40 +918,40 @@
           "trailer_url": "https://www.youtube.com/watch?v=kijUSE0VBEw"
         },
         {
-          "title": "Fragmentos",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/4YhUuuw0pOzLtImHaXcYh84jvGY.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/hTxquk5Ahfo6onbRfK38TsmAj1W.jpg",
-          "overview": "Diego decide poner rumbo a la roca volcánica paradisíaca con su mujer Alba para probar suerte por enésima vez en su matrimonio. Una relación sin sexualidad y discusiones continuas, de idas y venidas con personas de por medio, sin importar el daño que esto les causa. Alba permanece con su coraza cerrada sin ver que su actitud es la causa del naufragio de su relación. Irene y Ben son los anfitriones de la geria donde se hospedan. Una pareja de prometidos cuya felicidad tiende de un hilo con la llegada de sus invitados. “Siete preguntas para salvar tu matrimonio” en una revista de prensa rosa será lo que destape la verdad de ambas relaciones.",
-          "youtube_id": "f9pNIwId6wA",
-          "trailer_url": "https://www.youtube.com/watch?v=f9pNIwId6wA"
-        },
-        {
-          "title": "X-Men' 97",
-          "subtitle": "SERIE • 2024 • 16 cap. • 19m",
+          "title": "El oso",
+          "subtitle": "SERIE • 2022 • 46 cap. • 19m",
           "media_type": "SERIE",
-          "year": "2024",
-          "extra_info": "16 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/oudLzoZ9vqcH7BQAOAeHeC7bcjT.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/jIyEmnBrZtl6SEWyBoMO2hZnzMa.jpg",
-          "overview": "X-Men '97 vuelve a la icónica época de los años 90, donde los X-Men, un grupo de mutantes que utilizan sus asombrosos poderes para proteger a un mundo que los odia y los teme, se enfrentarán a su mayor desafío y a un nuevo, insospechado y peligroso futuro.",
-          "youtube_id": "o-dnfm7cDtU",
-          "trailer_url": "https://www.youtube.com/watch?v=o-dnfm7cDtU"
+          "year": "2022",
+          "extra_info": "46 cap. • 19m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/5TZnk9ryzfcNlsCOghURfZsBong.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/aJtG4txtmiRHwAAqENQHZvBs6kY.jpg",
+          "overview": "Un joven chef lucha por transformar una tienda de bocadillos junto a un equipo de cocineros novatos.",
+          "youtube_id": "7pVIdkd37k0",
+          "trailer_url": "https://www.youtube.com/watch?v=7pVIdkd37k0"
         },
         {
-          "title": "El sexto sentido",
-          "subtitle": "PELÍCULA • 1999 • 1h 48m",
+          "title": "Otra Tierra",
+          "subtitle": "PELÍCULA • 2011 • 1h 48m",
           "media_type": "PELÍCULA",
-          "year": "1999",
+          "year": "2011",
           "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/pvjph7FouToPBY3PhTvTyOYoJDX.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/6TjllWT3cGrPFyqDXurVZ3L8bBi.jpg",
-          "overview": "El Dr. Malcom Crowe es un conocido psicólogo infantil obsesionado con el doloroso recuerdo de un joven paciente desequilibrado al que fue incapaz de ayudar. Cole Sear es un aterrorizado y confuso niño de ocho años que necesita tratamiento, y Crowe ve la oportunidad de redimirse haciendo todo lo posible por ayudarle. Sin embargo, el psicólogo infantil no está preparado para conocer la terrible verdad acerca del don sobrenatural de su paciente: recibe visitas no deseadas de espíritus atormentados.",
-          "youtube_id": "zfOdk9JDzSw",
-          "trailer_url": "https://www.youtube.com/watch?v=zfOdk9JDzSw"
+          "poster_url": "https://image.tmdb.org/t/p/w500/bQLQE2p91XWS8YVjX6rxtNXKvd2.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/fJfpZnS2pvFCtyaDqoIgKLASvAT.jpg",
+          "overview": "Rhoda Williams, una brillante joven que acaba de ser aceptada en un programa de astrofísica del MIT, aspira a explorar el universo. John Burroughs, un compositor que acaba de alcanzar la cima de su carrera, está a punto de ser padre por segunda vez. Rhoda y John no se conocen, pero la víspera del descubrimiento de un Planeta Tierra duplicado tiene lugar una horrible tragedia que entrelaza y altera de modo irreversible sus vidas.",
+          "youtube_id": "UPDVXV39A2M",
+          "trailer_url": "https://www.youtube.com/watch?v=UPDVXV39A2M"
+        },
+        {
+          "title": "Chad Powers: Mariscal de campo",
+          "subtitle": "SERIE • 2025 • 12 cap. • 19m",
+          "media_type": "SERIE",
+          "year": "2025",
+          "extra_info": "12 cap. • 19m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/A0xADJotz0h8NtNWjzGpbzhVf62.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/r7uH0Wa7rzHyK83XQpxRZVH76u7.jpg",
+          "overview": "Ocho años después de que un error imperdonable echara por tierra su prometedora carrera en el fútbol universitario, el quarterback de primera Russ Holliday busca revivir sus sueños disfrazándose de Chad Powers, un talentoso personaje que se une a unos South Georgia Catfish que luchan por subsistir.",
+          "youtube_id": "Ou8ESo5tOk0",
+          "trailer_url": "https://www.youtube.com/watch?v=Ou8ESo5tOk0"
         }
       ]
     },
@@ -1236,6 +971,18 @@
           "trailer_url": "https://www.youtube.com/watch?v=EiGvFiCUXRo"
         },
         {
+          "title": "Gandhari",
+          "subtitle": "PELÍCULA • 2026 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2026",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/hCHei97aPYCCsh4vicz9X0wmdFV.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/sT5WVT8LzvDwIbfy9BGXK0fvf3s.jpg",
+          "overview": "Sigue la incesante búsqueda de una madre para encontrar y rescatar a su hija secuestrada, y explora temas de venganza y redención en medio de su angustioso viaje.",
+          "youtube_id": "B3EjMSNYVTQ",
+          "trailer_url": "https://www.youtube.com/watch?v=B3EjMSNYVTQ"
+        },
+        {
           "title": "Una mujer sin pasado",
           "subtitle": "PELÍCULA • 2026 • 1h 48m",
           "media_type": "PELÍCULA",
@@ -1246,6 +993,18 @@
           "overview": "Tras descubrir que tiene familia y un imperio naviero, una mujer con amnesia vuelve a su pasado acomodado y aparentemente perfecto para entender por qué lo abandonó.",
           "youtube_id": "D3ByjSwwfSU",
           "trailer_url": "https://www.youtube.com/watch?v=D3ByjSwwfSU"
+        },
+        {
+          "title": "¿Por qué me casé, entonces?",
+          "subtitle": "PELÍCULA • 2026 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2026",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/exWdEF4PJsGpX9HeLQsedBgTkj8.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/lJYniNRM2i9wXnfWVHOB4PxygFZ.jpg",
+          "overview": "Las parejas se reencuentran para la boda de la hija de Marcus y Angela y traen consigo viejos y nuevos dramas mientras se preguntan: «¿Por qué nos casamos otra vez?».",
+          "youtube_id": "JjSDhPhZGNU",
+          "trailer_url": "https://www.youtube.com/watch?v=JjSDhPhZGNU"
         },
         {
           "title": "En la tormenta",
@@ -1260,52 +1019,40 @@
           "trailer_url": "https://www.youtube.com/watch?v=2cOJZikhFig"
         },
         {
+          "title": "The Alto Knights: Mafia y poder",
+          "subtitle": "PELÍCULA • 2025 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2025",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/fZrMqok5ZQH82R1YqBu3LcG26ON.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/iveeHEGtkq0dBJZtOcoK650sZ6x.jpg",
+          "overview": "Vito Genovese y Frank Costello, un par de italoamericanos que dirigen dos familias criminales separadas a mediados del siglo XX. Genovese intentó asesinar a Costello en 1957, aunque Costello se retiró de la mafia.",
+          "youtube_id": "BIXijyc6qcY",
+          "trailer_url": "https://www.youtube.com/watch?v=BIXijyc6qcY"
+        },
+        {
           "title": "Abigail",
-          "subtitle": "SERIE • 1988 • 257 cap. • 19m",
-          "media_type": "SERIE",
-          "year": "1988",
-          "extra_info": "257 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/7Ds9OIXqiZZiVO8g2hHF6DmwMkO.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/8FzeMl2cdikX7sbBdNwjj3We22T.jpg",
-          "overview": "Abigail, una colegiala excepcionalmente hermosa, pícara y traviesa que provoca distracciones continuas en su escuela, desea capturar el afecto de su profesor Carlos Alfredo, un joven inteligente, pero que no pertenece a la clase social de Abigail.",
+          "subtitle": "PELÍCULA • 2024 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2024",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/1wIp3yBijtgEpQrHZLqoX5laGLJ.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/2TPoqmatGDfBOiRxqNoL11ncCJe.jpg",
+          "overview": "A una banda de delincuentes se les ha encargado secuestrar a Abigail, una bailarina de doce años hija de una poderosa figura del inframundo. Su misión requiere también vigilarla durante la noche para poder cobrar un rescate de 50 millones de dólares. En una mansión aislada, los captores comienzan a desaparecer, uno por uno, y descubren, para su creciente horror, que la pequeña niña con la que están encerrados no es normal y está mostrando su verdadera naturaleza.",
           "youtube_id": "E8KysONydqc",
           "trailer_url": "https://www.youtube.com/watch?v=E8KysONydqc"
         },
         {
-          "title": "La captura",
+          "title": "Gracias, equipo",
           "subtitle": "PELÍCULA • 2026 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2026",
           "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/iwCeOpuBtuTP1kLosqgniey5OvX.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/c4U96GrPRfnNrS01mBtqnocvlLJ.jpg",
-          "overview": "2016, estado de Sinaloa. Dos policías mexicanos, durante un control rutinario en las últimas horas de su turno, detienen un coche robado y se encuentran cara a cara con uno de los delincuentes más peligrosos del mundo: el Chapó Guzmán, patrón del temible Cártel de Sinaloa.",
-          "youtube_id": "uIaPDKA0-Y4",
-          "trailer_url": "https://www.youtube.com/watch?v=uIaPDKA0-Y4"
-        },
-        {
-          "title": "Los Duros​",
-          "subtitle": "PELÍCULA • 1970 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "1970",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/A1kXHyNajQsvG3c57difVszKfV3.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/A1kXHyNajQsvG3c57difVszKfV3.jpg",
-          "overview": "Disfruta de Los Duros​ en la plataforma.",
-          "youtube_id": "4bDKG_E-wo4",
-          "trailer_url": "https://www.youtube.com/watch?v=4bDKG_E-wo4"
-        },
-        {
-          "title": "Shrek",
-          "subtitle": "PELÍCULA • 2001 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2001",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/jTQONM7jt1yv2lL972TtmWO0UIZ.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/w0eKUOEog2ImtktCHAMUZws8qif.jpg",
-          "overview": "Hace mucho, mucho tiempo, en una lejanísima ciénaga vivía un intratable ogro llamado Shrek. Pero de repente, un día, su absoluta soledad se ve interrumpida por una invasión de sorprendentes personajes de cuento. Hay ratoncitos ciegos en su comida, un enorme y malísimo lobo en su cama, tres cerditos sin hogar y otros muchos seres increíbles que han sido deportados de su reino por el malvado Lord Farquaad. Para conseguir salvar su terreno, y de paso a sí mismo, Shrek hace un pacto con Farquaad y emprende viaje para conseguir que la preciosa princesa Fiona sea la novia del Lord. En tan importante misión le acompañan un burro chistoso, dispuesto a hacer cualquier cosa por Shrek. Todo, menos estarse calladito. Rescatar a la princesa de una dragona enamoradiza que suelta fuego al respirar va a resultar una tontería comparado con lo que ocurre cuando el oscuro secreto que la joven guardaba es revelado.",
-          "youtube_id": "0rlPXNOXqnA",
-          "trailer_url": "https://www.youtube.com/watch?v=0rlPXNOXqnA"
+          "poster_url": "https://image.tmdb.org/t/p/w500/aVGaBCt8g0Q990jKW85wTJKotev.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/24JmHBUaZVmZRoEMjzejLL3sJc5.jpg",
+          "overview": "Nos contará la historia de la empresa Tío Mochales, antaño reina indiscutible del queso español. Hoy es una empresa un poco oxidada pero empeñada en mantener la imagen. Su última gran idea: organizar un team building rural en el pueblo donde la empresa se fundó. Pero lo que debía ser un retiro para reconectar con los valores de siempre, se convierte en una encerrona cuando descubren que se vienen despidos, y muchos, seguida de una batalla campal de peloteo, traiciones y filtraciones",
+          "youtube_id": "s7YIksH8G_8",
+          "trailer_url": "https://www.youtube.com/watch?v=s7YIksH8G_8"
         },
         {
           "title": "Huye, conejo, huye",
@@ -1320,28 +1067,28 @@
           "trailer_url": "https://www.youtube.com/watch?v=0JO-TDrWm7k"
         },
         {
-          "title": "David",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
+          "title": "Los Duros​",
+          "subtitle": "PELÍCULA • 1970 • 1h 48m",
           "media_type": "PELÍCULA",
-          "year": "2025",
+          "year": "1970",
           "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tQdGrkZbGuCUReW9VibTwJchFbL.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/mZ6J2g6HCV2gj3iuCdSxcyBXq9c.jpg",
-          "overview": "En un reino gobernado por el miedo, un joven pastor se atreve a enfrentarse a un gigante y a la oscuridad que se oculta tras él. Su valor despertará a una nación y demostrará que la verdadera fuerza proviene de la confianza, no del poder.",
-          "youtube_id": "s2s3xQc9ffc",
-          "trailer_url": "https://www.youtube.com/watch?v=s2s3xQc9ffc"
+          "poster_url": "https://image.tmdb.org/t/p/w500/A1kXHyNajQsvG3c57difVszKfV3.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/A1kXHyNajQsvG3c57difVszKfV3.jpg",
+          "overview": "Disfruta de Los Duros​ en la plataforma.",
+          "youtube_id": "4bDKG_E-wo4",
+          "trailer_url": "https://www.youtube.com/watch?v=4bDKG_E-wo4"
         },
         {
-          "title": "Shrek 2",
-          "subtitle": "PELÍCULA • 2004 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2004",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/knRt4E8KyfwEv0SVu9LsLvD28IQ.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/8ohobj5lAIbl5XWw11FywS3IRrS.jpg",
-          "overview": "Cuando Shrek y la princesa Fiona regresan de su luna de miel, los padres de ella los invitan a visitar el reino de Muy Muy Lejano para celebrar la boda. Para Shrek, al que nunca abandona su fiel amigo Asno, esto constituye un gran problema. Los padres de Fiona, por su parte, no esperaban que su yerno tuviera un aspecto semejante y, mucho menos, que su hija hubiera cambiado tanto. Todo esto trastoca los planes del rey respecto al futuro del reino. Pero entonces entran en escena la maquiavélica Hada Madrina, su arrogante hijo el Príncipe Encantador y un minino muy especial: el Gato con Botas, experto cazador de ogros.",
-          "youtube_id": "7DJ5sop9oSc",
-          "trailer_url": "https://www.youtube.com/watch?v=7DJ5sop9oSc"
+          "title": "El club gastronómico",
+          "subtitle": "SERIE • 2026 • 7 cap. • 19m",
+          "media_type": "SERIE",
+          "year": "2026",
+          "extra_info": "7 cap. • 19m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/wmKOX8g6iE4jmf4B2mr3yo6Qg2P.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/vYO9OkYHSNfYuqz6VMS4aCCfRb8.jpg",
+          "overview": "Luego de que uno de ellos muere en un incendio, cuatro parejas que parecían perfectas se ven forzadas a cuestionar todo lo que creían saber los unos de los otros.",
+          "youtube_id": "L03HAxZINz0",
+          "trailer_url": "https://www.youtube.com/watch?v=L03HAxZINz0"
         },
         {
           "title": "Moria",
@@ -1356,40 +1103,16 @@
           "trailer_url": "https://www.youtube.com/watch?v=u_nfOOsUQeY"
         },
         {
-          "title": "La muerte de la esposa del pastor",
-          "subtitle": "SERIE • 2026 • 3 cap. • 19m",
+          "title": "Los caballeros",
+          "subtitle": "SERIE • 1986 • 114 cap. • 19m",
           "media_type": "SERIE",
-          "year": "2026",
-          "extra_info": "3 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/smK3zo50v4eHwWjWKyhUgicJUxL.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/gXX5VDz1jh0Adqo8a8QPHJthiEl.jpg",
-          "overview": "¿Qué le pasó a Mica Miller? Esta serie documental reconstruye su prometedora vida, su conflictivo matrimonio y las incógnitas que rodearon su misteriosa muerte.",
-          "youtube_id": "f14hVxPKMm8",
-          "trailer_url": "https://www.youtube.com/watch?v=f14hVxPKMm8"
-        },
-        {
-          "title": "Beauty in Black",
-          "subtitle": "SERIE • 2024 • 40 cap. • 19m",
-          "media_type": "SERIE",
-          "year": "2024",
-          "extra_info": "40 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/xKk4bFCCpZ9tvjUykvvMYLSBnjo.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/ywJcUIMTCjstPLvvyIiPWP3G3m3.jpg",
-          "overview": "El destino de una stripper da un vuelco cuando se cruza con una rica familia disfuncional que maneja un emporio de cosmética y un retorcido negocio de tráfico de personas.",
-          "youtube_id": "26WNZNFxpac",
-          "trailer_url": "https://www.youtube.com/watch?v=26WNZNFxpac"
-        },
-        {
-          "title": "Toda la verdad de mis mentiras",
-          "subtitle": "SERIE • 2026 • 5 cap. • 19m",
-          "media_type": "SERIE",
-          "year": "2026",
-          "extra_info": "5 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/dAISEl3uXtw64jlkTCm1H1XnQ4W.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/h3QvZs2bqRmN2hfVd1FZ9XrCZDm.jpg",
-          "overview": "Dos compañeros de piso se apuntan a una despedida de soltera en caravana, donde afloran sentimientos que dejan huella en todos sus amigos.",
-          "youtube_id": "QET2gy8nb6o",
-          "trailer_url": "https://www.youtube.com/watch?v=QET2gy8nb6o"
+          "year": "1986",
+          "extra_info": "114 cap. • 19m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/9RTWmNrzy7IfpdpMOynjT5KDfVP.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/xqi7xzgzed2TyVuoXBmm6neYGee.jpg",
+          "overview": "Según la leyenda, hace siglos, jóvenes guerreros investidos de grandes poderes al canalizar el cosmos dentro de ellos eran los encargados de proteger a Atenea, la Diosa de la Guerra. Años después, ahora es la princesa Saori Kido, reencarnación de la Diosa, quien debe recibir protección. Un jovén llamado Seiya se ha entrenado con el fin de convertirse en caballero y conseguir la armadura de Pegaso. A él se unen otros caballeros con sus armaduras para luchar por la diosa Atenea.",
+          "youtube_id": "jfP4OGskLis",
+          "trailer_url": "https://www.youtube.com/watch?v=jfP4OGskLis"
         },
         {
           "title": "Mal de Amores",
@@ -1400,8 +1123,44 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/ee6yRTxGSsFKcynzvSJDziBmclz.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/avfnPYtyKXjgnhqtKAt1PZO2h5I.jpg",
           "overview": "En plena Revolución mexicana, Emilia Sauri desafía las convenciones sociales para cumplir su sueño de ejercer la medicina y encontrar el amor, su lugar y la libertad.",
-          "youtube_id": "GiuYY94Y69g",
-          "trailer_url": "https://www.youtube.com/watch?v=GiuYY94Y69g"
+          "youtube_id": "6zcp5UYtW-4",
+          "trailer_url": "https://www.youtube.com/watch?v=6zcp5UYtW-4"
+        },
+        {
+          "title": "La timonel",
+          "subtitle": "SERIE • 2026 • 8 cap. • 19m",
+          "media_type": "SERIE",
+          "year": "2026",
+          "extra_info": "8 cap. • 19m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/7QMTxQf6GXYlMI64yNd7lKXiIux.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/lmtTtOjsIBxwKD7LsAD5eeyhq1g.jpg",
+          "overview": "Tras un escándalo familiar, la adolescente Teagan Tao se muda a una pequeña localidad y se une a un equipo masculino de élite, donde despierta rivalidades… y pasiones.",
+          "youtube_id": "DAoOfq22fH0",
+          "trailer_url": "https://www.youtube.com/watch?v=DAoOfq22fH0"
+        },
+        {
+          "title": "En coma",
+          "subtitle": "SERIE • 2026 • 50 cap. • 19m",
+          "media_type": "SERIE",
+          "year": "2026",
+          "extra_info": "50 cap. • 19m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/PXTBzvEgxXT49RYSurT6xkNZU7.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/Aoz8YOuq0POpE7rDcYzpLdNMv70.jpg",
+          "overview": "Luego de que una explosión dejara a Anabel en coma, Rafael —un enfermero que escucha a los muertos— debe ayudarla a mantenerse con vida antes de que sus enemigos la encuentren.",
+          "youtube_id": "S6ZJcRtr2Kw",
+          "trailer_url": "https://www.youtube.com/watch?v=S6ZJcRtr2Kw"
+        },
+        {
+          "title": "Fauda",
+          "subtitle": "SERIE • 2015 • 59 cap. • 19m",
+          "media_type": "SERIE",
+          "year": "2015",
+          "extra_info": "59 cap. • 19m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/bc6XIKP1TrnugYMzIIUz9YCL8VM.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/l7BDJsD2zRYHvu3G7qV1v7q5hoF.jpg",
+          "overview": "\"Fauda\" (en árabe \"Caos\") representa la historia de dos lados del conflicto israelí-palestino. Doron, un comandante de la unidad secreta israelí que opera dentro de los territorios palestinos, y su equipo, están persiguiendo al activista de Hamas, Abu-Ahmed. Al otro lado de la valla, la vida trágica de Abu-Ahmed y su familia, y las razones de su creciente odio hacia Israel.",
+          "youtube_id": "pHJWceNGoP4",
+          "trailer_url": "https://www.youtube.com/watch?v=pHJWceNGoP4"
         },
         {
           "title": "Sacrificio de sangre",
@@ -1416,58 +1175,46 @@
           "trailer_url": "https://www.youtube.com/watch?v=zP7tJor__Fw"
         },
         {
-          "title": "Los caballeros",
-          "subtitle": "SERIE • 1986 • 114 cap. • 19m",
-          "media_type": "SERIE",
-          "year": "1986",
-          "extra_info": "114 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/9RTWmNrzy7IfpdpMOynjT5KDfVP.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/xqi7xzgzed2TyVuoXBmm6neYGee.jpg",
-          "overview": "Según la leyenda, hace siglos, jóvenes guerreros investidos de grandes poderes al canalizar el cosmos dentro de ellos eran los encargados de proteger a Atenea, la Diosa de la Guerra. Años después, ahora es la princesa Saori Kido, reencarnación de la Diosa, quien debe recibir protección. Un jovén llamado Seiya se ha entrenado con el fin de convertirse en caballero y conseguir la armadura de Pegaso. A él se unen otros caballeros con sus armaduras para luchar por la diosa Atenea.",
-          "youtube_id": "jfP4OGskLis",
-          "trailer_url": "https://www.youtube.com/watch?v=jfP4OGskLis"
-        },
-        {
-          "title": "Cementerio",
-          "subtitle": "SERIE • 2022 • 20 cap. • 19m",
-          "media_type": "SERIE",
-          "year": "2022",
-          "extra_info": "20 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/ye6n3GdSaiSy81hiIRvf3vjVv1N.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/g9Qn9LBk9fKKgxHtPFqkKnglsm8.jpg",
-          "overview": "En un sótano oscuro, donde una unidad especial trabaja para resolver asesinatos de mujeres sin resolver, el Comisario Önem, tendrá que luchar contra los prejuicios masculinos que sustentan la violencia machista.",
-          "youtube_id": "TbMXCrbiLAs",
-          "trailer_url": "https://www.youtube.com/watch?v=TbMXCrbiLAs"
-        },
-        {
-          "title": "Outer Banks",
-          "subtitle": "SERIE • 2020 • 50 cap. • 19m",
-          "media_type": "SERIE",
-          "year": "2020",
-          "extra_info": "50 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/ovDgO2LPfwdVRfvScAqo9aMiIW.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/fjJ0aqDeDXFzmFXXJ4CF3ryB19b.jpg",
-          "overview": "En una isla de Carolina del Norte dividida entre ricos y pobres, John B y su unida tripulación de amigos se enfrentan a misterios y aventuras mientras buscan un tesoro perdido.",
-          "youtube_id": "AA6RoPekPUs",
-          "trailer_url": "https://www.youtube.com/watch?v=AA6RoPekPUs"
-        },
-        {
-          "title": "Ratonera",
-          "subtitle": "SERIE • 2026 • 10 cap. • 19m",
+          "title": "La muerte de la esposa del pastor",
+          "subtitle": "SERIE • 2026 • 3 cap. • 19m",
           "media_type": "SERIE",
           "year": "2026",
-          "extra_info": "10 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/vLA4OPULuoycF64ugkNXGURvp08.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/3bHz9dYSZ5XDxY0zDaBpYgUOhE2.jpg",
-          "overview": "Un escritor solitario despierta un día y descubre que le han robado la identidad, de modo que se alía con un despiadado usurero para recuperar su vida de las manos de «La Rata».",
-          "youtube_id": "4w2-kXKQdJg",
-          "trailer_url": "https://www.youtube.com/watch?v=4w2-kXKQdJg"
+          "extra_info": "3 cap. • 19m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/smK3zo50v4eHwWjWKyhUgicJUxL.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/gXX5VDz1jh0Adqo8a8QPHJthiEl.jpg",
+          "overview": "¿Qué le pasó a Mica Miller? Esta serie documental reconstruye su prometedora vida, su conflictivo matrimonio y las incógnitas que rodearon su misteriosa muerte.",
+          "youtube_id": "f14hVxPKMm8",
+          "trailer_url": "https://www.youtube.com/watch?v=f14hVxPKMm8"
         }
       ]
     },
     {
       "category": "Top 10 Prime Video",
       "items": [
+        {
+          "title": "Enfrentados: Marfil",
+          "subtitle": "PELÍCULA • 2026 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2026",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/umlft1ztFbUcnHf960pXJocjpdv.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/i65y7cMae36K0giN0GRaMjAHUru.jpg",
+          "overview": "Parte 1 de la saga Enfrentados. Marfil, hija de un poderoso empresario español, ve cómo su vida en Nueva York da un vuelco al ser secuestrada y liberada sin explicación. Su padre contrata a Sebastian Moore como guardaespaldas y, forzados a pasar cada minuto juntos, surgirá una irremediable atracción en un mundo donde nada es lo que parece. Basada en la novela de Mercedes Ron, saga Culpables",
+          "youtube_id": "djLAS5I0fqQ",
+          "trailer_url": "https://www.youtube.com/watch?v=djLAS5I0fqQ"
+        },
+        {
+          "title": "Proyecto Salvación",
+          "subtitle": "PELÍCULA • 2026 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2026",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/7lwOTxajURKEWO6gI370NTrVdBO.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/8Tfys3mDZVp4tNoH2ktm06a0Tau.jpg",
+          "overview": "El profesor de ciencias Ryland Grace se despierta en una nave espacial a años luz de casa sin recordar quién es ni cómo ha llegado hasta allí. A medida que recupera la memoria, empieza a descubrir su misión: resolver el enigma de la misteriosa sustancia que provoca la extinción del sol. Deberá recurrir a sus conocimientos científicos y a sus ideas poco ortodoxas para salvar todo lo que hay en la Tierra de la extinción pero una amistad inesperada significa que quizá no tenga que hacerlo solo.",
+          "youtube_id": "jz6JB0LCNRs",
+          "trailer_url": "https://www.youtube.com/watch?v=jz6JB0LCNRs"
+        },
         {
           "title": "Barreda",
           "subtitle": "PELÍCULA • 2026 • 1h 48m",
@@ -1481,28 +1228,16 @@
           "trailer_url": "https://www.youtube.com/watch?v=6Otcjy6Vp3A"
         },
         {
-          "title": "Proyecto Salvación",
-          "subtitle": "PELÍCULA • 2026 • 1h 48m",
+          "title": "Aniversario",
+          "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
-          "year": "2026",
+          "year": "2025",
           "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/7lwOTxajURKEWO6gI370NTrVdBO.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/2I1OFQJ0L9T0dpU6FobKFWV2PxX.jpg",
-          "overview": "El profesor de ciencias Ryland Grace se despierta en una nave espacial a años luz de casa sin recordar quién es ni cómo ha llegado hasta allí. A medida que recupera la memoria, empieza a descubrir su misión: resolver el enigma de la misteriosa sustancia que provoca la extinción del sol. Deberá recurrir a sus conocimientos científicos y a sus ideas poco ortodoxas para salvar todo lo que hay en la Tierra de la extinción pero una amistad inesperada significa que quizá no tenga que hacerlo solo.",
-          "youtube_id": "jz6JB0LCNRs",
-          "trailer_url": "https://www.youtube.com/watch?v=jz6JB0LCNRs"
-        },
-        {
-          "title": "A la carrera",
-          "subtitle": "PELÍCULA • 2026 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2026",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/aBzKyfruwaUgU2qYYtMO7vC1Pv2.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/jzBWExXacS33rMQ2zLBrqIVweyG.jpg",
-          "overview": "En el thriller psicológico A la carrera, Maia Marten, una brillante abogada londinense, ve cómo su vida se desmorona tras recibir una llamada durante su carrera matutina: han secuestrado a su hijo. Para recuperarlo, debe seguir corriendo, cumplir todas las órdenes despiadadas y no confiar en nadie. Cada segundo es una prueba de hasta dónde puede llegar una madre para salvar a su hijo.",
-          "youtube_id": "A4ESt5_aHGQ",
-          "trailer_url": "https://www.youtube.com/watch?v=A4ESt5_aHGQ"
+          "poster_url": "https://image.tmdb.org/t/p/w500/ivuxh5CskKOHcjgCmjZRBvxGwBL.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/mNUciC3vHhoskveYsO3hiFypqMz.jpg",
+          "overview": "Cuando Josh, el hijo de Ellen y Paul, presenta a su nueva novia en la fiesta de su vigesimoquinto aniversario, nadie sospecha que es el principio del fin para esta familia feliz. La nueva novia es Liz, una antigua alumna de Ellen que dejó la universidad unos años antes, después de que Ellen la confrontara en clase por su ideología radical.",
+          "youtube_id": "dG4MaQc3XGk",
+          "trailer_url": "https://www.youtube.com/watch?v=dG4MaQc3XGk"
         },
         {
           "title": "Reacher",
@@ -1517,16 +1252,28 @@
           "trailer_url": "https://www.youtube.com/watch?v=DXoSuypROBE"
         },
         {
-          "title": "Hokum: La Maldición de la Bruja",
-          "subtitle": "PELÍCULA • 2026 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2026",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/hzOJEzqrOtwXbPw1U5nZMvTaljQ.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/qY7zVZ7liULhfRoXg4c9Xl83LcR.jpg",
-          "overview": "Un escritor especializado en historias de terror decide viajar a una posada de Irlanda con la intención de esparcir en la zona las cenizas de sus difuntos padres. Lo que no sabe es que la posada es un lugar maldito habitado por una bruja. O eso cuentan los lugareños que viven cerca del lugar",
-          "youtube_id": "40J3QkxXJf0",
-          "trailer_url": "https://www.youtube.com/watch?v=40J3QkxXJf0"
+          "title": "El mentalista",
+          "subtitle": "SERIE • 2008 • 151 cap. • 19m",
+          "media_type": "SERIE",
+          "year": "2008",
+          "extra_info": "151 cap. • 19m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/snKUzvCl3kGv0RWBjEjnOXMGvdl.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/rJFqKcmMSttdNP58l0dVzY2NcTA.jpg",
+          "overview": "El mentalista es una serie policiaca americana sobre Patrick Jane, ex médium, que trabaja de asesor para la Oficina de Investigación de California (California Bureau of Investigation), usando su altamente desarrollada capacidad de observación, que anteriormente usaba para \"leer\" mentes.",
+          "youtube_id": "a36Wt1oq_lI",
+          "trailer_url": "https://www.youtube.com/watch?v=a36Wt1oq_lI"
+        },
+        {
+          "title": "Tierra de mafiosos",
+          "subtitle": "SERIE • 2025 • 20 cap. • 19m",
+          "media_type": "SERIE",
+          "year": "2025",
+          "extra_info": "20 cap. • 19m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/xOBnonAeHiZuiTPOLBFMFSPI6jy.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/vW6oPZEdqxZyQIYimouqA5b78mT.jpg",
+          "overview": "El poder está en juego cuando los Harrigan y los Stevenson, dos familias criminales londinenses en guerra, se enfrentan en una batalla de matar o morir que amenaza con derribar imperios y arruinar vidas. Atrapado en el fuego cruzado está Harry Da Souza, el astuto \"solucionador\" tan peligroso como atractivo, que sabe muy bien dónde están las lealtades cuando las fuerzas opuestas chocan. A medida que los reinos se enfrentan, se cruzarán las líneas, y la única gracia salvadora es una garantía de vida o muerte: la familia por encima de todo.",
+          "youtube_id": "FRRGpLVGRXc",
+          "trailer_url": "https://www.youtube.com/watch?v=FRRGpLVGRXc"
         },
         {
           "title": "El drama",
@@ -1541,52 +1288,28 @@
           "trailer_url": "https://www.youtube.com/watch?v=pn8-dhxHVX8"
         },
         {
-          "title": "El mentalista",
-          "subtitle": "SERIE • 2008 • 151 cap. • 19m",
-          "media_type": "SERIE",
-          "year": "2008",
-          "extra_info": "151 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/snKUzvCl3kGv0RWBjEjnOXMGvdl.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/rJFqKcmMSttdNP58l0dVzY2NcTA.jpg",
-          "overview": "El mentalista es una serie policiaca americana sobre Patrick Jane, ex médium, que trabaja de asesor para la Oficina de Investigación de California (California Bureau of Investigation), usando su altamente desarrollada capacidad de observación, que anteriormente usaba para \"leer\" mentes.",
-          "youtube_id": "fJl0QBspvJg",
-          "trailer_url": "https://www.youtube.com/watch?v=fJl0QBspvJg"
-        },
-        {
-          "title": "Good Time: Viviendo al límite",
-          "subtitle": "PELÍCULA • 2017 • 1h 48m",
+          "title": "El hombre de los sueños",
+          "subtitle": "PELÍCULA • 2023 • 1h 48m",
           "media_type": "PELÍCULA",
-          "year": "2017",
+          "year": "2023",
           "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/1UWumNfHLu2yxzlJHziaUcd4mam.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/5AhkjcqqRxBdpYZ0TeOuTCuOUYq.jpg",
-          "overview": "Después de que el robo chapucero de un banco acabe con su hermano pequeño en prisión, Constantine Nikas se embarca en una odisea a través del mundo subterráneo de la ciudad en un intento, tan desesperado como peligroso, por conseguir el dinero de la fianza para poder sacar a su hermano de la cárcel.",
-          "youtube_id": "IeDxyfolc6Q",
-          "trailer_url": "https://www.youtube.com/watch?v=IeDxyfolc6Q"
+          "poster_url": "https://image.tmdb.org/t/p/w500/nS4eutSuSidh8RKaorGfuBsSnZM.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/2WRe1y5S1jGWTKUcSPPmD1Ixq56.jpg",
+          "overview": "Paul Matthews, un desventurado padre de familia, ve cómo su vida da un vuelco cuando millones de extraños empiezan a verle en sueños. Pero cuando sus apariciones nocturnas toman un giro de pesadilla, Paul se ve obligado a navegar por su nuevo estrellato.",
+          "youtube_id": "1jXlFVkAAm4",
+          "trailer_url": "https://www.youtube.com/watch?v=1jXlFVkAAm4"
         },
         {
-          "title": "Historias de Ultratumba",
-          "subtitle": "SERIE • 2005 • 115 cap. • 19m",
-          "media_type": "SERIE",
-          "year": "2005",
-          "extra_info": "115 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/c7GMWnH8Bl9UCZYQ5UzExiYqkD8.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/sEUdXMYquZPwTsWLesYj5KjxdLv.jpg",
-          "overview": "Entre el mundo que vemos y las cosas que tememos  hay puertas. Cuando se abren  Las pesadillas se hacen realidad. Estas son las historias verdaderas de lo inocente y lo inimaginable.",
-          "youtube_id": "c82-Eii1P6Q",
-          "trailer_url": "https://www.youtube.com/watch?v=c82-Eii1P6Q"
-        },
-        {
-          "title": "Cuenta atrás",
+          "title": "Hokum: La Maldición de la Bruja",
           "subtitle": "PELÍCULA • 2026 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2026",
           "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/wwDdSHmQgfseHRblYtSczzoBa6I.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/8wIaBCeGv3UhIn5CJOWQGHT1Cif.jpg",
-          "overview": "Unos obreros de la construcción encuentran una bomba de la Segunda Guerra Mundial sin explotar en pleno centro de Londres, lo que les obliga a evacuar la ciudad para salvar a la multitud de transeúntes inocentes que se encuentran en las inmediaciones. Unos ladrones oportunistas aprovecharán el caos para llevar a cabo un elaborado atraco.",
-          "youtube_id": "fWlxhCNulhM",
-          "trailer_url": "https://www.youtube.com/watch?v=fWlxhCNulhM"
+          "poster_url": "https://image.tmdb.org/t/p/w500/hzOJEzqrOtwXbPw1U5nZMvTaljQ.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/qY7zVZ7liULhfRoXg4c9Xl83LcR.jpg",
+          "overview": "Un escritor especializado en historias de terror decide viajar a una posada de Irlanda con la intención de esparcir en la zona las cenizas de sus difuntos padres. Lo que no sabe es que la posada es un lugar maldito habitado por una bruja. O eso cuentan los lugareños que viven cerca del lugar",
+          "youtube_id": "40J3QkxXJf0",
+          "trailer_url": "https://www.youtube.com/watch?v=40J3QkxXJf0"
         }
       ]
     },
@@ -1600,10 +1323,70 @@
           "year": "2026",
           "extra_info": "8 cap. • 19m",
           "poster_url": "https://image.tmdb.org/t/p/w500/20ZcwtRQ4zMczKg3eBcIpC3FAuW.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/wJjnJbVUwPz0GADAgpFt9nWtzUu.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/6gqezQJ2mkm4jreWwLyOZy2Vf6i.jpg",
           "overview": "Sigue al nuevo recluta John Stewart y al legendario Linterna Hal Jordan, dos policías intergalácticos que se ven envueltos en un oscuro misterio terrestre mientras investigan un asesinato en el corazón de Estados Unidos. Esto les lleva a misterios y ajustes de cuentas más oscuros.",
           "youtube_id": "hi3oZSjSfiw",
           "trailer_url": "https://www.youtube.com/watch?v=hi3oZSjSfiw"
+        },
+        {
+          "title": "Supergirl",
+          "subtitle": "SERIE • 2015 • 126 cap. • 19m",
+          "media_type": "SERIE",
+          "year": "2015",
+          "extra_info": "126 cap. • 19m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/VsvR3ykugenhyRzz1Uf91V9U0c.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/mmprryb2r0X8u9JkZCnaJIzyYX4.jpg",
+          "overview": "Las aventuras de la prima de Superman en su propia carrera de superhéroe.  “A los 12 años, Kara escapó del condenado planeta Krypton con la ayuda de sus padres, al mismo tiempo que el bebé Kal-El. Protegida y criada en la Tierra por su familia adoptiva, los Danvers, Kara creció a la sombra de su hermana de crianza, Alex (Chyler Leigh), y aprendió a ocultar los poderes fenomenales que comparte con su famoso primo con el fin de mantener su identidad en secreto”.",
+          "youtube_id": "nMSMaagat8o",
+          "trailer_url": "https://www.youtube.com/watch?v=nMSMaagat8o"
+        },
+        {
+          "title": "Prácticamente magia",
+          "subtitle": "PELÍCULA • 1998 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "1998",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/ydxlpTnwmABh2jssZNFi4cEgUuM.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/4kbkq887XNT85d6nJonCnmXDWor.jpg",
+          "overview": "Dos hermanas huérfanas son criadas por sus tías de una forma atípica: sin reglas ni obligaciones y con muchos libros de hechizos a su alrededor. Ambas saben que tienen poderes extraordinarios pero eso tiene un precio: todos los hombres que se enamoren de ellas están destinados a morir prematuramente.",
+          "youtube_id": "M4EjC8jiH9Q",
+          "trailer_url": "https://www.youtube.com/watch?v=M4EjC8jiH9Q"
+        },
+        {
+          "title": "Adaptation. El ladrón de orquídeas",
+          "subtitle": "PELÍCULA • 2002 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2002",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/d4DUAAHul6TKHRkXnj59Cy1WYnp.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/mkjdussWOjts0Se6hEwfTQdwCv2.jpg",
+          "overview": "Charlie Kaufman, un guionista de Los Ángeles, vive un periodo de crisis creativa, todo lo contrario que su hermano gemelo Donald. Charlie escribe tal como vive: con gran dificultad y lleno de inseguridades, mientras que Donald vive tal como escribe: con dejadez. Por su parte, Susan escribe sobre la vida, pero es incapaz de vivirla. Por el contrario, la intensa y aventurera vida de John es digna de una novela.",
+          "youtube_id": "KjJhTFZaTPI",
+          "trailer_url": "https://www.youtube.com/watch?v=KjJhTFZaTPI"
+        },
+        {
+          "title": "El mentalista",
+          "subtitle": "SERIE • 2008 • 151 cap. • 19m",
+          "media_type": "SERIE",
+          "year": "2008",
+          "extra_info": "151 cap. • 19m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/snKUzvCl3kGv0RWBjEjnOXMGvdl.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/rJFqKcmMSttdNP58l0dVzY2NcTA.jpg",
+          "overview": "El mentalista es una serie policiaca americana sobre Patrick Jane, ex médium, que trabaja de asesor para la Oficina de Investigación de California (California Bureau of Investigation), usando su altamente desarrollada capacidad de observación, que anteriormente usaba para \"leer\" mentes.",
+          "youtube_id": "fJl0QBspvJg",
+          "trailer_url": "https://www.youtube.com/watch?v=fJl0QBspvJg"
+        },
+        {
+          "title": "Margarita: Que tu cuento valga la pena",
+          "subtitle": "SERIE • 2024 • 80 cap. • 19m",
+          "media_type": "SERIE",
+          "year": "2024",
+          "extra_info": "80 cap. • 19m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/x91AlksjMXHmHxR1LeJrGnoYiHG.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/7meT1UymlMJXcPEbrlSVJfBrBqA.jpg",
+          "overview": "Margarita es una adolescente huérfana que no recuerda nada de su pasado aunque es hija de Florencia y Máximo, y heredera al trono del ficticio Reino de Krikoragán. En momentos de gran agitación en el Reino, sus padres la exiliaron a ella (entonces un bebé) y a sus hermanos para protegerlos, y desaparecieron. Al enterarse de la desaparición de su familia, la villana tía Delfina se aprovecha de una huérfana que posee un gran parecido con Margarita y la pone en su lugar para apropiarse así de la fortuna familiar. Margarita tendrá que recorrer una trayectoria de heroína para alcanzar sus sueños artísticos, recuperar su fortuna y encontrar el amor en el camino.",
+          "youtube_id": "Whh-RUeZbOw",
+          "trailer_url": "https://www.youtube.com/watch?v=Whh-RUeZbOw"
         },
         {
           "title": "Bugonia",
@@ -1618,30 +1401,6 @@
           "trailer_url": "https://www.youtube.com/watch?v=8J88rUXrZ2w"
         },
         {
-          "title": "Un día de furia",
-          "subtitle": "PELÍCULA • 1993 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "1993",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/kFBDnvgkSsVrBAjej1RriGOB8BV.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/cS45swrlrTJijH1RblBLe8LlW2p.jpg",
-          "overview": "En Los Ángeles, durante una jornada especialmente agobiante a causa del calor y del colapso del tráfico, de repente, un ciudadano normal se rebela de manera violenta y destructiva contra todo lo que lo rodea. Bill Foster (Michael Douglas) no es más que un hombre corriente que supera como puede las frustraciones de cada día y que lo único que quiere es regresar a casa. Un oficial del departamento de policía (Robert Duvall) intentará poner fin a su violencia y agresividad.",
-          "youtube_id": "c_6g05IR16g",
-          "trailer_url": "https://www.youtube.com/watch?v=c_6g05IR16g"
-        },
-        {
-          "title": "El mentalista",
-          "subtitle": "SERIE • 2008 • 151 cap. • 19m",
-          "media_type": "SERIE",
-          "year": "2008",
-          "extra_info": "151 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/snKUzvCl3kGv0RWBjEjnOXMGvdl.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/rJFqKcmMSttdNP58l0dVzY2NcTA.jpg",
-          "overview": "El mentalista es una serie policiaca americana sobre Patrick Jane, ex médium, que trabaja de asesor para la Oficina de Investigación de California (California Bureau of Investigation), usando su altamente desarrollada capacidad de observación, que anteriormente usaba para \"leer\" mentes.",
-          "youtube_id": "fJl0QBspvJg",
-          "trailer_url": "https://www.youtube.com/watch?v=fJl0QBspvJg"
-        },
-        {
           "title": "La casa del dragón",
           "subtitle": "SERIE • 2022 • 26 cap. • 19m",
           "media_type": "SERIE",
@@ -1650,68 +1409,32 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/8MaxftF69sEAAD5673vTjIl8yT3.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/577eXC8wFQT0eUrJcgznSiFPRmk.jpg",
           "overview": "Basada en el libro 'Fuego y Sangre' de George R.R. Martin. La serie se centra en la casa Targaryen, trescientos años antes de los eventos vistos en 'Juego de Tronos'.",
-          "youtube_id": "5h6XfziHUAA",
-          "trailer_url": "https://www.youtube.com/watch?v=5h6XfziHUAA"
+          "youtube_id": "n9ANzBmOxho",
+          "trailer_url": "https://www.youtube.com/watch?v=n9ANzBmOxho"
         },
         {
-          "title": "Prácticamente magia",
-          "subtitle": "PELÍCULA • 1998 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "1998",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/5HIg6WEojB5HSEIKES8oyN3chLk.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/cdxPRmeVnLYVc5gF9NAGMZi0HUI.jpg",
-          "overview": "Dos hermanas huérfanas son criadas por sus tías de una forma atípica: sin reglas ni obligaciones y con muchos libros de hechizos a su alrededor. Ambas saben que tienen poderes extraordinarios pero eso tiene un precio: todos los hombres que se enamoren de ellas están destinados a morir prematuramente.",
-          "youtube_id": "M4EjC8jiH9Q",
-          "trailer_url": "https://www.youtube.com/watch?v=M4EjC8jiH9Q"
-        },
-        {
-          "title": "Blade Runner 2049",
-          "subtitle": "PELÍCULA • 2017 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2017",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/cOt8SQwrxpoTv9Bc3kyce3etkZX.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/gNdLJU9TxrpGx4dkZidjys3fyy0.jpg",
-          "overview": "Han pasado 30 años desde los acontecimientos ocurridos en Blade Runner (1982). El oficial K, un blade runner caza-replicantes del Departamento de Policía de Los Ángeles, descubre un secreto que ha estado enterrado durante mucho tiempo y que tiene el potencial de llevar a la sociedad al caos. Su investigación le conducirá a la búsqueda del legendario Rick Deckard, un antiguo blade runner en paradero desconocido, que lleva desaparecido 30 años.",
-          "youtube_id": "PkqHVGFAhbU",
-          "trailer_url": "https://www.youtube.com/watch?v=PkqHVGFAhbU"
-        },
-        {
-          "title": "Shameless",
-          "subtitle": "SERIE • 2011 • 134 cap. • 19m",
+          "title": "Los ensayos",
+          "subtitle": "SERIE • 2022 • 12 cap. • 19m",
           "media_type": "SERIE",
-          "year": "2011",
-          "extra_info": "134 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/ifo31fMWLmyOVpdak9K0kY4jldQ.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/5s9XHTB9SLPdg3mNU6BlSLnZ9Qq.jpg",
-          "overview": "En la peculiar familia Gallagher, Frank, un padre soltero y alcohólico, intenta educar a sus seis inteligentes, salvajes e independientes hijos.",
-          "youtube_id": "29nzDppVH8w",
-          "trailer_url": "https://www.youtube.com/watch?v=29nzDppVH8w"
+          "year": "2022",
+          "extra_info": "12 cap. • 19m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/atOSF8y9MNn50gu3NYdTM8AumRJ.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/iFPbB1II79kZNPbT7ePx2W06cd2.jpg",
+          "overview": "Nathan Fielder regresa a la televisión en una nueva serie que explora hasta dónde llegará un hombre para reducir las incertidumbres de la vida cotidiana. Con un equipo de construcción, una legión de actores y recursos aparentemente ilimitados, Fielder permite que la gente común se prepare para los momentos más importantes de la vida \"ensayándolos\" en simulaciones cuidadosamente diseñadas por él mismo. Cuando un solo paso en falso podría destrozar todo tu mundo, ¿por qué dejar la vida al azar?",
+          "youtube_id": "zJYxfWRfrmg",
+          "trailer_url": "https://www.youtube.com/watch?v=zJYxfWRfrmg"
         },
         {
-          "title": "En el camino",
+          "title": "Demolición",
           "subtitle": "PELÍCULA • 2026 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2026",
           "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/7tBqPnIbdw9r5C8thiUGQokIbTF.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/hcPbtkReett3egrOnQRII2PqqvK.jpg",
-          "overview": "Veneno, un joven vagabundo rebelde, frecuenta restaurantes de carretera donde se acuesta con camioneros. Con una necesidad urgente de que alguien le lleve, conoce a Muñeco, un conductor duro y reservado. Convence a Muñeco para que le adentre en el hipermasculino mundo del transporte a larga distancia a través del norte de México. Mientras viajan juntos creándose una inesperada intimidad entre ellos, las sombras del pasado de Veneno resurgen, poniendo en peligro la vida de ambos.",
-          "youtube_id": "8FpoF_Jjd04",
-          "trailer_url": "https://www.youtube.com/watch?v=8FpoF_Jjd04"
-        },
-        {
-          "title": "Margarita: Que tu cuento valga la pena",
-          "subtitle": "SERIE • 2024 • 80 cap. • 19m",
-          "media_type": "SERIE",
-          "year": "2024",
-          "extra_info": "80 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/lp5Bcx7C3jtyWElcGOgjHb25AyW.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/7meT1UymlMJXcPEbrlSVJfBrBqA.jpg",
-          "overview": "Margarita es una adolescente huérfana que no recuerda nada de su pasado aunque es hija de Florencia y Máximo, y heredera al trono del ficticio Reino de Krikoragán. En momentos de gran agitación en el Reino, sus padres la exiliaron a ella (entonces un bebé) y a sus hermanos para protegerlos, y desaparecieron. Al enterarse de la desaparición de su familia, la villana tía Delfina se aprovecha de una huérfana que posee un gran parecido con Margarita y la pone en su lugar para apropiarse así de la fortuna familiar. Margarita tendrá que recorrer una trayectoria de heroína para alcanzar sus sueños artísticos, recuperar su fortuna y encontrar el amor en el camino.",
-          "youtube_id": "Whh-RUeZbOw",
-          "trailer_url": "https://www.youtube.com/watch?v=Whh-RUeZbOw"
+          "poster_url": "https://image.tmdb.org/t/p/w500/ttEESBvVrO8ngZr19qp6eBMVS9F.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/cz4vLJrmaV1zJlRYbxqtvLzeLWB.jpg",
+          "overview": "Un improbable dúo de hermanastros, uno un impulsivo detective y el otro un disciplinado, se ven atraídos por el asesinato de su padre en Hawai, lo que les lleva a un peligroso viaje para desenmascarar una conspiración de largo alcance.",
+          "youtube_id": "Dqg8xP68akY",
+          "trailer_url": "https://www.youtube.com/watch?v=Dqg8xP68akY"
         }
       ]
     },
@@ -1720,15 +1443,27 @@
       "items": [
         {
           "title": "Mayday",
-          "subtitle": "PELÍCULA • 2026 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2026",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/naKQcM3HRuaISCtsSx5ibVMTbDu.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/g7Ccid5kuD7A8hXWlsQiNfwOxaD.jpg",
-          "overview": "Cuando un piloto de la Marina estadounidense en misión ultrasecreta durante la Guerra Fría queda atrapado tras las líneas enemigas, su única oportunidad de sobrevivir es aliarse con un excéntrico exagente del KGB.",
+          "subtitle": "SERIE • 2003 • 240 cap. • 19m",
+          "media_type": "SERIE",
+          "year": "2003",
+          "extra_info": "240 cap. • 19m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/2uuVIAb4MtPmMNTpOyID5V8DzrU.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/vqm22ecqtzy5Olr74mkUV5lWa9g.jpg",
+          "overview": "Cada episodio se centra en un desastre aéreo, primero dando al público la sensación de estar en el avión y luego explicando por qué se produjo el accidente. La serie brinda a los tele-espectadores tanto la sensación visceral del desastre como la explicación racional de lo que sucedió y qué derivó la industria de la aviación como aprendizaje a raíz del accidente.",
           "youtube_id": "lMG_C9kQUJw",
           "trailer_url": "https://www.youtube.com/watch?v=lMG_C9kQUJw"
+        },
+        {
+          "title": "Materia oscura",
+          "subtitle": "SERIE • 2024 • 19 cap. • 19m",
+          "media_type": "SERIE",
+          "year": "2024",
+          "extra_info": "19 cap. • 19m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/2JWIUUGf8AfEYNtCjxwMS79JUqw.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/iBc82qaA05ntzSnrVndw8scv4Bn.jpg",
+          "overview": "Jason Dessen acaba en una versión alternativa de su vida. Para volver con su auténtica familia, se embarca en un tortuoso viaje para salvarla del enemigo más aterrador: él mismo.",
+          "youtube_id": "KClwzBXl3Bc",
+          "trailer_url": "https://www.youtube.com/watch?v=KClwzBXl3Bc"
         },
         {
           "title": "Silo",
@@ -1741,18 +1476,6 @@
           "overview": "En un futuro ruinoso y tóxico, existe una comunidad en un gigantesco silo subterráneo que alcanza cientos de pisos de profundidad. Allí, las personas viven en una sociedad llena de normas que creen que están destinadas a protegerlas.",
           "youtube_id": "X-mKRbAeAd0",
           "trailer_url": "https://www.youtube.com/watch?v=X-mKRbAeAd0"
-        },
-        {
-          "title": "Materia oscura",
-          "subtitle": "SERIE • 2024 • 19 cap. • 19m",
-          "media_type": "SERIE",
-          "year": "2024",
-          "extra_info": "19 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/2JWIUUGf8AfEYNtCjxwMS79JUqw.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/572uSrnXM5uPVYMVqsxfNA41cT8.jpg",
-          "overview": "Jason Dessen acaba en una versión alternativa de su vida. Para volver con su auténtica familia, se embarca en un tortuoso viaje para salvarla del enemigo más aterrador: él mismo.",
-          "youtube_id": "KClwzBXl3Bc",
-          "trailer_url": "https://www.youtube.com/watch?v=KClwzBXl3Bc"
         },
         {
           "title": "Ted Lasso",
@@ -1773,22 +1496,22 @@
           "year": "2026",
           "extra_info": "10 cap. • 19m",
           "poster_url": "https://image.tmdb.org/t/p/w500/n019if9Ob29NLATYFLFSQNNWKJg.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/u6XtMg9Ai9siEbEs0UudPS3EaZY.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/yx0sfeYOoXol2fjT22SXo9YyviI.jpg",
           "overview": "Un alcalde de Nueva Inglaterra intenta fomentar el turismo, pero se enfrenta a extraños acontecimientos que sugieren que la isla está encantada.",
           "youtube_id": "Eccgq9wiNyQ",
           "trailer_url": "https://www.youtube.com/watch?v=Eccgq9wiNyQ"
         },
         {
-          "title": "Lucky",
-          "subtitle": "SERIE • 2026 • 7 cap. • 19m",
+          "title": "Causa abierta",
+          "subtitle": "SERIE • 2026 • 6 cap. • 19m",
           "media_type": "SERIE",
           "year": "2026",
-          "extra_info": "7 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/vZ3GfOoeha2xVCPec0jv2jf3yfC.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/hKXMOOvQwXiL01hfYG5nrkH0tEP.jpg",
-          "overview": "Cuando un robo de varios millones de dólares sale mal, la estafadora Lucky se ve obligada a huir. Perseguida tanto por el FBI como por un despiadado jefe criminal, Lucky deberá luchar por su vida y buscar una salida.",
-          "youtube_id": "F5Eza2Qk8mI",
-          "trailer_url": "https://www.youtube.com/watch?v=F5Eza2Qk8mI"
+          "extra_info": "6 cap. • 19m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/6HMiiSm258vZ9GMCc3itUYeaKeU.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/kgaQnDdDaPqvGN7i8LLz1aWJdjP.jpg",
+          "overview": "Cuando Ian Ridley, telefonista de emergencias, recibe la llamada histérica de una chica que cree que podría ser su hija desaparecida, no se detiene ante nada para encontrarla.",
+          "youtube_id": "uHUHdkk8wGs",
+          "trailer_url": "https://www.youtube.com/watch?v=uHUHdkk8wGs"
         },
         {
           "title": "Caballos lentos",
@@ -1796,47 +1519,47 @@
           "media_type": "SERIE",
           "year": "2022",
           "extra_info": "36 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/glcBuLW6NkZytmcpkkETsFXuVYj.jpg",
+          "poster_url": "https://image.tmdb.org/t/p/w500/3YwDLuIScomV0ea3RNL6kHpbi7Y.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/bDfboQUb45Cv9MYyVBDZw8M8xSM.jpg",
           "overview": "Drama de espías con tintes de comedia negra centrado en las andanzas de un incompetente equipo de agentes del MI5 y en su jefe, el irreverente Jackson Lamb, a medida que desmontan los artificios del espionaje para defender Inglaterra de las fuerzas del mal.",
-          "youtube_id": "aUWcVD1p2lE",
-          "trailer_url": "https://www.youtube.com/watch?v=aUWcVD1p2lE"
+          "youtube_id": "F9nxON8GzMA",
+          "trailer_url": "https://www.youtube.com/watch?v=F9nxON8GzMA"
         },
         {
-          "title": "Eternidad",
+          "title": "F1 la película",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2025",
           "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/5zCTIGICQ9ykuBXDmS4rL1kEK9l.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/fuacZLpnohQtLD0AhtCErcPVL98.jpg",
-          "overview": "En un más allá donde las almas tienen una semana para decidir dónde pasarán la eternidad, Joan (Elizabeth Olsen) se enfrenta a la diabólica disyuntiva de elegir entre el hombre con el que ha compartido su vida (Miles Teller) y su primer amor (Callum Turner), que murió joven y ha estado décadas esperando a que ella llegara.",
-          "youtube_id": "XS5cHOh2EQ8",
-          "trailer_url": "https://www.youtube.com/watch?v=XS5cHOh2EQ8"
+          "poster_url": "https://image.tmdb.org/t/p/w500/xq3AcnU8FF4GoBTMf2Y9pqBqdfu.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/lkDYN0whyE82mcM20rwtwjbniKF.jpg",
+          "overview": "El mítico piloto Sonny Hayes vuelve de su retiro, persuadido para liderar un equipo de Fórmula 1 en apuros y guiar a su joven promesa, en busca de una nueva oportunidad de éxito.",
+          "youtube_id": "aw8YyC4B1EA",
+          "trailer_url": "https://www.youtube.com/watch?v=aw8YyC4B1EA"
         },
         {
-          "title": "Kramer contra Kramer",
-          "subtitle": "PELÍCULA • 1979 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "1979",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/btdZ6vSOqQ3zI3ftEm2QTF9yiId.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/9pUh1fC8TqVtYPeKpdfNyVK0qnn.jpg",
-          "overview": "El ejecutivo publicitario Ted Kramer consigue la mejor cuenta de la agencia el mismo día en que su mujer decide divorciarse, dejándole solo con su hijo de 7 años. Comienza así una dura etapa en la que tendrá que ejercer de padre soltero de un niño que echa de menos a su madre y, al mismo tiempo, no descuidar su carrera profesional. Cuando tras un tiempo parece que la relación con su hijo va mejorando, la madre aparece para pedir la custodia del pequeño.",
-          "youtube_id": "iuP49Xm7DBQ",
-          "trailer_url": "https://www.youtube.com/watch?v=iuP49Xm7DBQ"
-        },
-        {
-          "title": "Terapia sin filtro",
-          "subtitle": "SERIE • 2023 • 33 cap. • 19m",
+          "title": "The Crowded Room",
+          "subtitle": "SERIE • 2023 • 10 cap. • 19m",
           "media_type": "SERIE",
           "year": "2023",
-          "extra_info": "33 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/1paLVdoniAR45emRMlOTGnZG0F7.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/hI9z1UuNhBthvkm3iJ8m3zv43Pf.jpg",
-          "overview": "Jimmy trata de asimilar la muerte de su esposa mientras ejerce de padre, amigo y terapeuta. Decide cambiar su forma de ser con la gente y volverse una persona completamente honesta, sin ningún tipo de filtro. ¿Conseguirá que las cosas mejoren o desatará el caos?",
-          "youtube_id": "B0ePc-h8SRg",
-          "trailer_url": "https://www.youtube.com/watch?v=B0ePc-h8SRg"
+          "extra_info": "10 cap. • 19m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/ycvMXrRjpWBKB59n8hbyLuGtuNB.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/kv9KH67hsVJ8RLplUBoc1kZlAtY.jpg",
+          "overview": "Un thriller psicológico ambientado en Manhattan en el verano de 1979, cuando arrestan a un joven por un crimen espeluznante y una insólita investigadora debe resolver el misterio que se esconde tras él.",
+          "youtube_id": "nWFP8GaH8gE",
+          "trailer_url": "https://www.youtube.com/watch?v=nWFP8GaH8gE"
+        },
+        {
+          "title": "Separación",
+          "subtitle": "SERIE • 2022 • 19 cap. • 19m",
+          "media_type": "SERIE",
+          "year": "2022",
+          "extra_info": "19 cap. • 19m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/wrZjYKxObEaWZmjB7scQMYo40o8.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/ixgFmf1X59PUZam2qbAfskx2gQr.jpg",
+          "overview": "Mark Scout dirige un equipo en Lumon Industries cuyos empleados se han sometido a un procedimiento quirúrgico que separa sus recuerdos entre trabajo y vida personal. Este arriesgado experimento de conciliación es puesto en tela de juicio cuando Mark se encuentra envuelto en un misterio que le obligará a confrontar la verdadera naturaleza de su trabajo y de sí mismo.",
+          "youtube_id": "69p1h2en2OI",
+          "trailer_url": "https://www.youtube.com/watch?v=69p1h2en2OI"
         }
       ]
     }
