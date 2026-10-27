@@ -331,271 +331,6 @@
       ]
     },
     {
-      "category": "Recomendado para Ti",
-      "items": [
-        {
-          "title": "Sugar",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Sugar en la plataforma.",
-          "youtube_id": "bb_UeDI7rT4",
-          "trailer_url": "https://www.youtube.com/watch?v=bb_UeDI7rT4",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "THE LAST OF US",
-          "subtitle": "SERIE • 2023 • 16 cap. • 19m",
-          "media_type": "SERIE",
-          "year": "2023",
-          "extra_info": "16 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tNQWO6cNzQYCyvw36mUcAQQyf5F.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/lY2DhbA7Hy44fAKddr06UrXWWaQ.jpg",
-          "overview": "Año 2023, veinte años después del comienzo de una plaga mundial que infectó a población con un hongo mutado transformando a las personas en unas criaturas caníbales, el contrabandista Joel tiene la misión de escoltar a la adolescente Ellie por un mundo postapocalíptico en el nada va a ser fácil para los viajeros.  Joel todavía vive atormentado por el recuerdo de su única hija. Ellie es portadora de algo que podría cambiar el destino de la humanidad ¿Conseguirán sobrevivir los dos?",
-          "youtube_id": "HjmsvEZtjtg",
-          "trailer_url": "https://www.youtube.com/watch?v=HjmsvEZtjtg",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "Oppenheimer",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Oppenheimer en la plataforma.",
-          "youtube_id": "gMPEbJQun68",
-          "trailer_url": "https://www.youtube.com/watch?v=gMPEbJQun68",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "Fundación",
-          "subtitle": "SERIE • 2021 • 2 Temporadas • 30 cap. • 48m",
-          "media_type": "SERIE",
-          "year": "2021",
-          "extra_info": "2 Temporadas • 30 cap. • 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/wSUYYcMMNtob0qslOwA0PAcqH0J.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/7NNNXo0qG2SqH4JoG7GPvJ2hzes.jpg",
-          "overview": "Basada en la fascinante obra de Isaac Asimov, Foundation gira en torno a un grupo de exiliados en el ocaso del Imperio Galáctico y su afán por salvar a la humanidad y reconstruir la civilización.",
-          "youtube_id": "1dqOSD2iDdI",
-          "trailer_url": "https://www.youtube.com/watch?v=1dqOSD2iDdI",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "La casa del dragón",
-          "subtitle": "SERIE • 2022 • 26 cap. • 19m",
-          "media_type": "SERIE",
-          "year": "2022",
-          "extra_info": "26 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/8MaxftF69sEAAD5673vTjIl8yT3.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/577eXC8wFQT0eUrJcgznSiFPRmk.jpg",
-          "overview": "Basada en el libro 'Fuego y Sangre' de George R.R. Martin. La serie se centra en la casa Targaryen, trescientos años antes de los eventos vistos en 'Juego de Tronos'.",
-          "youtube_id": "n9ANzBmOxho",
-          "trailer_url": "https://www.youtube.com/watch?v=n9ANzBmOxho",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "El Reino",
-          "subtitle": "SERIE • 2025 • 45m",
-          "media_type": "SERIE",
-          "year": "2025",
-          "extra_info": "45m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de El Reino en la plataforma.",
-          "youtube_id": "QMWtJ3Mx-8g",
-          "trailer_url": "https://www.youtube.com/watch?v=QMWtJ3Mx-8g",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "Severance",
-          "subtitle": "SERIE • 2022 • 2 Temporadas • 19 cap. • 48m",
-          "media_type": "SERIE",
-          "year": "2022",
-          "extra_info": "2 Temporadas • 19 cap. • 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/wrZjYKxObEaWZmjB7scQMYo40o8.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/ixgFmf1X59PUZam2qbAfskx2gQr.jpg",
-          "overview": "Mark Scout dirige un equipo en Lumon Industries cuyos empleados se han sometido a un procedimiento quirúrgico que separa sus recuerdos entre trabajo y vida personal. Este arriesgado experimento de conciliación es puesto en tela de juicio cuando Mark se encuentra envuelto en un misterio que le obligará a confrontar la verdadera naturaleza de su trabajo y de sí mismo.",
-          "youtube_id": "69p1h2en2OI",
-          "trailer_url": "https://www.youtube.com/watch?v=69p1h2en2OI",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "LA SOCIEDAD DE LA NIEVE",
-          "subtitle": "PELÍCULA • 2023 • 1h 45m",
-          "media_type": "PELÍCULA",
-          "year": "2023",
-          "extra_info": "1h 45m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/9tkJPQb4X4VoU3S5nqLDohZijPj.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/md848EEPm3dHZOqwGxxTVwH2vu5.jpg",
-          "overview": "El 13 de octubre de 1972, el vuelo 571 de la Fuerza Aérea Uruguaya, fletado para llevar a un equipo de rugby a Chile, se estrella en un glaciar en el corazón de los Andes.",
-          "youtube_id": "l9tP4M8URhQ",
-          "trailer_url": "https://www.youtube.com/watch?v=l9tP4M8URhQ",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "Terapia alternativa",
-          "subtitle": "SERIE • 2021 • 1 Temporada • 17 cap. • 39m",
-          "media_type": "SERIE",
-          "year": "2021",
-          "extra_info": "1 Temporada • 17 cap. • 39m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/kWete6wKQJB90idzRN5MLon1Pd8.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/vW7YFbpHDSkKLHwEbgPMCohbVLz.jpg",
-          "overview": "Selva es una consejera matrimonial excéntrica que se ha hecho famosa por sus sesiones poco convencionales. Pero la carrera de Selva se topa con un obstáculo cuando trata a Elías y a Malena, una joven pareja que busca orientación para separarse.",
-          "youtube_id": "lX15xJHRVtA",
-          "trailer_url": "https://www.youtube.com/watch?v=lX15xJHRVtA",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "Bellas Artes",
-          "subtitle": "SERIE • 2024 • 1 Temporada • 12 cap. • 29m",
-          "media_type": "SERIE",
-          "year": "2024",
-          "extra_info": "1 Temporada • 12 cap. • 29m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/qAwpgOb59jvBu6eFfxztUQ3tN1Y.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/aMUHIBGoR61cZh3bTGCbGQU626B.jpg",
-          "overview": "Antonio Dumas, un prestigioso historiador de arte y gestor cultural. Culto y sofisticado, aunque bastante cínico y engreído, es nombrado director de un importante museo de arte contemporáneo en Madrid al salir victorioso en un concurso para ese cargo. Una vez asumida su nueva posición deberá afrontar, en medio de la fauna insólita del mundo del arte, un abanico de circunstancias y conflictos dispares: desde problemas gremiales y presiones políticas, hasta situaciones disparatadas en relación a las exposiciones y a los artistas.",
-          "youtube_id": "GETmKHsvTnM",
-          "trailer_url": "https://www.youtube.com/watch?v=GETmKHsvTnM",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "Cabo de miedo",
-          "subtitle": "SERIE • 2026 • 10 cap. • 19m",
-          "media_type": "SERIE",
-          "year": "2026",
-          "extra_info": "10 cap. • 19m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/raCZsl0tmpNjSSWfmTZHfleECDF.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/maOzDEEudq82nN9lRTumrGo9MvJ.jpg",
-          "overview": "El caos se cierne sobre una pareja de abogados felizmente casados cuando un famoso asesino de su pasado sale de la cárcel.",
-          "youtube_id": "KvqYciK9jIY",
-          "trailer_url": "https://www.youtube.com/watch?v=KvqYciK9jIY",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "Ford v Ferrari",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Ford v Ferrari en la plataforma.",
-          "youtube_id": "vF74Jc2KSqQ",
-          "trailer_url": "https://www.youtube.com/watch?v=vF74Jc2KSqQ",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "Knives Out",
-          "subtitle": "PELÍCULA • 2019 • 1h 45m",
-          "media_type": "PELÍCULA",
-          "year": "2019",
-          "extra_info": "1h 45m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/7scJ3fVmwdSpGG87wvxH3kk0RPc.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/4HWAQu28e2yaWrtupFPGFkdNU7V.jpg",
-          "overview": "Cuando el renombrado novelista de misterio Harlan Thrombey es encontrado muerto en su mansión justo después de su 85 cumpleaños, el inquisitivo y cortés detective Benoit Blanc es misteriosamente reclutado para investigar. Se moverá entre una red de pistas falsas y mentiras interesadas para tratar de descubrir la verdad tras la prematura muerte del escritor.",
-          "youtube_id": "WoB-N1h4NlQ",
-          "trailer_url": "https://www.youtube.com/watch?v=WoB-N1h4NlQ",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "El irlandés",
-          "subtitle": "PELÍCULA • 2019 • 1h 45m",
-          "media_type": "PELÍCULA",
-          "year": "2019",
-          "extra_info": "1h 45m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/sNilmIAwBbH0DmBOWBS6gWvNDex.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/1RDto0tLo8Fhq7OcwgDaM7nECb7.jpg",
-          "overview": "Pennsylvania, 1956. Frank Sheeran, un veterano de guerra de origen irlandés que trabaja como camionero, conoce accidentalmente al mafioso Russell Bufalino. Una vez convertido en su hombre de confianza, Bufalino envía a Frank a Chicago con el encargo de ayudar a Jimmy Hoffa, un poderoso líder sindical relacionado con el crimen organizado, con quien Frank mantendrá una estrecha amistad durante casi veinte años.",
-          "youtube_id": "7strG6Gmoos",
-          "trailer_url": "https://www.youtube.com/watch?v=7strG6Gmoos",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "Huye",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Huye en la plataforma.",
-          "youtube_id": "xGhKr2uNkI4",
-          "trailer_url": "https://www.youtube.com/watch?v=xGhKr2uNkI4",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "El jardín de bronce",
-          "subtitle": "SERIE • 2017 • 2 Temporadas • 24 cap. • 45m",
-          "media_type": "SERIE",
-          "year": "2017",
-          "extra_info": "2 Temporadas • 24 cap. • 45m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/riEur2nRDGtOCD4EoDnsPDCwpNa.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/v5KXrQ78P2boBk2Zsjm53uTbcH.jpg",
-          "overview": "La vida de Fabián Danubio y su esposa Lila se derrumba cuando Moira, su hija de cuatro años, desaparece en el metro de Buenos Aires sin dejar rastros. Para la investigación del caso son asignados los policías, Raúl Mondragón y la recién incorporada al departamento, Lidia Blanco, quienes como primera línea de investigación, entrevistan a Jonathan Cisneros, el novio de Cecilia, la niñera también desaparecida.",
-          "youtube_id": "f7teRWv8wA8",
-          "trailer_url": "https://www.youtube.com/watch?v=f7teRWv8wA8",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "El lobo de Wall Street",
-          "subtitle": "PELÍCULA • 2013 • 1h 45m",
-          "media_type": "PELÍCULA",
-          "year": "2013",
-          "extra_info": "1h 45m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/uthRoUeTtiep5HCoySlOjQSPCbJ.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/7Nwnmyzrtd0FkcRyPqmdzTPppQa.jpg",
-          "overview": "Película basada en hechos reales del corredor de bolsa neoyorquino Jordan Belfort. A mediados de los años 80, Belfort era un joven honrado que perseguía el sueño americano, pero pronto en la agencia de valores aprendió que lo más importante no era hacer ganar a sus clientes, sino ser ambicioso y ganar una buena comisión. Su enorme éxito y fortuna le valió el mote de \"El lobo de Wall Street\". Dinero. Poder. Mujeres. Drogas. Las tentaciones abundaban y el temor a la ley era irrelevante. Jordan y su manada de lobos consideraban que la discreción era una cualidad anticuada; nunca se conformaban con lo que tenían.",
-          "youtube_id": "DEMZSa0esCU",
-          "trailer_url": "https://www.youtube.com/watch?v=DEMZSa0esCU",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "La noche de 12 años",
-          "subtitle": "PELÍCULA • 2018 • 1h 45m",
-          "media_type": "PELÍCULA",
-          "year": "2018",
-          "extra_info": "1h 45m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/mPipNlgQ63KmDEmKzMtKgF9cgBw.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/cdGuUnVxlngUNjfl7APfZLrQiZx.jpg",
-          "overview": "Año 1973. Uruguay está bajo el poder de la dictadura militar. Una noche de otoño, nueve presos Tupamaros son sacados de sus celdas en una operación militar secreta. La orden es precisa: \"como no pudimos matarles, vamos a volverles locos\". Los tres hombres permanecerán aislados durante 12 años. Durante más de una década, los presos permanecerán aislados en diminutas celdas en dónde pasarán la mayoría del tiempo encapuchados, atados, en silencio, privados de sus necesidades básicas, apenas alimentados, y viendo reducidos al mínimo sus sentidos. Entre ellos estaba Pepe Mújica, quien más tarde llegó a convertirse en presidente de Uruguay.",
-          "youtube_id": "sibdnOVc-fA",
-          "trailer_url": "https://www.youtube.com/watch?v=sibdnOVc-fA",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "Los renglones torcidos de Dios",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Los renglones torcidos de Dios en la plataforma.",
-          "youtube_id": "VpZjyY4wPi0",
-          "trailer_url": "https://www.youtube.com/watch?v=VpZjyY4wPi0",
-          "provider": "Recomendado para Ti"
-        },
-        {
-          "title": "Duna: Parte dos",
-          "subtitle": "PELÍCULA • 2024 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2024",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/xCHmhHeO7aOCMlzcNukGH6Q7EiD.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/eZ239CUp1d6OryZEBPnO2n87gMG.jpg",
-          "overview": "Sigue el viaje mítico de Paul Atreides mientras se une a Chani y los Fremen en una guerra de venganza contra los conspiradores que destruyeron a su familia. Al enfrentarse a una elección entre el amor de su vida y el destino del universo conocido, Paul se esfuerza por evitar un futuro terrible que solo él puede prever.",
-          "youtube_id": "ni55SHApxhA",
-          "trailer_url": "https://www.youtube.com/watch?v=ni55SHApxhA",
-          "provider": "Recomendado para Ti"
-        }
-      ]
-    },
-    {
       "category": "Top 10: Misterio, Intriga y Suspenso",
       "items": [
         {
@@ -619,8 +354,8 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "overview": "Disfruta de The Crow Girl en la plataforma.",
-          "youtube_id": "Wkbj-jyPX8A",
-          "trailer_url": "https://www.youtube.com/watch?v=Wkbj-jyPX8A"
+          "youtube_id": "--QTn574AYw",
+          "trailer_url": "https://www.youtube.com/watch?v=--QTn574AYw"
         },
         {
           "title": "Gone",
@@ -792,8 +527,8 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "overview": "Disfruta de El asesino en la plataforma.",
-          "youtube_id": "o7k4Qg1vmuw",
-          "trailer_url": "https://www.youtube.com/watch?v=o7k4Qg1vmuw"
+          "youtube_id": "El-tgOqoAo0",
+          "trailer_url": "https://www.youtube.com/watch?v=El-tgOqoAo0"
         },
         {
           "title": "The Batman",
@@ -905,8 +640,8 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "overview": "Disfruta de Chernobyl en la plataforma.",
-          "youtube_id": "s9APLXM9Ei8",
-          "trailer_url": "https://www.youtube.com/watch?v=s9APLXM9Ei8"
+          "youtube_id": "EJ3q98bD3XA",
+          "trailer_url": "https://www.youtube.com/watch?v=EJ3q98bD3XA"
         },
         {
           "title": "El precio de la verdad",
@@ -994,8 +729,8 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "overview": "Disfruta de Reina Roja en la plataforma.",
-          "youtube_id": "E8mA5RtZVOQ",
-          "trailer_url": "https://www.youtube.com/watch?v=E8mA5RtZVOQ"
+          "youtube_id": "bH1g07mBHGw",
+          "trailer_url": "https://www.youtube.com/watch?v=bH1g07mBHGw"
         },
         {
           "title": "El Reino",
@@ -1018,8 +753,8 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "overview": "Disfruta de El jockey en la plataforma.",
-          "youtube_id": "ZqOtAeX8AkE",
-          "trailer_url": "https://www.youtube.com/watch?v=ZqOtAeX8AkE"
+          "youtube_id": "N2BSpDERJZk",
+          "trailer_url": "https://www.youtube.com/watch?v=N2BSpDERJZk"
         },
         {
           "title": "Mano de hierro",
@@ -1099,6 +834,30 @@
       "category": "Top 10 Disney+",
       "items": [
         {
+          "title": "VisionQuest",
+          "subtitle": "PELÍCULA • 2025 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2025",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "overview": "Disfruta de VisionQuest en la plataforma.",
+          "youtube_id": "Oqf2hvtqE6Y",
+          "trailer_url": "https://www.youtube.com/watch?v=Oqf2hvtqE6Y"
+        },
+        {
+          "title": "Phony: La otra madre",
+          "subtitle": "PELÍCULA • 2025 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2025",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "overview": "Disfruta de Phony: La otra madre en la plataforma.",
+          "youtube_id": "tLtIZERZ4lI",
+          "trailer_url": "https://www.youtube.com/watch?v=tLtIZERZ4lI"
+        },
+        {
           "title": "Toy Story 5",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
@@ -1109,6 +868,66 @@
           "overview": "Disfruta de Toy Story 5 en la plataforma.",
           "youtube_id": "RkDs1RircNw",
           "trailer_url": "https://www.youtube.com/watch?v=RkDs1RircNw"
+        },
+        {
+          "title": "Dragon Ball Super: Beerus",
+          "subtitle": "PELÍCULA • 2025 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2025",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "overview": "Disfruta de Dragon Ball Super: Beerus en la plataforma.",
+          "youtube_id": "zhbgaGTZx3w",
+          "trailer_url": "https://www.youtube.com/watch?v=zhbgaGTZx3w"
+        },
+        {
+          "title": "Coppola, el representante",
+          "subtitle": "PELÍCULA • 2025 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2025",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "overview": "Disfruta de Coppola, el representante en la plataforma.",
+          "youtube_id": "Z4PEQb1sFts",
+          "trailer_url": "https://www.youtube.com/watch?v=Z4PEQb1sFts"
+        },
+        {
+          "title": "Vaiana",
+          "subtitle": "PELÍCULA • 2025 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2025",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "overview": "Disfruta de Vaiana en la plataforma.",
+          "youtube_id": "CxpDJoP5Z8I",
+          "trailer_url": "https://www.youtube.com/watch?v=CxpDJoP5Z8I"
+        },
+        {
+          "title": "Venganza",
+          "subtitle": "PELÍCULA • 2025 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2025",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "overview": "Disfruta de Venganza en la plataforma.",
+          "youtube_id": "O7dm-KDokkQ",
+          "trailer_url": "https://www.youtube.com/watch?v=O7dm-KDokkQ"
+        },
+        {
+          "title": "The Dropout: Auge y caída de Elizabeth Holmes",
+          "subtitle": "PELÍCULA • 2025 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2025",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "overview": "Disfruta de The Dropout: Auge y caída de Elizabeth Holmes en la plataforma.",
+          "youtube_id": "S6G-BWR8PTQ",
+          "trailer_url": "https://www.youtube.com/watch?v=S6G-BWR8PTQ"
         },
         {
           "title": "American Horror Story",
@@ -1123,54 +942,6 @@
           "trailer_url": "https://www.youtube.com/watch?v=OmP_SnZrfpI"
         },
         {
-          "title": "Furious",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Furious en la plataforma.",
-          "youtube_id": "Qg3arbZWdcg",
-          "trailer_url": "https://www.youtube.com/watch?v=Qg3arbZWdcg"
-        },
-        {
-          "title": "Oasis: Don't Look Back in Anger",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Oasis: Don't Look Back in Anger en la plataforma.",
-          "youtube_id": "sQ2gFE0OoYo",
-          "trailer_url": "https://www.youtube.com/watch?v=sQ2gFE0OoYo"
-        },
-        {
-          "title": "Adultos",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Adultos en la plataforma.",
-          "youtube_id": "G2R_ROm_1d4",
-          "trailer_url": "https://www.youtube.com/watch?v=G2R_ROm_1d4"
-        },
-        {
-          "title": "Los Simpson",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Los Simpson en la plataforma.",
-          "youtube_id": "-pdCvr2sQw4",
-          "trailer_url": "https://www.youtube.com/watch?v=-pdCvr2sQw4"
-        },
-        {
           "title": "Gutiérrez Is mai neim",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
@@ -1181,48 +952,24 @@
           "overview": "Disfruta de Gutiérrez Is mai neim en la plataforma.",
           "youtube_id": "8UVbuA4C3qg",
           "trailer_url": "https://www.youtube.com/watch?v=8UVbuA4C3qg"
-        },
-        {
-          "title": "Star Wars: The Mandalorian and Grogu",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Star Wars: The Mandalorian and Grogu en la plataforma.",
-          "youtube_id": "MoH65JnEFko",
-          "trailer_url": "https://www.youtube.com/watch?v=MoH65JnEFko"
-        },
-        {
-          "title": "Criadas y Señoras",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Criadas y Señoras en la plataforma.",
-          "youtube_id": "H8Ea7pGGlU8",
-          "trailer_url": "https://www.youtube.com/watch?v=H8Ea7pGGlU8"
-        },
-        {
-          "title": "Expediente X",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Expediente X en la plataforma.",
-          "youtube_id": "-U9BdDTkDo0",
-          "trailer_url": "https://www.youtube.com/watch?v=-U9BdDTkDo0"
         }
       ]
     },
     {
       "category": "Top 10 Netflix",
       "items": [
+        {
+          "title": "Lo dejamos acá",
+          "subtitle": "PELÍCULA • 2025 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2025",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "overview": "Disfruta de Lo dejamos acá en la plataforma.",
+          "youtube_id": "DgZQwmjdcp8",
+          "trailer_url": "https://www.youtube.com/watch?v=DgZQwmjdcp8"
+        },
         {
           "title": "Animales",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
@@ -1232,68 +979,8 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "overview": "Disfruta de Animales en la plataforma.",
-          "youtube_id": "Cw9d557phWU",
-          "trailer_url": "https://www.youtube.com/watch?v=Cw9d557phWU"
-        },
-        {
-          "title": "Las cartas de la vida",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Las cartas de la vida en la plataforma.",
-          "youtube_id": "Qer7mUsBAC0",
-          "trailer_url": "https://www.youtube.com/watch?v=Qer7mUsBAC0"
-        },
-        {
-          "title": "Tormenta ácida",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Tormenta ácida en la plataforma.",
-          "youtube_id": "iRvyUJg040Q",
-          "trailer_url": "https://www.youtube.com/watch?v=iRvyUJg040Q"
-        },
-        {
-          "title": "La era de hielo",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de La era de hielo en la plataforma.",
-          "youtube_id": "rMkAgtineIo",
-          "trailer_url": "https://www.youtube.com/watch?v=rMkAgtineIo"
-        },
-        {
-          "title": "El justiciero: Capítulo final",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de El justiciero: Capítulo final en la plataforma.",
-          "youtube_id": "iZIxAvKSYac",
-          "trailer_url": "https://www.youtube.com/watch?v=iZIxAvKSYac"
-        },
-        {
-          "title": "La era de hielo: Choque de mundos",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de La era de hielo: Choque de mundos en la plataforma.",
-          "youtube_id": "5YGy6axti4o",
-          "trailer_url": "https://www.youtube.com/watch?v=5YGy6axti4o"
+          "youtube_id": "tr663Bu3Whk",
+          "trailer_url": "https://www.youtube.com/watch?v=tr663Bu3Whk"
         },
         {
           "title": "Con todos menos contigo",
@@ -1308,28 +995,52 @@
           "trailer_url": "https://www.youtube.com/watch?v=1Cszah8AJ-o"
         },
         {
-          "title": "La sustancia",
+          "title": "Las cartas de la vida",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2025",
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de La sustancia en la plataforma.",
-          "youtube_id": "bb10YAiF8nE",
-          "trailer_url": "https://www.youtube.com/watch?v=bb10YAiF8nE"
+          "overview": "Disfruta de Las cartas de la vida en la plataforma.",
+          "youtube_id": "Qer7mUsBAC0",
+          "trailer_url": "https://www.youtube.com/watch?v=Qer7mUsBAC0"
         },
         {
-          "title": "Pecadores",
+          "title": "La era de hielo: Choque de mundos",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2025",
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Pecadores en la plataforma.",
-          "youtube_id": "bAkWFyEEYSI",
-          "trailer_url": "https://www.youtube.com/watch?v=bAkWFyEEYSI"
+          "overview": "Disfruta de La era de hielo: Choque de mundos en la plataforma.",
+          "youtube_id": "5YGy6axti4o",
+          "trailer_url": "https://www.youtube.com/watch?v=5YGy6axti4o"
+        },
+        {
+          "title": "El cadáver de la novia",
+          "subtitle": "PELÍCULA • 2025 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2025",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "overview": "Disfruta de El cadáver de la novia en la plataforma.",
+          "youtube_id": "j6wvpMA8ZHY",
+          "trailer_url": "https://www.youtube.com/watch?v=j6wvpMA8ZHY"
+        },
+        {
+          "title": "Tormenta ácida",
+          "subtitle": "PELÍCULA • 2025 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2025",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "overview": "Disfruta de Tormenta ácida en la plataforma.",
+          "youtube_id": "iRvyUJg040Q",
+          "trailer_url": "https://www.youtube.com/watch?v=iRvyUJg040Q"
         },
         {
           "title": "La era de hielo 3",
@@ -1344,6 +1055,30 @@
           "trailer_url": "https://www.youtube.com/watch?v=SWV2TOc9-7k"
         },
         {
+          "title": "La tormenta",
+          "subtitle": "PELÍCULA • 2025 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2025",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "overview": "Disfruta de La tormenta en la plataforma.",
+          "youtube_id": "jzT5yOOQTA8",
+          "trailer_url": "https://www.youtube.com/watch?v=jzT5yOOQTA8"
+        },
+        {
+          "title": "El justiciero: Capítulo final",
+          "subtitle": "PELÍCULA • 2025 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2025",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "overview": "Disfruta de El justiciero: Capítulo final en la plataforma.",
+          "youtube_id": "iZIxAvKSYac",
+          "trailer_url": "https://www.youtube.com/watch?v=iZIxAvKSYac"
+        },
+        {
           "title": "Bajo la superficie",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
@@ -1356,28 +1091,28 @@
           "trailer_url": "https://www.youtube.com/watch?v=ftzUUAhiGYE"
         },
         {
-          "title": "Al este del Edén",
+          "title": "La trampa",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2025",
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Al este del Edén en la plataforma.",
-          "youtube_id": "PhrM2fVDIc0",
-          "trailer_url": "https://www.youtube.com/watch?v=PhrM2fVDIc0"
+          "overview": "Disfruta de La trampa en la plataforma.",
+          "youtube_id": "8yuKiUEhbm8",
+          "trailer_url": "https://www.youtube.com/watch?v=8yuKiUEhbm8"
         },
         {
-          "title": "Te conozco",
+          "title": "Aquel",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2025",
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Te conozco en la plataforma.",
-          "youtube_id": "i1_AsLxVvRE",
-          "trailer_url": "https://www.youtube.com/watch?v=i1_AsLxVvRE"
+          "overview": "Disfruta de Aquel en la plataforma.",
+          "youtube_id": "6GdpD7YmzbY",
+          "trailer_url": "https://www.youtube.com/watch?v=6GdpD7YmzbY"
         },
         {
           "title": "El círculo",
@@ -1392,106 +1127,82 @@
           "trailer_url": "https://www.youtube.com/watch?v=fvNTDfFwD3Q"
         },
         {
-          "title": "Mis muertos tristes",
+          "title": "Te conozco",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2025",
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Mis muertos tristes en la plataforma.",
-          "youtube_id": "2IEsP8uhUBY",
-          "trailer_url": "https://www.youtube.com/watch?v=2IEsP8uhUBY"
+          "overview": "Disfruta de Te conozco en la plataforma.",
+          "youtube_id": "i1_AsLxVvRE",
+          "trailer_url": "https://www.youtube.com/watch?v=i1_AsLxVvRE"
         },
         {
-          "title": "Medusa",
+          "title": "Al este del Edén",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2025",
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Medusa en la plataforma.",
-          "youtube_id": "GKWBZTxR0ds",
-          "trailer_url": "https://www.youtube.com/watch?v=GKWBZTxR0ds"
+          "overview": "Disfruta de Al este del Edén en la plataforma.",
+          "youtube_id": "PhrM2fVDIc0",
+          "trailer_url": "https://www.youtube.com/watch?v=PhrM2fVDIc0"
         },
         {
-          "title": "Shaque: No confíes en nadie",
+          "title": "La chispa del amor",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2025",
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Shaque: No confíes en nadie en la plataforma.",
-          "youtube_id": "JigqeTpDOD8",
-          "trailer_url": "https://www.youtube.com/watch?v=JigqeTpDOD8"
+          "overview": "Disfruta de La chispa del amor en la plataforma.",
+          "youtube_id": "SKurbKogF8s",
+          "trailer_url": "https://www.youtube.com/watch?v=SKurbKogF8s"
         },
         {
-          "title": "Monstruo: La historia de Lizzie Borden",
+          "title": "TYSON",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2025",
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Monstruo: La historia de Lizzie Borden en la plataforma.",
-          "youtube_id": "POk0028h4_I",
-          "trailer_url": "https://www.youtube.com/watch?v=POk0028h4_I"
+          "overview": "Disfruta de TYSON en la plataforma.",
+          "youtube_id": "RFvaRy3PB3o",
+          "trailer_url": "https://www.youtube.com/watch?v=RFvaRy3PB3o"
         },
         {
-          "title": "El problema final",
+          "title": "Doctora X",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2025",
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de El problema final en la plataforma.",
-          "youtube_id": "EiA5QvnnAtg",
-          "trailer_url": "https://www.youtube.com/watch?v=EiA5QvnnAtg"
+          "overview": "Disfruta de Doctora X en la plataforma.",
+          "youtube_id": "7fdRQZjvmdI",
+          "trailer_url": "https://www.youtube.com/watch?v=7fdRQZjvmdI"
         },
         {
-          "title": "Percy Jackson y los dioses del Olimpo",
+          "title": "Instadocus: La IA se descontrola",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2025",
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Percy Jackson y los dioses del Olimpo en la plataforma.",
-          "youtube_id": "KNdC0MQDzwg",
-          "trailer_url": "https://www.youtube.com/watch?v=KNdC0MQDzwg"
+          "overview": "Disfruta de Instadocus: La IA se descontrola en la plataforma.",
+          "youtube_id": "fxI_wcM_jhE",
+          "trailer_url": "https://www.youtube.com/watch?v=fxI_wcM_jhE"
         }
       ]
     },
     {
       "category": "Top 10 Prime Video",
       "items": [
-        {
-          "title": "Carrie",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Carrie en la plataforma.",
-          "youtube_id": "gZ1gZn1k4Ho",
-          "trailer_url": "https://www.youtube.com/watch?v=gZ1gZn1k4Ho"
-        },
-        {
-          "title": "Mírame así, el camino de Noa",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Mírame así, el camino de Noa en la plataforma.",
-          "youtube_id": "NDXbagS_IAg",
-          "trailer_url": "https://www.youtube.com/watch?v=NDXbagS_IAg"
-        },
         {
           "title": "El amor de tu vida",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
@@ -1503,6 +1214,42 @@
           "overview": "Disfruta de El amor de tu vida en la plataforma.",
           "youtube_id": "GVaetwkny-g",
           "trailer_url": "https://www.youtube.com/watch?v=GVaetwkny-g"
+        },
+        {
+          "title": "Vivir el momento",
+          "subtitle": "PELÍCULA • 2025 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2025",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "overview": "Disfruta de Vivir el momento en la plataforma.",
+          "youtube_id": "bTNnpcqjceI",
+          "trailer_url": "https://www.youtube.com/watch?v=bTNnpcqjceI"
+        },
+        {
+          "title": "Carrie",
+          "subtitle": "PELÍCULA • 2025 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2025",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "overview": "Disfruta de Carrie en la plataforma.",
+          "youtube_id": "YBY4xXin8CY",
+          "trailer_url": "https://www.youtube.com/watch?v=YBY4xXin8CY"
+        },
+        {
+          "title": "La Lista Final",
+          "subtitle": "PELÍCULA • 2025 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2025",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "overview": "Disfruta de La Lista Final en la plataforma.",
+          "youtube_id": "RGv_W0DG9EI",
+          "trailer_url": "https://www.youtube.com/watch?v=RGv_W0DG9EI"
         },
         {
           "title": "Proyecto Salvación",
@@ -1517,52 +1264,28 @@
           "trailer_url": "https://www.youtube.com/watch?v=jz6JB0LCNRs"
         },
         {
-          "title": "The Love Hypothesis",
+          "title": "Mírame así, el camino de Noa",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2025",
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de The Love Hypothesis en la plataforma.",
-          "youtube_id": "-cneX7J0yAM",
-          "trailer_url": "https://www.youtube.com/watch?v=-cneX7J0yAM"
+          "overview": "Disfruta de Mírame así, el camino de Noa en la plataforma.",
+          "youtube_id": "NDXbagS_IAg",
+          "trailer_url": "https://www.youtube.com/watch?v=NDXbagS_IAg"
         },
         {
-          "title": "Aniversario",
+          "title": "Helluva Boss",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2025",
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Aniversario en la plataforma.",
-          "youtube_id": "DmV-gbuwQp8",
-          "trailer_url": "https://www.youtube.com/watch?v=DmV-gbuwQp8"
-        },
-        {
-          "title": "Cosas pequeñas como estas",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Cosas pequeñas como estas en la plataforma.",
-          "youtube_id": "aB1Io_6AcdA",
-          "trailer_url": "https://www.youtube.com/watch?v=aB1Io_6AcdA"
-        },
-        {
-          "title": "Carrie. Un extraño presentimiento",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Carrie. Un extraño presentimiento en la plataforma.",
-          "youtube_id": "fDomZOyI31s",
-          "trailer_url": "https://www.youtube.com/watch?v=fDomZOyI31s"
+          "overview": "Disfruta de Helluva Boss en la plataforma.",
+          "youtube_id": "rgxWD9Fmuy0",
+          "trailer_url": "https://www.youtube.com/watch?v=rgxWD9Fmuy0"
         },
         {
           "title": "El mentalista",
@@ -1577,46 +1300,34 @@
           "trailer_url": "https://www.youtube.com/watch?v=fJl0QBspvJg"
         },
         {
-          "title": "La Empleada",
+          "title": "Masterplan",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2025",
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de La Empleada en la plataforma.",
-          "youtube_id": "bxfUFVSjW0s",
-          "trailer_url": "https://www.youtube.com/watch?v=bxfUFVSjW0s"
+          "overview": "Disfruta de Masterplan en la plataforma.",
+          "youtube_id": "Ml6r8u5b9vM",
+          "trailer_url": "https://www.youtube.com/watch?v=Ml6r8u5b9vM"
+        },
+        {
+          "title": "Materia oscura",
+          "subtitle": "PELÍCULA • 2025 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2025",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "overview": "Disfruta de Materia oscura en la plataforma.",
+          "youtube_id": "KClwzBXl3Bc",
+          "trailer_url": "https://www.youtube.com/watch?v=KClwzBXl3Bc"
         }
       ]
     },
     {
       "category": "Top 10 Max",
       "items": [
-        {
-          "title": "Posesión infernal: En llamas",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Posesión infernal: En llamas en la plataforma.",
-          "youtube_id": "GdN5hXaCrBE",
-          "trailer_url": "https://www.youtube.com/watch?v=GdN5hXaCrBE"
-        },
-        {
-          "title": "Linternas",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Linternas en la plataforma.",
-          "youtube_id": "hi3oZSjSfiw",
-          "trailer_url": "https://www.youtube.com/watch?v=hi3oZSjSfiw"
-        },
         {
           "title": "Cautiva",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
@@ -1642,6 +1353,30 @@
           "trailer_url": "https://www.youtube.com/watch?v=zhbgaGTZx3w"
         },
         {
+          "title": "Linternas",
+          "subtitle": "PELÍCULA • 2025 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2025",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "overview": "Disfruta de Linternas en la plataforma.",
+          "youtube_id": "hi3oZSjSfiw",
+          "trailer_url": "https://www.youtube.com/watch?v=hi3oZSjSfiw"
+        },
+        {
+          "title": "Posesión infernal: En llamas",
+          "subtitle": "PELÍCULA • 2025 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2025",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "overview": "Disfruta de Posesión infernal: En llamas en la plataforma.",
+          "youtube_id": "GdN5hXaCrBE",
+          "trailer_url": "https://www.youtube.com/watch?v=GdN5hXaCrBE"
+        },
+        {
           "title": "Hamnet",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
@@ -1654,16 +1389,16 @@
           "trailer_url": "https://www.youtube.com/watch?v=Ith7z6FzLe0"
         },
         {
-          "title": "Guerra",
+          "title": "Los domingos",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2025",
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Guerra en la plataforma.",
-          "youtube_id": "i8LLlYNzoPA",
-          "trailer_url": "https://www.youtube.com/watch?v=i8LLlYNzoPA"
+          "overview": "Disfruta de Los domingos en la plataforma.",
+          "youtube_id": "fSRrZVzDTVA",
+          "trailer_url": "https://www.youtube.com/watch?v=fSRrZVzDTVA"
         },
         {
           "title": "El mentalista",
@@ -1678,28 +1413,16 @@
           "trailer_url": "https://www.youtube.com/watch?v=fJl0QBspvJg"
         },
         {
-          "title": "Bugonia",
+          "title": "Guerra",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2025",
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Bugonia en la plataforma.",
-          "youtube_id": "8J88rUXrZ2w",
-          "trailer_url": "https://www.youtube.com/watch?v=8J88rUXrZ2w"
-        },
-        {
-          "title": "Hijos de los hombres",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Hijos de los hombres en la plataforma.",
-          "youtube_id": "FXt5BOCmx84",
-          "trailer_url": "https://www.youtube.com/watch?v=FXt5BOCmx84"
+          "overview": "Disfruta de Guerra en la plataforma.",
+          "youtube_id": "i8LLlYNzoPA",
+          "trailer_url": "https://www.youtube.com/watch?v=i8LLlYNzoPA"
         },
         {
           "title": "Seven",
@@ -1710,14 +1433,38 @@
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "overview": "Disfruta de Seven en la plataforma.",
-          "youtube_id": "xhzBmjdehPA",
-          "trailer_url": "https://www.youtube.com/watch?v=xhzBmjdehPA"
+          "youtube_id": "5u07Zl9tpBU",
+          "trailer_url": "https://www.youtube.com/watch?v=5u07Zl9tpBU"
+        },
+        {
+          "title": "De puntillas",
+          "subtitle": "PELÍCULA • 2025 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2025",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "overview": "Disfruta de De puntillas en la plataforma.",
+          "youtube_id": "pwvpMfXCTHc",
+          "trailer_url": "https://www.youtube.com/watch?v=pwvpMfXCTHc"
         }
       ]
     },
     {
       "category": "Top 10 Apple TV+",
       "items": [
+        {
+          "title": "Tenzing: conquistando el Everest",
+          "subtitle": "PELÍCULA • 2025 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2025",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "overview": "Disfruta de Tenzing: conquistando el Everest en la plataforma.",
+          "youtube_id": "3otG2x-eK58",
+          "trailer_url": "https://www.youtube.com/watch?v=3otG2x-eK58"
+        },
         {
           "title": "Caballos lentos",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
@@ -1729,6 +1476,18 @@
           "overview": "Disfruta de Caballos lentos en la plataforma.",
           "youtube_id": "lBE9aXCZY50",
           "trailer_url": "https://www.youtube.com/watch?v=lBE9aXCZY50"
+        },
+        {
+          "title": "Eternidad",
+          "subtitle": "PELÍCULA • 2025 • 1h 48m",
+          "media_type": "PELÍCULA",
+          "year": "2025",
+          "extra_info": "1h 48m",
+          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
+          "overview": "Disfruta de Eternidad en la plataforma.",
+          "youtube_id": "XS5cHOh2EQ8",
+          "trailer_url": "https://www.youtube.com/watch?v=XS5cHOh2EQ8"
         },
         {
           "title": "Ted Lasso",
@@ -1743,28 +1502,16 @@
           "trailer_url": "https://www.youtube.com/watch?v=TMPUlfH-stE"
         },
         {
-          "title": "Matchbox: La película",
+          "title": "Materia oscura",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2025",
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Matchbox: La película en la plataforma.",
-          "youtube_id": "K8DzIJaa0q4",
-          "trailer_url": "https://www.youtube.com/watch?v=K8DzIJaa0q4"
-        },
-        {
-          "title": "La maldición de Widow's Bay",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de La maldición de Widow's Bay en la plataforma.",
-          "youtube_id": "Eccgq9wiNyQ",
-          "trailer_url": "https://www.youtube.com/watch?v=Eccgq9wiNyQ"
+          "overview": "Disfruta de Materia oscura en la plataforma.",
+          "youtube_id": "KClwzBXl3Bc",
+          "trailer_url": "https://www.youtube.com/watch?v=KClwzBXl3Bc"
         },
         {
           "title": "Silo",
@@ -1779,28 +1526,28 @@
           "trailer_url": "https://www.youtube.com/watch?v=X-mKRbAeAd0"
         },
         {
-          "title": "Materia oscura",
+          "title": "Causa abierta",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2025",
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Materia oscura en la plataforma.",
-          "youtube_id": "KClwzBXl3Bc",
-          "trailer_url": "https://www.youtube.com/watch?v=KClwzBXl3Bc"
+          "overview": "Disfruta de Causa abierta en la plataforma.",
+          "youtube_id": "uHUHdkk8wGs",
+          "trailer_url": "https://www.youtube.com/watch?v=uHUHdkk8wGs"
         },
         {
-          "title": "Pequeños profetas",
+          "title": "La maldición de Widow's Bay",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2025",
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Pequeños profetas en la plataforma.",
-          "youtube_id": "cAHSi8AXbCE",
-          "trailer_url": "https://www.youtube.com/watch?v=cAHSi8AXbCE"
+          "overview": "Disfruta de La maldición de Widow's Bay en la plataforma.",
+          "youtube_id": "Eccgq9wiNyQ",
+          "trailer_url": "https://www.youtube.com/watch?v=Eccgq9wiNyQ"
         },
         {
           "title": "F1 la película",
@@ -1815,28 +1562,16 @@
           "trailer_url": "https://www.youtube.com/watch?v=aw8YyC4B1EA"
         },
         {
-          "title": "Mayday",
+          "title": "Pequeños profetas",
           "subtitle": "PELÍCULA • 2025 • 1h 48m",
           "media_type": "PELÍCULA",
           "year": "2025",
           "extra_info": "1h 48m",
           "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
           "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Mayday en la plataforma.",
-          "youtube_id": "lMG_C9kQUJw",
-          "trailer_url": "https://www.youtube.com/watch?v=lMG_C9kQUJw"
-        },
-        {
-          "title": "Causa abierta",
-          "subtitle": "PELÍCULA • 2025 • 1h 48m",
-          "media_type": "PELÍCULA",
-          "year": "2025",
-          "extra_info": "1h 48m",
-          "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-          "overview": "Disfruta de Causa abierta en la plataforma.",
-          "youtube_id": "uHUHdkk8wGs",
-          "trailer_url": "https://www.youtube.com/watch?v=uHUHdkk8wGs"
+          "overview": "Disfruta de Pequeños profetas en la plataforma.",
+          "youtube_id": "W7vdQWnaZts",
+          "trailer_url": "https://www.youtube.com/watch?v=W7vdQWnaZts"
         }
       ]
     }
