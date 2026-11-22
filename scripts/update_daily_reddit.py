@@ -407,37 +407,51 @@ DEFAULT_REDDIT_TITLES = [
 ]
 
 def fetch_titles_from_reddit(limit=25):
-    """Obtiene los últimos 25 títulos desde el RSS de Reddit r/IMDB_esp"""
+    """Obtiene los últimos títulos desde wallpapers.json (fondos actuales de la TV) y opcionalmente Reddit"""
     titles = []
-    urls = [
-        'https://www.reddit.com/r/IMDB_esp/new/.rss',
-        'https://old.reddit.com/r/IMDB_esp/new/.rss',
-        'https://www.reddit.com/r/IMDB_esp/.rss'
-    ]
-    import xml.etree.ElementTree as ET
-    for url in urls:
+    try:
+        wp_url = "https://raw.githubusercontent.com/todout/fondos-projectivy/wallpapers/wallpapers.json"
+        req = urllib.request.Request(wp_url, headers=HEADERS)
+        wp_data = json.loads(urllib.request.urlopen(req, timeout=10).read().decode('utf-8'))
+        for entry in wp_data:
+            t = (entry.get("title") or "").strip()
+            if t and t not in titles:
+                titles.append(t)
+        if titles:
+            print(f"  [Obtenidos {len(titles)} títulos desde wallpapers.json]")
+    except Exception as e:
+        print("  [Advertencia wallpapers.json]:", e)
+
+    if len(titles) < limit:
         try:
-            req = urllib.request.Request(url, headers=HEADERS)
-            xml_data = urllib.request.urlopen(req, timeout=10).read()
-            root = ET.fromstring(xml_data)
-            entries = root.findall('{http://www.w3.org/2005/Atom}entry')
-            for entry in entries[:limit]:
-                t_node = entry.find('{http://www.w3.org/2005/Atom}title')
-                if t_node is not None and t_node.text:
-                    clean_title = re.sub(r'\[.*?\]', '', t_node.text).strip()
+            import praw
+            env_file = "/home/pi/Descargas/androidtvbackground-main/.env"
+            env_vars = {}
+            if os.path.exists(env_file):
+                with open(env_file, "r", encoding="utf-8") as ef:
+                    for line in ef:
+                        if "=" in line and not line.strip().startswith("#"):
+                            k, v = line.strip().split("=", 1)
+                            env_vars[k] = v.strip().strip("'\"")
+            cid = os.environ.get("REDDIT_CLIENT_ID") or env_vars.get("REDDIT_CLIENT_ID")
+            csec = os.environ.get("REDDIT_CLIENT_SECRET") or env_vars.get("REDDIT_CLIENT_SECRET")
+            ruser = os.environ.get("REDDIT_USERNAME") or env_vars.get("REDDIT_USERNAME")
+            rpass = os.environ.get("REDDIT_PASSWORD") or env_vars.get("REDDIT_PASSWORD")
+            if cid and csec and ruser and rpass:
+                reddit = praw.Reddit(client_id=cid, client_secret=csec, username=ruser, password=rpass, user_agent="trailers-projectivy/1.0")
+                for sub in reddit.subreddit("IMDB_esp").new(limit=limit):
+                    clean_title = re.sub(r'\[.*?\]', '', sub.title or '').strip()
                     if clean_title and clean_title not in titles:
                         titles.append(clean_title)
-            if len(titles) > 0:
-                print(f"  [Obtenidos {len(titles)} títulos desde Reddit RSS]")
-                break
+                print(f"  [Total {len(titles)} títulos tras consultar r/IMDB_esp via PRAW]")
         except Exception as e:
-            print(f"  [Advertencia RSS Reddit '{url}']:", e)
+            print("  [Advertencia PRAW Reddit]:", e)
 
     if not titles:
         print("  [Usando lista de respaldo para r/IMDB_esp]")
         titles = DEFAULT_REDDIT_TITLES[:limit]
 
-    return titles
+    return titles[:limit]
 
 def get_personalized_recommendations(existing_catalog=None):
     pref_path = r'd:\Antrigravity - Projects\fondos-projectivy\user_preferences.json'
