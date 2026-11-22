@@ -207,6 +207,45 @@ def parse_tv_extra_info(d_html, gem=None):
 
     return " • ".join(parts)
 
+def load_tmdb_token():
+    token = os.environ.get("TMDB_TOKEN")
+    if token:
+        return token
+    env_paths = [
+        os.path.join(os.path.dirname(__file__), '../.env'),
+        os.path.join(os.getcwd(), '.env'),
+        '.env',
+        '/home/pi/Descargas/androidtvbackground-main/.env',
+        r'd:\Antrigravity - Projects\fondos-projectivy\.env',
+        os.path.join(os.path.dirname(__file__), '../../fondos-projectivy/.env')
+    ]
+    for env_path in env_paths:
+        if os.path.exists(env_path):
+            try:
+                with open(env_path, 'r', encoding='utf-8') as f:
+                    for line in f:
+                        line = line.strip()
+                        if line.startswith("TMDB_TOKEN="):
+                            val = line.split("TMDB_TOKEN=", 1)[1].strip().strip("'\"")
+                            if val:
+                                os.environ["TMDB_TOKEN"] = val
+                                return val
+            except Exception:
+                pass
+    return None
+
+def tmdb_api_get(path):
+    token = load_tmdb_token()
+    if not token:
+        return None
+    url = f"https://api.themoviedb.org/3/{path}"
+    req = urllib.request.Request(url, headers={
+        "accept": "application/json",
+        "Authorization": f"Bearer {token}"
+    })
+    with urllib.request.urlopen(req, timeout=10) as resp:
+        return json.loads(resp.read().decode('utf-8'))
+
 def get_tmdb_info(item):
     if isinstance(item, dict):
         title = item["title"]
@@ -226,81 +265,62 @@ def get_tmdb_info(item):
     year = "2025"
     cur_media_type = "PELÍCULA"
     cur_extra_info = "1h 45m"
-    latest_d_html = None
-    
+
     try:
+        m_type = None
+        item_id = None
         if tmdb_path:
-            paths_to_try = [tmdb_path]
+            parts = tmdb_path.split("/")
+            if len(parts) >= 2:
+                m_type = parts[0]
+                item_id = parts[1].split("-")[0]
         else:
-            encoded_title = urllib.parse.quote(title)
-            url = f"https://www.themoviedb.org/search?query={encoded_title}&language=es-ES"
-            req = urllib.request.Request(url, headers=HEADERS)
-            html = urllib.request.urlopen(req, timeout=10).read().decode('utf-8')
-            
-            matches = re.findall(r'href="/(movie|tv)/(\d+[^"]*)"', html)
-            if not matches:
+            q = urllib.parse.quote(title)
+            res = tmdb_api_get(f"search/multi?query={q}&language=es-ES")
+            results = [r for r in (res or {}).get("results", []) if r.get("media_type") in ("movie", "tv")]
+            if not results:
                 clean_t = re.sub(r'[^\w\s]', '', title)
-                url2 = f"https://www.themoviedb.org/search?query={urllib.parse.quote(clean_t)}&language=es-ES"
-                html2 = urllib.request.urlopen(urllib.request.Request(url2, headers=HEADERS), timeout=10).read().decode('utf-8')
-                matches = re.findall(r'href="/(movie|tv)/(\d+[^"]*)"', html2)
-                
-            paths_to_try = [f"{m_type}/{path_id.split('?')[0].split('#')[0]}" for m_type, path_id in matches[:3]] if matches else []
+                res = tmdb_api_get(f"search/multi?query={urllib.parse.quote(clean_t)}&language=es-ES")
+                results = [r for r in (res or {}).get("results", []) if r.get("media_type") in ("movie", "tv")]
+            if results:
+                results.sort(key=lambda x: x.get("popularity", 0), reverse=True)
+                best = results[0]
+                m_type = best["media_type"]
+                item_id = best["id"]
 
-        for path in paths_to_try:
-            m_type = "tv" if path.startswith("tv/") else "movie"
+        if m_type and item_id:
+            det = tmdb_api_get(f"{m_type}/{item_id}?language=es-ES") or {}
+            if not det.get("overview"):
+                det_mx = tmdb_api_get(f"{m_type}/{item_id}?language=es-MX") or {}
+                if det_mx.get("overview"):
+                    det["overview"] = det_mx["overview"]
             cur_media_type = "SERIE" if m_type == "tv" else "PELÍCULA"
-
-            for lang in ["es-ES", "es-MX", "es", "en-US"]:
-                detail_url = f"https://www.themoviedb.org/{path}?language={lang}"
-                try:
-                    d_req = urllib.request.Request(detail_url, headers=HEADERS)
-                    d_html = urllib.request.urlopen(d_req, timeout=8).read().decode('utf-8')
-                    latest_d_html = d_html
-                    
-                    if not poster_url:
-                        p_match = re.search(r'https://image\.tmdb\.org/t/p/w\d+/([a-zA-Z0-9_\.]+\.jpg)', d_html)
-                        og_images = re.findall(r'content="https://(?:image|media)\.themoviedb\.org/t/p/[^/]+/([a-zA-Z0-9_\.]+\.jpg)"', d_html)
-                        
-                        if p_match:
-                            poster_url = f"https://image.tmdb.org/t/p/w500/{p_match.group(1)}"
-                        elif og_images:
-                            poster_url = f"https://image.tmdb.org/t/p/w500/{og_images[0]}"
-                            
-                        if og_images and len(og_images) >= 2:
-                            backdrop_url = f"https://image.tmdb.org/t/p/w500/{og_images[1]}"
-                        elif poster_url:
-                            backdrop_url = poster_url
-                        
-                    y_match = re.search(r'\((\d{4})\)', d_html)
-                    if y_match:
-                        year = y_match.group(1)
-
-                    o_match = re.search(r'<div class="overview"[^>]*>\s*<p>([^<]+)</p>', d_html)
-                    if not o_match:
-                        o_match = re.search(r'property="og:description" content="([^"]+)"', d_html)
-                    if not o_match:
-                        o_match = re.search(r'<meta name="description" content="([^"]+)"', d_html)
-
-                    if o_match:
-                        cand_overview = o_match.group(1).replace('...', '').strip()
-                        spanish_stopwords = {"de", "la", "el", "en", "un", "una", "los", "las", "por", "para", "con", "que", "su", "sus", "del", "como", "sobre"}
-                        words = [w.strip('.,;:"()') for w in cand_overview.lower().split()]
-                        spanish_count = sum(1 for w in words if w in spanish_stopwords)
-                        if spanish_count >= 2 and len(cand_overview) > 20:
-                            overview = cand_overview
-                            break
-                except Exception:
-                    pass
-
-            if poster_url and overview:
-                break
-
+            if det.get("poster_path"):
+                poster_url = f"https://image.tmdb.org/t/p/w500{det['poster_path']}"
+            if det.get("backdrop_path"):
+                backdrop_url = f"https://image.tmdb.org/t/p/w500{det['backdrop_path']}"
+            elif poster_url:
+                backdrop_url = poster_url
+            overview = (det.get("overview") or "").strip()
+            date_str = det.get("release_date") or det.get("first_air_date") or ""
+            if len(date_str) >= 4:
+                year = date_str[:4]
+            if m_type == "movie":
+                rt = det.get("runtime") or 0
+                if rt:
+                    h, m = divmod(rt, 60)
+                    cur_extra_info = f"{h}h {m}m" if h else f"{m}m"
+            else:
+                seasons = det.get("number_of_seasons") or 0
+                if det.get("type") == "Miniseries":
+                    cur_extra_info = "Miniserie"
+                elif seasons:
+                    cur_extra_info = f"{seasons} Temporada{'s' if seasons > 1 else ''}"
     except Exception as e:
         print(f"  [TMDB Error para '{title}']:", e)
 
     # Fallback to Gemini if overview or poster is missing
-    gem = None
-    if not overview or not poster_url or cur_media_type == "SERIE":
+    if not overview or not poster_url:
         gem = get_gemini_metadata(title)
         if gem:
             if not overview and gem.get("overview"):
@@ -309,6 +329,8 @@ def get_tmdb_info(item):
                 year = gem["year"]
             if gem.get("media_type"):
                 cur_media_type = gem["media_type"]
+            if gem.get("extra_info"):
+                cur_extra_info = gem["extra_info"]
             if not poster_url and gem.get("poster_path"):
                 p_path = gem["poster_path"].strip('/')
                 poster_url = f"https://image.tmdb.org/t/p/w500/{p_path}"
@@ -316,11 +338,6 @@ def get_tmdb_info(item):
 
     if not poster_url or not overview:
         return None
-
-    if cur_media_type == "SERIE":
-        cur_extra_info = parse_tv_extra_info(latest_d_html, gem.get("extra_info") if gem else None)
-    else:
-        cur_extra_info = "1h 45m"
 
     subtitle = f"{cur_media_type} • {year} • {cur_extra_info}"
     return {
