@@ -1,24 +1,23 @@
 {
   "recommendations": {
     "los renglones torcidos de dios": {
-      "count": 117,
+      "count": 118,
       "last_recommended": "2026-11-23",
       "item": {
         "title": "Los renglones torcidos de Dios",
-        "subtitle": "PELÍCULA • 2025 • 1h 48m",
+        "subtitle": "PELÍCULA • 2022 • 1h 38m",
         "media_type": "PELÍCULA",
-        "year": "2025",
-        "extra_info": "1h 48m",
-        "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-        "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-        "overview": "Disfruta de Los renglones torcidos de Dios en la plataforma.",
+        "year": "2022",
+        "extra_info": "1h 38m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/vCBC2DX5jQjPpVe9oqeCa19l1Fo.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/lHhRU3jEnju4pKibOeYOgxaEw2y.jpg",
+        "overview": "Una familia danesa visita a una familia holandesa que conocieron en unas vacaciones. Lo que se suponía que iba a ser un fin de semana idílico comienza a desmoronarse lentamente a medida que los daneses intentan mantenerse educados frente a lo desagradable.",
         "youtube_id": "VpZjyY4wPi0",
-        "trailer_url": "https://www.youtube.com/watch?v=VpZjyY4wPi0",
-        "provider": "Recomendado para Ti"
+        "trailer_url": "https://www.youtube.com/watch?v=VpZjyY4wPi0"
       }
     },
     "bellas artes": {
-      "count": 119,
+      "count": 120,
       "last_recommended": "2026-11-23",
       "item": {
         "title": "Bellas Artes",
@@ -35,23 +34,23 @@
       }
     },
     "el reino": {
-      "count": 114,
-      "last_recommended": "2026-11-22",
+      "count": 1,
+      "last_recommended": "2026-11-23",
       "item": {
-        "title": "El Reino",
-        "subtitle": "SERIE • 2025 • 45m",
-        "media_type": "SERIE",
-        "year": "2025",
-        "extra_info": "45m",
-        "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-        "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-        "overview": "Disfruta de El Reino en la plataforma.",
+        "title": "El reino",
+        "subtitle": "PELÍCULA • 2013 • 1h 42m",
+        "media_type": "PELÍCULA",
+        "year": "2013",
+        "extra_info": "1h 42m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/sGNuWC4BwqOB4l0tkbKwLy70tXC.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/rj58WQ9ImI0mYDptXdM7euX1Wjt.jpg",
+        "overview": "Cuando una profecía condena a un reino a un invierno eterno, Anna, una joven optimista se une a un temerario montañero llamado Kristoff y a su compinche el reno Sven. Juntos emprenden un viaje épico en busca de Elsa, hermana de Anna y reina de Las Nieves para poner fin al gélido hechizo.",
         "youtube_id": "QMWtJ3Mx-8g",
         "trailer_url": "https://www.youtube.com/watch?v=QMWtJ3Mx-8g"
       }
     },
     "la sociedad de la nieve": {
-      "count": 120,
+      "count": 121,
       "last_recommended": "2026-11-23",
       "item": {
         "title": "LA SOCIEDAD DE LA NIEVE",
@@ -68,7 +67,7 @@
       }
     },
     "knives out": {
-      "count": 120,
+      "count": 121,
       "last_recommended": "2026-11-23",
       "item": {
         "title": "Knives Out",
@@ -85,7 +84,7 @@
       }
     },
     "la noche de 12 años": {
-      "count": 120,
+      "count": 121,
       "last_recommended": "2026-11-23",
       "item": {
         "title": "La noche de 12 años",
@@ -102,7 +101,7 @@
       }
     },
     "cabo de miedo": {
-      "count": 120,
+      "count": 121,
       "last_recommended": "2026-11-23",
       "item": {
         "title": "Cabo de miedo",
@@ -119,7 +118,7 @@
       }
     },
     "terapia alternativa": {
-      "count": 113,
+      "count": 114,
       "last_recommended": "2026-11-23",
       "item": {
         "title": "Terapia alternativa",
@@ -136,7 +135,7 @@
       }
     },
     "el jardín de bronce": {
-      "count": 120,
+      "count": 121,
       "last_recommended": "2026-11-23",
       "item": {
         "title": "El jardín de bronce",
@@ -153,20 +152,19 @@
       }
     },
     "sugar": {
-      "count": 116,
+      "count": 117,
       "last_recommended": "2026-11-23",
       "item": {
         "title": "Sugar",
-        "subtitle": "SERIE • 2024 • 2 Temporadas",
+        "subtitle": "SERIE • 2024 • 2 Temporadas • 16 cap. • 45m",
         "media_type": "SERIE",
         "year": "2024",
-        "extra_info": "2 Temporadas",
+        "extra_info": "2 Temporadas • 16 cap. • 45m",
         "poster_url": "https://image.tmdb.org/t/p/w500/tLmwLYiI7EpPbhgmdeivNGY0xw7.jpg",
         "backdrop_url": "https://image.tmdb.org/t/p/w500/hL8GNwTjFlvB3nyMuIYldLWWYb5.jpg",
         "overview": "John Sugar es un detective privado que se adentra en los barrios más oscuros de L.A., aunque él solo ve lo bueno de la humanidad. A Sugar lo acecha un secreto demasiado peligroso.",
         "youtube_id": "bb_UeDI7rT4",
-        "trailer_url": "https://www.youtube.com/watch?v=bb_UeDI7rT4",
-        "provider": "Reddit r/IMDB_esp"
+        "trailer_url": "https://www.youtube.com/watch?v=bb_UeDI7rT4"
       }
     },
     "relatos salvajes": {
@@ -186,7 +184,7 @@
       }
     },
     "el lobo de wall street": {
-      "count": 119,
+      "count": 120,
       "last_recommended": "2026-11-23",
       "item": {
         "title": "El lobo de Wall Street",
@@ -203,24 +201,23 @@
       }
     },
     "huye": {
-      "count": 119,
+      "count": 120,
       "last_recommended": "2026-11-23",
       "item": {
         "title": "Huye",
-        "subtitle": "PELÍCULA • 2025 • 1h 48m",
-        "media_type": "PELÍCULA",
-        "year": "2025",
-        "extra_info": "1h 48m",
-        "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-        "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-        "overview": "Disfruta de Huye en la plataforma.",
+        "subtitle": "SERIE • 2013 • 6 Temporadas • 89 cap. • 45m",
+        "media_type": "SERIE",
+        "year": "2013",
+        "extra_info": "6 Temporadas • 89 cap. • 45m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/x0BOmMjIslyH9ZP5h2eMOdaZ8QX.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/13kblIK8DnxMurcRDkeyy2sGR7v.jpg",
+        "overview": "Sigue las aventuras de Ragnar Lothbrok, el héroe más grande de su época. La serie narra las sagas de la banda de hermanos vikingos de Ragnar y su familia, cuando él se levanta para convertirse en el rey de las tribus vikingas. Además de ser un guerrero valiente, Ragnar encarna las tradiciones nórdicas de la devoción a los dioses, la leyenda dice que él era un descendiente directo de Odín, el dios de la guerra y los guerreros.",
         "youtube_id": "xGhKr2uNkI4",
-        "trailer_url": "https://www.youtube.com/watch?v=xGhKr2uNkI4",
-        "provider": "Recomendado para Ti"
+        "trailer_url": "https://www.youtube.com/watch?v=xGhKr2uNkI4"
       }
     },
     "el botín": {
-      "count": 115,
+      "count": 116,
       "last_recommended": "2026-11-23",
       "item": {
         "title": "El botín",
@@ -237,7 +234,7 @@
       }
     },
     "fundación": {
-      "count": 112,
+      "count": 113,
       "last_recommended": "2026-11-23",
       "item": {
         "title": "Fundación",
@@ -302,24 +299,23 @@
       }
     },
     "ford v ferrari": {
-      "count": 119,
+      "count": 120,
       "last_recommended": "2026-11-23",
       "item": {
         "title": "Ford v Ferrari",
-        "subtitle": "PELÍCULA • 2025 • 1h 48m",
+        "subtitle": "PELÍCULA • 2019 • 2h 33m",
         "media_type": "PELÍCULA",
-        "year": "2025",
-        "extra_info": "1h 48m",
-        "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-        "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-        "overview": "Disfruta de Ford v Ferrari en la plataforma.",
-        "youtube_id": "7S2FOhGVGfE",
-        "trailer_url": "https://www.youtube.com/watch?v=7S2FOhGVGfE",
-        "provider": "Recomendado para Ti"
+        "year": "2019",
+        "extra_info": "2h 33m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/kFkZFPBU7vnDDu4m9eOgk7w9W7O.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/2vq5GTJOahE03mNYZGxIynlHcWr.jpg",
+        "overview": "Se centra en un excéntrico y decidido equipo americano de ingenieros y diseñadores liderados por el visionario automovilístico Carroll Shelby y su conductor británico Ken Miles. Henry Ford II y Lee Iacocca les dan la misión de construir desde cero un nuevo automóvil con el fin de derrocar el dominio de Ferrari en el Campeonato del Mundo de Le Mans de 1966.",
+        "youtube_id": "vF74Jc2KSqQ",
+        "trailer_url": "https://www.youtube.com/watch?v=vF74Jc2KSqQ"
       }
     },
     "el irlandés": {
-      "count": 111,
+      "count": 112,
       "last_recommended": "2026-11-23",
       "item": {
         "title": "El irlandés",
@@ -336,7 +332,7 @@
       }
     },
     "duna: parte dos": {
-      "count": 113,
+      "count": 114,
       "last_recommended": "2026-11-23",
       "item": {
         "title": "Duna: Parte dos",
@@ -353,24 +349,23 @@
       }
     },
     "oppenheimer": {
-      "count": 110,
+      "count": 111,
       "last_recommended": "2026-11-23",
       "item": {
         "title": "Oppenheimer",
-        "subtitle": "PELÍCULA • 2025 • 1h 48m",
+        "subtitle": "PELÍCULA • 2023 • 3h 1m",
         "media_type": "PELÍCULA",
-        "year": "2025",
-        "extra_info": "1h 48m",
-        "poster_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-        "backdrop_url": "https://image.tmdb.org/t/p/w500/tzMTmzIslvpnXG2ifAl9ZAnlIdx.jpg",
-        "overview": "Disfruta de Oppenheimer en la plataforma.",
+        "year": "2023",
+        "extra_info": "3h 1m",
+        "poster_url": "https://image.tmdb.org/t/p/w500/mJRUREPjTqqMEKwEiM2sdmIGngz.jpg",
+        "backdrop_url": "https://image.tmdb.org/t/p/w500/neeNHeXjMF5fXoCJRsOmkNGC7q.jpg",
+        "overview": "Película sobre el físico J. Robert Oppenheimer y su papel como desarrollador de la bomba atómica. Basada en el libro 'American Prometheus: The Triumph and Tragedy of J. Robert Oppenheimer' de Kai Bird y Martin J. Sherwin.",
         "youtube_id": "gMPEbJQun68",
-        "trailer_url": "https://www.youtube.com/watch?v=gMPEbJQun68",
-        "provider": "Recomendado para Ti"
+        "trailer_url": "https://www.youtube.com/watch?v=gMPEbJQun68"
       }
     },
     "the last of us": {
-      "count": 116,
+      "count": 117,
       "last_recommended": "2026-11-23",
       "item": {
         "title": "THE LAST OF US",
@@ -404,7 +399,7 @@
       }
     },
     "severance": {
-      "count": 117,
+      "count": 118,
       "last_recommended": "2026-11-23",
       "item": {
         "title": "Severance",

@@ -453,6 +453,22 @@ def fetch_titles_from_reddit(limit=25):
 
     return titles[:limit]
 
+GENERIC_POSTERS = (
+    'gp31EwMH5D2bftOjscwkgTmoLAB',
+    'tzMTmzIslvpnXG2ifAl9ZAnlIdx',
+)
+
+def is_valid_catalog_item(item):
+    if not isinstance(item, dict):
+        return False
+    p_url = item.get('poster_url', '') or ''
+    ov = item.get('overview', '') or ''
+    if not p_url or any(g in p_url for g in GENERIC_POSTERS):
+        return False
+    if not ov or ov.startswith("Sigue la historia y los eventos de") or ov.startswith("Disfruta de "):
+        return False
+    return True
+
 def get_personalized_recommendations(existing_catalog=None):
     pref_path = r'd:\Antrigravity - Projects\fondos-projectivy\user_preferences.json'
     if not os.path.exists(pref_path):
@@ -475,6 +491,8 @@ def get_personalized_recommendations(existing_catalog=None):
     if existing_catalog and 'rows' in existing_catalog:
         for row in existing_catalog['rows']:
             for item in row.get('items', []):
+                if not is_valid_catalog_item(item):
+                    continue
                 t_raw = item.get('title', '').strip()
                 t_key = t_raw.lower()
                 if t_key:
@@ -545,8 +563,8 @@ def get_personalized_recommendations(existing_catalog=None):
                 "item": item_to_use
             }
 
-        # 2º PRIORIDAD: Buscar en Historial Log previo
-        elif t_clean in rec_log and "item" in rec_log[t_clean]:
+        # 2º PRIORIDAD: Buscar en Historial Log previo (solo si tiene póster y sinopsis válidos)
+        elif t_clean in rec_log and "item" in rec_log[t_clean] and is_valid_catalog_item(rec_log[t_clean]["item"]):
             print(f"  [Recomendado para Ti] Reutilizando desde Historial Log para: '{t}' (Recomendada {rec_log[t_clean].get('count', 0) + 1} veces)...")
             item_to_use = dict(rec_log[t_clean]["item"])
             rec_log[t_clean]["count"] = rec_log[t_clean].get("count", 0) + 1
@@ -658,7 +676,7 @@ def update_catalog_with_reddit_items(custom_titles=None, push_to_git=False):
                 p_url = item.get('poster_url', '')
                 ov = item.get('overview', '')
                 # Solo reutilizar si tiene póster real, sinopsis válida y extra_info completo con minutos (ej '45m')
-                if t_key and 'gp31EwMH5D2bftOjscwkgTmoLAB' not in p_url and not ov.startswith("Sigue la historia y los eventos de"):
+                if t_key and is_valid_catalog_item(item):
                     if item.get('media_type') == 'SERIE' and not re.search(r'\d+m', item.get('extra_info', '')):
                         pass
                     else:
@@ -695,7 +713,7 @@ def update_catalog_with_reddit_items(custom_titles=None, push_to_git=False):
             continue
 
         tmdb = get_tmdb_info(t)
-        if not tmdb or 'gp31EwMH5D2bftOjscwkgTmoLAB' in tmdb.get('poster_url', ''):
+        if not tmdb or not is_valid_catalog_item(tmdb):
             print(f"  [Descartado por metadatos o póster inválido]: '{t}'")
             continue
 
@@ -722,7 +740,7 @@ def update_catalog_with_reddit_items(custom_titles=None, push_to_git=False):
         if t_key and t_key not in processed_keys:
             p_url = item.get('poster_url', '')
             ov = item.get('overview', '')
-            if 'gp31EwMH5D2bftOjscwkgTmoLAB' not in p_url and not ov.startswith("Sigue la historia y los eventos de"):
+            if is_valid_catalog_item(item):
                 final_reddit_items.append(item)
                 processed_keys.add(t_key)
                 if len(final_reddit_items) >= 25:
