@@ -44,25 +44,27 @@ def load_gemini_api_key():
                 pass
     return None
 
-def call_gemini_api(prompt, timeout=45):
+def call_gemini_api(prompt, timeout=120):
     api_key = load_gemini_api_key()
     if not api_key:
         return None
 
-    models_to_try = ["gemini-2.5-flash", "gemini-3.6-flash", "gemini-flash-latest"]
+    models_to_try = ["gemini-4-hydrogen", "gemini-3.8-flash", "gemini-3.6-flash", "gemini-3.5-flash-lite", "gemini-2.5-flash"]
     for model in models_to_try:
-        try:
-            url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
-            data = json.dumps({"contents": [{"parts": [{"text": prompt}]}]}).encode('utf-8')
-            req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'}, method='POST')
-            res = urllib.request.urlopen(req, timeout=timeout)
-            res_json = json.loads(res.read().decode('utf-8'))
-            text = res_json['candidates'][0]['content']['parts'][0]['text']
-            if text:
-                return text
-        except Exception as e:
-            print(f"  [Gemini API Model Warning '{model}']:", e)
-            continue
+        for attempt in range(1, 3):
+            try:
+                url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
+                data = json.dumps({"contents": [{"parts": [{"text": prompt}]}]}).encode('utf-8')
+                req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'}, method='POST')
+                res = urllib.request.urlopen(req, timeout=timeout)
+                res_json = json.loads(res.read().decode('utf-8'))
+                text = res_json['candidates'][0]['content']['parts'][0]['text']
+                if text:
+                    return text
+            except Exception as e:
+                print(f"  [Gemini API Model Warning '{model}' intento {attempt}/2]:", e)
+                if attempt < 2:
+                    time.sleep(5)
     return None
 
 def get_gemini_metadata(title):

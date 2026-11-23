@@ -172,7 +172,7 @@ def query_gemini_recommendations(api_key, genre_prompt):
     """Consulta a Gemini API para obtener las 10 mejores recomendaciones del momento si hay clave presente."""
     if not api_key:
         return None
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-4-hydrogen:generateContent?key={api_key}"
     prompt = f"Devuelve exactamente un array JSON con 10 nombres de peliculas o series en tendencia (sin incluir terror ni horror) sobre: {genre_prompt}. Formato estricto: [\"Titulo 1\", \"Titulo 2\", ...]"
     payload = json.dumps({"contents": [{"parts": [{"text": prompt}]}]}).encode('utf-8')
     
@@ -220,7 +220,7 @@ def get_gemini_metadata(title):
     if not api_key:
         return None
     try:
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key={api_key}"
         prompt = f"Información sobre la película o serie '{title}'. Responde ÚNICAMENTE en formato JSON con los campos: title, year (ej '2024'), media_type ('PELÍCULA' o 'SERIE'), overview (sinopsis detallada en español de 2 a 3 oraciones), poster_path (path tmdb ej '/abc.jpg' o null)."
         data = json.dumps({"contents": [{"parts": [{"text": prompt}]}]}).encode('utf-8')
         req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'}, method='POST')
