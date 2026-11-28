@@ -536,20 +536,40 @@
         async function fetchSubredditWallpapers() {
             setLoaderStatusText("Cargando recomendaciones para vos...");
             categories = [];
+            const CACHE_KEY = 'trailers_catalog_cache_v1';
 
-            // 1. Carga ultra-rápida inmediata desde los assets locales (0ms de latencia)
+            const catalogSignature = (rows) => {
+                if (!Array.isArray(rows) || rows.length === 0) return '';
+                return rows.map(r => `${r.category}:${(r.items || []).slice(0, 5).map(i => i.title).join('|')}`).join(';;');
+            };
+
+            // 1. Carga ultra-rápida inmediata desde localStorage (último catálogo sincronizado) o fallback al asset local del APK
             try {
-                const localRes = await fetch('./trailers.json');
-                if (localRes.ok) {
-                    const localData = await localRes.json();
-                    if (localData && localData.rows) {
-                        categories = localData.rows;
-                    } else if (Array.isArray(localData)) {
-                        categories = [{ category: "Recomendaciones para vos", items: localData }];
+                const cachedRaw = localStorage.getItem(CACHE_KEY);
+                if (cachedRaw) {
+                    const cachedRows = JSON.parse(cachedRaw);
+                    if (Array.isArray(cachedRows) && cachedRows.length > 0) {
+                        categories = cachedRows;
                     }
                 }
             } catch (e) {
-                console.warn("No se pudo cargar trailers.json local:", e);
+                console.warn("No se pudo leer caché local de tráileres:", e);
+            }
+
+            if (categories.length === 0) {
+                try {
+                    const localRes = await fetch('./trailers.json');
+                    if (localRes.ok) {
+                        const localData = await localRes.json();
+                        if (localData && localData.rows) {
+                            categories = localData.rows;
+                        } else if (Array.isArray(localData)) {
+                            categories = [{ category: "Recomendaciones para vos", items: localData }];
+                        }
+                    }
+                } catch (e) {
+                    console.warn("No se pudo cargar trailers.json local:", e);
+                }
             }
 
             // Si se cargó localmente, renderizar e iniciar la app de inmediato
@@ -564,19 +584,27 @@
                 }
             }
 
-            // 2. Sincronizar en segundo plano desde GitHub Raw para obtener novedades sin bloquear
+            // 2. Sincronizar en segundo plano desde GitHub Raw y actualizar la UI si hay novedades
             try {
                 const cacheUrl = `https://raw.githubusercontent.com/todout/trailers-projectivy/main/app/src/main/assets/trailers.json?t=${Date.now()}`;
-                const remoteRes = await fetch(cacheUrl);
+                const remoteRes = await fetch(cacheUrl, { cache: 'no-store' });
                 if (remoteRes.ok) {
                     const data = await remoteRes.json();
                     const remoteRows = data && data.rows ? data.rows : (Array.isArray(data) ? [{ category: "Recomendaciones para vos", items: data }] : []);
-                    if (remoteRows.length > 0 && categories.length === 0) {
-                        categories = remoteRows;
-                        preloadRowFirstItems();
-                        renderNetflixRows();
-                        if (!player) initPlayer();
-                        else { updateSelection(0, 0, true); dismissLoader(); }
+                    if (remoteRows.length > 0) {
+                        const changed = catalogSignature(remoteRows) !== catalogSignature(categories);
+                        try {
+                            localStorage.setItem(CACHE_KEY, JSON.stringify(remoteRows));
+                        } catch (e) {
+                            console.warn("No se pudo guardar caché en localStorage:", e);
+                        }
+                        if (changed || categories.length === 0) {
+                            categories = remoteRows;
+                            preloadRowFirstItems();
+                            renderNetflixRows();
+                            if (!player) initPlayer();
+                            else { updateSelection(0, 0, true); dismissLoader(); }
+                        }
                     }
                 }
             } catch (e) {
